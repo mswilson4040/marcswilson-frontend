@@ -1,0 +1,12 @@
+.g-full-screen {
+  height: 100% !important;
+  width: 100%; }
+
+.modal-open {
+  padding-right: 0px !important;
+  overflow: inherit !important; }
+
+button {
+  cursor: pointer; }
+
+/*# sourceMappingURL=globals.css.map */

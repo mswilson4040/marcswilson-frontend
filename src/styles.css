@@ -1,1 +1,39 @@
-/* You can add global styles to this file, and also import other style files */
+.g-full-screen, html, body {
+  height: 100% !important;
+  width: 100%; }
+
+.modal-open {
+  padding-right: 0px !important;
+  overflow: inherit !important; }
+
+button {
+  cursor: pointer; }
+
+#mediaHelper {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  background-color: lightblue;
+  color: black;
+  height: 30px;
+  width: 100%;
+  text-align: center;
+  z-index: 9999999; }
+
+@media (max-width: 575px) {
+  #mediaHelper:before {
+    content: 'portrait phones, less than 576px'; } }
+@media (min-width: 576px) {
+  #mediaHelper:before {
+    content: 'landscape phones, 576px and up'; } }
+@media (min-width: 768px) and (max-width: 991px) {
+  #mediaHelper:before {
+    content: 'tablets, 768px and up'; } }
+@media (min-width: 992px) {
+  #mediaHelper:before {
+    content: 'desktops, 992px and up'; } }
+@media (min-width: 1200px) {
+  #mediaHelper:before {
+    content: 'large desktops, 1200px and up'; } }
+
+/*# sourceMappingURL=styles.css.map */

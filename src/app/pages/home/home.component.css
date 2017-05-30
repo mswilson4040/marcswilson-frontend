@@ -1,0 +1,32 @@
+#homeContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  #homeContainer #coverImage {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: none; }
+  #homeContainer #welcomeScreen {
+    text-align: center;
+    color: black; }
+    #homeContainer #welcomeScreen .name-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      border-bottom: 1px solid white; }
+      #homeContainer #welcomeScreen .name-container #firstName {
+        width: auto;
+        display: flex;
+        flex-direction: row; }
+      #homeContainer #welcomeScreen .name-container #lastName {
+        width: 200px;
+        display: flex;
+        flex-direction: row; }
+      #homeContainer #welcomeScreen .name-container .hidden-text {
+        display: none; }
+
+/*# sourceMappingURL=home.component.css.map */

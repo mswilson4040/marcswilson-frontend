@@ -1,0 +1,88 @@
+#mlbstatsAPIContainer {
+  margin-top: 55px; }
+  #mlbstatsAPIContainer #header {
+    width: 100%; }
+    #mlbstatsAPIContainer #header .jumbotron {
+      color: white;
+      background-image: url("../../../../images/wrigly.jpg");
+      background-size: cover;
+      text-align: center; }
+    #mlbstatsAPIContainer #header #imageContainer {
+      width: 100%;
+      border-radius: 100px;
+      text-align: center; }
+      #mlbstatsAPIContainer #header #imageContainer img {
+        border-radius: 100px;
+        border: 3px solid gray; }
+  #mlbstatsAPIContainer #body {
+    margin-top: 15px; }
+    #mlbstatsAPIContainer #body .jumbotron-heading {
+      font-weight: 300; }
+    #mlbstatsAPIContainer #body .panel-text {
+      padding: 15px; }
+    #mlbstatsAPIContainer #body .dropdown-container {
+      display: flex;
+      justify-content: space-around;
+      flex-direction: row; }
+      #mlbstatsAPIContainer #body .dropdown-container .dropdown {
+        width: 100%; }
+    #mlbstatsAPIContainer #body #addressBar {
+      margin: 15px 0; }
+    #mlbstatsAPIContainer #body #results {
+      margin: 15px 0;
+      border: 1px solid lightgray; }
+      #mlbstatsAPIContainer #body #results #emptyText {
+        text-align: center; }
+
+@media (max-width: 575px) {
+  #header .jumbotron .display-3 {
+    font-size: 24px; }
+  #header .jumbotron .lead {
+    font-size: 16px; }
+  #header #imageContainer {
+    margin-top: -70px; }
+    #header #imageContainer img {
+      height: 100px;
+      width: 100px; } }
+@media (min-width: 576px) {
+  #header .jumbotron .display-3 {
+    font-size: 4.0rem; }
+  #header .jumbotron .lead {
+    font-size: 1.25rem; }
+  #header #imageContainer {
+    margin-top: -90px; }
+    #header #imageContainer img {
+      height: 150px;
+      width: 150px; } }
+@media (min-width: 768px) and (max-width: 991px) {
+  #header .jumbotron .display-3 {
+    font-size: 4.5rem; }
+  #header .jumbotron .lead {
+    font-size: 1.25rem; }
+  #header #imageContainer {
+    margin-top: -90px; }
+    #header #imageContainer img {
+      height: 150px;
+      width: 150px; } }
+@media (min-width: 992px) {
+  #header .jumbotron .display-3 {
+    font-size: 4.5rem; }
+  #header .jumbotron .lead {
+    font-size: 1.25rem; }
+  #header #imageContainer {
+    margin-top: -90px; }
+    #header #imageContainer img {
+      height: 150px;
+      width: 150px; } }
+@media (min-width: 1200px) {
+  #header .jumbotron .display-3 {
+    font-size: 4.5rem; }
+  #header .jumbotron .lead {
+    font-size: 1.25rem; }
+  #header #imageContainer {
+    margin-top: -90px; }
+    #header #imageContainer img {
+      height: 150px;
+      width: 150px; } }
+
+/*# sourceMappingURL=mlb-api-explorer.component.css.map */

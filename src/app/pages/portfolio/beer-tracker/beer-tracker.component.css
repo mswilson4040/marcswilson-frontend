@@ -1,0 +1,60 @@
+#beerTrackerContainer {
+  height: 100%;
+  margin-top: 55px; }
+  #beerTrackerContainer #headerDiv {
+    width: 100%;
+    padding: 20px 0px; }
+    #beerTrackerContainer #headerDiv #headerDivInner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+  #beerTrackerContainer #operationsBar #menuActions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0px; }
+    #beerTrackerContainer #operationsBar #menuActions button {
+      background: linear-gradient(#333333, #212121);
+      color: white;
+      cursor: pointer; }
+    #beerTrackerContainer #operationsBar #menuActions .button-active {
+      background: linear-gradient(#0275d8, #0275d8) !important; }
+    #beerTrackerContainer #operationsBar #menuActions #functionalActions {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      width: 70%; }
+      #beerTrackerContainer #operationsBar #menuActions #functionalActions .btn-group {
+        margin-right: 10px; }
+    #beerTrackerContainer #operationsBar #menuActions #displayActions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 30%; }
+  #beerTrackerContainer #beerMenuContainer .card-outter {
+    margin-bottom: 10px; }
+
+@media (max-width: 575px) {
+  #pageTitle {
+    font-size: 28px; }
+
+  #functionalActions {
+    display: flex;
+    flex-direction: column !important;
+    align-items: flex-start !important; } }
+@media (min-width: 576px) {
+  #pageTitle {
+    font-size: 34px; } }
+@media (min-width: 768px) and (max-width: 991px) {
+  #pageTitle {
+    font-size: 34px; } }
+@media (min-width: 992px) {
+  #pageTitle {
+    font-size: 34px; } }
+@media (min-width: 1200px) {
+  #pageTitle {
+    font-size: 34px; } }
+
+/*# sourceMappingURL=beer-tracker.component.css.map */

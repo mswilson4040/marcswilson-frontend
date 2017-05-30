@@ -1,0 +1,40 @@
+#homeContainer {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  #coverImage {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: none;
+  }
+  #welcomeScreen {
+    text-align: center;
+    color: black;
+
+    .name-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      border-bottom: 1px solid white;
+
+      #firstName {
+        width: auto;
+        display: flex;
+        flex-direction: row;
+      }
+      #lastName {
+        width: 200px;
+        display: flex;
+        flex-direction: row;
+      }
+      .hidden-text {
+        display: none;
+      }
+    }
+
+  }
+}

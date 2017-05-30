@@ -1,0 +1,89 @@
+.beer-info-dialog-content-without-info #noInfoContainer {
+  height: 200px;
+  width: 100%;
+  background-color: lightgrey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: darkgray; }
+.beer-info-dialog-content-without-info #resultsContainer {
+  width: 100%; }
+  .beer-info-dialog-content-without-info #resultsContainer #results {
+    width: inherit;
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 300px; }
+    .beer-info-dialog-content-without-info #resultsContainer #results .rotate-180 {
+      -webkit-transform: rotate(180deg);
+      -moz-transform: rotate(180deg);
+      -o-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+      transform: rotate(180deg); }
+    .beer-info-dialog-content-without-info #resultsContainer #results .result-container .header-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center; }
+      .beer-info-dialog-content-without-info #resultsContainer #results .result-container .header-container .header-content {
+        display: flex;
+        flex-direction: row;
+        width: 100%; }
+        .beer-info-dialog-content-without-info #resultsContainer #results .result-container .header-container .header-content img {
+          border: 1px solid darkgray;
+          height: 50px;
+          width: 50px;
+          margin-right: 10px; }
+        .beer-info-dialog-content-without-info #resultsContainer #results .result-container .header-container .header-content .header-text .beer-name {
+          font-weight: 600; }
+        .beer-info-dialog-content-without-info #resultsContainer #results .result-container .header-container .header-content .header-text .brewery-name {
+          font-size: 13px;
+          font-style: italic; }
+      .beer-info-dialog-content-without-info #resultsContainer #results .result-container .header-container .card-expander {
+        border-radius: 100px;
+        height: 30px;
+        width: 30px;
+        text-align: center; }
+        .beer-info-dialog-content-without-info #resultsContainer #results .result-container .header-container .card-expander i {
+          font-size: 34px; }
+    .beer-info-dialog-content-without-info #resultsContainer #results .result-container .card-block {
+      display: none; }
+    .beer-info-dialog-content-without-info #resultsContainer #results #prevNextContainer, .beer-info-dialog-content-without-info #resultsContainer #results #pageCount {
+      display: flex;
+      justify-content: space-between;
+      align-items: center; }
+
+.beer-info-dialog-content-with-info {
+  display: flex;
+  flex-direction: column; }
+  .beer-info-dialog-content-with-info .height-auto {
+    height: auto !important; }
+  .beer-info-dialog-content-with-info #beerHeaderInfo {
+    display: flex;
+    flex-direction: row; }
+    .beer-info-dialog-content-with-info #beerHeaderInfo #beerLabel {
+      padding: 5px 20px 5px 0px; }
+      .beer-info-dialog-content-with-info #beerHeaderInfo #beerLabel img {
+        height: 100px;
+        width: 100px; }
+  .beer-info-dialog-content-with-info #beerDetailInfo {
+    height: 100px;
+    overflow: hidden; }
+    .beer-info-dialog-content-with-info #beerDetailInfo #readMoreDiv {
+      position: absolute;
+      background-image: linear-gradient(to bottom, transparent, white);
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end; }
+      .beer-info-dialog-content-with-info #beerDetailInfo #readMoreDiv span {
+        color: blue;
+        cursor: pointer;
+        padding-bottom: 5px; }
+
+/*# sourceMappingURL=beer-info-dialog.component.css.map */

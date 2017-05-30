@@ -1,0 +1,92 @@
+<div id="mlbstatsAPIContainer">
+  <div id="header">
+    <div class="jumbotron">
+      <h1 class="display-3">MLB Stats REST API</h1>
+      <p class="lead">API Explorer</p>
+    </div>
+    <div id="imageContainer">
+      <img src="/images/safeco.jpg" class="img-circle"/>
+    </div>
+  </div>
+  <div id="body" class="container">
+    <h1 class="jumbotron-heading">
+      MLB Stats REST API Explorer
+    </h1>
+    <hr />
+    <p class="lead text-muted">REST API based off of <a href="https://github.com/chadwickbureau/baseballdatabank" target="_blank">Baseball Databank</a></p>
+    <div>
+      <div>
+        <div id="accordion" role="tablist" aria-multiselectable="true">
+          <div class="card">
+            <div class="card-header" role="tab" id="teamsDiv">
+              <h5 class="mb-0">
+                <a data-toggle="collapse" data-parent="#accordion" href="#teamCollapse" aria-expanded="true" aria-controls="teamCollapse">
+                  Teams Endpoint
+                </a>
+              </h5>
+            </div>
+            <div id="teamCollapse" class="collapse show" role="tabpanel" aria-labelledby="teamsDiv">
+              <div class="panel-text">The Teams endpoint is capable of returning teams from any given year and team information for any given team</div>
+              <div class="card-block dropdown-container">
+                <select id="teamsYearDD" class="dropdown" [(ngModel)]="selectedYear">
+                  <option *ngFor="let year of years" value="{{year}}">{{year}}</option>
+                </select>
+                <select id="teamsTeamDD" class="dropdown" [(ngModel)]="selectedTeamID">
+                  <option *ngFor="let team of teams" value="{{team.teamID}}">{{team.name}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" role="tab" id="playersDiv">
+              <h5 class="mb-0">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#playersCollapse" aria-expanded="false" aria-controls="playersCollapse">
+                  Players Endpoint
+                </a>
+              </h5>
+            </div>
+            <div id="playersCollapse" class="collapse" role="tabpanel" aria-labelledby="playersDiv">
+              <div class="panel-text">The Players endpoint is capable of returning players from a given year and detailed information of a given player</div>
+              <div class="card-block dropdown-container">
+                <select id="playersYearDD" class="dropdown" [(ngModel)]="selectedYear">
+                  <option *ngFor="let year of years" value="{{year}}">{{year}}</option>
+                </select>
+                <select id="playersPlayerDD" class="dropdown" [(ngModel)]="selectedPlayerID">
+                  <option *ngFor="let player of players" value="{{player.playerID}}">{{player.personal[0].fullName}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header" role="tab" id="parksDiv">
+              <h5 class="mb-0">
+                <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#parksCollapse" aria-expanded="false" aria-controls="parksCollapse">
+                  Ballparks Endpoint
+                </a>
+              </h5>
+            </div>
+            <div id="parksCollapse" class="collapse" role="tabpanel" aria-labelledby="parksDiv">
+              <div class="card-block">
+                <div class="panel-text">The Ballparks enpoint is capable of returning all ballparks or a specific ballpark by calling <strong>/ballparks/:key</strong></div>
+                <button type="button" class="btn btn-primary" (click)="getAllBallparks()">Get All Ballparks</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="input-group" id="addressBar">
+        <div class="input-group-addon"><strong>GET</strong></div>
+        <input type="text" class="form-control" [(ngModel)]="path" readonly/>
+        <button type="button" class="btn btn-primary" (click)="fetchAPIResult()">SEND</button>
+      </div>
+    </div>
+    <hr />
+    <pre id="results" class="rounded">
+      <div id="emptyText" [hidden]="endpointSelected === true">
+        <div class="text-muted center">Select an endpoint and hit SEND..</div>
+      </div>
+    </pre>
+  </div>
+
+</div>
+

@@ -1,0 +1,119 @@
+
+
+.beer-info-dialog-content-without-info {
+  #noInfoContainer {
+    height: 200px;
+    width: 100%;
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: darkgray;
+  }
+  #resultsContainer {
+    width: 100%;
+
+    #results {
+      width: inherit;
+      height: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      min-height: 300px;
+      .rotate-180 {
+        -webkit-transform: rotate(180deg);
+        -moz-transform: rotate(180deg);
+        -o-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        transform: rotate(180deg);
+      }
+      .result-container {
+
+        .header-container {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          .header-content {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            img {
+              border: 1px solid darkgray;
+              height: 50px;
+              width: 50px;
+              margin-right: 10px;
+            }
+            .header-text {
+              .beer-name {
+                font-weight: 600;
+              }
+              .brewery-name {
+                font-size: 13px;
+                font-style: italic;
+              }
+            }
+          }
+          .card-expander {
+            border-radius: 100px;
+            height: 30px;
+            width: 30px;
+            text-align: center;
+
+            i {
+              font-size: 34px;
+            }
+          }
+
+        }
+        .card-block {display: none;}
+      }
+      #prevNextContainer, #pageCount {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+  }
+}
+
+.beer-info-dialog-content-with-info {
+  display: flex;
+  flex-direction: column;
+  .height-auto {height: auto !important;}
+  #beerHeaderInfo {
+    display: flex;
+    flex-direction: row;
+
+    #beerLabel {
+      padding: 5px 20px 5px 0px;
+      img {
+        height: 100px;
+        width: 100px;
+      }
+    }
+  }
+  #beerDetailInfo {
+    height: 100px;
+    overflow: hidden;
+    #readMoreDiv {
+      position: absolute;
+      background-image: linear-gradient(to bottom, transparent, white);
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+
+      span {
+        color: blue;
+        cursor: pointer;
+        padding-bottom: 5px;
+      }
+    }
+  }
+}

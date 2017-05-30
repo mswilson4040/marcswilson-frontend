@@ -1,0 +1,56 @@
+#mlbPlayerStatsComponentContainer {
+  display: none;
+  #searchArea {
+    #searchInputContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+      input {
+        width: 50%;
+      }
+    }
+    .search-result {
+      border: 1px solid gray;
+      margin: 5px;
+      padding: 10px;
+    }
+  }
+  #chartSelectors {
+    .tab-pane {
+      .selectors {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+    }
+    .selector-container {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      border: 1px solid gray;
+      height: 50px;
+      margin: 5px;
+    }
+    .selector-container:hover {
+      cursor: pointer;
+      background-color: #1E2933;
+      .text-muted {
+        color: #FFF;
+      }
+    }
+  }
+
+  .category-title {
+    padding: 10px 0 0 0 ;
+    font-weight: 400;
+  }
+
+  .stat-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+

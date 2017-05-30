@@ -9,7 +9,10 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico"
+        "favicon.ico",
+        "server.js",
+        "images",
+        "globals.css"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -19,9 +22,25 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "globals.css",
+        "../node_modules/jqueryui/jquery-ui.min.css",
+        "../node_modules/tether/dist/css/tether.min.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/font-awesome/css/font-awesome.css",
+        "../node_modules/select2/dist/css/select2.min.css",
+        "../node_modules/jquery.json-viewer/json-viewer/jquery.json-viewer.css",
+        "../node_modules/highcharts/css/highcharts.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/jqueryui/jquery-ui.min.js",
+        "../node_modules/tether/dist/js/tether.min.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+        "../node_modules/select2/dist/js/select2.min.js",
+        "../node_modules/jquery.json-viewer/json-viewer/jquery.json-viewer.js",
+        "../node_modules/highcharts/js/highcharts.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
@@ -51,7 +70,7 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
+    "styleExt": "scss",
     "component": {}
   }
 }

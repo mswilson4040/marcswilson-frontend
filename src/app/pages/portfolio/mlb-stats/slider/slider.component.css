@@ -1,0 +1,39 @@
+#sliderContainer {
+  width: 100%;
+  padding: 10px 10px 20px 10px; }
+  #sliderContainer #yearDisplay #tearDrop {
+    display: inline-block;
+    margin: 0px 0px 20px -22px;
+    transform: rotate(135deg);
+    border: 2px solid gray;
+    background: linear-gradient(to bottom right, #1E2933, #2F4050);
+    width: 60px;
+    height: 60px;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%; }
+    #sliderContainer #yearDisplay #tearDrop div {
+      transform: rotate(-135deg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 17px;
+      color: white; }
+  #sliderContainer #slider {
+    width: 100%;
+    position: relative; }
+    #sliderContainer #slider #line {
+      width: 100%;
+      border: 1px solid black;
+      height: 1px;
+      background: linear-gradient(to bottom right, #1E2933, #2F4050); }
+    #sliderContainer #slider #dot {
+      position: absolute;
+      height: 15px;
+      width: 15px;
+      border-radius: 10px;
+      background-color: #0275d8;
+      top: -7px;
+      cursor: pointer; }
+
+/*# sourceMappingURL=slider.component.css.map */

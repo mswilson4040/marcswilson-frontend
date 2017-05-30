@@ -1,0 +1,36 @@
+
+<div id="mlbStatsContainer">
+  <div class="jumbotron">
+    <div class="display-4">MLB Stats Explorer</div>
+    <p class="lead">Explore MLB Stats From 1871 - 2016</p>
+  </div>
+  <div class="container">
+    <div id="mlbstatsSelectorContainer">
+      <div class="card-group">
+        <div class="card">
+          <div class="card-block" (click)="goToTeams()">
+            <h4 class="card-title">Teams</h4>
+            <p class="card-text">Explore Team Data</p>
+            <p class="card-text"><small class="text-muted">Data from 1871 - 2016</small></p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-block" (click)="goToPlayers()">
+            <h4 class="card-title">Players</h4>
+            <p class="card-text">Explore Players Data</p>
+            <p class="card-text"><small class="text-muted">Data from 1871 - 2016</small></p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-block" (click)="goToBallparks()">
+            <h4 class="card-title">Ballparks</h4>
+            <p class="card-text">Explore Ballpark Data</p>
+            <p class="card-text"><small class="text-muted">Data from 1871 - 2016</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-container #componentPlaceholder></ng-container>
+  </div>
+</div>
+

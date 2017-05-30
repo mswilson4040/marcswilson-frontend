@@ -1,0 +1,15 @@
+#mlbStatsContainer {
+  padding-top: 55px;
+  height: 100%; }
+  #mlbStatsContainer .jumbotron {
+    text-align: center; }
+  #mlbStatsContainer .container {
+    height: 100%; }
+    #mlbStatsContainer .container #mlbstatsSelectorContainer {
+      margin: 10px; }
+      #mlbStatsContainer .container #mlbstatsSelectorContainer .card-group .card:hover {
+        color: white;
+        background-color: #2f4050;
+        cursor: pointer; }
+
+/*# sourceMappingURL=mlb-stats.component.css.map */

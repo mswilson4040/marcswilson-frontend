@@ -1,0 +1,122 @@
+#aboutContainer {
+  margin-top: 55px; }
+  #aboutContainer #header {
+    width: 100%; }
+    #aboutContainer #header .jumbotron {
+      color: white;
+      background-image: url("../../../images/pilchuck.jpg");
+      background-size: cover;
+      text-align: center; }
+    #aboutContainer #header #imageContainer {
+      width: 100%;
+      border-radius: 100px;
+      text-align: center; }
+      #aboutContainer #header #imageContainer img {
+        border-radius: 100px;
+        border: 3px solid gray; }
+  #aboutContainer #body {
+    padding-top: 20px; }
+    #aboutContainer #body .row {
+      margin-bottom: 100px;
+      padding: 20px 0px;
+      border: 1px solid gray; }
+
+@media (max-width: 575px) {
+  #header .jumbotron .display-3 {
+    font-size: 24px; }
+  #header .jumbotron .lead {
+    font-size: 16px; }
+  #header #imageContainer {
+    margin-top: -70px; }
+    #header #imageContainer img {
+      height: 100px;
+      width: 100px; }
+
+  #body .row {
+    margin-top: -10px;
+    margin-right: 0px;
+    margin-left: 0px; }
+    #body .row .image-container {
+      padding-bottom: 10px;
+      text-align: center; }
+    #body .row h3 {
+      font-size: 16px; }
+    #body .row p {
+      font-size: 12px; }
+    #body .row img {
+      height: 115px;
+      width: 115px; } }
+@media (min-width: 576px) {
+  #header .jumbotron .display-3 {
+    font-size: 4.0rem; }
+  #header .jumbotron .lead {
+    font-size: 1.25rem; }
+  #header #imageContainer {
+    margin-top: -90px; }
+    #header #imageContainer img {
+      height: 150px;
+      width: 150px; }
+
+  #body .row h3 {
+    font-size: 16px; }
+  #body .row p {
+    font-size: 12px; }
+  #body .row img {
+    height: 150px;
+    width: 150px; } }
+@media (min-width: 768px) and (max-width: 991px) {
+  #header .jumbotron .display-3 {
+    font-size: 4.5rem; }
+  #header .jumbotron .lead {
+    font-size: 1.25rem; }
+  #header #imageContainer {
+    margin-top: -90px; }
+    #header #imageContainer img {
+      height: 150px;
+      width: 150px; }
+
+  #body .row h3 {
+    font-size: 1.5em; }
+  #body .row p {
+    font-size: inherit; }
+  #body .row img {
+    height: 250px;
+    width: 250px; } }
+@media (min-width: 992px) {
+  #header .jumbotron .display-3 {
+    font-size: 4.5rem; }
+  #header .jumbotron .lead {
+    font-size: 1.25rem; }
+  #header #imageContainer {
+    margin-top: -90px; }
+    #header #imageContainer img {
+      height: 150px;
+      width: 150px; }
+
+  #body .row h3 {
+    font-size: 1.5em; }
+  #body .row p {
+    font-size: inherit; }
+  #body .row img {
+    height: 250px;
+    width: 250px; } }
+@media (min-width: 1200px) {
+  #header .jumbotron .display-3 {
+    font-size: 4.5rem; }
+  #header .jumbotron .lead {
+    font-size: 1.25rem; }
+  #header #imageContainer {
+    margin-top: -90px; }
+    #header #imageContainer img {
+      height: 150px;
+      width: 150px; }
+
+  #body .row h3 {
+    font-size: 1.5em; }
+  #body .row p {
+    font-size: inherit; }
+  #body .row img {
+    height: 250px;
+    width: 250px; } }
+
+/*# sourceMappingURL=about.component.css.map */

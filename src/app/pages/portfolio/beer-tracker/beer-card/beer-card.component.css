@@ -1,0 +1,84 @@
+.beer-card-container {
+  display: none; }
+  .beer-card-container .card-body {
+    text-align: center;
+    border: 1px solid #212121;
+    position: relative; }
+    .beer-card-container .card-body .card-img-top {
+      height: 30%;
+      width: 30%;
+      margin: auto;
+      padding-top: 15px; }
+    .beer-card-container .card-body .overlay-container {
+      position: absolute;
+      display: none;
+      width: 100%;
+      height: 100%;
+      top: 0; }
+      .beer-card-container .card-body .overlay-container .overlay {
+        position: absolute;
+        background-color: black;
+        opacity: 0.7;
+        height: 100%;
+        width: 100%; }
+      .beer-card-container .card-body .overlay-container .status-icon {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 38px; }
+        .beer-card-container .card-body .overlay-container .status-icon .fa-check {
+          color: #449d44; }
+        .beer-card-container .card-body .overlay-container .status-icon .fa-times {
+          color: #d9534f; }
+        .beer-card-container .card-body .overlay-container .status-icon i:hover {
+          cursor: pointer;
+          zoom: 150%; }
+  .beer-card-container .card-footer {
+    background: linear-gradient(#333333, #212121);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    padding-right: 1rem;
+    padding-left: 1rem; }
+    .beer-card-container .card-footer .information-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: center;
+      width: 50%; }
+      .beer-card-container .card-footer .information-container .button-container {
+        text-align: center;
+        border: 1px solid white;
+        border-radius: 100px;
+        width: 25px;
+        cursor: pointer;
+        margin-right: 5px; }
+      .beer-card-container .card-footer .information-container .button-container:hover {
+        opacity: 0.7;
+        background-color: #0275d8; }
+    .beer-card-container .card-footer .rating-container {
+      display: flex;
+      width: 50%;
+      justify-content: flex-end;
+      align-items: center; }
+      .beer-card-container .card-footer .rating-container .fa-star {
+        color: #cccc00; }
+      .beer-card-container .card-footer .rating-container i {
+        margin-left: 3%; }
+
+@media (min-width: 992px) {
+  .card .card-block {
+    height: 90px; }
+    .card .card-block .card-text {
+      font-size: medium; } }
+@media (min-width: 1200px) {
+  .card .card-block {
+    height: 90px; }
+    .card .card-block .card-text {
+      font-size: medium; } }
+
+/*# sourceMappingURL=beer-card.component.css.map */

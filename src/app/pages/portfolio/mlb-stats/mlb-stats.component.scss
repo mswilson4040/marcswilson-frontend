@@ -1,0 +1,22 @@
+#mlbStatsContainer {
+  padding-top: 55px;
+  height: 100%;
+  .jumbotron {
+    text-align: center;
+  }
+  .container {
+    height: 100%;
+    #mlbstatsSelectorContainer {
+      margin: 10px;
+
+      .card-group {
+        .card:hover {
+          color: white;
+          background-color: rgb(47, 64, 80);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+}

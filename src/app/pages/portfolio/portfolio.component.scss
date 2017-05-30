@@ -1,0 +1,69 @@
+
+#portfolioContainer {
+  margin-top: 55px;
+  .jumbotron {
+    text-align: center;
+  }
+  #appsContainer {
+
+    .app-container {
+      height: 250px;
+      float: left;
+      margin-bottom: 25px;
+      position: relative;
+      cursor: pointer;
+
+      .app-image-container {
+        height: 100%;
+        overflow: hidden;
+        img {
+          height: 100%;
+          width: 100%;
+        }
+
+      }
+      .app-content-container {
+        position: absolute;
+        padding: 0px 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: white;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        .app-header {
+          padding: 10px;
+          width: 100%;
+          h1 {
+            font-size: 2.7rem;
+            float: right;
+          }
+        }
+        .app-footer {
+          display: none;
+          padding: 10px;
+          height: 60px;
+          background-color: rgb(47, 64, 80);
+        }
+
+      }
+    }
+    .app-container:hover {
+      .app-image-container {
+        opacity: 0.9;
+        img {
+          -moz-transform: scale(1.1);
+          -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+          -webkit-transition: all 1s ease; /* Safari and Chrome */
+          -moz-transition: all 1s ease; /* Firefox */
+          -ms-transition: all 1s ease; /* IE 9 */
+          -o-transition: all 1s ease; /* Opera */
+          transition: all 1s ease;
+        }
+      }
+    }
+  }
+}

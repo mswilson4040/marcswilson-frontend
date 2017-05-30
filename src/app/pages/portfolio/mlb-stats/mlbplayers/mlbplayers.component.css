@@ -1,0 +1,38 @@
+#mlbPlayerStatsComponentContainer {
+  display: none; }
+  #mlbPlayerStatsComponentContainer #searchArea #searchInputContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px; }
+    #mlbPlayerStatsComponentContainer #searchArea #searchInputContainer input {
+      width: 50%; }
+  #mlbPlayerStatsComponentContainer #searchArea .search-result {
+    border: 1px solid gray;
+    margin: 5px;
+    padding: 10px; }
+  #mlbPlayerStatsComponentContainer #chartSelectors .tab-pane .selectors {
+    display: flex;
+    flex-wrap: wrap; }
+  #mlbPlayerStatsComponentContainer #chartSelectors .selector-container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    border: 1px solid gray;
+    height: 50px;
+    margin: 5px; }
+  #mlbPlayerStatsComponentContainer #chartSelectors .selector-container:hover {
+    cursor: pointer;
+    background-color: #1E2933; }
+    #mlbPlayerStatsComponentContainer #chartSelectors .selector-container:hover .text-muted {
+      color: #FFF; }
+  #mlbPlayerStatsComponentContainer .category-title {
+    padding: 10px 0 0 0;
+    font-weight: 400; }
+  #mlbPlayerStatsComponentContainer .stat-container {
+    display: flex;
+    flex-wrap: wrap; }
+
+/*# sourceMappingURL=mlbplayers.component.css.map */

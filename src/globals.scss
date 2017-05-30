@@ -1,0 +1,15 @@
+.g-full-screen {
+  height: 100% !important;
+  width: 100%;
+  //margin-top:55px;
+}
+
+//Override bootstrap modal content jump
+.modal-open {
+  padding-right: 0px !important;
+  overflow: inherit !important;
+}
+
+button {
+  cursor: pointer;
+}

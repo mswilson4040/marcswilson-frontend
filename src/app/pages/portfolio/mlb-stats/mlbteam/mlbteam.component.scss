@@ -1,0 +1,52 @@
+#teamStatsContainer {
+  display: none;
+  #statSelectorContainer {
+    margin: 10px 0;
+    display: flex;
+    flex-wrap: wrap;
+    .stat-card {
+      text-align: center;
+      border: 1px solid gray;
+    }
+    .stat-card:hover {
+      background-color: #1E2933;
+      color: white;
+      cursor: pointer;
+    }
+  }
+  #playerCardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .player-card-container {
+      .player-card-container-inner {
+        margin: 5px;
+        padding: 5px;
+        border: 1px solid gray;
+        h5 {
+          margin: 0;
+          font-weight: 400;
+        }
+        hr {
+          margin: 4px 0;
+        }
+        .stats-container {
+          display: flex;
+          flex-wrap: wrap;
+          margin-left: 5px;
+          border-left: 4px solid gray;
+        }
+        .accolade-container {
+          height: 29px;
+        }
+      }
+      .player-card-container-inner:hover {
+        cursor: pointer;
+        background-color: #1E2933;
+        color: white;
+      }
+
+    }
+  }
+}

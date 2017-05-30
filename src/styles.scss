@@ -1,0 +1,42 @@
+@import './globals';
+
+html, body {
+  @extend .g-full-screen;
+}
+
+#mediaHelper {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  background-color: lightblue;
+  color: black;
+  height:30px;
+  width: 100%;
+  text-align: center;
+  z-index: 9999999;
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575px) {
+  #mediaHelper:before {content: 'portrait phones, less than 576px';}
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  #mediaHelper:before {content: 'landscape phones, 576px and up';}
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991px) {
+  #mediaHelper:before {content: 'tablets, 768px and up';}
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  #mediaHelper:before {content: 'desktops, 992px and up';}
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  #mediaHelper:before {content: 'large desktops, 1200px and up';}
+}
