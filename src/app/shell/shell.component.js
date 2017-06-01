@@ -9,6 +9,10 @@ var core_1 = require('@angular/core');
 var beer_tracker_service_1 = require('../pages/portfolio/beer-tracker/services/beer-tracker.service');
 var ui_service_1 = require('../shared-services/ui.service');
 var mlb_stats_service_1 = require('../pages/portfolio/mlb-stats/services/mlb-stats.service');
+require('jquery');
+require('jqueryui');
+require('select2');
+require('bootstrap');
 var ShellComponent = (function () {
     function ShellComponent() {
     }

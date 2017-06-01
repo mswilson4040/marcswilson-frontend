@@ -14,13 +14,15 @@ export class MLBTeamComponent implements OnInit, OnDestroy {
   public selectedTeam: Team = new Team();
   constructor(private mlbStatsService: MlbStatsService) {
     this.mlbStatsService.selectedTeam$.subscribe(team => {
-      this.selectedTeam = team;
-      this.mlbStatsService.getTeamByYear(this.mlbStatsService.selectedYear, this.selectedTeam).then(t => {
-        t = JSON.parse(t['_body']);
-        this.selectedTeam = new Team(t);
-        const data = this.buildChartData(null, 'HR');
-        this.buildChart(data, 'HR');
-      });
+      if (team !== null) {
+        this.selectedTeam = team;
+        this.mlbStatsService.getTeamByYear(this.mlbStatsService.selectedYear, this.selectedTeam).then(t => {
+          t = JSON.parse(t[ '_body' ]);
+          this.selectedTeam = new Team(t);
+          const data = this.buildChartData(null, 'HR');
+          this.buildChart(data, 'HR');
+        });
+      }
     });
   }
   ngOnInit(): void {

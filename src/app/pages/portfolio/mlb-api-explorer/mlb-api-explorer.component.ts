@@ -3,6 +3,7 @@ import {UIService} from '../../../shared-services/ui.service';
 import {Http} from '@angular/http';
 import {Player} from '../mlb-stats/classes/player';
 import {Team} from '../mlb-stats/classes/team';
+import {MlbStatsService} from '../mlb-stats/services/mlb-stats.service';
 
 @Component({
   selector: 'app-mlb-api-explorer',
@@ -19,18 +20,18 @@ export class MlbApiExplorerComponent implements OnInit {
   public selectedYear: number = null;
   public selectedTeamID: string = null;
   public selectedPlayerID: string = null;
+  public endpointSelected = false;
 
-  constructor(private http: Http, private uiService: UIService) {
-
+  constructor(private http: Http, private uiService: UIService, private mlbStatsService: MlbStatsService) {
   }
 
   ngOnInit(): void {
     this.path = this.URL_ROOT;
     this.getDistinctYears();
-    $('#teamsYearDD').select2({placeholder: 'Select a year...', width: '100%'}).change( v => {this.selectedYearChange(v, 'teams')});
-    $('#teamsTeamDD').select2({placeholder: 'Select a team...', width: '100%'}).change( v => {this.selectedTeamChange(v)});
-    $('#playersYearDD').select2({placeholder: 'Select a year...', width: '100%'}).change( v => {this.selectedYearChange(v, 'players')});
-    $('#playersPlayerDD').select2({placeholder: 'Select a player...', width: '100%'}).change( v => {this.selectedPlayerChange(v)});
+    $('#teamsYearDD').select2({placeholder: 'Select a year...', width: '100%'}).change( v => {this.selectedYearChange(v, 'teams'); });
+    $('#teamsTeamDD').select2({placeholder: 'Select a team...', width: '100%'}).change( v => {this.selectedTeamChange(v); });
+    $('#playersYearDD').select2({placeholder: 'Select a year...', width: '100%'}).change( v => {this.selectedYearChange(v, 'players'); });
+    $('#playersPlayerDD').select2({placeholder: 'Select a player...', width: '100%'}).change( v => {this.selectedPlayerChange(v); });
   }
   getUrlRoot(): string {
     const root = window.location.href;
@@ -52,9 +53,8 @@ export class MlbApiExplorerComponent implements OnInit {
   }
   getDistinctYears(): void {
     this.uiService.showOverlay('Fetching seasons...');
-    this.http.get(this.URL_ROOT + 'api/mlbstats/years').subscribe(years => {
-      const parsed = JSON.parse(years['_body']);
-      this.years = parsed;
+    this.mlbStatsService.getDistinctYears().then( years => {
+      this.years = years;
       this.uiService.hideOverlay();
     });
   }
@@ -71,9 +71,9 @@ export class MlbApiExplorerComponent implements OnInit {
   }
   getTeamsByYear() {
     this.uiService.showOverlay('Fetching teams...');
-    this.http.get(this.URL_ROOT + 'api/mlbstats/years/' + this.selectedYear + '/teams').subscribe(teams => {
-      const parsed = JSON.parse(teams['_body']);
-      this.teams = parsed;
+    this.mlbStatsService.getTeamsByYear(this.selectedYear).then( teams => {
+      console.log(teams);
+      this.teams = teams;
       this.uiService.hideOverlay();
     });
   }

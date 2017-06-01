@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MlbApiExplorerComponent } from './mlb-api-explorer.component';
+import {FormsModule} from '@angular/forms';
+import {MockBackend} from '@angular/http/testing';
+import {Http} from '@angular/http';
+import {UIService} from '../../../shared-services/ui.service';
+import {MlbStatsService} from '../mlb-stats/services/mlb-stats.service';
 
 describe('MlbApiExplorerComponent', () => {
   let component: MlbApiExplorerComponent;
@@ -8,7 +13,9 @@ describe('MlbApiExplorerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MlbApiExplorerComponent ]
+      imports: [FormsModule],
+      declarations: [ MlbApiExplorerComponent ],
+      providers: [ UIService, MlbStatsService, {provide: Http, deps: [MockBackend]} ]
     })
     .compileComponents();
   }));

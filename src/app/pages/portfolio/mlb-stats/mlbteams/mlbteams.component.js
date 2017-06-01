@@ -14,8 +14,7 @@ var MLBteamsComponent = (function () {
         this.teams = new Array();
         this.mlbstatsService.selectedYear$.subscribe(function (year) {
             _this.mlbstatsService.getTeamsByYear(year).then(function (teams) {
-                var t = JSON.parse(teams['_body']);
-                _this.teams = t.map(function (team) {
+                _this.teams = teams.map(function (team) {
                     return new team_1.Team(team);
                 });
                 var data = _this.buildChartData(_this.teams);

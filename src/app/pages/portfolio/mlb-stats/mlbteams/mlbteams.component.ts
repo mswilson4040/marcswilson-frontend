@@ -13,8 +13,7 @@ export class MLBteamsComponent implements OnInit, OnDestroy {
   constructor(private mlbstatsService: MlbStatsService) {
     this.mlbstatsService.selectedYear$.subscribe(year => {
       this.mlbstatsService.getTeamsByYear(year).then(teams => {
-        const t = JSON.parse(teams['_body']);
-        this.teams = t.map( (team) => {
+        this.teams = teams.map( (team) => {
           return new Team(team);
         });
         const data = this.buildChartData(this.teams);

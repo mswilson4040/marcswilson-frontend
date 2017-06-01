@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SliderComponent } from './slider.component';
+import {MlbStatsService} from '../services/mlb-stats.service';
+import {Http} from '@angular/http';
+import {MockBackend} from '@angular/http/testing';
 
 describe('SliderComponent', () => {
   let component: SliderComponent;
@@ -8,7 +11,8 @@ describe('SliderComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SliderComponent ]
+      declarations: [ SliderComponent ],
+      providers: [MlbStatsService, {provide: Http, deps: [MockBackend]}]
     })
     .compileComponents();
   }));

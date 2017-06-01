@@ -1,6 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BeerTrackerComponent } from './beer-tracker.component';
+import {FormsModule} from '@angular/forms';
+import {BeerCardComponent} from './beer-card/beer-card.component';
+import {BeerInfoDialogComponent} from './beer-info-dialog/beer-info-dialog.component';
+import {UIService} from '../../../shared-services/ui.service';
+import {BeerTrackerService} from './services/beer-tracker.service';
+import {MockBackend} from '@angular/http/testing';
+import {Http} from '@angular/http';
 
 describe('BeerTrackerComponent', () => {
   let component: BeerTrackerComponent;
@@ -8,7 +15,9 @@ describe('BeerTrackerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BeerTrackerComponent ]
+      imports: [FormsModule],
+      declarations: [ BeerTrackerComponent, BeerCardComponent, BeerInfoDialogComponent ],
+      providers: [UIService, BeerTrackerService, {provide: Http, deps: [MockBackend]}]
     })
     .compileComponents();
   }));

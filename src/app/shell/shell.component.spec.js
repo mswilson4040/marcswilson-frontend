@@ -1,13 +1,15 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var testing_1 = require("@angular/core/testing");
-var shell_component_1 = require("./shell.component");
+var testing_1 = require('@angular/core/testing');
+var shell_component_1 = require('./shell.component');
+var global_nav_component_1 = require('../shared-components/global-nav/global-nav.component');
+var testing_2 = require('@angular/router/testing');
 describe('ShellComponent', function () {
     var component;
     var fixture;
     beforeEach(testing_1.async(function () {
         testing_1.TestBed.configureTestingModule({
-            declarations: [shell_component_1.ShellComponent]
+            imports: [testing_2.RouterTestingModule],
+            declarations: [shell_component_1.ShellComponent, global_nav_component_1.GlobalNavComponent]
         })
             .compileComponents();
     }));

@@ -76,6 +76,7 @@ var MlbStatsService = (function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.http.get(_this.API_PATH + 'years/' + yearID + '/teams').subscribe(function (teams) {
+                teams = JSON.parse(teams['_body']);
                 resolve(teams);
             });
         });

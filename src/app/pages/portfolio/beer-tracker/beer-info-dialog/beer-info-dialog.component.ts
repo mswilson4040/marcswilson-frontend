@@ -10,7 +10,7 @@ import { BeerInformation } from '../classes/beer-information';
   styleUrls: ['./beer-info-dialog.component.css']
 })
 export class BeerInfoDialogComponent implements OnInit {
-  private beer: Beer = new Beer();
+  public beer: Beer = new Beer();
   private searchResults: Object = {results: [], activePage: 0};
   private readMoreExpanded = false;
   private searchResultExpanded = false;
@@ -37,7 +37,6 @@ export class BeerInfoDialogComponent implements OnInit {
       this.uiService.hideOverlay();
       $('#dlgBeerInfo').modal('show');
     }
-
   }
   showFullDetails(evt: any): void {
     this.readMoreExpanded = true;

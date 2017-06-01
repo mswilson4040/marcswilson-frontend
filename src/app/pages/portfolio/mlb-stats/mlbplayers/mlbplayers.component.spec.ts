@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MLBPlayersComponent } from './mlbplayers.component';
+import {FormsModule} from '@angular/forms';
+import {MlbStatsService} from '../services/mlb-stats.service';
+import {Http} from '@angular/http';
+import {MockBackend} from '@angular/http/testing';
 
 describe('MLBPlayersComponent', () => {
   let component: MLBPlayersComponent;
@@ -8,7 +12,9 @@ describe('MLBPlayersComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MLBPlayersComponent ]
+      imports: [FormsModule],
+      declarations: [ MLBPlayersComponent ],
+      providers: [MlbStatsService, {provide: Http, deps: [MockBackend]}]
     })
     .compileComponents();
   }));

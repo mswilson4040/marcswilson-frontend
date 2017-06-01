@@ -65,6 +65,7 @@ export class MlbStatsService {
   getTeamsByYear(yearID: number): Promise<Array<Team>> {
     return new Promise( (resolve, reject) => {
       this.http.get(this.API_PATH + 'years/' + yearID + '/teams').subscribe( teams => {
+        teams = JSON.parse(teams['_body']);
         resolve(teams);
       });
     });

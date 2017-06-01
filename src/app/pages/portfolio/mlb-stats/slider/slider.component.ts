@@ -9,7 +9,7 @@ import {MlbStatsService} from '../services/mlb-stats.service';
 export class SliderComponent implements OnInit {
 
   private years: Array<any>;
-  private selectedYear = 1871;
+  public selectedYear = 1871;
 
   constructor(private mlbStatsService: MlbStatsService) {
 

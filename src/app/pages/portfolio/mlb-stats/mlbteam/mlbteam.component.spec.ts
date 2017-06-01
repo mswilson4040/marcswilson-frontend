@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MLBTeamComponent } from './mlbteam.component';
+import {MlbStatsService} from '../services/mlb-stats.service';
+import {Http} from '@angular/http';
+import {MockBackend} from '@angular/http/testing';
 
 describe('MLBTeamComponent', () => {
   let component: MLBTeamComponent;
@@ -8,7 +11,8 @@ describe('MLBTeamComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MLBTeamComponent ]
+      declarations: [ MLBTeamComponent ],
+      providers: [ MlbStatsService, {provide: Http, deps: [MockBackend]} ]
     })
     .compileComponents();
   }));

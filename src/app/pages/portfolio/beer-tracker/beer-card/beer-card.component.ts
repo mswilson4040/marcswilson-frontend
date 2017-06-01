@@ -9,7 +9,7 @@ import {BeerTrackerService} from '../services/beer-tracker.service';
   styleUrls: ['./beer-card.component.css']
 })
 export class BeerCardComponent implements OnInit {
-  @Input() beer: Beer;
+  @Input() beer: Beer = new Beer();
   constructor(private beerTrackerService: BeerTrackerService, private uiService: UIService) { }
 
   ngOnInit() {

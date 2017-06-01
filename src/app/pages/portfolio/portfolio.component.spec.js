@@ -1,11 +1,13 @@
 "use strict";
 var testing_1 = require('@angular/core/testing');
 var portfolio_component_1 = require('./portfolio.component');
+var testing_2 = require('@angular/router/testing');
 describe('PortfolioComponent', function () {
     var component;
     var fixture;
     beforeEach(testing_1.async(function () {
         testing_1.TestBed.configureTestingModule({
+            imports: [testing_2.RouterTestingModule],
             declarations: [portfolio_component_1.PortfolioComponent]
         })
             .compileComponents();

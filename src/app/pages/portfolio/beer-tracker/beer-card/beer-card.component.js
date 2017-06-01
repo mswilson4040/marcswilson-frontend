@@ -6,10 +6,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require('@angular/core');
+var beer_1 = require('../classes/beer');
 var BeerCardComponent = (function () {
     function BeerCardComponent(beerTrackerService, uiService) {
         this.beerTrackerService = beerTrackerService;
         this.uiService = uiService;
+        this.beer = new beer_1.Beer();
     }
     BeerCardComponent.prototype.ngOnInit = function () {
     };

@@ -16,5 +16,4 @@ export class HomeComponent implements OnInit {
       $('#welcomeScreen').animate({color: 'white'}, 500);
     });
   }
-
 }

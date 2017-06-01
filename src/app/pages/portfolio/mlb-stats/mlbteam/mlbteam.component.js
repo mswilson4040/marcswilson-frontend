@@ -13,13 +13,15 @@ var MLBTeamComponent = (function () {
         this.mlbStatsService = mlbStatsService;
         this.selectedTeam = new team_1.Team();
         this.mlbStatsService.selectedTeam$.subscribe(function (team) {
-            _this.selectedTeam = team;
-            _this.mlbStatsService.getTeamByYear(_this.mlbStatsService.selectedYear, _this.selectedTeam).then(function (t) {
-                t = JSON.parse(t['_body']);
-                _this.selectedTeam = new team_1.Team(t);
-                var data = _this.buildChartData(null, 'HR');
-                _this.buildChart(data, 'HR');
-            });
+            if (team !== null) {
+                _this.selectedTeam = team;
+                _this.mlbStatsService.getTeamByYear(_this.mlbStatsService.selectedYear, _this.selectedTeam).then(function (t) {
+                    t = JSON.parse(t['_body']);
+                    _this.selectedTeam = new team_1.Team(t);
+                    var data = _this.buildChartData(null, 'HR');
+                    _this.buildChart(data, 'HR');
+                });
+            }
         });
     }
     MLBTeamComponent.prototype.ngOnInit = function () {

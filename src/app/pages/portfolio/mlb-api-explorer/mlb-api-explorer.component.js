@@ -7,14 +7,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var MlbApiExplorerComponent = (function () {
-    function MlbApiExplorerComponent(http, uiService) {
+    function MlbApiExplorerComponent(http, uiService, mlbStatsService) {
         this.http = http;
         this.uiService = uiService;
+        this.mlbStatsService = mlbStatsService;
         this.readonly = URL_ROOT = this.getUrlRoot();
         this.path = null;
         this.selectedYear = null;
         this.selectedTeamID = null;
         this.selectedPlayerID = null;
+        this.endpointSelected = false;
     }
     MlbApiExplorerComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -46,9 +48,8 @@ var MlbApiExplorerComponent = (function () {
     MlbApiExplorerComponent.prototype.getDistinctYears = function () {
         var _this = this;
         this.uiService.showOverlay('Fetching seasons...');
-        this.http.get(this.URL_ROOT + 'api/mlbstats/years').subscribe(function (years) {
-            var parsed = JSON.parse(years['_body']);
-            _this.years = parsed;
+        this.mlbStatsService.getDistinctYears().then(function (years) {
+            _this.years = years;
             _this.uiService.hideOverlay();
         });
     };
@@ -66,9 +67,9 @@ var MlbApiExplorerComponent = (function () {
     MlbApiExplorerComponent.prototype.getTeamsByYear = function () {
         var _this = this;
         this.uiService.showOverlay('Fetching teams...');
-        this.http.get(this.URL_ROOT + 'api/mlbstats/years/' + this.selectedYear + '/teams').subscribe(function (teams) {
-            var parsed = JSON.parse(teams['_body']);
-            _this.teams = parsed;
+        this.mlbStatsService.getTeamsByYear(this.selectedYear).then(function (teams) {
+            console.log(teams);
+            _this.teams = teams;
             _this.uiService.hideOverlay();
         });
     };

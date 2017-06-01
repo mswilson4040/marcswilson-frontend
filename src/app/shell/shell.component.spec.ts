@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ShellComponent } from './shell.component';
+import {GlobalNavComponent} from '../shared-components/global-nav/global-nav.component';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('ShellComponent', () => {
   let component: ShellComponent;
@@ -8,7 +10,8 @@ describe('ShellComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ShellComponent ]
+      imports: [RouterTestingModule],
+      declarations: [ ShellComponent, GlobalNavComponent ]
     })
     .compileComponents();
   }));

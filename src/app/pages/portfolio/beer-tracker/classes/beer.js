@@ -2,6 +2,8 @@
 var beer_information_1 = require('./beer-information');
 var Beer = (function () {
     function Beer(_name, _type, _info, _completed) {
+        this.beer_label = '';
+        this.rating_score = '';
         if (typeof _name !== 'undefined' && typeof _type !== 'undefined' && typeof _info !== 'undefined' && typeof _completed !== 'undefined') {
             this.name = _name;
             this.type = _type;

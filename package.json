@@ -42,7 +42,7 @@
     "@angular/compiler-cli": "^4.0.0",
     "@types/bootstrap": "^3.3.33",
     "@types/highcharts": "^4.2.55",
-    "@types/jasmine": "2.5.38",
+    "@types/jasmine": "^2.5.38",
     "@types/jquery": "^2.0.45",
     "@types/mongoose": "^4.7.13",
     "@types/node": "~6.0.60",
