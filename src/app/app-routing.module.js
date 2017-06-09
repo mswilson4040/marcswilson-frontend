@@ -10,7 +10,6 @@ var router_1 = require('@angular/router');
 var home_component_1 = require('./pages/home/home.component');
 var about_component_1 = require('./pages/about/about.component');
 var portfolio_component_1 = require('./pages/portfolio/portfolio.component');
-var beer_tracker_component_1 = require('./pages/portfolio/beer-tracker/beer-tracker.component');
 var mlb_api_explorer_component_1 = require('./pages/portfolio/mlb-api-explorer/mlb-api-explorer.component');
 var mlb_stats_component_1 = require('./pages/portfolio/mlb-stats/mlb-stats.component');
 var routes = [
@@ -18,7 +17,6 @@ var routes = [
     { path: 'home', component: home_component_1.HomeComponent },
     { path: 'about', component: about_component_1.AboutComponent },
     { path: 'portfolio', component: portfolio_component_1.PortfolioComponent },
-    { path: 'beertracker', component: beer_tracker_component_1.BeerTrackerComponent },
     { path: 'mlbstatsapi', component: mlb_api_explorer_component_1.MlbApiExplorerComponent },
     { path: 'mlbstats', component: mlb_stats_component_1.MlbStatsComponent }
 ];

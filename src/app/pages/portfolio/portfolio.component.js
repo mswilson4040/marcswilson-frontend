@@ -10,7 +10,6 @@ var app_1 = require('../../shared-classes/app');
 var PortfolioComponent = (function () {
     function PortfolioComponent() {
         this.apps = new Array();
-        this.apps.push(new app_1.App('Beer Tracker', 'Track progress to 160 beers at a local bar', '/images/th.jpg', '/beertracker'));
         this.apps.push(new app_1.App('MLB Stats API', 'REST API for MLB Stats...', 'images/cruzswing.jpg', '/mlbstatsapi'));
         this.apps.push(new app_1.App('MLB Stats', 'In Progress...', 'images/handshakes.jpg', '/mlbstats'));
     }

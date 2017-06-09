@@ -15,9 +15,6 @@ var home_component_1 = require('./pages/home/home.component');
 var global_nav_component_1 = require('./shared-components/global-nav/global-nav.component');
 var about_component_1 = require('./pages/about/about.component');
 var portfolio_component_1 = require('./pages/portfolio/portfolio.component');
-var beer_tracker_component_1 = require('./pages/portfolio/beer-tracker/beer-tracker.component');
-var beer_card_component_1 = require('./pages/portfolio/beer-tracker/beer-card/beer-card.component');
-var beer_info_dialog_component_1 = require('./pages/portfolio/beer-tracker/beer-info-dialog/beer-info-dialog.component');
 var mlb_api_explorer_component_1 = require('./pages/portfolio/mlb-api-explorer/mlb-api-explorer.component');
 var mlb_stats_component_1 = require('./pages/portfolio/mlb-stats/mlb-stats.component');
 var mlbplayers_component_1 = require('./pages/portfolio/mlb-stats/mlbplayers/mlbplayers.component');
@@ -36,9 +33,6 @@ var AppModule = (function () {
                 global_nav_component_1.GlobalNavComponent,
                 about_component_1.AboutComponent,
                 portfolio_component_1.PortfolioComponent,
-                beer_tracker_component_1.BeerTrackerComponent,
-                beer_card_component_1.BeerCardComponent,
-                beer_info_dialog_component_1.BeerInfoDialogComponent,
                 mlb_api_explorer_component_1.MlbApiExplorerComponent,
                 mlb_stats_component_1.MlbStatsComponent,
                 mlbplayers_component_1.MLBPlayersComponent,

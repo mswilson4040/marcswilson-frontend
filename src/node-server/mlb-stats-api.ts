@@ -1,7 +1,3 @@
-import {Player} from '../classes/player';
-import {Team} from '../classes/team';
-import {Appearance} from '../classes/appearance';
-import {Ballpark} from '../classes/ballpark';
 export class MlbStatsApi {
   private express: any = null;
   private request: any = null;
@@ -57,15 +53,13 @@ export class MlbStatsApi {
     });
     this.router.get('/ballparks', (request, response) => {
       this.getBallparks().then(parks => {
-        const ballparks = parks.map( (p) => { return new Ballpark(p); });
-        response.json(ballparks);
+        response.json(parks);
       });
     });
     this.router.get('/ballparks/:key', (request, response) => {
       const key = request.params.key;
       this.getBallparkByKey(key).then(park => {
-        const p = park.map( (bp) => { return new Ballpark(bp); });
-        response(p);
+        response.json(park);
       });
     });
 
@@ -87,7 +81,7 @@ export class MlbStatsApi {
       });
     });
   }
-  getTeamsByYear(yearID: number): Promise<Array<Team>> {
+  getTeamsByYear(yearID: number): Promise<Array<any>> {
     return new Promise( (resolve, reject) => {
       this.mongodb.connect(this.DB_PATH, (connectionError, db) => {
         if (connectionError) {
@@ -99,16 +93,15 @@ export class MlbStatsApi {
               reject(queryError);
               db.close();
             } else {
-              const teams = docs.map( (team) => { return new Team(team); });
               db.close();
-              resolve(teams);
+              resolve(docs);
             }
           });
         }
       });
     });
   }
-  getTeamByID(yearID: number, teamID: string): Promise<Team> {
+  getTeamByID(yearID: number, teamID: string): Promise<any> {
     return new Promise( (resolve, reject) => {
       this.mongodb.connect(this.DB_PATH, (connectionError, db) => {
         if (connectionError) {
@@ -121,11 +114,9 @@ export class MlbStatsApi {
               reject(queryError);
             } else {
               db.close();
-              const t = new Team(docs[0]);
-              this.aggregatePlayerData(yearID, t).then(players => {
+              this.aggregatePlayerData(yearID, docs[0]).then(players => {
                 docs[0].players = players;
-                const team = new Team(docs[0]);
-                resolve(team);
+                resolve(docs[0]);
               });
             }
           });
@@ -133,7 +124,7 @@ export class MlbStatsApi {
       });
     });
   }
-  aggregatePlayerData(yearID: number, team: Team): Promise<Array<Player>> {
+  aggregatePlayerData(yearID: number, team: any): Promise<Array<any>> {
     return new Promise( (resolve, reject) => {
       this.mongodb.connect(this.DB_PATH, (connectionError, db) => {
         if (connectionError) {
@@ -205,7 +196,7 @@ export class MlbStatsApi {
             }
           ]).toArray( (queryError, docs) => {
             if (docs && docs.length > 0) {
-              const players: Array<Player> = new Array<Player>();
+              const players: Array<any> = new Array<any>();
               for (let i = 0; i < docs.length; i++) {
                 docs[ i ].fielding = docs[ i ].fielding.filter( f => { return f.yearID === yearID && f.teamID === team.teamID; });
                 docs[ i ].allstar = docs[ i ].allstar.filter( a => { return a.yearID === yearID; });
@@ -213,7 +204,7 @@ export class MlbStatsApi {
                 docs[ i ].salaries = docs[ i ].salaries.filter( s => { return s.yearID === yearID && s.teamID === team.teamID; });
                 docs[ i ].pitching = docs[ i ].pitching.filter( p => { return p.yearID === yearID && p.teamID === team.teamID; });
                 docs[ i ].individualAwards = docs[ i ].individualAwards.filter( ia => { return ia.yearID === yearID; });
-                players.push(new Player(docs[i]));
+                players.push(docs[i]);
               }
               resolve(players);
             } else if (!docs) {
@@ -227,7 +218,7 @@ export class MlbStatsApi {
       });
     });
   }
-  getPlayersFromYear(yearID: number): Promise<Array<Appearance>> {
+  getPlayersFromYear(yearID: number): Promise<Array<any>> {
     return new Promise( (resolve, reject) => {
       this.mongodb.connect(this.DB_PATH, (connectionError, db) => {
         if (connectionError) {
@@ -258,7 +249,7 @@ export class MlbStatsApi {
               for (let i = 0; i < docs.length; i++) {
                 if (tracker.indexOf(docs[i].playerID) === -1) {
                   tracker.push(docs[i].playerID);
-                  appearances.push(new Appearance(docs[i]));
+                  appearances.push(docs[i]);
                 }
               }
               resolve(appearances);
@@ -270,7 +261,7 @@ export class MlbStatsApi {
       });
     });
   }
-  aggregateFullPlayerStats(playerID: string): Promise<Array<Appearance>> {
+  aggregateFullPlayerStats(playerID: string): Promise<Array<any>> {
     return new Promise( (resolve, reject) => {
       this.mongodb.connect(this.DB_PATH, (connectionError, db) => {
         if (connectionError) {
@@ -366,7 +357,7 @@ export class MlbStatsApi {
             }
           ]).toArray( (queryError, docs) => {
             if (docs && docs.length > 0) {
-              const appearances: Array<Appearance> = new Array<Appearance>();
+              const appearances: Array<any> = new Array<any>();
               for (let i = 0; i < docs.length; i++) {
                 docs[ i ].fielding = docs[ i ].fielding.filter( f => { return f.yearID === docs[i].yearID; });
                 docs[ i ].allstar = docs[ i ].allstar.filter( a => { return a.yearID === docs[i].yearID; });
@@ -376,7 +367,7 @@ export class MlbStatsApi {
                 docs[ i ].individualAwards = docs [ i ].individualAwards.filter( ia => { return ia.yearID === docs[i].yearID; });
                 docs[ i ].sharedAwards = docs[ i ].sharedAwards.filter( sa => { return sa.yearID === docs[i].yearID; });
                 docs[ i ].teams = docs[ i ].teams.filter( t => { return t.yearID === docs[i].yearID && t.teamID === docs[i].teamID; });
-                appearances.push(new Appearance(docs[i]));
+                appearances.push(docs[i]);
               }
               resolve(appearances);
             } else if (!docs) {

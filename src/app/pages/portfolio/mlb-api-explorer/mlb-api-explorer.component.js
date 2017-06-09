@@ -68,7 +68,6 @@ var MlbApiExplorerComponent = (function () {
         var _this = this;
         this.uiService.showOverlay('Fetching teams...');
         this.mlbStatsService.getTeamsByYear(this.selectedYear).then(function (teams) {
-            console.log(teams);
             _this.teams = teams;
             _this.uiService.hideOverlay();
         });

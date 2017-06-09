@@ -72,7 +72,6 @@ export class MlbApiExplorerComponent implements OnInit {
   getTeamsByYear() {
     this.uiService.showOverlay('Fetching teams...');
     this.mlbStatsService.getTeamsByYear(this.selectedYear).then( teams => {
-      console.log(teams);
       this.teams = teams;
       this.uiService.hideOverlay();
     });

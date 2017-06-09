@@ -23,8 +23,6 @@ export class GlobalNavComponent implements OnInit {
         this.fadeNavColors('white', '#2F4050');
       } else if (path === '/portfolio') {
         this.fadeNavColors('white', '#2F4050');
-      } else if (path === '/beertracker') {
-        this.fadeNavColors('white', '#2F4050')
       } else if (path === '/contact') {
         this.fadeNavColors('white', '#2F4050');
       } else if (path === '/mlbstats') {

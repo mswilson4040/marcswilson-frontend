@@ -1,8 +1,4 @@
 "use strict";
-var player_1 = require('../classes/player');
-var team_1 = require('../classes/team');
-var appearance_1 = require('../classes/appearance');
-var ballpark_1 = require('../classes/ballpark');
 var MlbStatsApi = (function () {
     function MlbStatsApi() {
         var _this = this;
@@ -57,15 +53,13 @@ var MlbStatsApi = (function () {
         });
         this.router.get('/ballparks', function (request, response) {
             _this.getBallparks().then(function (parks) {
-                var ballparks = parks.map(function (p) { return new ballpark_1.Ballpark(p); });
-                response.json(ballparks);
+                response.json(parks);
             });
         });
         this.router.get('/ballparks/:key', function (request, response) {
             var key = request.params.key;
             _this.getBallparkByKey(key).then(function (park) {
-                var p = park.map(function (bp) { return new ballpark_1.Ballpark(bp); });
-                response(p);
+                response.json(park);
             });
         });
         module.exports = this.router;
@@ -102,9 +96,8 @@ var MlbStatsApi = (function () {
                             db.close();
                         }
                         else {
-                            var teams = docs.map(function (team) { return new team_1.Team(team); });
                             db.close();
-                            resolve(teams);
+                            resolve(docs);
                         }
                     });
                 }
@@ -127,11 +120,9 @@ var MlbStatsApi = (function () {
                         }
                         else {
                             db.close();
-                            var t = new team_1.Team(docs[0]);
-                            _this.aggregatePlayerData(yearID, t).then(function (players) {
+                            _this.aggregatePlayerData(yearID, docs[0]).then(function (players) {
                                 docs[0].players = players;
-                                var team = new team_1.Team(docs[0]);
-                                resolve(team);
+                                resolve(docs[0]);
                             });
                         }
                     });
@@ -221,7 +212,7 @@ var MlbStatsApi = (function () {
                                 docs[i].salaries = docs[i].salaries.filter(function (s) { return s.yearID === yearID && s.teamID === team.teamID; });
                                 docs[i].pitching = docs[i].pitching.filter(function (p) { return p.yearID === yearID && p.teamID === team.teamID; });
                                 docs[i].individualAwards = docs[i].individualAwards.filter(function (ia) { return ia.yearID === yearID; });
-                                players.push(new player_1.Player(docs[i]));
+                                players.push(docs[i]);
                             }
                             resolve(players);
                         }
@@ -270,7 +261,7 @@ var MlbStatsApi = (function () {
                             for (var i = 0; i < docs.length; i++) {
                                 if (tracker.indexOf(docs[i].playerID) === -1) {
                                     tracker.push(docs[i].playerID);
-                                    appearances.push(new appearance_1.Appearance(docs[i]));
+                                    appearances.push(docs[i]);
                                 }
                             }
                             resolve(appearances);
@@ -391,7 +382,7 @@ var MlbStatsApi = (function () {
                                 docs[i].individualAwards = docs[i].individualAwards.filter(function (ia) { return ia.yearID === docs[i].yearID; });
                                 docs[i].sharedAwards = docs[i].sharedAwards.filter(function (sa) { return sa.yearID === docs[i].yearID; });
                                 docs[i].teams = docs[i].teams.filter(function (t) { return t.yearID === docs[i].yearID && t.teamID === docs[i].teamID; });
-                                appearances.push(new appearance_1.Appearance(docs[i]));
+                                appearances.push(docs[i]);
                             };
                             for (var i = 0; i < docs.length; i++) {
                                 _loop_1(i);

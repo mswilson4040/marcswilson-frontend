@@ -9,9 +9,6 @@ import {HomeComponent} from './pages/home/home.component';
 import { GlobalNavComponent } from './shared-components/global-nav/global-nav.component';
 import { AboutComponent } from './pages/about/about.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
-import { BeerTrackerComponent } from './pages/portfolio/beer-tracker/beer-tracker.component';
-import { BeerCardComponent } from './pages/portfolio/beer-tracker/beer-card/beer-card.component';
-import { BeerInfoDialogComponent } from './pages/portfolio/beer-tracker/beer-info-dialog/beer-info-dialog.component';
 import { MlbApiExplorerComponent } from './pages/portfolio/mlb-api-explorer/mlb-api-explorer.component';
 import { MlbStatsComponent } from './pages/portfolio/mlb-stats/mlb-stats.component';
 import { MLBPlayersComponent } from './pages/portfolio/mlb-stats/mlbplayers/mlbplayers.component';
@@ -28,9 +25,6 @@ import { SliderComponent } from './pages/portfolio/mlb-stats/slider/slider.compo
     GlobalNavComponent,
     AboutComponent,
     PortfolioComponent,
-    BeerTrackerComponent,
-    BeerCardComponent,
-    BeerInfoDialogComponent,
     MlbApiExplorerComponent,
     MlbStatsComponent,
     MLBPlayersComponent,

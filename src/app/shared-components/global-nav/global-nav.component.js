@@ -27,9 +27,6 @@ var GlobalNavComponent = (function () {
             else if (path === '/portfolio') {
                 _this.fadeNavColors('white', '#2F4050');
             }
-            else if (path === '/beertracker') {
-                _this.fadeNavColors('white', '#2F4050');
-            }
             else if (path === '/contact') {
                 _this.fadeNavColors('white', '#2F4050');
             }

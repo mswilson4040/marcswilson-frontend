@@ -9,7 +9,6 @@ import {App} from '../../shared-classes/app';
 export class PortfolioComponent implements OnInit {
   public apps: Array<App> = new Array<App>();
   constructor() {
-    this.apps.push(new App('Beer Tracker', 'Track progress to 160 beers at a local bar', '/images/th.jpg', '/beertracker'));
     this.apps.push(new App('MLB Stats API', 'REST API for MLB Stats...', 'images/cruzswing.jpg', '/mlbstatsapi'));
     this.apps.push(new App('MLB Stats', 'In Progress...', 'images/handshakes.jpg', '/mlbstats'));
   }

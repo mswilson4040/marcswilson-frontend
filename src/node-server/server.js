@@ -2,8 +2,7 @@
  * Created by Marc on 12/16/2016.
  */
 "use strict";
-var BeerTrackerAPIFile = require('../src/app/pages/portfolio/beer-tracker/apis/beer-tracker-api');
-var MLBStatsAPIFile = require('../src/app/pages/portfolio/mlb-stats/apis/mlb-stats-api');
+var MLBStatsAPIFile = require('./mlb-stats-api');
 var Server = (function () {
     function Server(express, app, bodyParser, path, server) {
         var _this = this;
@@ -25,12 +24,11 @@ var Server = (function () {
         this.app.listen(process.env.PORT || 3000);
         this.app.use(this.bodyParser.urlencoded({ extended: true }));
         this.app.use(this.bodyParser.json());
-        this.app.use(this.express.static(__dirname));
+        this.app.use(this.express.static(this.path.join(__dirname + '/../')));
         this.app.use('/api/mlbstats', MLBStatsAPIFile);
         // this.app.use('/api/yelp', require('./public/shared/apis/yelp.api'));
-        this.app.use('/api/beertracker', BeerTrackerAPIFile);
         this.app.get('/*', function (req, res) {
-            res.sendFile(_this.path.join(__dirname + '/index.html'));
+            res.sendFile(_this.path.join(__dirname + '/../index.html'));
         });
     }
     return Server;
