@@ -16,6 +16,9 @@ var ShellComponent = (function () {
     function ShellComponent() {
     }
     ShellComponent.prototype.ngOnInit = function () {
+        if (window.location.href.indexOf('localhost') === -1) {
+            $('#mediaHelper').remove();
+        }
     };
     ShellComponent = __decorate([
         core_1.Component({

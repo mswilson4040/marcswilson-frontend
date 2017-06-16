@@ -13,13 +13,13 @@
       text-align: center; }
       #aboutContainer #header #imageContainer img {
         border-radius: 100px;
-        border: 3px solid gray; }
+        border: 3px solid gray;
+        display: none; }
   #aboutContainer #body {
     padding-top: 20px; }
     #aboutContainer #body .row {
       margin-bottom: 100px;
-      padding: 20px 0px;
-      border: 1px solid gray; }
+      padding: 20px 0px; }
 
 @media (max-width: 575px) {
   #header .jumbotron .display-3 {

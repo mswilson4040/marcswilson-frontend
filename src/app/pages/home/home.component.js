@@ -10,9 +10,10 @@ var HomeComponent = (function () {
     function HomeComponent() {
     }
     HomeComponent.prototype.ngOnInit = function () {
-        $('#firstName').delay(500).animate({ width: 127 }, 500);
+        $('#firstName').addClass('first-name-width', 500);
         $('.hidden-text').delay(1000).show('slide', { direction: 'left' }, 500, function (e) {
             $('#coverImage').fadeIn();
+            $('#underline').delay(500).animate({ backgroundColor: 'white' }, 500);
             $('#welcomeScreen').animate({ color: 'white' }, 500);
         });
     };

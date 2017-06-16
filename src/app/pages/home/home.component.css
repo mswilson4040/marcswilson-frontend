@@ -16,17 +16,64 @@
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
-      align-items: center;
-      border-bottom: 1px solid white; }
+      align-items: center; }
       #homeContainer #welcomeScreen .name-container #firstName {
-        width: auto;
         display: flex;
         flex-direction: row; }
       #homeContainer #welcomeScreen .name-container #lastName {
-        width: 200px;
         display: flex;
         flex-direction: row; }
       #homeContainer #welcomeScreen .name-container .hidden-text {
         display: none; }
+    #homeContainer #welcomeScreen #underline {
+      height: 2px;
+      background-color: transparent;
+      width: 100%; }
+
+@media (max-width: 575px) {
+  .first-name-width {
+    width: 80px; }
+
+  #lastName {
+    width: 100px; }
+
+  #firstName, #lastName {
+    font-size: 35px; } }
+@media (min-width: 576px) {
+  .first-name-width {
+    width: 105px; }
+
+  #lastName {
+    width: 200px; }
+
+  #firstName, #lastName {
+    font-size: 45px; } }
+@media (min-width: 768px) and (max-width: 991px) {
+  .first-name-width {
+    width: 105px; }
+
+  #lastName {
+    width: 200px; }
+
+  #firstName, #lastName {
+    font-size: 45px; } }
+@media (min-width: 992px) {
+  .first-name-width {
+    width: 105px; }
+
+  #lastName {
+    width: 200px; }
+
+  #firstName, #lastName {
+    font-size: 45px; } }
+@media (min-width: 1200px) {
+  .first-name-width {
+    width: 105px; }
+
+  #lastName {
+    width: 200px; }
+
+  #firstName, #lastName {
+    font-size: 45px; } }
 
 /*# sourceMappingURL=home.component.css.map */

@@ -10,8 +10,10 @@ class Server {
     private app: any = null,
     private bodyParser: any = null,
     private path: any = null,
-    private server: any = null
+    private server: any = null,
+    private cors: any = null
   ) {
+    this.cors = require('cors');
     this.express = require('express');
     this.app = this.express();
     this.bodyParser = require('body-parser');
@@ -21,6 +23,7 @@ class Server {
     this.app.use(this.bodyParser.urlencoded({ extended: true }));
     this.app.use(this.bodyParser.json());
     this.app.use(this.express.static(this.path.join(__dirname + '/../')));
+    this.app.use(this.cors());
     this.app.use('/api/mlbstats', MLBStatsAPIFile);
     // this.app.use('/api/yelp', require('./public/shared/apis/yelp.api'));
     this.app.get('/*', (req: any, res: any) => {

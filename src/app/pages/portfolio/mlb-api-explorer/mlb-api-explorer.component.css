@@ -36,53 +36,98 @@
 
 @media (max-width: 575px) {
   #header .jumbotron .display-3 {
-    font-size: 24px; }
+    font-size: 38px; }
   #header .jumbotron .lead {
-    font-size: 16px; }
+    font-size: 18px; }
   #header #imageContainer {
     margin-top: -70px; }
     #header #imageContainer img {
       height: 100px;
-      width: 100px; } }
+      width: 100px; }
+
+  #body h1 {
+    font-size: 18px; }
+  #body p {
+    font-size: 16px; }
+  #body .mb-0 a {
+    font-size: 14px; }
+  #body .panel-text {
+    font-size: 12px; } }
 @media (min-width: 576px) {
   #header .jumbotron .display-3 {
-    font-size: 4.0rem; }
+    font-size: 38px; }
   #header .jumbotron .lead {
-    font-size: 1.25rem; }
+    font-size: 18px; }
   #header #imageContainer {
     margin-top: -90px; }
     #header #imageContainer img {
       height: 150px;
-      width: 150px; } }
+      width: 150px; }
+
+  #body h1 {
+    font-size: 22px; }
+  #body p {
+    font-size: 18px; }
+  #body .mb-0 a {
+    font-size: 14px; }
+  #body .panel-text {
+    font-size: 12px; } }
 @media (min-width: 768px) and (max-width: 991px) {
   #header .jumbotron .display-3 {
-    font-size: 4.5rem; }
+    font-size: 48px; }
   #header .jumbotron .lead {
-    font-size: 1.25rem; }
+    font-size: 28px; }
   #header #imageContainer {
     margin-top: -90px; }
     #header #imageContainer img {
       height: 150px;
-      width: 150px; } }
+      width: 150px; }
+
+  #body h1 {
+    font-size: 26px; }
+  #body p {
+    font-size: 20px; }
+  #body .mb-0 a {
+    font-size: 18px; }
+  #body .panel-text {
+    font-size: 14px; } }
 @media (min-width: 992px) {
   #header .jumbotron .display-3 {
-    font-size: 4.5rem; }
+    font-size: 54px; }
   #header .jumbotron .lead {
-    font-size: 1.25rem; }
+    font-size: 32px; }
   #header #imageContainer {
     margin-top: -90px; }
     #header #imageContainer img {
       height: 150px;
-      width: 150px; } }
+      width: 150px; }
+
+  #body h1 {
+    font-size: 32px; }
+  #body p {
+    font-size: 28px; }
+  #body .mb-0 a {
+    font-size: 22px; }
+  #body .panel-text {
+    font-size: 18px; } }
 @media (min-width: 1200px) {
   #header .jumbotron .display-3 {
-    font-size: 4.5rem; }
+    font-size: 54px; }
   #header .jumbotron .lead {
-    font-size: 1.25rem; }
+    font-size: 32px; }
   #header #imageContainer {
     margin-top: -90px; }
     #header #imageContainer img {
       height: 150px;
-      width: 150px; } }
+      width: 150px; }
+
+  #body h1 {
+    font-size: 32px; }
+  #body p {
+    font-size: 28px; }
+  #body .mb-0 a {
+    font-size: 22px; }
+  #body .panel-text {
+    font-size: 18px; } }
 
 /*# sourceMappingURL=mlb-api-explorer.component.css.map */

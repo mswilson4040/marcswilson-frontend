@@ -10,6 +10,7 @@ var AboutComponent = (function () {
     function AboutComponent() {
     }
     AboutComponent.prototype.ngOnInit = function () {
+        $('#imageContainer').find('img').fadeIn('slow');
     };
     AboutComponent = __decorate([
         core_1.Component({

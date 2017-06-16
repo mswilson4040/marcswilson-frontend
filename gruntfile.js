@@ -238,7 +238,6 @@ module.exports = function (grunt) {
     // Load Plugins
     grunt.loadNpmTasks('grunt-mongoimport');
     grunt.loadNpmTasks('grunt-shell');
-    grunt.loadNpmTasks('grunt-open');
     // Run Tasks
     grunt.registerTask('importdb', ['mongoimport']);
     grunt.registerTask('build-dev', ['shell']);

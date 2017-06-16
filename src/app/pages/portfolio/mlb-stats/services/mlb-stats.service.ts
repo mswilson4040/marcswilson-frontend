@@ -12,7 +12,7 @@ export class MlbStatsService {
   public selectedYear$: BehaviorSubject<any> = new BehaviorSubject<any>(1871);
   public selectedTeam$: BehaviorSubject<Team> = new BehaviorSubject<Team>(null);
   public selectedPlayer$: BehaviorSubject<Player> = new BehaviorSubject<Player>(null);
-  readonly API_PATH = '/api/mlbstats/';
+  public API_PATH = 'http://localhost:3000/api/mlbstats/';
 
   set selectedYear(value: any) {
     if (value !== null) {
@@ -48,7 +48,7 @@ export class MlbStatsService {
 
   getDistinctYears(): Promise<Array<number>> {
     return new Promise((resolve, reject) => {
-      this.http.get('/api/mlbstats/years').subscribe(years => {
+      this.http.get(this.API_PATH + 'years').subscribe(years => {
         years = JSON.parse(years['_body']);
         resolve(years);
       });

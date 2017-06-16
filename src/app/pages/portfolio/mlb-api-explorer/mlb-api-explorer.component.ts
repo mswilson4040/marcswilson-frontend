@@ -12,7 +12,7 @@ import {MlbStatsService} from '../mlb-stats/services/mlb-stats.service';
 })
 export class MlbApiExplorerComponent implements OnInit {
 
-  readonly URL_ROOT = this.getUrlRoot();
+  public URL_ROOT: string = this.getUrlRoot();
   public path: string = null;
   public years: Array<number>;
   public teams: Array<Team>;
@@ -34,7 +34,8 @@ export class MlbApiExplorerComponent implements OnInit {
     $('#playersPlayerDD').select2({placeholder: 'Select a player...', width: '100%'}).change( v => {this.selectedPlayerChange(v); });
   }
   getUrlRoot(): string {
-    const root = window.location.href;
+    const rootUrl = window.location.href;
+    const root = rootUrl.toString().replace('4200', '3000');
     const regex = new RegExp(/^.*\//);
 
     return regex.exec(root).toString();

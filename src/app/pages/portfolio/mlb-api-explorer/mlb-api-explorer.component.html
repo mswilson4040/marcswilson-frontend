@@ -52,7 +52,7 @@
                   <option *ngFor="let year of years" value="{{year}}">{{year}}</option>
                 </select>
                 <select id="playersPlayerDD" class="dropdown" [(ngModel)]="selectedPlayerID">
-                  <option *ngFor="let player of players" value="{{player.playerID}}">{{player.personal[0].fullName}}</option>
+                  <option *ngFor="let player of players" value="{{player.playerID}}">{{player.personal[0].nameFirst}} {{player.personal[0].nameLast}}</option>
                 </select>
               </div>
             </div>

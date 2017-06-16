@@ -232,9 +232,8 @@ module.exports = (grunt) => {
     shell: {
       multiple: {
         command: [
-          'mongo',
-          'use mlbstatsdb',
-          'show collections'
+          'ng build',
+          'node dist/node-server/server'
         ].join('&&')
       }
     }
@@ -247,6 +246,6 @@ module.exports = (grunt) => {
 
   // Run Tasks
   grunt.registerTask('importdb', ['mongoimport']);
-  grunt.registerTask('getcols', ['shell']);
+  grunt.registerTask('build-dev', ['shell']);
 
-}
+};

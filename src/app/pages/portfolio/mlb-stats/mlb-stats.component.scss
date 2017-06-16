@@ -18,5 +18,179 @@
       }
     }
   }
+}
 
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575px) {
+  .jumbotron {
+    .display-4 {
+      font-size: 38px;
+    }
+    .lead {
+      font-size: 18px;
+    }
+  }
+  #mlbstatsSelectorContainer {
+    .card-group {
+      display: flex;
+      flex-direction: row;
+      height: 100px;
+      .card {
+        height: 100px;
+        width: 200px;
+        .card-block {
+          padding: .75rem;
+          h4 {
+            font-size: 16px;
+            margin-bottom: 2px;
+          }
+          .card-text {
+            font-size: 12px;
+            margin-bottom: 0;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .jumbotron {
+    .display-4 {
+      font-size: 42px;
+    }
+    .lead {
+      font-size: 20px;
+    }
+  }
+  #mlbstatsSelectorContainer {
+    .card-group {
+      display: flex;
+      flex-direction: row;
+      height: 100px;
+      .card {
+        height: 100px;
+        width: 250px;
+        .card-block {
+          padding: .75rem;
+          h4 {
+            font-size: 18px;
+            margin-bottom: 2px;
+          }
+          .card-text {
+            font-size: 14px;
+            margin-bottom: 0;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991px) {
+  .jumbotron {
+    .display-4 {
+      font-size: 42px;
+    }
+    .lead {
+      font-size: 20px;
+    }
+  }
+  #mlbstatsSelectorContainer {
+    .card-group {
+      display: flex;
+      flex-direction: row;
+      height: 100px;
+      .card {
+        height: 100px;
+        width: 250px;
+        .card-block {
+          padding: .75rem;
+          h4 {
+            font-size: 18px;
+            margin-bottom: 2px;
+          }
+          .card-text {
+            font-size: 14px;
+            margin-bottom: 0;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .jumbotron {
+    .display-4 {
+      font-size: 48px;
+    }
+    .lead {
+      font-size: 22px;
+    }
+  }
+  #mlbstatsSelectorContainer {
+    .card-group {
+      display: flex;
+      flex-direction: row;
+      height: 120px;
+      .card {
+        height: 120px;
+        width: 250px;
+        .card-block {
+          padding: 1rem;
+          h4 {
+            font-size: 20px;
+            margin-bottom: 4px;
+          }
+          .card-text {
+            font-size: 16px;
+            margin-bottom: 0;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .jumbotron {
+    .display-4 {
+      font-size: 48px;
+    }
+    .lead {
+      font-size: 22px;
+    }
+  }
+  #mlbstatsSelectorContainer {
+    .card-group {
+      display: flex;
+      flex-direction: row;
+      height: 120px;
+      .card {
+        height: 120px;
+        width: 250px;
+        .card-block {
+          padding: 1rem;
+          h4 {
+            font-size: 20px;
+            margin-bottom: 4px;
+          }
+          .card-text {
+            font-size: 16px;
+            margin-bottom: 0;
+          }
+        }
+
+      }
+    }
+  }
 }

@@ -11,7 +11,7 @@ var MlbApiExplorerComponent = (function () {
         this.http = http;
         this.uiService = uiService;
         this.mlbStatsService = mlbStatsService;
-        this.readonly = URL_ROOT = this.getUrlRoot();
+        this.URL_ROOT = this.getUrlRoot();
         this.path = null;
         this.selectedYear = null;
         this.selectedTeamID = null;
@@ -28,7 +28,8 @@ var MlbApiExplorerComponent = (function () {
         $('#playersPlayerDD').select2({ placeholder: 'Select a player...', width: '100%' }).change(function (v) { _this.selectedPlayerChange(v); });
     };
     MlbApiExplorerComponent.prototype.getUrlRoot = function () {
-        var root = window.location.href;
+        var rootUrl = window.location.href;
+        var root = rootUrl.toString().replace('4200', '3000');
         var regex = new RegExp(/^.*\//);
         return regex.exec(root).toString();
     };

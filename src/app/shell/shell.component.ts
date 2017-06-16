@@ -17,6 +17,10 @@ export class ShellComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if (window.location.href.indexOf('localhost') === -1) {
+      $('#mediaHelper').remove();
+    }
+
   }
 
 }

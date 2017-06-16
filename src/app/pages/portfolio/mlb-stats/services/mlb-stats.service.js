@@ -13,7 +13,7 @@ var MlbStatsService = (function () {
         this.selectedYear$ = new BehaviorSubject_1.BehaviorSubject(1871);
         this.selectedTeam$ = new BehaviorSubject_1.BehaviorSubject(null);
         this.selectedPlayer$ = new BehaviorSubject_1.BehaviorSubject(null);
-        this.readonly = API_PATH = '/api/mlbstats/';
+        this.API_PATH = 'http://localhost:3000/api/mlbstats/';
     }
     Object.defineProperty(MlbStatsService.prototype, "selectedYear", {
         get: function () {
@@ -57,7 +57,7 @@ var MlbStatsService = (function () {
     MlbStatsService.prototype.getDistinctYears = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.http.get('/api/mlbstats/years').subscribe(function (years) {
+            _this.http.get(_this.API_PATH + 'years').subscribe(function (years) {
                 years = JSON.parse(years['_body']);
                 resolve(years);
             });

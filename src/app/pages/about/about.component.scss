@@ -15,6 +15,7 @@
       img {
         border-radius: 100px;
         border: 3px solid gray;
+        display: none;
       }
     }
   }
@@ -23,7 +24,7 @@
     .row {
       margin-bottom: 100px;
       padding: 20px 0px;
-      border: 1px solid gray;
+      // border: 1px solid gray;
     }
   }
 }

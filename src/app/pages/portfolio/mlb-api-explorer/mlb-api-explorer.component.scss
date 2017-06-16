@@ -1,5 +1,4 @@
 
-
 #mlbstatsAPIContainer {
   margin-top: 55px;
   #header {
@@ -55,10 +54,10 @@
   #header {
     .jumbotron {
       .display-3 {
-        font-size: 24px;
+        font-size: 38px;
       }
       .lead {
-        font-size: 16px;
+        font-size: 18px;
       }
     }
     #imageContainer {
@@ -69,6 +68,20 @@
       }
     }
   }
+  #body {
+    h1 {
+      font-size: 18px;
+    }
+    p {
+      font-size: 16px;
+    }
+    .mb-0 a {
+      font-size: 14px;
+    }
+    .panel-text {
+      font-size: 12px;
+    }
+  }
 }
 
 // Small devices (landscape phones, 576px and up)
@@ -76,10 +89,10 @@
   #header {
     .jumbotron {
       .display-3 {
-        font-size: 4.0rem;
+        font-size: 38px;
       }
       .lead {
-        font-size: 1.25rem;
+        font-size: 18px;
       }
     }
     #imageContainer {
@@ -88,6 +101,20 @@
         height: 150px;
         width: 150px;
       }
+    }
+  }
+  #body {
+    h1 {
+      font-size: 22px;
+    }
+    p {
+      font-size: 18px;
+    }
+    .mb-0 a {
+      font-size: 14px;
+    }
+    .panel-text {
+      font-size: 12px;
     }
   }
 }
@@ -97,10 +124,10 @@
   #header {
     .jumbotron {
       .display-3 {
-        font-size: 4.5rem;
+        font-size: 48px;
       }
       .lead {
-        font-size: 1.25rem;
+        font-size: 28px;
       }
     }
     #imageContainer {
@@ -109,6 +136,20 @@
         height: 150px;
         width: 150px;
       }
+    }
+  }
+  #body {
+    h1 {
+      font-size: 26px;
+    }
+    p {
+      font-size: 20px;
+    }
+    .mb-0 a {
+      font-size: 18px;
+    }
+    .panel-text {
+      font-size: 14px;
     }
   }
 }
@@ -118,10 +159,10 @@
   #header {
     .jumbotron {
       .display-3 {
-        font-size: 4.5rem;
+        font-size: 54px;
       }
       .lead {
-        font-size: 1.25rem;
+        font-size: 32px;
       }
     }
     #imageContainer {
@@ -132,6 +173,20 @@
       }
     }
   }
+  #body {
+    h1 {
+      font-size: 32px;
+    }
+    p {
+      font-size: 28px;
+    }
+    .mb-0 a {
+      font-size: 22px;
+    }
+    .panel-text {
+      font-size: 18px;
+    }
+  }
 }
 
 // Extra large devices (large desktops, 1200px and up)
@@ -139,10 +194,10 @@
   #header {
     .jumbotron {
       .display-3 {
-        font-size: 4.5rem;
+        font-size: 54px;
       }
       .lead {
-        font-size: 1.25rem;
+        font-size: 32px;
       }
     }
     #imageContainer {
@@ -151,6 +206,20 @@
         height: 150px;
         width: 150px;
       }
+    }
+  }
+  #body {
+    h1 {
+      font-size: 32px;
+    }
+    p {
+      font-size: 28px;
+    }
+    .mb-0 a {
+      font-size: 22px;
+    }
+    .panel-text {
+      font-size: 18px;
     }
   }
 }

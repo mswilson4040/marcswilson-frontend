@@ -13,21 +13,17 @@
   #welcomeScreen {
     text-align: center;
     color: black;
-
     .name-container {
       display: flex;
       flex-direction: row;
       justify-content: flex-start;
       align-items: center;
-      border-bottom: 1px solid white;
 
       #firstName {
-        width: auto;
         display: flex;
         flex-direction: row;
       }
       #lastName {
-        width: 200px;
         display: flex;
         flex-direction: row;
       }
@@ -35,6 +31,75 @@
         display: none;
       }
     }
+    #underline {
+      height: 2px;
+      background-color: transparent;
+      width: 100%;
+    }
+  }
+}
 
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575px) {
+  .first-name-width {
+    width: 80px;
+  }
+  #lastName {
+    width: 100px;
+  }
+  #firstName, #lastName {
+    font-size: 35px;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .first-name-width {
+    width: 105px;
+  }
+  #lastName {
+    width: 200px;
+  }
+  #firstName, #lastName {
+    font-size: 45px;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991px) {
+  .first-name-width {
+    width: 105px;
+  }
+  #lastName {
+    width: 200px;
+  }
+  #firstName, #lastName {
+    font-size: 45px;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .first-name-width {
+    width: 105px;
+  }
+  #lastName {
+    width: 200px;
+  }
+  #firstName, #lastName {
+    font-size: 45px;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .first-name-width {
+    width: 105px;
+  }
+  #lastName {
+    width: 200px;
+  }
+  #firstName, #lastName {
+    font-size: 45px;
   }
 }
