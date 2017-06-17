@@ -1,34 +1,44 @@
-#homeContainer {
+.g-full-screen, #homeContainer, #homeContainer #coverImage {
+  height: 100%;
+  width: 100%; }
+
+.modal-open {
+  padding-right: 0px !important;
+  overflow: inherit !important; }
+
+button {
+  cursor: pointer; }
+
+#homeContainer #coverImage {
+  position: absolute;
   height: 100%;
   width: 100%;
+  display: none; }
+#homeContainer #welcomeScreen {
+  z-index: 999;
+  text-align: center;
+  color: black;
+  height: 100%;
   display: flex;
   justify-content: center;
-  align-items: center; }
-  #homeContainer #coverImage {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    display: none; }
-  #homeContainer #welcomeScreen {
-    text-align: center;
-    color: black; }
-    #homeContainer #welcomeScreen .name-container {
+  flex-direction: column; }
+  #homeContainer #welcomeScreen .name-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center; }
+    #homeContainer #welcomeScreen .name-container #firstName {
       display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: center; }
-      #homeContainer #welcomeScreen .name-container #firstName {
-        display: flex;
-        flex-direction: row; }
-      #homeContainer #welcomeScreen .name-container #lastName {
-        display: flex;
-        flex-direction: row; }
-      #homeContainer #welcomeScreen .name-container .hidden-text {
-        display: none; }
-    #homeContainer #welcomeScreen #underline {
-      height: 2px;
-      background-color: transparent;
-      width: 100%; }
+      flex-direction: row; }
+    #homeContainer #welcomeScreen .name-container #lastName {
+      display: flex;
+      flex-direction: row; }
+    #homeContainer #welcomeScreen .name-container .hidden-text {
+      display: none; }
+  #homeContainer #welcomeScreen #underline {
+    height: 2px;
+    background-color: transparent;
+    width: 100%; }
 
 @media (max-width: 575px) {
   .first-name-width {

@@ -12,7 +12,7 @@ export class MlbStatsService {
   public selectedYear$: BehaviorSubject<any> = new BehaviorSubject<any>(1871);
   public selectedTeam$: BehaviorSubject<Team> = new BehaviorSubject<Team>(null);
   public selectedPlayer$: BehaviorSubject<Player> = new BehaviorSubject<Player>(null);
-  public API_PATH = 'http://localhost:3000/api/mlbstats/';
+  public API_PATH: string = null;
 
   set selectedYear(value: any) {
     if (value !== null) {
@@ -43,7 +43,12 @@ export class MlbStatsService {
   }
 
   constructor(private http: Http) {
-
+    const loc = window.location.origin;
+    if (loc.indexOf('localhost') > -1) {
+      this.API_PATH = 'http://localhost:3000/api/mlbstats/';
+    } else {
+      this.API_PATH = 'http://marcswilson.com/api/mlbstats/';
+    }
   }
 
   getDistinctYears(): Promise<Array<number>> {

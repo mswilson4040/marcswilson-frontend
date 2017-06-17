@@ -13,7 +13,14 @@ var MlbStatsService = (function () {
         this.selectedYear$ = new BehaviorSubject_1.BehaviorSubject(1871);
         this.selectedTeam$ = new BehaviorSubject_1.BehaviorSubject(null);
         this.selectedPlayer$ = new BehaviorSubject_1.BehaviorSubject(null);
-        this.API_PATH = 'http://localhost:3000/api/mlbstats/';
+        this.API_PATH = null;
+        var loc = window.location.origin;
+        if (loc.indexOf('localhost') > -1) {
+            this.API_PATH = 'http://localhost:3000/api/mlbstats/';
+        }
+        else {
+            this.API_PATH = 'http://marcswilson.com/api/mlbstats/';
+        }
     }
     Object.defineProperty(MlbStatsService.prototype, "selectedYear", {
         get: function () {

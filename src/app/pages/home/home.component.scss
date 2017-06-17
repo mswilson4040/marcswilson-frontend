@@ -1,18 +1,22 @@
+@import '../../../globals';
+
 #homeContainer {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @extend .g-full-screen;
   #coverImage {
     position: absolute;
     height: 100%;
     width: 100%;
     display: none;
+    @extend .g-full-screen;
   }
   #welcomeScreen {
+    z-index: 999;
     text-align: center;
     color: black;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
     .name-container {
       display: flex;
       flex-direction: row;

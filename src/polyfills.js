@@ -1,4 +1,3 @@
-"use strict";
 /**
  * This file includes polyfills needed by Angular and is loaded before the app.
  * You can add your own extra polyfills to this file.
@@ -14,37 +13,37 @@
  *
  * Learn more in https://angular.io/docs/ts/latest/guide/browser-support.html
  */
-Object.defineProperty(exports, "__esModule", { value: true });
+"use strict";
 /***************************************************************************************************
  * BROWSER POLYFILLS
  */
 /** IE9, IE10 and IE11 requires all of the following polyfills. **/
-// import 'core-js/es6/symbol';
-// import 'core-js/es6/object';
-// import 'core-js/es6/function';
-// import 'core-js/es6/parse-int';
-// import 'core-js/es6/parse-float';
-// import 'core-js/es6/number';
-// import 'core-js/es6/math';
-// import 'core-js/es6/string';
-// import 'core-js/es6/date';
-// import 'core-js/es6/array';
-// import 'core-js/es6/regexp';
-// import 'core-js/es6/map';
-// import 'core-js/es6/set';
+require('core-js/es6/symbol');
+require('core-js/es6/object');
+require('core-js/es6/function');
+require('core-js/es6/parse-int');
+require('core-js/es6/parse-float');
+require('core-js/es6/number');
+require('core-js/es6/math');
+require('core-js/es6/string');
+require('core-js/es6/date');
+require('core-js/es6/array');
+require('core-js/es6/regexp');
+require('core-js/es6/map');
+require('core-js/es6/set');
 /** IE10 and IE11 requires the following for NgClass support on SVG elements */
 // import 'classlist.js';  // Run `npm install --save classlist.js`.
 /** IE10 and IE11 requires the following to support `@angular/animation`. */
 // import 'web-animations-js';  // Run `npm install --save web-animations-js`.
 /** Evergreen browsers require these. **/
-require("core-js/es6/reflect");
-require("core-js/es7/reflect");
+require('core-js/es6/reflect');
+require('core-js/es7/reflect');
 /** ALL Firefox browsers require the following to support `@angular/animation`. **/
 // import 'web-animations-js';  // Run `npm install --save web-animations-js`.
 /***************************************************************************************************
  * Zone JS is required by Angular itself.
  */
-require("zone.js/dist/zone"); // Included with Angular CLI.
+require('zone.js/dist/zone'); // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
