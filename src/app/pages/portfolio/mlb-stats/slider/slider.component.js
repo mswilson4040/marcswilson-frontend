@@ -26,8 +26,6 @@ var SliderComponent = (function () {
     SliderComponent.prototype.handleDrag = function (evt, ui) {
         var maxWidth = $('#line').width() - 15;
         var position = $('#dot').css('left');
-        var tearDrop = $('#tearDrop');
-        tearDrop.offset({ top: tearDrop.offset().top, left: ui.offset.left - 35 });
         position = position.replace('px', '');
         var percent = (+position / +maxWidth) * 100;
         var index = Math.round((percent / 100) * (this.years.length - 1));

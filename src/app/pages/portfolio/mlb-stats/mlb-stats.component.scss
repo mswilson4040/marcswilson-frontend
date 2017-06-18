@@ -10,6 +10,16 @@
       margin: 10px;
 
       .card-group {
+        .card {
+          .card-block {
+            .card-title {
+              font-weight: 500;
+            }
+            hr {
+              margin: 5px 0 5px 0;
+            }
+          }
+        }
         .card:hover {
           color: white;
           background-color: rgb(47, 64, 80);
@@ -34,9 +44,8 @@
     .card-group {
       display: flex;
       flex-direction: row;
-      height: 100px;
       .card {
-        height: 100px;
+        height: 80px;
         width: 200px;
         .card-block {
           padding: .75rem;
@@ -47,6 +56,9 @@
           .card-text {
             font-size: 12px;
             margin-bottom: 0;
+          }
+          .text-muted {
+            display: none;
           }
         }
 

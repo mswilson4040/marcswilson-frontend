@@ -7,7 +7,8 @@
     #mlbTeamStatsContainer #teamCardsContainer .team-card-container .team-card-container-inner {
       margin: 5px;
       padding: 5px;
-      border: 1px solid gray; }
+      border: 1px solid lightgray;
+      transition: border 300ms; }
       #mlbTeamStatsContainer #teamCardsContainer .team-card-container .team-card-container-inner h5 {
         margin: 0;
         font-weight: 400; }
@@ -17,12 +18,25 @@
         display: flex;
         flex-wrap: wrap;
         margin-left: 5px;
-        border-left: 4px solid gray; }
+        border-left: 4px solid #1E2933;
+        transition: border 300ms; }
       #mlbTeamStatsContainer #teamCardsContainer .team-card-container .team-card-container-inner .accolade-container {
         height: 29px; }
     #mlbTeamStatsContainer #teamCardsContainer .team-card-container .team-card-container-inner:hover {
       cursor: pointer;
-      background-color: #1E2933;
-      color: white; }
+      border: 1px solid midnightblue; }
+      #mlbTeamStatsContainer #teamCardsContainer .team-card-container .team-card-container-inner:hover .stats-container {
+        border-left: 4px solid midnightblue; }
+
+@media (max-width: 575px) {
+  .team-card-container .team-card-container-inner h5 {
+    font-size: 16px; }
+  .team-card-container .team-card-container-inner .stats-container {
+    font-size: 13px; } }
+@media (min-width: 576px) {
+  .team-card-container .team-card-container-inner h5 {
+    font-size: 18px; }
+  .team-card-container .team-card-container-inner .stats-container {
+    font-size: 14px; } }
 
 /*# sourceMappingURL=mlbteams.component.css.map */

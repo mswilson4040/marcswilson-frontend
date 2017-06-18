@@ -74,7 +74,7 @@ export class MLBteamsComponent implements OnInit, OnDestroy {
         name: 'Game Wins',
         data: data,
         dataLabels: {
-          enabled: true,
+          enabled: false,
           rotation: -90,
           color: '#FFFFFF',
           align: 'right',

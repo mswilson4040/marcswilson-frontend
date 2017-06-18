@@ -6,9 +6,14 @@
       <div class="lead text-muted">Showing {{searchResult.length}} results</div>
     </div>
     <div *ngFor="let player of searchResult" class="search-result rounded" (click)="goToPlayer(player)">
-      <h5 class="h5">{{player.nameFirst}} {{player.nameLast}}</h5>
-      <a href="/api/mlbstats/players/id/{{player.playerID}}" target="_blank">~/api/mlbstats/players/id/{{player.playerID}}</a>
-      <p class="text-muted">{{player.birthCity}}, {{player.birthState}} - {{player.birthCountry}}</p>
+      <div class="search-result-data">
+        <h5 class="h5">{{player.nameFirst}} {{player.nameLast}}</h5>
+        <a href="/api/mlbstats/players/id/{{player.playerID}}" target="_blank">JSON: http://marcswilson.com/api/mlbstats/players/id/{{player.playerID}}</a>
+        <div class="text-muted">
+          {{player.nameFirst}} {{player.nameLast}} is from {{player.birthCity}}, {{player.birthState}} in the {{player.birthCountry}}. {{player.nameFirst}}'s debut was on {{player.debut | date}}
+          and bats {{player.bats}} and throws {{player.throws}}.
+        </div>
+      </div>
     </div>
   </div>
   <div>

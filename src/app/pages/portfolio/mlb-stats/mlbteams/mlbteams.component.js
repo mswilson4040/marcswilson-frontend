@@ -72,7 +72,7 @@ var MLBteamsComponent = (function () {
                     name: 'Game Wins',
                     data: data,
                     dataLabels: {
-                        enabled: true,
+                        enabled: false,
                         rotation: -90,
                         color: '#FFFFFF',
                         align: 'right',

@@ -3,62 +3,50 @@
     <div class="stat-card col-xl-2 rounded" (click)="switchChart(null, 'HR')">
       <small class="text-muted">Homeruns</small>
       <h5 class="h5">{{selectedTeam.HR}}</h5>
-      <small class="text-muted">2nd</small>
     </div>
     <div class="stat-card col-xl-2 rounded" (click)="switchChart(null, 'R')">
       <small class="text-muted">Runs</small>
       <h5 class="h5">{{selectedTeam.R}}</h5>
-      <small class="text-muted">2nd</small>
     </div>
     <div class="stat-card col-xl-2 rounded" (click)="switchChart(null, 'AB')">
       <small class="text-muted">At Bats</small>
       <h5 class="h5">{{selectedTeam.AB}}</h5>
-      <small class="text-muted">2nd</small>
     </div>
     <div class="stat-card col-xl-2 rounded" (click)="switchChart(null, '2B')">
       <small class="text-muted">Doubles</small>
       <h5 class="h5">{{selectedTeam['2B']}}</h5>
-      <small class="text-muted">2nd</small>
     </div>
     <div class="stat-card col-xl-2 rounded" (click)="switchChart(null, '3B')">
       <small class="text-muted">Triples</small>
       <h5 class="h5">{{selectedTeam['3B']}}</h5>
-      <small class="text-muted">2nd</small>
     </div>
     <div class="stat-card col-xl-2 rounded" (click)="switchChart('pitching', 'ER')">
       <small class="text-muted">Earned Runs</small>
       <h5 class="h5">{{selectedTeam.ER}}</h5>
-      <small class="text-muted">2nd</small>
     </div>
     <div class="stat-card col-xl-2 rounded" (click)="switchChart('pitching', 'ERA')">
       <small class="text-muted">ERA</small>
       <h5 class="h5">{{selectedTeam.ERA}}</h5>
-      <small class="text-muted">2nd</small>
     </div>
     <div class="stat-card col-xl-2 rounded" (click)="switchChart('fielding', 'E')">
       <small class="text-muted">Errors</small>
       <h5 class="h5">{{selectedTeam.E}}</h5>
-      <small class="text-muted">2nd</small>
     </div>
     <div class="stat-card col-xl-2 rounded" (click)="switchChart(null, 'SB')">
       <small class="text-muted">Stolen Bases</small>
       <h5 class="h5">{{selectedTeam.SB}}</h5>
-      <small class="text-muted">2nd</small>
     </div>
     <div class="stat-card col-xl-2 rounded" (click)="switchChart('salaries', 'salary')">
       <small class="text-muted">Team Salary</small>
-      <h5 class="h5">{{selectedTeam.totalTeamSalary | currency: 'USD': true}}</h5>
-      <small class="text-muted">2nd</small>
+      <h5 class="h5">{{selectedTeam.totalTeamSalary | currency: 'USD':true:'1.1-1'}}</h5>
     </div>
     <div class="stat-card col-xl-2 rounded" (click)="switchChart('batting', 'SO')">
       <small class="text-muted">Strikeouts</small>
       <h5 class="h5">{{selectedTeam.SO}}</h5>
-      <small class="text-muted">2nd</small>
     </div>
     <div class="stat-card col-xl-2 rounded" (click)="switchChart('fielding', 'DP')">
       <small class="text-muted">Double Plays</small>
       <h5 class="h5">{{selectedTeam.DP}}</h5>
-      <small class="text-muted">2nd</small>
     </div>
   </div>
   <div id="teamStatsChart"></div>

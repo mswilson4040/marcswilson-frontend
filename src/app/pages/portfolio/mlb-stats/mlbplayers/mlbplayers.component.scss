@@ -7,14 +7,27 @@
       align-items: center;
       flex-direction: column;
       padding: 20px;
+      h3 {
+        font-weight: 300;
+      }
       input {
-        width: 50%;
+        margin-bottom: 5px;
       }
     }
     .search-result {
-      border: 1px solid gray;
+      border: 1px solid lightgray;
       margin: 5px;
-      padding: 10px;
+      transition: border 300ms;
+      h5 {
+        font-weight: 400;
+      }
+    }
+    .search-result:hover {
+      border: 1px solid midnightblue;
+      cursor: pointer;
+      .search-result-data {
+        border-left: 5px solid midnightblue;
+      }
     }
   }
   #chartSelectors {
@@ -23,7 +36,6 @@
         display: flex;
         flex-wrap: wrap;
       }
-
     }
     .selector-container {
       display: flex;
@@ -42,15 +54,179 @@
       }
     }
   }
-
   .category-title {
     padding: 10px 0 0 0 ;
     font-weight: 400;
   }
-
   .stat-container {
     display: flex;
     flex-wrap: wrap;
+  }
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575px) {
+  #searchArea {
+    #searchInputContainer {
+      padding: 10px;
+      h3 {
+        font-size: 18px;
+      }
+      .text-muted {
+        font-size: 13px;
+      }
+      input {
+        width: 100%;
+      }
+    }
+    .search-result {
+      border: 1px solid gray;
+      margin: 5px;
+      padding: 5px;
+      .search-result-data {
+        h5 {
+          font-size: 16px;
+          margin-bottom: 0;
+        }
+        div, a {
+          font-size: 12px;
+        }
+        padding-left: 5px;
+        border-left: 5px solid white;
+      }
+    }
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  #searchArea {
+    #searchInputContainer {
+      padding: 10px;
+      h3 {
+        font-size: 22px;
+      }
+      .text-muted {
+        font-size: 16px;
+      }
+      input {
+        width: 100%;
+      }
+    }
+    .search-result {
+      border: 1px solid gray;
+      margin: 5px;
+      padding: 5px;
+      .search-result-data {
+        h5 {
+          font-size: 18px;
+          margin-bottom: 0;
+        }
+        div, a {
+          font-size: 14px;
+        }
+        padding-left: 7px;
+        border-left: 5px solid white;
+      }
+    }
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991px) {
+  #searchInputContainer {
+    padding: 10px;
+    h3 {
+      font-size: 22px;
+    }
+    .text-muted {
+      font-size: 16px;
+    }
+    input {
+      width: 60%;
+    }
+  }
+  .search-result {
+    border: 1px solid gray;
+    margin: 5px;
+    padding: 5px;
+    .search-result-data {
+      h5 {
+        font-size: 18px;
+        margin-bottom: .2rem;
+      }
+      div, a {
+        font-size: 14px;
+      }
+      padding-left: 7px;
+      border-left: 5px solid white;
+    }
+  }
+}
+
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  #searchInputContainer {
+    padding: 10px;
+    h3 {
+      font-size: 22px;
+    }
+    .text-muted {
+      font-size: 16px;
+    }
+    input {
+      width: 50%;
+    }
+  }
+  .search-result {
+    border: 1px solid gray;
+    margin: 5px;
+    padding: 5px;
+    .search-result-data {
+      h5 {
+        font-size: 18px;
+        margin-bottom: .2rem;
+      }
+      div, a {
+        font-size: 14px;
+      }
+      padding-left: 7px;
+      border-left: 5px solid white;
+    }
+  }
+}
+
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  #searchInputContainer {
+    padding: 10px;
+    h3 {
+      font-size: 22px;
+    }
+    .text-muted {
+      font-size: 16px;
+    }
+    input {
+      width: 50%;
+    }
+  }
+  .search-result {
+    border: 1px solid gray;
+    margin: 5px;
+    padding: 5px;
+    .search-result-data {
+      h5 {
+        font-size: 18px;
+        margin-bottom: .2rem;
+      }
+      div, a {
+        font-size: 14px;
+      }
+      padding-left: 7px;
+      border-left: 5px solid white;
+    }
   }
 }
 

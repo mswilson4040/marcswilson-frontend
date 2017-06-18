@@ -25,15 +25,10 @@ export class SliderComponent implements OnInit {
       });
       this.setHandle(this.selectedYear);
     });
-
-
-
   }
   handleDrag(evt, ui): void {
     const maxWidth = $('#line').width() - 15;
     let position = $('#dot').css('left');
-    const tearDrop = $('#tearDrop');
-    tearDrop.offset({top: tearDrop.offset().top, left: ui.offset.left - 35});
     position = position.replace('px', '');
     const percent = (+position / +maxWidth) * 100;
     const index = Math.round((percent / 100) * (this.years.length - 1));

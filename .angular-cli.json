@@ -40,7 +40,8 @@
         "../node_modules/bootstrap/dist/js/bootstrap.min.js",
         "../node_modules/select2/dist/js/select2.min.js",
         "../node_modules/jquery.json-viewer/json-viewer/jquery.json-viewer.js",
-        "../node_modules/highcharts/js/highcharts.js"
+        "../node_modules/highcharts/js/highcharts.js",
+        "../node_modules/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {
