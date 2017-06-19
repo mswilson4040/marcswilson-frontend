@@ -35,6 +35,7 @@
       .selectors {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
       }
     }
     .selector-container {
@@ -42,16 +43,14 @@
       justify-content: center;
       text-align: center;
       align-items: center;
-      border: 1px solid gray;
+      border: 1px solid lightgray;
       height: 50px;
       margin: 5px;
+      transition: border 300ms
     }
     .selector-container:hover {
       cursor: pointer;
-      background-color: #1E2933;
-      .text-muted {
-        color: #FFF;
-      }
+      border-color: #1E2933;
     }
   }
   .category-title {
@@ -96,6 +95,34 @@
       }
     }
   }
+  #chartArea {
+    #chartSelectors {
+      .tab-content {
+        .selectors {
+          .selector-container {
+            width: 20%;
+            .text-muted {
+              font-size: 11px;
+            }
+          }
+        }
+      }
+    }
+  }
+  #yearTabsContainer {
+    .tab-content {
+      .stat-category-container {
+        .category-title {
+          font-size: 14px;
+        }
+        .stat-container {
+          .text-muted {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
 }
 
 // Small devices (landscape phones, 576px and up)
@@ -130,36 +157,94 @@
       }
     }
   }
+  #chartArea {
+    #chartSelectors {
+      .tab-content {
+        .selectors {
+          .selector-container {
+            width: 20%;
+            .text-muted {
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+  #yearTabsContainer {
+    .tab-content {
+      .stat-category-container {
+        .category-title {
+          font-size: 15px;
+        }
+        .stat-container {
+          .text-muted {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) and (max-width: 991px) {
-  #searchInputContainer {
-    padding: 10px;
-    h3 {
-      font-size: 22px;
+  #searchArea {
+    #searchInputContainer {
+      padding: 10px;
+      h3 {
+        font-size: 22px;
+      }
+      .text-muted {
+        font-size: 16px;
+      }
+      input {
+        width: 60%;
+      }
     }
-    .text-muted {
-      font-size: 16px;
-    }
-    input {
-      width: 60%;
+    .search-result {
+      border: 1px solid gray;
+      margin: 5px;
+      padding: 5px;
+      .search-result-data {
+        h5 {
+          font-size: 18px;
+          margin-bottom: .2rem;
+        }
+        div, a {
+          font-size: 14px;
+        }
+        padding-left: 7px;
+        border-left: 5px solid white;
+      }
     }
   }
-  .search-result {
-    border: 1px solid gray;
-    margin: 5px;
-    padding: 5px;
-    .search-result-data {
-      h5 {
-        font-size: 18px;
-        margin-bottom: .2rem;
+  #chartArea {
+    #chartSelectors {
+      .tab-content {
+        .selectors {
+          .selector-container {
+            width: 20%;
+            .text-muted {
+              font-size: 14px;
+            }
+          }
+        }
       }
-      div, a {
-        font-size: 14px;
+    }
+  }
+  #yearTabsContainer {
+    .tab-content {
+      .stat-category-container {
+        .category-title {
+          font-size: 16px;
+        }
+        .stat-container {
+          .text-muted {
+            font-size: 14px;
+          }
+        }
       }
-      padding-left: 7px;
-      border-left: 5px solid white;
     }
   }
 }
@@ -167,32 +252,62 @@
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-  #searchInputContainer {
-    padding: 10px;
-    h3 {
-      font-size: 22px;
+  #searchArea {
+    #searchInputContainer {
+      padding: 10px;
+      h3 {
+        font-size: 22px;
+      }
+      .text-muted {
+        font-size: 16px;
+      }
+      input {
+        width: 50%;
+      }
     }
-    .text-muted {
-      font-size: 16px;
-    }
-    input {
-      width: 50%;
+    .search-result {
+      border: 1px solid gray;
+      margin: 5px;
+      padding: 5px;
+      .search-result-data {
+        h5 {
+          font-size: 18px;
+          margin-bottom: .2rem;
+        }
+        div, a {
+          font-size: 14px;
+        }
+        padding-left: 7px;
+        border-left: 5px solid white;
+      }
     }
   }
-  .search-result {
-    border: 1px solid gray;
-    margin: 5px;
-    padding: 5px;
-    .search-result-data {
-      h5 {
-        font-size: 18px;
-        margin-bottom: .2rem;
+  #chartArea {
+    #chartSelectors {
+      .tab-content {
+        .selectors {
+          .selector-container {
+            width: 20%;
+            .text-muted {
+              font-size: 15px;
+            }
+          }
+        }
       }
-      div, a {
-        font-size: 14px;
+    }
+  }
+  #yearTabsContainer {
+    .tab-content {
+      .stat-category-container {
+        .category-title {
+          font-size: 16px;
+        }
+        .stat-container {
+          .text-muted {
+            font-size: 15px;
+          }
+        }
       }
-      padding-left: 7px;
-      border-left: 5px solid white;
     }
   }
 }
@@ -200,32 +315,62 @@
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-  #searchInputContainer {
-    padding: 10px;
-    h3 {
-      font-size: 22px;
+  #searchArea {
+    #searchInputContainer {
+      padding: 10px;
+      h3 {
+        font-size: 22px;
+      }
+      .text-muted {
+        font-size: 16px;
+      }
+      input {
+        width: 50%;
+      }
     }
-    .text-muted {
-      font-size: 16px;
-    }
-    input {
-      width: 50%;
+    .search-result {
+      border: 1px solid gray;
+      margin: 5px;
+      padding: 5px;
+      .search-result-data {
+        h5 {
+          font-size: 18px;
+          margin-bottom: .2rem;
+        }
+        div, a {
+          font-size: 14px;
+        }
+        padding-left: 7px;
+        border-left: 5px solid white;
+      }
     }
   }
-  .search-result {
-    border: 1px solid gray;
-    margin: 5px;
-    padding: 5px;
-    .search-result-data {
-      h5 {
-        font-size: 18px;
-        margin-bottom: .2rem;
+  #chartArea {
+    #chartSelectors {
+      .tab-content {
+        .selectors {
+          .selector-container {
+            width: 15%;
+            .text-muted {
+              font-size: 16px;
+            }
+          }
+        }
       }
-      div, a {
-        font-size: 14px;
+    }
+  }
+  #yearTabsContainer {
+    .tab-content {
+      .stat-category-container {
+        .category-title {
+          font-size: 17px;
+        }
+        .stat-container {
+          .text-muted {
+            font-size: 16px;
+          }
+        }
       }
-      padding-left: 7px;
-      border-left: 5px solid white;
     }
   }
 }

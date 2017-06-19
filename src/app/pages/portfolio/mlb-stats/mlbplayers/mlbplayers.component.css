@@ -23,20 +23,20 @@
       border-left: 5px solid midnightblue; }
   #mlbPlayerStatsComponentContainer #chartSelectors .tab-pane .selectors {
     display: flex;
-    flex-wrap: wrap; }
+    flex-wrap: wrap;
+    justify-content: center; }
   #mlbPlayerStatsComponentContainer #chartSelectors .selector-container {
     display: flex;
     justify-content: center;
     text-align: center;
     align-items: center;
-    border: 1px solid gray;
+    border: 1px solid lightgray;
     height: 50px;
-    margin: 5px; }
+    margin: 5px;
+    transition: border 300ms; }
   #mlbPlayerStatsComponentContainer #chartSelectors .selector-container:hover {
     cursor: pointer;
-    background-color: #1E2933; }
-    #mlbPlayerStatsComponentContainer #chartSelectors .selector-container:hover .text-muted {
-      color: #FFF; }
+    border-color: #1E2933; }
   #mlbPlayerStatsComponentContainer .category-title {
     padding: 10px 0 0 0;
     font-weight: 400; }
@@ -64,7 +64,17 @@
         font-size: 16px;
         margin-bottom: 0; }
       #searchArea .search-result .search-result-data div, #searchArea .search-result .search-result-data a {
-        font-size: 12px; } }
+        font-size: 12px; }
+
+  #chartArea #chartSelectors .tab-content .selectors .selector-container {
+    width: 20%; }
+    #chartArea #chartSelectors .tab-content .selectors .selector-container .text-muted {
+      font-size: 11px; }
+
+  #yearTabsContainer .tab-content .stat-category-container .category-title {
+    font-size: 14px; }
+  #yearTabsContainer .tab-content .stat-category-container .stat-container .text-muted {
+    font-size: 12px; } }
 @media (min-width: 576px) {
   #searchArea #searchInputContainer {
     padding: 10px; }
@@ -85,72 +95,109 @@
         font-size: 18px;
         margin-bottom: 0; }
       #searchArea .search-result .search-result-data div, #searchArea .search-result .search-result-data a {
-        font-size: 14px; } }
+        font-size: 14px; }
+
+  #chartArea #chartSelectors .tab-content .selectors .selector-container {
+    width: 20%; }
+    #chartArea #chartSelectors .tab-content .selectors .selector-container .text-muted {
+      font-size: 12px; }
+
+  #yearTabsContainer .tab-content .stat-category-container .category-title {
+    font-size: 15px; }
+  #yearTabsContainer .tab-content .stat-category-container .stat-container .text-muted {
+    font-size: 13px; } }
 @media (min-width: 768px) and (max-width: 991px) {
-  #searchInputContainer {
+  #searchArea #searchInputContainer {
     padding: 10px; }
-    #searchInputContainer h3 {
+    #searchArea #searchInputContainer h3 {
       font-size: 22px; }
-    #searchInputContainer .text-muted {
+    #searchArea #searchInputContainer .text-muted {
       font-size: 16px; }
-    #searchInputContainer input {
+    #searchArea #searchInputContainer input {
       width: 60%; }
-
-  .search-result {
+  #searchArea .search-result {
     border: 1px solid gray;
     margin: 5px;
     padding: 5px; }
-    .search-result .search-result-data {
+    #searchArea .search-result .search-result-data {
       padding-left: 7px;
       border-left: 5px solid white; }
-      .search-result .search-result-data h5 {
+      #searchArea .search-result .search-result-data h5 {
         font-size: 18px;
         margin-bottom: .2rem; }
-      .search-result .search-result-data div, .search-result .search-result-data a {
-        font-size: 14px; } }
+      #searchArea .search-result .search-result-data div, #searchArea .search-result .search-result-data a {
+        font-size: 14px; }
+
+  #chartArea #chartSelectors .tab-content .selectors .selector-container {
+    width: 20%; }
+    #chartArea #chartSelectors .tab-content .selectors .selector-container .text-muted {
+      font-size: 14px; }
+
+  #yearTabsContainer .tab-content .stat-category-container .category-title {
+    font-size: 16px; }
+  #yearTabsContainer .tab-content .stat-category-container .stat-container .text-muted {
+    font-size: 14px; } }
 @media (min-width: 992px) {
-  #searchInputContainer {
+  #searchArea #searchInputContainer {
     padding: 10px; }
-    #searchInputContainer h3 {
+    #searchArea #searchInputContainer h3 {
       font-size: 22px; }
-    #searchInputContainer .text-muted {
+    #searchArea #searchInputContainer .text-muted {
       font-size: 16px; }
-    #searchInputContainer input {
+    #searchArea #searchInputContainer input {
       width: 50%; }
-
-  .search-result {
+  #searchArea .search-result {
     border: 1px solid gray;
     margin: 5px;
     padding: 5px; }
-    .search-result .search-result-data {
+    #searchArea .search-result .search-result-data {
       padding-left: 7px;
       border-left: 5px solid white; }
-      .search-result .search-result-data h5 {
+      #searchArea .search-result .search-result-data h5 {
         font-size: 18px;
         margin-bottom: .2rem; }
-      .search-result .search-result-data div, .search-result .search-result-data a {
-        font-size: 14px; } }
+      #searchArea .search-result .search-result-data div, #searchArea .search-result .search-result-data a {
+        font-size: 14px; }
+
+  #chartArea #chartSelectors .tab-content .selectors .selector-container {
+    width: 20%; }
+    #chartArea #chartSelectors .tab-content .selectors .selector-container .text-muted {
+      font-size: 15px; }
+
+  #yearTabsContainer .tab-content .stat-category-container .category-title {
+    font-size: 16px; }
+  #yearTabsContainer .tab-content .stat-category-container .stat-container .text-muted {
+    font-size: 15px; } }
 @media (min-width: 1200px) {
-  #searchInputContainer {
+  #searchArea #searchInputContainer {
     padding: 10px; }
-    #searchInputContainer h3 {
+    #searchArea #searchInputContainer h3 {
       font-size: 22px; }
-    #searchInputContainer .text-muted {
+    #searchArea #searchInputContainer .text-muted {
       font-size: 16px; }
-    #searchInputContainer input {
+    #searchArea #searchInputContainer input {
       width: 50%; }
-
-  .search-result {
+  #searchArea .search-result {
     border: 1px solid gray;
     margin: 5px;
     padding: 5px; }
-    .search-result .search-result-data {
+    #searchArea .search-result .search-result-data {
       padding-left: 7px;
       border-left: 5px solid white; }
-      .search-result .search-result-data h5 {
+      #searchArea .search-result .search-result-data h5 {
         font-size: 18px;
         margin-bottom: .2rem; }
-      .search-result .search-result-data div, .search-result .search-result-data a {
-        font-size: 14px; } }
+      #searchArea .search-result .search-result-data div, #searchArea .search-result .search-result-data a {
+        font-size: 14px; }
+
+  #chartArea #chartSelectors .tab-content .selectors .selector-container {
+    width: 15%; }
+    #chartArea #chartSelectors .tab-content .selectors .selector-container .text-muted {
+      font-size: 16px; }
+
+  #yearTabsContainer .tab-content .stat-category-container .category-title {
+    font-size: 17px; }
+  #yearTabsContainer .tab-content .stat-category-container .stat-container .text-muted {
+    font-size: 16px; } }
 
 /*# sourceMappingURL=mlbplayers.component.css.map */

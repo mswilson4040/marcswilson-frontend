@@ -16,7 +16,7 @@
       </div>
     </div>
   </div>
-  <div>
+  <div id="chartArea">
     <div id="chartSelectors" [hidden]="selectedPlayer.length === 0">
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
@@ -35,71 +35,71 @@
       <div class="tab-content">
         <div class="tab-pane active" id="tabBatting" role="tabpanel">
           <div class="selectors">
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('batting', 'HR')">
+            <div class="selector-container rounded" (click)="switchChart('batting', 'HR')">
               <div class="text-muted">Homeruns</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('batting', 'AB')">
+            <div class="selector-container rounded" (click)="switchChart('batting', 'AB')">
               <div class="text-muted">At Bats</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('batting', 'R')">
+            <div class="selector-container rounded" (click)="switchChart('batting', 'R')">
               <div class="text-muted">Runs</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('batting', 'H')">
+            <div class="selector-container rounded" (click)="switchChart('batting', 'H')">
               <div class="text-muted">Hits</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('batting', '2B')">
+            <div class="selector-container rounded" (click)="switchChart('batting', '2B')">
               <div class="text-muted">Doubles</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('batting', '3B')">
+            <div class="selector-container rounded" (click)="switchChart('batting', '3B')">
               <div class="text-muted">Triples</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('batting', 'RBI')">
+            <div class="selector-container rounded" (click)="switchChart('batting', 'RBI')">
               <div class="text-muted">RBI</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('batting', 'SB')">
+            <div class="selector-container rounded" (click)="switchChart('batting', 'SB')">
               <div class="text-muted">Bases Stole</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('batting', 'CS')">
+            <div class="selector-container rounded" (click)="switchChart('batting', 'CS')">
               <div class="text-muted">Caught Stealing</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('batting', 'BB')">
+            <div class="selector-container rounded" (click)="switchChart('batting', 'BB')">
               <div class="text-muted">Walked</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('batting', 'SO')">
+            <div class="selector-container rounded" (click)="switchChart('batting', 'SO')">
               <div class="text-muted">Strikeouts</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('batting', 'IBB')">
+            <div class="selector-container rounded" (click)="switchChart('batting', 'IBB')">
               <div class="text-muted">Intentional Walks</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('batting', 'HBP')">
+            <div class="selector-container rounded" (click)="switchChart('batting', 'HBP')">
               <div class="text-muted">Hit by Pitch</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('batting', 'SH')">
+            <div class="selector-container rounded" (click)="switchChart('batting', 'SH')">
               <div class="text-muted">Sacrifice Hit</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('batting', 'SF')">
+            <div class="selector-container rounded" (click)="switchChart('batting', 'SF')">
               <div class="text-muted">Sacrifice Fly</div>
             </div>
           </div>
         </div>
         <div class="tab-pane" id="tabFielding" role="tabpanel">
           <div class="selectors">
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('fielding', 'G')">
+            <div class="selector-container rounded" (click)="switchChart('fielding', 'G')">
               <div class="text-muted">Games</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('fielding', 'GS')">
+            <div class="selector-container rounded" (click)="switchChart('fielding', 'GS')">
               <div class="text-muted">Starts</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('fielding', 'PO')">
+            <div class="selector-container rounded" (click)="switchChart('fielding', 'PO')">
               <div class="text-muted">Putouts</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('fielding', 'A')">
+            <div class="selector-container rounded" (click)="switchChart('fielding', 'A')">
               <div class="text-muted">Assists</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('fielding', 'E')">
+            <div class="selector-container rounded" (click)="switchChart('fielding', 'E')">
               <div class="text-muted">Errors</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('fielding', 'DP')">
+            <div class="selector-container rounded" (click)="switchChart('fielding', 'DP')">
               <div class="text-muted">Double Plays</div>
             </div>
           </div>
@@ -107,83 +107,83 @@
         </div>
         <div class="tab-pane" id="tabPitching" role="tabpanel">
           <div class="selectors">
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('pitching', 'W')">
+            <div class="selector-container rounded" (click)="switchChart('pitching', 'W')">
               <div class="text-muted">Wins</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('pitching', 'L')">
+            <div class="selector-container rounded" (click)="switchChart('pitching', 'L')">
               <div class="text-muted">Losses</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('pitching', 'G')">
+            <div class="selector-container rounded" (click)="switchChart('pitching', 'G')">
               <div class="text-muted">Games</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('pitching', 'GS')">
+            <div class="selector-container rounded" (click)="switchChart('pitching', 'GS')">
               <div class="text-muted">Starts</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('pitching', 'CG')">
+            <div class="selector-container rounded" (click)="switchChart('pitching', 'CG')">
               <div class="text-muted">Complete Games</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('pitching', 'SHO')">
+            <div class="selector-container rounded" (click)="switchChart('pitching', 'SHO')">
               <div class="text-muted">Shutouts</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('pitching', 'SV')">
+            <div class="selector-container rounded" (click)="switchChart('pitching', 'SV')">
               <div class="text-muted">Saves</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('pitching', 'IPouts')">
+            <div class="selector-container rounded" (click)="switchChart('pitching', 'IPouts')">
               <div class="text-muted">Outs Pitched</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('pitching', 'H')">
+            <div class="selector-container rounded" (click)="switchChart('pitching', 'H')">
               <div class="text-muted">Hits</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('pitching', 'ER')">
+            <div class="selector-container rounded" (click)="switchChart('pitching', 'ER')">
               <div class="text-muted">Earned Runs</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('pitching', 'HR')">
+            <div class="selector-container rounded" (click)="switchChart('pitching', 'HR')">
               <div class="text-muted">Homeruns</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('pitching', 'BB')">
+            <div class="selector-container rounded" (click)="switchChart('pitching', 'BB')">
               <div class="text-muted">Walks</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('pitching', 'SO')">
+            <div class="selector-container rounded" (click)="switchChart('pitching', 'SO')">
               <div class="text-muted">Strikeouts</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('pitching', 'BAOpp')">
+            <div class="selector-container rounded" (click)="switchChart('pitching', 'BAOpp')">
               <div class="text-muted">Batting Average</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('pitching', 'ERA')">
+            <div class="selector-container rounded" (click)="switchChart('pitching', 'ERA')">
               <div class="text-muted">ERA</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('pitching', 'IBB')">
+            <div class="selector-container rounded" (click)="switchChart('pitching', 'IBB')">
               <div class="text-muted">Intentional Walks</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('pitching', 'WP')">
+            <div class="selector-container rounded" (click)="switchChart('pitching', 'WP')">
               <div class="text-muted">Wild Pitches</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('pitching', 'HBP')">
+            <div class="selector-container rounded" (click)="switchChart('pitching', 'HBP')">
               <div class="text-muted">Hit by Pitch</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('pitching', 'BK')">
+            <div class="selector-container rounded" (click)="switchChart('pitching', 'BK')">
               <div class="text-muted">Balk</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('pitching', 'BFP')">
+            <div class="selector-container rounded" (click)="switchChart('pitching', 'BFP')">
               <div class="text-muted">Batters Faced</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('pitching', 'GF')">
+            <div class="selector-container rounded" (click)="switchChart('pitching', 'GF')">
               <div class="text-muted">Games Finished</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('pitching', 'R')">
+            <div class="selector-container rounded" (click)="switchChart('pitching', 'R')">
               <div class="text-muted">Runs</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('pitching', 'SH')">
+            <div class="selector-container rounded" (click)="switchChart('pitching', 'SH')">
               <div class="text-muted">Sacrifice Hits</div>
             </div>
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('pitching', 'SF')">
+            <div class="selector-container rounded" (click)="switchChart('pitching', 'SF')">
               <div class="text-muted">Sacrifice Flies</div>
             </div>
           </div>
         </div>
         <div class="tab-pane" id="tabSalaries" role="tabpanel">
           <div class="selectors">
-            <div class="col-xl-1 selector-container rounded" (click)="switchChart('salaries', 'salary')">
+            <div class="selector-container rounded" (click)="switchChart('salaries', 'salary')">
               <div class="text-muted">Salary</div>
             </div>
           </div>
@@ -204,19 +204,19 @@
             <h5 class="h5 category-title">Personal</h5>
             <hr/>
             <div class="stat-container">
-              <div class="text-muted col-xl-6">Name: {{appearance.personal[0].fullName}}</div>
-              <div class="text-muted col-xl-6">Born: {{appearance.personal[0].born | date}}</div>
-              <div class="text-muted col-xl-6">Age: {{appearance.personal[0].age}}</div>
-              <div class="text-muted col-xl-6">Died: {{appearance.personal[0].died | date}}</div>
-              <div class="text-muted col-xl-6">Country: {{appearance.personal[0].birthCountry}}</div>
-              <div class="text-muted col-xl-6">State: {{appearance.personal[0].birthState}}</div>
-              <div class="text-muted col-xl-6">City: {{appearance.personal[0].birthCity}}</div>
-              <div class="text-muted col-xl-6">Weight: {{appearance.personal[0].weight}}</div>
-              <div class="text-muted col-xl-6">Height: {{appearance.personal[0].height}}</div>
-              <div class="text-muted col-xl-6">Bats: {{appearance.personal[0].bats}}</div>
-              <div class="text-muted col-xl-6">Throws: {{appearance.personal[0].throws}}</div>
-              <div class="text-muted col-xl-6">Debut: {{appearance.personal[0].debut | date}}</div>
-              <div class="text-muted col-xl-6">Final Game: {{appearance.personal[0].finalGame | date}}</div>
+              <div class="text-muted col-xl-6 col-6">Name: {{appearance.personal[0].fullName}}</div>
+              <div class="text-muted col-xl-6 col-6">Born: {{appearance.personal[0].born | date}}</div>
+              <div class="text-muted col-xl-6 col-6">Age: {{appearance.personal[0].age}}</div>
+              <div class="text-muted col-xl-6 col-6">Died: {{appearance.personal[0].died | date}}</div>
+              <div class="text-muted col-xl-6 col-6">Country: {{appearance.personal[0].birthCountry}}</div>
+              <div class="text-muted col-xl-6 col-6">State: {{appearance.personal[0].birthState}}</div>
+              <div class="text-muted col-xl-6 col-6">City: {{appearance.personal[0].birthCity}}</div>
+              <div class="text-muted col-xl-6 col-6">Weight: {{appearance.personal[0].weight}}</div>
+              <div class="text-muted col-xl-6 col-6">Height: {{appearance.personal[0].height}}</div>
+              <div class="text-muted col-xl-6 col-6">Bats: {{appearance.personal[0].bats}}</div>
+              <div class="text-muted col-xl-6 col-6">Throws: {{appearance.personal[0].throws}}</div>
+              <div class="text-muted col-xl-6 col-6">Debut: {{appearance.personal[0].debut | date}}</div>
+              <div class="text-muted col-xl-6 col-6">Final Game: {{appearance.personal[0].finalGame | date}}</div>
             </div>
           </div>
           <div class="stat-category-container">
@@ -227,13 +227,13 @@
                 {{f.POS}}
                 <hr />
                 <div class="stat-container">
-                  <div class="text-muted col-xl-6">Games: {{f.G}}</div>
-                  <div class="text-muted col-xl-6">Starts: {{f.GS}}</div>
-                  <div class="text-muted col-xl-6">Assists: {{f.A}}</div>
-                  <div class="text-muted col-xl-6">Errors: {{f.E}}</div>
-                  <div class="text-muted col-xl-6">Double Plays: {{f.DP}}</div>
-                  <div class="text-muted col-xl-6">Putouts: {{f.PO}}</div>
-                  <div class="text-muted col-xl-6">Zone Rating: {{f.ZR}}</div>
+                  <div class="text-muted col-xl-6 col-6">Games: {{f.G}}</div>
+                  <div class="text-muted col-xl-6 col-6">Starts: {{f.GS}}</div>
+                  <div class="text-muted col-xl-6 col-6">Assists: {{f.A}}</div>
+                  <div class="text-muted col-xl-6 col-6">Errors: {{f.E}}</div>
+                  <div class="text-muted col-xl-6 col-6">Double Plays: {{f.DP}}</div>
+                  <div class="text-muted col-xl-6 col-6">Putouts: {{f.PO}}</div>
+                  <div class="text-muted col-xl-6 col-6">Zone Rating: {{f.ZR}}</div>
                 </div>
               </div>
             </div>
@@ -242,23 +242,23 @@
             <h5 class="h5 category-title">Batting</h5>
             <hr />
             <div class="stat-container">
-              <div class="text-muted col-xl-6">Games: {{appearance.batting[0].G}}</div>
-              <div class="text-muted col-xl-6">At Bats: {{appearance.batting[0].AB}}</div>
-              <div class="text-muted col-xl-6">Runs: {{appearance.batting[0].R}}</div>
-              <div class="text-muted col-xl-6">Hits: {{appearance.batting[0].H}}</div>
-              <div class="text-muted col-xl-6">Doubles: {{appearance.batting[0]['2B']}}</div>
-              <div class="text-muted col-xl-6">Triples: {{appearance.batting[0]['3B']}}</div>
-              <div class="text-muted col-xl-6">Homeruns: {{appearance.batting[0].HR}}</div>
-              <div class="text-muted col-xl-6">RBI: {{appearance.batting[0].RBI}}</div>
-              <div class="text-muted col-xl-6">Stolen Bases: {{appearance.batting[0].SB}}</div>
-              <div class="text-muted col-xl-6">Caught Stealing: {{appearance.batting[0].CS}}</div>
-              <div class="text-muted col-xl-6">Bases by Balls: {{appearance.batting[0].BB}}</div>
-              <div class="text-muted col-xl-6">Strike Outs: {{appearance.batting[0].SO}}</div>
-              <div class="text-muted col-xl-6">Intentional Walks: {{appearance.batting[0].IBB}}</div>
-              <div class="text-muted col-xl-6">Hit by Pitch: {{appearance.batting[0].HBP}}</div>
-              <div class="text-muted col-xl-6">Sacrifice Hits: {{appearance.batting[0].SH}}</div>
-              <div class="text-muted col-xl-6">Sacrifice Flies: {{appearance.batting[0].SF}}</div>
-              <div class="text-muted col-xl-6">Grounded Into Double Plays: {{appearance.batting[0].GIDP}}</div>
+              <div class="text-muted col-xl-6 col-6">Games: {{appearance.batting[0].G}}</div>
+              <div class="text-muted col-xl-6 col-6">At Bats: {{appearance.batting[0].AB}}</div>
+              <div class="text-muted col-xl-6 col-6">Runs: {{appearance.batting[0].R}}</div>
+              <div class="text-muted col-xl-6 col-6">Hits: {{appearance.batting[0].H}}</div>
+              <div class="text-muted col-xl-6 col-6">Doubles: {{appearance.batting[0]['2B']}}</div>
+              <div class="text-muted col-xl-6 col-6">Triples: {{appearance.batting[0]['3B']}}</div>
+              <div class="text-muted col-xl-6 col-6">Homeruns: {{appearance.batting[0].HR}}</div>
+              <div class="text-muted col-xl-6 col-6">RBI: {{appearance.batting[0].RBI}}</div>
+              <div class="text-muted col-xl-6 col-6">Stolen Bases: {{appearance.batting[0].SB}}</div>
+              <div class="text-muted col-xl-6 col-6">Caught Stealing: {{appearance.batting[0].CS}}</div>
+              <div class="text-muted col-xl-6 col-6">Bases by Balls: {{appearance.batting[0].BB}}</div>
+              <div class="text-muted col-xl-6 col-6">Strike Outs: {{appearance.batting[0].SO}}</div>
+              <div class="text-muted col-xl-6 col-6">Intentional Walks: {{appearance.batting[0].IBB}}</div>
+              <div class="text-muted col-xl-6 col-6">Hit by Pitch: {{appearance.batting[0].HBP}}</div>
+              <div class="text-muted col-xl-6 col-6">Sacrifice Hits: {{appearance.batting[0].SH}}</div>
+              <div class="text-muted col-xl-6 col-6">Sacrifice Flies: {{appearance.batting[0].SF}}</div>
+              <div class="text-muted col-xl-6 col-6">Grounded Into Double Plays: {{appearance.batting[0].GIDP}}</div>
             </div>
           </div>
           <div class="stat-category-container">
@@ -270,7 +270,7 @@
               </div>
               <div calss="col-xl-12" *ngFor="let s of appearance.salaries">
                 <div class="stat-container">
-                  <div class="text-muted col-xl-6">{{s.salary | currency: 'USD': true}}</div>
+                  <div class="text-muted col-xl-6 col-6">{{s.salary | currency: 'USD': true}}</div>
                 </div>
               </div>
             </div>
@@ -284,31 +284,31 @@
               </div>
               <div class="col-xl-12" *ngFor="let p of appearance.pitching">
                 <div class="stat-container">
-                  <div class="text-muted col-xl-6">Wins: {{p.W}}</div>
-                  <div class="text-muted col-xl-6">Losses: {{p.L}}</div>
-                  <div class="text-muted col-xl-6">Games: {{p.G}}</div>
-                  <div class="text-muted col-xl-6">Starts: {{p.GS}}</div>
-                  <div class="text-muted col-xl-6">Complete Games: {{p.CG}}</div>
-                  <div class="text-muted col-xl-6">Shutouts: {{p.SHO}}</div>
-                  <div class="text-muted col-xl-6">Saves: {{p.SV}}</div>
-                  <div class="text-muted col-xl-6">Outs Pitched: {{p.IPouts}}</div>
-                  <div class="text-muted col-xl-6">Hits: {{p.H}}</div>
-                  <div class="text-muted col-xl-6">Earned Runs: {{p.ER}}</div>
-                  <div class="text-muted col-xl-6">Homeruns: {{p.HR}}</div>
-                  <div class="text-muted col-xl-6">Walks: {{p.BB}}</div>
-                  <div class="text-muted col-xl-6">Strikeouts: {{p.SO}}</div>
-                  <div class="text-muted col-xl-6">Opponent Batting Average: {{p.BAOpp}}</div>
-                  <div class="text-muted col-xl-6">Earned Runs Average: {{p.ERA}}</div>
-                  <div class="text-muted col-xl-6">Intentional Walks: {{p.IBB}}</div>
-                  <div class="text-muted col-xl-6">Wild Pitches: {{p.WP}}</div>
-                  <div class="text-muted col-xl-6">Batters Hit by Pitch: {{p.HBP}}</div>
-                  <div class="text-muted col-xl-6">Balks: {{p.BK}}</div>
-                  <div class="text-muted col-xl-6">Batters Face by Pitcher: {{p.BFP}}</div>
-                  <div class="text-muted col-xl-6">Games Finished: {{p.GF}}</div>
-                  <div class="text-muted col-xl-6">Runs Allowed: {{p.R}}</div>
-                  <div class="text-muted col-xl-6">Sacrifice Hits by Opponent: {{p.SH}}</div>
-                  <div class="text-muted col-xl-6">Sacrifice Flies by Opponent: {{p.SF}}</div>
-                  <div class="text-muted col-xl-6">Grounded Into Double Plays: {{p.GIDP}}</div>
+                  <div class="text-muted col-xl-6 col-6">Wins: {{p.W}}</div>
+                  <div class="text-muted col-xl-6 col-6">Losses: {{p.L}}</div>
+                  <div class="text-muted col-xl-6 col-6">Games: {{p.G}}</div>
+                  <div class="text-muted col-xl-6 col-6">Starts: {{p.GS}}</div>
+                  <div class="text-muted col-xl-6 col-6">Complete Games: {{p.CG}}</div>
+                  <div class="text-muted col-xl-6 col-6">Shutouts: {{p.SHO}}</div>
+                  <div class="text-muted col-xl-6 col-6">Saves: {{p.SV}}</div>
+                  <div class="text-muted col-xl-6 col-6">Outs Pitched: {{p.IPouts}}</div>
+                  <div class="text-muted col-xl-6 col-6">Hits: {{p.H}}</div>
+                  <div class="text-muted col-xl-6 col-6">Earned Runs: {{p.ER}}</div>
+                  <div class="text-muted col-xl-6 col-6">Homeruns: {{p.HR}}</div>
+                  <div class="text-muted col-xl-6 col-6">Walks: {{p.BB}}</div>
+                  <div class="text-muted col-xl-6 col-6">Strikeouts: {{p.SO}}</div>
+                  <div class="text-muted col-xl-6 col-6">Opponent Batting Average: {{p.BAOpp}}</div>
+                  <div class="text-muted col-xl-6 col-6">Earned Runs Average: {{p.ERA}}</div>
+                  <div class="text-muted col-xl-6 col-6">Intentional Walks: {{p.IBB}}</div>
+                  <div class="text-muted col-xl-6 col-6">Wild Pitches: {{p.WP}}</div>
+                  <div class="text-muted col-xl-6 col-6">Batters Hit by Pitch: {{p.HBP}}</div>
+                  <div class="text-muted col-xl-6 col-6">Balks: {{p.BK}}</div>
+                  <div class="text-muted col-xl-6 col-6">Batters Face by Pitcher: {{p.BFP}}</div>
+                  <div class="text-muted col-xl-6 col-6">Games Finished: {{p.GF}}</div>
+                  <div class="text-muted col-xl-6 col-6">Runs Allowed: {{p.R}}</div>
+                  <div class="text-muted col-xl-6 col-6">Sacrifice Hits by Opponent: {{p.SH}}</div>
+                  <div class="text-muted col-xl-6 col-6">Sacrifice Flies by Opponent: {{p.SF}}</div>
+                  <div class="text-muted col-xl-6 col-6">Grounded Into Double Plays: {{p.GIDP}}</div>
                 </div>
               </div>
             </div>

@@ -21,6 +21,7 @@ export class MLBTeamComponent implements OnInit, OnDestroy {
           this.selectedTeam = new Team(t);
           const data = this.buildChartData(null, 'HR');
           this.buildChart(data, 'HR');
+          $('html,body').delay(1000).animate({scrollTop: 0}, 100); // TODO: Shouldn't need a .delay here...
         });
       }
     });
