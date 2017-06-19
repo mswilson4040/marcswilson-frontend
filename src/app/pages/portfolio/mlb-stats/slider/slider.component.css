@@ -25,5 +25,14 @@
 @media (max-width: 575px) {
   #yearDisplay div {
     font-size: 28px; } }
+@media (min-width: 576px) {
+  #yearDisplay div {
+    font-size: 30px; } }
+@media (min-width: 768px) and (max-width: 991px) {
+  #yearDisplay div {
+    font-size: 34px; } }
+@media (min-width: 992px) {
+  #yearDisplay div {
+    font-size: 36px; } }
 
 /*# sourceMappingURL=slider.component.css.map */

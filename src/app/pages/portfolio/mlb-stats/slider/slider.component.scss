@@ -40,17 +40,29 @@
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
-
+  #yearDisplay {
+    div {
+      font-size: 30px;
+    }
+  }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) and (max-width: 991px) {
-
+  #yearDisplay {
+    div {
+      font-size: 34px;
+    }
+  }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-
+  #yearDisplay {
+    div {
+      font-size: 36px;
+    }
+  }
 }
 
 // Extra large devices (large desktops, 1200px and up)

@@ -3,7 +3,6 @@
   #portfolioContainer .jumbotron {
     text-align: center; }
   #portfolioContainer #appsContainer .app-container {
-    height: 250px;
     float: left;
     margin-bottom: 25px;
     position: relative;
@@ -29,7 +28,6 @@
         padding: 10px;
         width: 100%; }
         #portfolioContainer #appsContainer .app-container .app-content-container .app-header h1 {
-          font-size: 2.7rem;
           float: right; }
       #portfolioContainer #appsContainer .app-container .app-content-container .app-footer {
         display: none;
@@ -51,5 +49,66 @@
       -o-transition: all 1s ease;
       /* Opera */
       transition: all 1s ease; }
+
+@media (max-width: 575px) {
+  .jumbotron .display-4 {
+    font-size: 38px; }
+  .jumbotron .lead {
+    font-size: 18px; }
+
+  #appsContainer .app-container {
+    height: 150px; }
+    #appsContainer .app-container .app-content-container .app-header {
+      width: 100%; }
+      #appsContainer .app-container .app-content-container .app-header h1 {
+        font-size: 1.5rem; } }
+@media (min-width: 576px) {
+  .jumbotron .display-4 {
+    font-size: 42px; }
+  .jumbotron .lead {
+    font-size: 20px; }
+
+  #appsContainer .app-container {
+    height: 150px; }
+    #appsContainer .app-container .app-content-container .app-header {
+      width: 100%; }
+      #appsContainer .app-container .app-content-container .app-header h1 {
+        font-size: 1.7rem; } }
+@media (min-width: 768px) and (max-width: 991px) {
+  .jumbotron .display-4 {
+    font-size: 42px; }
+  .jumbotron .lead {
+    font-size: 20px; }
+
+  #appsContainer .app-container {
+    height: 200px; }
+    #appsContainer .app-container .app-content-container .app-header {
+      width: 100%; }
+      #appsContainer .app-container .app-content-container .app-header h1 {
+        font-size: 1.9rem; } }
+@media (min-width: 992px) {
+  .jumbotron .display-4 {
+    font-size: 48px; }
+  .jumbotron .lead {
+    font-size: 22px; }
+
+  #appsContainer .app-container {
+    height: 250px; }
+    #appsContainer .app-container .app-content-container .app-header {
+      width: 100%; }
+      #appsContainer .app-container .app-content-container .app-header h1 {
+        font-size: 1.9rem; } }
+@media (min-width: 1200px) {
+  .jumbotron .display-4 {
+    font-size: 48px; }
+  .jumbotron .lead {
+    font-size: 22px; }
+
+  #appsContainer .app-container {
+    height: 250px; }
+    #appsContainer .app-container .app-content-container .app-header {
+      width: 100%; }
+      #appsContainer .app-container .app-content-container .app-header h1 {
+        font-size: 1.9rem; } }
 
 /*# sourceMappingURL=portfolio.component.css.map */
