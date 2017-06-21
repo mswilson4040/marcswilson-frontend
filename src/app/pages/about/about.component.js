@@ -11,6 +11,17 @@ var AboutComponent = (function () {
     }
     AboutComponent.prototype.ngOnInit = function () {
         $('#imageContainer').find('img').fadeIn('slow');
+        var containers = $('.content-container');
+        var delay = 500;
+        var _loop_1 = function(i) {
+            $(containers[i]).delay(delay).toggle('slide', { direction: 'left' }, 700, function () {
+                $(containers[i]).closest('.content-row').find('img').delay(100).fadeIn(500);
+            });
+            delay += 500;
+        };
+        for (var i = 0; i < containers.length; i++) {
+            _loop_1(i);
+        }
     };
     AboutComponent = __decorate([
         core_1.Component({

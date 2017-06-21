@@ -20,11 +20,34 @@
     }
   }
   #body {
-    padding-top: 20px;
-    .row {
-      margin-bottom: 100px;
-      padding: 20px 0px;
-      // border: 1px solid gray;
+    .content-row-outter {
+      margin: 10px 0 10px 0;
+      .content-row {
+        display: flex;
+        justify-content: space-between;
+        background-color: white;
+        border-top-left-radius: 100px;
+        border-bottom-left-radius: 100px;
+        border-left: none;
+        .image-container {
+          //min-height: 150px;
+          //min-width: 150px;
+          img {
+            //height: 150px;
+            //width: 150px;
+            border-radius: 100px;
+            border: 1px solid gray;
+            display: none;
+          }
+        }
+        .content-container {
+          // padding-left: 25px;
+          display: none;
+          h3 {
+            font-weight: 400;
+          }
+        }
+      }
     }
   }
 }
@@ -34,7 +57,7 @@
 @media (max-width: 575px) {
   #header {
     .jumbotron {
-      .display-3 {
+      .display-4 {
         font-size: 24px;
       }
       .lead {
@@ -50,31 +73,30 @@
     }
   }
   #body {
-    .row {
-      margin-top: -10px;
-      margin-right: 0px;
-      margin-left: 0px;
-      .image-container {
-        padding-bottom: 10px;
-        text-align: center;
-      }
+    .content-row-outter {
+      margin: 10px 0 10px 0;
+      .content-row {
 
-      h3 {
-        font-size: 16px;
-      }
-      p {
-        font-size: 12px;
-      }
-      img {
-        height: 115px;
-        width: 115px;
-
+        .image-container {
+          min-height: 60px;
+          min-width: 60px;
+          img {
+            height: 60px;
+            width: 60px;
+          }
+        }
+        .content-container {
+          padding-left: 15px;
+          h3 {
+            font-weight: 400;
+            font-size: 16px;
+          }
+          p {
+            font-size: 12px;
+          }
+        }
       }
     }
-    //.row:nth-child(even) {
-    //  display: flex;
-    //  flex-direction: column-reverse;
-    //}
   }
 }
 
@@ -82,32 +104,44 @@
 @media (min-width: 576px) {
   #header {
     .jumbotron {
-      .display-3 {
-        font-size: 4.0rem;
+      .display-4 {
+        font-size: 26px;
       }
       .lead {
-        font-size: 1.25rem;
+        font-size: 18px;
       }
     }
     #imageContainer {
       margin-top: -90px;
       img {
-        height: 150px;
-        width: 150px;
+        height: 110px;
+        width: 110px;
       }
     }
   }
   #body {
-    .row {
-      h3 {
-        font-size: 16px;
-      }
-      p {
-        font-size: 12px;
-      }
-      img {
-        height: 150px;
-        width: 150px;
+    .content-row-outter {
+      margin: 10px 0 10px 0;
+      .content-row {
+
+        .image-container {
+          min-height: 70px;
+          min-width: 70px;
+          img {
+            height: 70px;
+            width: 70px;
+          }
+        }
+        .content-container {
+          padding-left: 15px;
+          h3 {
+            font-weight: 400;
+            font-size: 18px;
+          }
+          p {
+            font-size: 14px;
+          }
+        }
       }
     }
   }
@@ -117,32 +151,44 @@
 @media (min-width: 768px) and (max-width: 991px) {
   #header {
     .jumbotron {
-      .display-3 {
-        font-size: 4.5rem;
+      .display-4 {
+        font-size: 28px;
       }
       .lead {
-        font-size: 1.25rem;
+        font-size: 20px;
       }
     }
     #imageContainer {
       margin-top: -90px;
       img {
-        height: 150px;
-        width: 150px;
+        height: 120px;
+        width: 120px;
       }
     }
   }
   #body {
-    .row {
-      h3 {
-        font-size: 1.5em;
-      }
-      p {
-        font-size: inherit;
-      }
-      img {
-        height: 250px;
-        width: 250px;
+    .content-row-outter {
+      margin: 10px 0 10px 0;
+      .content-row {
+
+        .image-container {
+          min-height: 90px;
+          min-width: 90px;
+          img {
+            height: 90px;
+            width: 90px;
+          }
+        }
+        .content-container {
+          padding-left: 15px;
+          h3 {
+            font-weight: 400;
+            font-size: 20px;
+          }
+          p {
+            font-size: 16px;
+          }
+        }
       }
     }
   }
@@ -152,32 +198,44 @@
 @media (min-width: 992px) {
   #header {
     .jumbotron {
-      .display-3 {
-        font-size: 4.5rem;
+      .display-4 {
+        font-size: 30px;
       }
       .lead {
-        font-size: 1.25rem;
+        font-size: 22px;
       }
     }
     #imageContainer {
       margin-top: -90px;
       img {
-        height: 150px;
-        width: 150px;
+        height: 130px;
+        width: 130px;
       }
     }
   }
   #body {
-    .row {
-      h3 {
-        font-size: 1.5em;
-      }
-      p {
-        font-size: inherit;
-      }
-      img {
-        height: 250px;
-        width: 250px;
+    .content-row-outter {
+      margin: 10px 0 10px 0;
+      .content-row {
+
+        .image-container {
+          min-height: 110px;
+          min-width: 110px;
+          img {
+            height: 110px;
+            width: 110px;
+          }
+        }
+        .content-container {
+          padding-left: 15px;
+          h3 {
+            font-weight: 400;
+            font-size: 20px;
+          }
+          p {
+            font-size: 16px;
+          }
+        }
       }
     }
   }
@@ -187,32 +245,44 @@
 @media (min-width: 1200px) {
   #header {
     .jumbotron {
-      .display-3 {
-        font-size: 4.5rem;
+      .display-4 {
+        font-size: 34px;
       }
       .lead {
-        font-size: 1.25rem;
+        font-size: 26px;
       }
     }
     #imageContainer {
       margin-top: -90px;
       img {
-        height: 150px;
-        width: 150px;
+        height: 130px;
+        width: 130px;
       }
     }
   }
   #body {
-    .row {
-      h3 {
-        font-size: 1.5em;
-      }
-      p {
-        font-size: inherit;
-      }
-      img {
-        height: 250px;
-        width: 250px;
+    .content-row-outter {
+      margin: 10px 0 10px 0;
+      .content-row {
+
+        .image-container {
+          min-height: 120px;
+          min-width: 120px;
+          img {
+            height: 120px;
+            width: 120px;
+          }
+        }
+        .content-container {
+          padding-left: 15px;
+          h3 {
+            font-weight: 400;
+            font-size: 20px;
+          }
+          p {
+            font-size: 16px;
+          }
+        }
       }
     }
   }
