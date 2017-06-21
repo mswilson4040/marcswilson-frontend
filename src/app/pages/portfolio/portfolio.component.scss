@@ -7,6 +7,7 @@
   #appsContainer {
 
     .app-container {
+      display: none;
       // height: 250px;
       float: left;
       margin-bottom: 25px;
@@ -78,6 +79,7 @@
     }
   }
   #appsContainer {
+    height: 150px;
     .app-container {
       height: 150px;
       .app-content-container {
@@ -103,6 +105,7 @@
     }
   }
   #appsContainer {
+    height: 150px;
     .app-container {
       height: 150px;
       .app-content-container {
@@ -128,6 +131,7 @@
     }
   }
   #appsContainer {
+    height: 200px;
     .app-container {
       height: 200px;
       .app-content-container {
@@ -153,6 +157,7 @@
     }
   }
   #appsContainer {
+    height: 250px;
     .app-container {
       height: 250px;
       .app-content-container {
@@ -178,6 +183,7 @@
     }
   }
   #appsContainer {
+    height: 250px;
     .app-container {
       height: 250px;
       .app-content-container {

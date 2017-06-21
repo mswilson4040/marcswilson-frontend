@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {App} from '../../shared-classes/app';
 
 @Component({
@@ -6,7 +6,7 @@ import {App} from '../../shared-classes/app';
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.css']
 })
-export class PortfolioComponent implements OnInit {
+export class PortfolioComponent implements OnInit, AfterViewInit {
   public apps: Array<App> = new Array<App>();
   constructor() {
     this.apps.push(new App('MLB Stats API', 'REST API for MLB Stats...', 'images/cruzswing.jpg', '/mlbstatsapi'));
@@ -14,6 +14,14 @@ export class PortfolioComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+  ngAfterViewInit(): void {
+    const containers = $('.app-container');
+    let delay = 500;
+    for (let i = 0; i < containers.length; i++) {
+      $(containers[i]).delay(delay).fadeIn(700);
+      delay += 500;
+    }
   }
   showHoverDisplay(evt): void {
 

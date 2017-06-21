@@ -15,6 +15,14 @@ var PortfolioComponent = (function () {
     }
     PortfolioComponent.prototype.ngOnInit = function () {
     };
+    PortfolioComponent.prototype.ngAfterViewInit = function () {
+        var containers = $('.app-container');
+        var delay = 500;
+        for (var i = 0; i < containers.length; i++) {
+            $(containers[i]).delay(delay).fadeIn(700);
+            delay += 500;
+        }
+    };
     PortfolioComponent.prototype.showHoverDisplay = function (evt) {
         var container = $(evt.currentTarget);
         container.closest('.app-container').find('.app-footer').show('slide', {}, 300);
