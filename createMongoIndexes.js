@@ -1,7 +1,4 @@
 /**
- * Created by Marc on 6/8/2017.
- */
-/**
  * Created by Marc on 4/7/2017.
  *
  * -- To run, type 'node createMongoIndexes' into termainal
@@ -9,7 +6,7 @@
 var CreateMongoDBIndexes = (function () {
     function CreateMongoDBIndexes() {
         this.mongodb = null;
-        this.readonly = DB_PATH = 'mongodb://localhost:27017/mlbstatsdb';
+        this.DB_PATH = 'mongodb://localhost:27017/mlbstatsdb';
         this.mongodb = require('mongodb').MongoClient;
         this.createIndexes();
     }

@@ -13,7 +13,7 @@ module.exports = (grunt) => {
           {
             name: 'allstarfulls',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/AllstarFull.csv',
+            file: 'core/AllstarFull.csv',
             headerLine: true,
             upsert: true,
             drop: true
@@ -21,7 +21,7 @@ module.exports = (grunt) => {
           {
             name: 'appearances',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/Appearances.csv',
+            file: 'core/Appearances.csv',
             headerLine: true,
             upsert: true,
             drop: true
@@ -29,7 +29,7 @@ module.exports = (grunt) => {
           {
             name: 'awardsmanagers',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/AwardsManagers.csv',
+            file: 'core/AwardsManagers.csv',
             headerLine: true,
             upsert: true,
             drop: true
@@ -37,7 +37,7 @@ module.exports = (grunt) => {
           {
             name: 'awardsplayers',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/AwardsPlayers.csv',
+            file: 'core/AwardsPlayers.csv',
             headerLine: true,
             upsert: true,
             drop: true
@@ -45,7 +45,7 @@ module.exports = (grunt) => {
           {
             name: 'awardssharemanagers',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/AwardsShareManagers.csv',
+            file: 'core/AwardsShareManagers.csv',
             headerLine: true,
             upsert: true,
             drop: true
@@ -53,7 +53,7 @@ module.exports = (grunt) => {
           {
             name: 'awardsshareplayers',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/AwardsSharePlayers.csv',
+            file: 'core/AwardsSharePlayers.csv',
             headerLine: true,
             upsert: true,
             drop: true
@@ -61,7 +61,7 @@ module.exports = (grunt) => {
           {
             name: 'battings',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/Batting.csv',
+            file: 'core/Batting.csv',
             headerLine: true,
             upsert: true,
             drop: true
@@ -69,7 +69,7 @@ module.exports = (grunt) => {
           {
             name: 'battingposts',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/BattingPost.csv',
+            file: 'core/BattingPost.csv',
             headerLine: true,
             upsert: true,
             drop: true
@@ -77,7 +77,7 @@ module.exports = (grunt) => {
           {
             name: 'collegeplayings',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/CollegePlaying.csv',
+            file: 'core/CollegePlaying.csv',
             headerLine: true,
             upsert: true,
             drop: true
@@ -85,7 +85,7 @@ module.exports = (grunt) => {
           {
             name: 'fieldings',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/Fielding.csv',
+            file: 'core/Fielding.csv',
             headerLine: true,
             upsert: true,
             drop: true
@@ -93,7 +93,7 @@ module.exports = (grunt) => {
           {
             name: 'fieldingofs',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/FieldingOF.csv',
+            file: 'core/FieldingOF.csv',
             headerLine: true,
             upsert: true,
             drop: true
@@ -101,7 +101,7 @@ module.exports = (grunt) => {
           {
             name: 'fieldingofsplits',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/FieldingOFSplit.csv',
+            file: 'core/FieldingOFSplit.csv',
             headerLine: true,
             upsert: true,
             drop: true
@@ -109,7 +109,7 @@ module.exports = (grunt) => {
           {
             name: 'fieldingposts',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/FieldingPost.csv',
+            file: 'core/FieldingPost.csv',
             headerLine: true,
             upsert: true,
             drop: true
@@ -117,7 +117,7 @@ module.exports = (grunt) => {
           {
             name: 'halloffames',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/HallOfFame.csv',
+            file: 'core/HallOfFame.csv',
             headerLine: true,
             upsert: true,
             drop: true
@@ -125,7 +125,7 @@ module.exports = (grunt) => {
           {
             name: 'homegames',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/HomeGames.csv',
+            file: 'core/HomeGames.csv',
             headerLine: true,
             upsert: true,
             drop: true
@@ -133,7 +133,7 @@ module.exports = (grunt) => {
           {
             name: 'managers',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/Managers.csv',
+            file: 'core/Managers.csv',
             headerLine: true,
             upsert: true,
             drop: true
@@ -141,7 +141,7 @@ module.exports = (grunt) => {
           {
             name: 'managershalfs',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/ManagersHalf.csv',
+            file: 'core/ManagersHalf.csv',
             headerLine: true,
             upsert: true,
             drop: true
@@ -149,7 +149,7 @@ module.exports = (grunt) => {
           {
             name: 'parks',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/Parks.csv',
+            file: 'core/Parks.csv',
             headerLine: true,
             upsert: true,
             drop: true
@@ -157,7 +157,7 @@ module.exports = (grunt) => {
           {
             name: 'peoples',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/People.csv',
+            file: 'core/People.csv',
             headerLine: true,
             upsert: true,
             drop: true
@@ -165,7 +165,7 @@ module.exports = (grunt) => {
           {
             name: 'pitchings',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/Pitching.csv',
+            file: 'core/Pitching.csv',
             headerLine: true,
             upsert: true,
             drop: true
@@ -173,7 +173,7 @@ module.exports = (grunt) => {
           {
             name: 'pitchingposts',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/PitchingPost.csv',
+            file: 'core/PitchingPost.csv',
             headerLine: true,
             upsert: true,
             drop: true
@@ -181,7 +181,7 @@ module.exports = (grunt) => {
           {
             name: 'salaries',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/Salaries.csv',
+            file: 'core/Salaries.csv',
             headerLine: true,
             upsert: true,
             drop: true
@@ -189,7 +189,7 @@ module.exports = (grunt) => {
           {
             name: 'schools',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/Schools.csv',
+            file: 'core/Schools.csv',
             headerLine: true,
             upsert: true,
             drop: true
@@ -197,7 +197,7 @@ module.exports = (grunt) => {
           {
             name: 'seriesposts',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/SeriesPost.csv',
+            file: 'core/SeriesPost.csv',
             headerLine: true,
             upsert: true,
             drop: true
@@ -205,7 +205,7 @@ module.exports = (grunt) => {
           {
             name: 'teams',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/Teams.csv',
+            file: 'core/Teams.csv',
             headerLine: true,
             upsert: true,
             drop: true
@@ -213,7 +213,7 @@ module.exports = (grunt) => {
           {
             name: 'teamsfranchises',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/TeamsFranchises.csv',
+            file: 'core/TeamsFranchises.csv',
             headerLine: true,
             upsert: true,
             drop: true
@@ -221,7 +221,7 @@ module.exports = (grunt) => {
           {
             name: 'teamshalfs',
             type: 'csv',
-            file: 'public/pages/PortfolioComponent/MLBStats/data/baseballdatabank/core/TeamsHalf.csv',
+            file: 'core/TeamsHalf.csv',
             headerLine: true,
             upsert: true,
             drop: true
