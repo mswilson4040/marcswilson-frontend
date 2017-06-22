@@ -12,15 +12,16 @@ var PortfolioComponent = (function () {
         this.apps = new Array();
         this.apps.push(new app_1.App('MLB Stats API', 'REST API for MLB Stats...', 'images/cruzswing.jpg', '/mlbstatsapi'));
         this.apps.push(new app_1.App('MLB Stats', 'In Progress...', 'images/handshakes.jpg', '/mlbstats'));
+        this.apps.push(new app_1.App('Powerball', 'In Progress...', 'images/handshakes.jpg', '/powerball'));
     }
     PortfolioComponent.prototype.ngOnInit = function () {
     };
     PortfolioComponent.prototype.ngAfterViewInit = function () {
         var containers = $('.app-container');
-        var delay = 500;
+        var delay = 100;
         for (var i = 0; i < containers.length; i++) {
             $(containers[i]).delay(delay).fadeIn(700);
-            delay += 500;
+            delay += 100;
         }
     };
     PortfolioComponent.prototype.showHoverDisplay = function (evt) {

@@ -3,6 +3,7 @@
  */
 "use strict";
 var MLBStatsAPIFile = require('./mlb-stats-api');
+var PowerballAPIFile = require('./powerball-api');
 var Server = (function () {
     function Server(express, app, bodyParser, path, server, cors) {
         var _this = this;
@@ -30,6 +31,7 @@ var Server = (function () {
         this.app.use(this.express.static(this.path.join(__dirname + '/../')));
         this.app.use(this.cors());
         this.app.use('/api/mlbstats', MLBStatsAPIFile);
+        this.app.use('/api/powerball', PowerballAPIFile);
         // this.app.use('/api/yelp', require('./public/shared/apis/yelp.api'));
         this.app.get('/*', function (req, res) {
             res.sendFile(_this.path.join(__dirname + '/../index.html'));

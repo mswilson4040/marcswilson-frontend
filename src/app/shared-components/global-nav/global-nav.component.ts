@@ -29,6 +29,8 @@ export class GlobalNavComponent implements OnInit {
         this.fadeNavColors('white', '#2F4050');
       } else if (path === '/mlbstatsapi') {
         this.fadeNavColors('white', '#2F4050');
+      } else if (path === '/powerball') {
+        this.fadeNavColors('white', '#2F4050');
       }
       $('.nav-collapsable').hide('slide', {direction: 'up'}, 200);
     });

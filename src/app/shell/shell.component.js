@@ -12,6 +12,7 @@ require('jquery');
 require('jqueryui');
 require('select2');
 require('bootstrap');
+var powerball_service_1 = require('../pages/portfolio/powerball/services/powerball.service');
 var ShellComponent = (function () {
     function ShellComponent() {
     }
@@ -25,7 +26,7 @@ var ShellComponent = (function () {
             selector: 'app-shell',
             templateUrl: './shell.component.html',
             styleUrls: ['./shell.component.css'],
-            providers: [ui_service_1.UIService, mlb_stats_service_1.MlbStatsService]
+            providers: [ui_service_1.UIService, mlb_stats_service_1.MlbStatsService, powerball_service_1.PowerballService]
         })
     ], ShellComponent);
     return ShellComponent;

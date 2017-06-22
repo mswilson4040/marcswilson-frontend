@@ -11,16 +11,17 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   constructor() {
     this.apps.push(new App('MLB Stats API', 'REST API for MLB Stats...', 'images/cruzswing.jpg', '/mlbstatsapi'));
     this.apps.push(new App('MLB Stats', 'In Progress...', 'images/handshakes.jpg', '/mlbstats'));
+    this.apps.push(new App('Powerball', 'In Progress...', 'images/handshakes.jpg', '/powerball'));
   }
 
   ngOnInit() {
   }
   ngAfterViewInit(): void {
     const containers = $('.app-container');
-    let delay = 500;
+    let delay = 100;
     for (let i = 0; i < containers.length; i++) {
       $(containers[i]).delay(delay).fadeIn(700);
-      delay += 500;
+      delay += 100;
     }
   }
   showHoverDisplay(evt): void {

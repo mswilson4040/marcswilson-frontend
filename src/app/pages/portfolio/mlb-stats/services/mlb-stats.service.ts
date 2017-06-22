@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
-import {Team} from '../classes/team';
-import {Player} from '../classes/player';
-import {Http} from '@angular/http';
-import {Ballpark} from '../classes/ballpark';
-import {Appearance} from '../classes/appearance';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Team } from '../classes/team';
+import { Player } from '../classes/player';
+import { Http } from '@angular/http';
+import { Ballpark } from '../classes/ballpark';
+import { Appearance } from '../classes/appearance';
 
 @Injectable()
 export class MlbStatsService {
