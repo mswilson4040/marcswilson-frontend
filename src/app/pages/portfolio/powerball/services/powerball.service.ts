@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Http} from '@angular/http';
 import {Powerball} from '../classes/powerball';
+import {PowerballData} from '../classes/powerball-data';
 
 @Injectable()
 export class PowerballService {
@@ -15,13 +16,14 @@ export class PowerballService {
     }
   }
 
-  getPowerball(): Promise<Array<Powerball>> {
+  getPowerball(): Promise<PowerballData> {
     return new Promise((resolve, reject) => {
       this._http.get(this.API_PATH + 'powerball').subscribe(data => {
         const res = JSON.parse(data[ '_body' ]);
-        const ret = res.map(r => {
-          return new Powerball(r);
-        });
+        const ret = new PowerballData();
+        for (let i = 0; i < res.length; i++) {
+          ret.addDrawing(new Powerball(res[i]));
+        }
         resolve(ret);
       });
     });

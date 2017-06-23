@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var powerball_1 = require('../classes/powerball');
+var powerball_data_1 = require('../classes/powerball-data');
 var PowerballService = (function () {
     function PowerballService(_http) {
         this._http = _http;
@@ -24,9 +25,10 @@ var PowerballService = (function () {
         return new Promise(function (resolve, reject) {
             _this._http.get(_this.API_PATH + 'powerball').subscribe(function (data) {
                 var res = JSON.parse(data['_body']);
-                var ret = res.map(function (r) {
-                    return new powerball_1.Powerball(r);
-                });
+                var ret = new powerball_data_1.PowerballData();
+                for (var i = 0; i < res.length; i++) {
+                    ret.addDrawing(new powerball_1.Powerball(res[i]));
+                }
                 resolve(ret);
             });
         });

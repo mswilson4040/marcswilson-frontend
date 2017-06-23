@@ -34,6 +34,9 @@ var Powerball = (function () {
             this.powerball = +nums[5];
         }
     };
+    Powerball.prototype.convertNumbersToArray = function () {
+        return [this.first, this.second, this.third, this.fourth, this.fifth];
+    };
     return Powerball;
 }());
 exports.Powerball = Powerball;

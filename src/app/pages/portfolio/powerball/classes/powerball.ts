@@ -32,4 +32,7 @@ export class Powerball {
       this.powerball = +nums[5];
     }
   }
+  convertNumbersToArray(): Array<number> {
+    return [this.first, this.second, this.third, this.fourth, this.fifth];
+  }
 }

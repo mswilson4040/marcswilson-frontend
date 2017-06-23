@@ -6,74 +6,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 var core_1 = require('@angular/core');
+var powerball_data_1 = require('./classes/powerball-data');
 var PowerballComponent = (function () {
     function PowerballComponent(_powerballService) {
         this._powerballService = _powerballService;
-        this.powerball = new Array();
+        this.powerballData = new powerball_data_1.PowerballData();
     }
     PowerballComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._powerballService.getPowerball().then(function (pb) {
-            _this.powerball = pb;
-            var data = _this.buildData(_this.powerball);
+            _this.powerballData = pb;
+            var data = _this.powerballData.getHighchartsData();
             _this.drawChart(data);
         });
-    };
-    PowerballComponent.prototype.buildData = function (data) {
-        // [number, hits]
-        var hash = {};
-        for (var i = 0; i < data.length; i++) {
-            var pb = data[i];
-            var first = pb.first;
-            var second = pb.second;
-            var third = pb.third;
-            var fourth = pb.fourth;
-            var fifth = pb.fifth;
-            var powerball = pb.powerball;
-            if (hash.hasOwnProperty(first)) {
-                hash[first] += 1;
-            }
-            else {
-                hash[first] = 1;
-            }
-            if (hash.hasOwnProperty(second)) {
-                hash[second] += 1;
-            }
-            else {
-                hash[second] = 1;
-            }
-            if (hash.hasOwnProperty(third)) {
-                hash[third] += 1;
-            }
-            else {
-                hash[third] = 1;
-            }
-            if (hash.hasOwnProperty(fourth)) {
-                hash[fourth] += 1;
-            }
-            else {
-                hash[fourth] = 1;
-            }
-            if (hash.hasOwnProperty(fifth)) {
-                hash[fifth] += 1;
-            }
-            else {
-                hash[fifth] = 1;
-            }
-            if (hash.hasOwnProperty(powerball)) {
-                hash[powerball] += 1;
-            }
-            else {
-                hash[powerball] = 1;
-            }
-        }
-        var arr = [];
-        for (var obj in hash) {
-            if (hash.hasOwnProperty(obj)) {
-                arr.push([obj.toString(), hash[obj]]);
-            }
-        }
-        return arr;
     };
     PowerballComponent.prototype.drawChart = function (data) {
         Highcharts.chart('powerballChart', {
@@ -81,51 +26,36 @@ var PowerballComponent = (function () {
                 type: 'column'
             },
             title: {
-                text: 'Drawn numbers'
+                text: 'Power Number hit counts'
             },
             subtitle: {
-                text: '',
-                useHTML: true
+                text: 'Powerball'
             },
             xAxis: {
-                type: 'category',
-                labels: {
-                    rotation: -45,
-                    style: {
-                        fontSize: '13px',
-                        fontFamily: 'Verdana, sans-serif'
-                    }
-                }
+                categories: this.generateSixtyNine(),
+                crosshair: true
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Game Wins'
+                    text: 'Times hit'
                 }
             },
-            legend: {
-                enabled: false
+            plotOptions: {
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
+                }
             },
-            tooltip: {
-                pointFormat: 'Times drawn : <b>{point.y}</b>'
-            },
-            series: [{
-                    name: 'Game Wins',
-                    data: data,
-                    dataLabels: {
-                        enabled: false,
-                        rotation: -90,
-                        color: '#FFFFFF',
-                        align: 'right',
-                        format: '{point.y}',
-                        y: 10,
-                        style: {
-                            fontSize: '10px',
-                            fontFamily: 'Verdana, sans-serif'
-                        }
-                    }
-                }]
+            series: data
         });
+    };
+    PowerballComponent.prototype.generateSixtyNine = function () {
+        var arr = [];
+        for (var i = 0; i < 69; i++) {
+            arr.push(i + 1);
+        }
+        return arr;
     };
     PowerballComponent = __decorate([
         core_1.Component({

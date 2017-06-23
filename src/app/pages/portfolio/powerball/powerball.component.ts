@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {PowerballService} from './services/powerball.service';
-import {Powerball} from './classes/powerball';
+import { PowerballService } from './services/powerball.service';
+import { PowerballData } from './classes/powerball-data';
 declare const Highcharts: any;
 
 @Component({
@@ -9,65 +9,15 @@ declare const Highcharts: any;
   styleUrls: ['./powerball.component.css']
 })
 export class PowerballComponent implements OnInit {
-  public powerball: Array<Powerball> = new Array<Powerball>();
+  public powerballData: PowerballData = new PowerballData();
   constructor(private _powerballService: PowerballService) { }
 
   ngOnInit() {
     this._powerballService.getPowerball().then(pb => {
-      this.powerball = pb;
-      const data = this.buildData(this.powerball);
+      this.powerballData = pb;
+      const data = this.powerballData.getHighchartsData();
       this.drawChart(data);
     });
-  }
-  buildData(data) {
-    // [number, hits]
-    const hash = {};
-    for (let i = 0; i < data.length; i++) {
-      const pb = data[ i ];
-      const first = pb.first;
-      const second = pb.second;
-      const third = pb.third;
-      const fourth = pb.fourth;
-      const fifth = pb.fifth;
-      const powerball = pb.powerball;
-      if (hash.hasOwnProperty(first)) {
-        hash[ first ] += 1;
-      } else {
-        hash[ first ] = 1;
-      }
-      if (hash.hasOwnProperty(second)) {
-        hash[ second ] += 1;
-      } else {
-        hash[ second ] = 1;
-      }
-      if (hash.hasOwnProperty(third)) {
-        hash[ third ] += 1;
-      } else {
-        hash[ third ] = 1;
-      }
-      if (hash.hasOwnProperty(fourth)) {
-        hash[ fourth ] += 1;
-      } else {
-        hash[ fourth ] = 1;
-      }
-      if (hash.hasOwnProperty(fifth)) {
-        hash[ fifth ] += 1;
-      } else {
-        hash[ fifth ] = 1;
-      }
-      if (hash.hasOwnProperty(powerball)) {
-        hash[ powerball ] += 1;
-      } else {
-        hash[ powerball ] = 1;
-      }
-    }
-    const arr = [];
-    for (const obj in hash) {
-      if (hash.hasOwnProperty(obj)) {
-        arr.push([ obj.toString(), hash[ obj ] ]);
-      }
-    }
-    return arr;
   }
   drawChart(data) {
     Highcharts.chart('powerballChart', {
@@ -75,50 +25,35 @@ export class PowerballComponent implements OnInit {
         type: 'column'
       },
       title: {
-        text: 'Drawn numbers'
+        text: 'Power Number hit counts'
       },
       subtitle: {
-        text: '',
-        useHTML: true
+        text: 'Powerball'
       },
       xAxis: {
-        type: 'category',
-        labels: {
-          rotation: -45,
-          style: {
-            fontSize: '13px',
-            fontFamily: 'Verdana, sans-serif'
-          }
-        }
+        categories: this.generateSixtyNine(),
+        crosshair: true
       },
       yAxis: {
         min: 0,
         title: {
-          text: 'Game Wins'
+          text: 'Times hit'
         }
       },
-      legend: {
-        enabled: false
-      },
-      tooltip: {
-        pointFormat: 'Times drawn : <b>{point.y}</b>'
-      },
-      series: [ {
-        name: 'Game Wins',
-        data: data,
-        dataLabels: {
-          enabled: false,
-          rotation: -90,
-          color: '#FFFFFF',
-          align: 'right',
-          format: '{point.y}', // one decimal
-          y: 10, // 10 pixels down from the top
-          style: {
-            fontSize: '10px',
-            fontFamily: 'Verdana, sans-serif'
-          }
+      plotOptions: {
+        column: {
+          pointPadding: 0.2,
+          borderWidth: 0
         }
-      } ]
+      },
+      series: data
     });
+  }
+  generateSixtyNine(): Array<number> {
+    const arr = [];
+    for (let i = 0; i < 69; i++) {
+      arr.push(i + 1);
+    }
+    return arr;
   }
 }

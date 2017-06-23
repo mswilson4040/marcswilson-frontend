@@ -6,7 +6,7 @@
   <div id="body" class="container">
     <div id="powerballChart"></div>
     <div id="powerballNumbersContainer">
-      <div class="powerball-numbers col-xl-5" *ngFor="let pb of powerball">
+      <div class="powerball-numbers col-xl-5" *ngFor="let pb of powerballData.drawings">
         <div class="draw-date text-muted">{{pb.date | date}}</div>
         <div class="powerball-set">
           <div class="powerball-number">
