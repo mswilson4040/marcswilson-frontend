@@ -10,6 +10,7 @@ declare const Highcharts: any;
 })
 export class PowerballComponent implements OnInit {
   public powerballData: PowerballData = new PowerballData();
+  public oneThroughSixtyNine: Array<number> = this.generateSixtyNine();
   constructor(private _powerballService: PowerballService) { }
 
   ngOnInit() {

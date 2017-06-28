@@ -11,6 +11,7 @@ var PowerballComponent = (function () {
     function PowerballComponent(_powerballService) {
         this._powerballService = _powerballService;
         this.powerballData = new powerball_data_1.PowerballData();
+        this.oneThroughSixtyNine = this.generateSixtyNine();
     }
     PowerballComponent.prototype.ngOnInit = function () {
         var _this = this;

@@ -4,6 +4,30 @@
     text-align: center;
   }
   #body {
+    #powerballs {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      .powerball-number {
+        border: 2px solid #ccc;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 32px;
+        width: 32px;
+        margin: 3px;
+        font-size: 13px;
+        font-weight: 600;
+        transition: border 500ms ease-out, background 500ms ease-out, color 500ms ease-out;
+      }
+      .powerball-number:hover {
+        border: 2px solid #cf0a2c;
+        background-color: #cf0a2c;
+        color: #fff;
+        cursor: pointer;
+      }
+    }
     #powerballNumbersContainer {
       display: flex;
       flex-wrap: wrap;
