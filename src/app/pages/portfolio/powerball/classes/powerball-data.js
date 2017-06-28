@@ -8,8 +8,8 @@ var PowerballData = (function () {
         return this.drawings;
     };
     PowerballData.prototype.getHighchartsData = function () {
-        var numbersObj = { name: 'Numbers', data: this.getNumbersHitCountArray(), color: 'red' };
-        var powerballObj = { name: 'Powerball', data: this.getPowerballsHitCountArray(), color: 'black' };
+        var numbersObj = { name: 'Numbers', data: this.getNumbersHitCountArray(), color: '#cf0a2c' };
+        var powerballObj = { name: 'Powerball', data: this.getPowerballsHitCountArray(), color: '#cf0a2c' };
         return [numbersObj, powerballObj];
     };
     PowerballData.prototype.getNumbersHitCountArray = function () {

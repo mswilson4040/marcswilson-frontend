@@ -10,8 +10,9 @@ export class PowerballData {
     return this.drawings;
   }
   getHighchartsData() {
-    const numbersObj = { name: 'Numbers', data: this.getNumbersHitCountArray(), color: 'red' };
-    const powerballObj = { name: 'Powerball', data: this.getPowerballsHitCountArray(), color: 'black' };
+    const numbersObj = { name: 'Numbers', data: this.getNumbersHitCountArray(), color: '#cf0a2c' };
+    const powerballObj = { name: 'Powerball', data: this.getPowerballsHitCountArray(), color: '#cf0a2c' };
+
     return [numbersObj, powerballObj];
   }
   getNumbersHitCountArray(): Array<number> {
@@ -25,7 +26,7 @@ export class PowerballData {
     }
     for (const obj in hash) {
       if (hash.hasOwnProperty(obj)) {
-        ret.push(hash[ obj ]);
+        ret.push( hash[ obj ] );
       }
     }
     return ret;
@@ -40,7 +41,7 @@ export class PowerballData {
     }
     for (const obj in hash) {
       if (hash.hasOwnProperty(obj)) {
-        ret.push(hash[ obj ]);
+        ret.push( hash[ obj ] );
       }
     }
     return ret;
@@ -52,4 +53,5 @@ export class PowerballData {
     }
     return hash;
   }
+
 }
