@@ -13,6 +13,7 @@ var mlbplayers_component_1 = require('./mlbplayers/mlbplayers.component');
 var mlbteam_component_1 = require('./mlbteam/mlbteam.component');
 var mlbballparks_component_1 = require('./mlbballparks/mlbballparks.component');
 var mlbteams_component_1 = require('./mlbteams/mlbteams.component');
+var player_comparer_component_1 = require('./player-comparer/player-comparer.component');
 var MlbStatsComponent = (function () {
     function MlbStatsComponent(_mlbStatsService, _componentFactoryResolver) {
         var _this = this;
@@ -63,6 +64,12 @@ var MlbStatsComponent = (function () {
         var _this = this;
         this.fadeSelectorToUpperLeft().then(function () {
             _this.addComponent(mlbballparks_component_1.MLBBallparksComponent);
+        });
+    };
+    MlbStatsComponent.prototype.goToPlayerCompare = function () {
+        var _this = this;
+        this.fadeSelectorToUpperLeft().then(function () {
+            _this.addComponent(player_comparer_component_1.PlayerComparerComponent);
         });
     };
     MlbStatsComponent.prototype.fadeSelectorToUpperLeft = function () {

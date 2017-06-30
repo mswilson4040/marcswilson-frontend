@@ -17,6 +17,7 @@ import { MLBBallparksComponent } from './pages/portfolio/mlb-stats/mlbballparks/
 import { MLBteamsComponent } from './pages/portfolio/mlb-stats/mlbteams/mlbteams.component';
 import { SliderComponent } from './pages/portfolio/mlb-stats/slider/slider.component';
 import { PowerballComponent } from './pages/portfolio/powerball/powerball.component';
+import { PlayerComparerComponent } from './pages/portfolio/mlb-stats/player-comparer/player-comparer.component';
 
 
 @NgModule({
@@ -33,9 +34,10 @@ import { PowerballComponent } from './pages/portfolio/powerball/powerball.compon
     MLBBallparksComponent,
     MLBteamsComponent,
     SliderComponent,
-    PowerballComponent
+    PowerballComponent,
+    PlayerComparerComponent
   ],
-  entryComponents: [MLBBallparksComponent, MLBPlayersComponent, MLBTeamComponent, MLBteamsComponent],
+  entryComponents: [MLBBallparksComponent, MLBPlayersComponent, MLBTeamComponent, MLBteamsComponent, PlayerComparerComponent],
   imports: [
     BrowserModule,
     FormsModule,

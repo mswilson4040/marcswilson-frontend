@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var BehaviorSubject_1 = require('rxjs/BehaviorSubject');
+var team_1 = require('../classes/team');
 var MlbStatsService = (function () {
     function MlbStatsService(http) {
         this.http = http;
@@ -92,7 +93,9 @@ var MlbStatsService = (function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.http.get(_this.API_PATH + 'years/' + yearID + '/teams/' + team.teamID).subscribe(function (t) {
-                resolve(t);
+                t = JSON.parse(t['_body']);
+                var theTeam = new team_1.Team(t);
+                resolve(theTeam);
             });
         });
     };

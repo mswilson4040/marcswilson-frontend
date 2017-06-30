@@ -16,8 +16,7 @@ var MLBTeamComponent = (function () {
             if (team !== null) {
                 _this.selectedTeam = team;
                 _this.mlbStatsService.getTeamByYear(_this.mlbStatsService.selectedYear, _this.selectedTeam).then(function (t) {
-                    t = JSON.parse(t['_body']);
-                    _this.selectedTeam = new team_1.Team(t);
+                    _this.selectedTeam = t;
                     var data = _this.buildChartData(null, 'HR');
                     _this.buildChart(data, 'HR');
                     $('html,body').delay(1000).animate({ scrollTop: 0 }, 100); // TODO: Shouldn't need a .delay here...

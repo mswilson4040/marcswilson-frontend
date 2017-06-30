@@ -1,0 +1,10 @@
+#playerComparerContainer #compareDiv {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row; }
+  #playerComparerContainer #compareDiv .form-group {
+    width: 100%;
+    padding: 10px; }
+
+/*# sourceMappingURL=player-comparer.component.css.map */

@@ -23,6 +23,7 @@ var mlbballparks_component_1 = require('./pages/portfolio/mlb-stats/mlbballparks
 var mlbteams_component_1 = require('./pages/portfolio/mlb-stats/mlbteams/mlbteams.component');
 var slider_component_1 = require('./pages/portfolio/mlb-stats/slider/slider.component');
 var powerball_component_1 = require('./pages/portfolio/powerball/powerball.component');
+var player_comparer_component_1 = require('./pages/portfolio/mlb-stats/player-comparer/player-comparer.component');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -41,9 +42,10 @@ var AppModule = (function () {
                 mlbballparks_component_1.MLBBallparksComponent,
                 mlbteams_component_1.MLBteamsComponent,
                 slider_component_1.SliderComponent,
-                powerball_component_1.PowerballComponent
+                powerball_component_1.PowerballComponent,
+                player_comparer_component_1.PlayerComparerComponent
             ],
-            entryComponents: [mlbballparks_component_1.MLBBallparksComponent, mlbplayers_component_1.MLBPlayersComponent, mlbteam_component_1.MLBTeamComponent, mlbteams_component_1.MLBteamsComponent],
+            entryComponents: [mlbballparks_component_1.MLBBallparksComponent, mlbplayers_component_1.MLBPlayersComponent, mlbteam_component_1.MLBTeamComponent, mlbteams_component_1.MLBteamsComponent, player_comparer_component_1.PlayerComparerComponent],
             imports: [
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,

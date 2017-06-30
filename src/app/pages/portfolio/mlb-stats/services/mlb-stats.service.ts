@@ -78,7 +78,9 @@ export class MlbStatsService {
   getTeamByYear(yearID: number, team: Team): Promise<Team> {
     return new Promise( (resolve, reject) => {
       this.http.get(this.API_PATH + 'years/' + yearID + '/teams/' + team.teamID).subscribe( t => {
-        resolve(t);
+        t = JSON.parse(t['_body']);
+        const theTeam = new Team(t);
+        resolve(theTeam);
       });
     });
   }

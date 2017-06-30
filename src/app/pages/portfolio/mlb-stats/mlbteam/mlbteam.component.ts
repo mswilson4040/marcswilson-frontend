@@ -17,8 +17,7 @@ export class MLBTeamComponent implements OnInit, OnDestroy {
       if (team !== null) {
         this.selectedTeam = team;
         this.mlbStatsService.getTeamByYear(this.mlbStatsService.selectedYear, this.selectedTeam).then(t => {
-          t = JSON.parse(t[ '_body' ]);
-          this.selectedTeam = new Team(t);
+          this.selectedTeam = t
           const data = this.buildChartData(null, 'HR');
           this.buildChart(data, 'HR');
           $('html,body').delay(1000).animate({scrollTop: 0}, 100); // TODO: Shouldn't need a .delay here...
