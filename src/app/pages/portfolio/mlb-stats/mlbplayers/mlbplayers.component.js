@@ -29,7 +29,7 @@ var MLBPlayersComponent = (function () {
         this.selectedPlayer = [];
         $('#appearancesChart').empty();
         if (val && val.length > 3) {
-            this.mlbStatsService.getPlayerIdByName(val).then(function (player) {
+            this.mlbStatsService.getPlayersByName(val).then(function (player) {
                 _this.searchResult = player;
             });
         }

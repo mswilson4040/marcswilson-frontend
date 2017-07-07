@@ -47,7 +47,7 @@ var MlbStatsApi = (function () {
         });
         this.router.get('/players/name/:playerName', function (request, response) {
             var playerName = request.params.playerName;
-            _this.getPlayerIDFromName(playerName).then(function (data) {
+            _this.getPlayersByName(playerName).then(function (data) {
                 response.json(data);
             });
         });
@@ -444,7 +444,7 @@ var MlbStatsApi = (function () {
             });
         });
     };
-    MlbStatsApi.prototype.getPlayerIDFromName = function (name) {
+    MlbStatsApi.prototype.getPlayersByName = function (name) {
         var _this = this;
         return new Promise(function (resolve, reject) {
             _this.mongodb.connect(_this.DB_PATH, function (connectionError, db) {

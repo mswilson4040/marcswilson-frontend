@@ -31,8 +31,6 @@ class Server {
     this.app.get('/*', (req: any, res: any) => {
       res.sendFile(this.path.join(__dirname + '/../index.html'));
     });
-
-
   }
 }
 new Server();

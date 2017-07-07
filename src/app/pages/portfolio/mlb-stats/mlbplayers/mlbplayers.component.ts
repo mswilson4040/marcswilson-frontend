@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Player} from '../classes/player';
 import {Appearance} from '../classes/appearance';
 import {MlbStatsService} from '../services/mlb-stats.service';
+import {Personal} from '../classes/personal';
 
 declare const Highcharts: any; // TODO: Fix reference to proper ES6 syntax
 
@@ -13,7 +14,7 @@ declare const Highcharts: any; // TODO: Fix reference to proper ES6 syntax
 export class MLBPlayersComponent implements OnInit, OnDestroy {
 
   public playerName: string = null;
-  public searchResult: Array<Player> = new Array<Player>();
+  public searchResult: Array<Personal> = new Array<Personal>();
   public selectedPlayer: Array<Appearance> = new Array<Appearance>();
   constructor(private mlbStatsService: MlbStatsService) {}
   ngOnInit(): void {
@@ -32,7 +33,7 @@ export class MLBPlayersComponent implements OnInit, OnDestroy {
     this.selectedPlayer = [];
     $('#appearancesChart').empty();
     if (val && val.length > 3) {
-      this.mlbStatsService.getPlayerIdByName(val).then(player => {
+      this.mlbStatsService.getPlayersByName(val).then(player => {
         this.searchResult = player;
       });
     }

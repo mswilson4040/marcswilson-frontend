@@ -9,7 +9,6 @@ import {MLBPlayersComponent} from './mlbplayers/mlbplayers.component';
 import {MLBTeamComponent} from './mlbteam/mlbteam.component';
 import {MLBBallparksComponent} from './mlbballparks/mlbballparks.component';
 import {MLBteamsComponent} from './mlbteams/mlbteams.component';
-import {PlayerComparerComponent} from './player-comparer/player-comparer.component';
 
 @Component({
   selector: 'app-mlb-stats',
@@ -70,11 +69,6 @@ export class MlbStatsComponent implements OnInit {
   goToBallparks(): void {
     this.fadeSelectorToUpperLeft().then( () => {
       this.addComponent(MLBBallparksComponent);
-    });
-  }
-  goToPlayerCompare(): void {
-    this.fadeSelectorToUpperLeft().then( () => {
-      this.addComponent(PlayerComparerComponent);
     });
   }
   fadeSelectorToUpperLeft(): Promise<any> {

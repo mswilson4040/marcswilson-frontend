@@ -5,6 +5,7 @@ import { Player } from '../classes/player';
 import { Http } from '@angular/http';
 import { Ballpark } from '../classes/ballpark';
 import { Appearance } from '../classes/appearance';
+import {Personal} from '../classes/personal';
 
 @Injectable()
 export class MlbStatsService {
@@ -84,11 +85,11 @@ export class MlbStatsService {
       });
     });
   }
-  getPlayerIdByName(name: string): Promise<any> {
+  getPlayersByName(name: string): Promise<Array<Personal>> {
     return new Promise( (resolve, reject) => {
-      this.http.get(this.API_PATH + 'players/name/' + name).subscribe( playerID => {
-        playerID = JSON.parse(playerID['_body']);
-        resolve(playerID);
+      this.http.get(this.API_PATH + 'players/name/' + name).subscribe( personal => {
+        personal = JSON.parse(personal['_body']);
+        resolve(personal);
       });
     });
   }

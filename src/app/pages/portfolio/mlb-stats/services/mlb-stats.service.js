@@ -99,12 +99,12 @@ var MlbStatsService = (function () {
             });
         });
     };
-    MlbStatsService.prototype.getPlayerIdByName = function (name) {
+    MlbStatsService.prototype.getPlayersByName = function (name) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.http.get(_this.API_PATH + 'players/name/' + name).subscribe(function (playerID) {
-                playerID = JSON.parse(playerID['_body']);
-                resolve(playerID);
+            _this.http.get(_this.API_PATH + 'players/name/' + name).subscribe(function (personal) {
+                personal = JSON.parse(personal['_body']);
+                resolve(personal);
             });
         });
     };

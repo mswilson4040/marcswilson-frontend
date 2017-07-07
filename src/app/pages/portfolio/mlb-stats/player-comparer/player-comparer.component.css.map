@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AACE,oCAAY;EACV,OAAO,EAAE,IAAI;EACb,eAAe,EAAE,YAAY;EAC7B,WAAW,EAAE,MAAM;EACnB,cAAc,EAAE,GAAG;EACnB,gDAAY;IACV,KAAK,EAAE,IAAI;IACX,OAAO,EAAE,IAAI",
-"sources": ["player-comparer.component.scss"],
-"names": [],
-"file": "player-comparer.component.css"
-}

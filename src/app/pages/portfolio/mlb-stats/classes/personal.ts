@@ -1,6 +1,6 @@
 export class Personal {
 
-  //<editor-fold desc="Personal Class Properties">
+  // <editor-fold desc="Personal Class Properties">
   public playerID: string = null;
   public birthYear: number = null;
   public birthMonth: number = null;
@@ -25,12 +25,14 @@ export class Personal {
   public throws: string = null;
   public debut: string = null;
   public finalGame: string = null;
-  //</editor-fold>
+  // </editor-fold>
 
   constructor(data?) {
     if (data) {
-      for (let obj in data) {
-        this[obj] = data[obj];
+      for (const obj in data) {
+        if (data.hasOwnProperty(obj)) {
+          this[ obj ] = data[ obj ];
+        }
       }
       this.init();
     }
@@ -41,9 +43,9 @@ export class Personal {
   }
   getAge(month: number, day: number, year: number): number {
     if (month && day && year) {
-      let birthday = new Date(year, (month - 1), day);
-      let ageDiffMonth = Date.now() - birthday.getTime();
-      let ageDate = new Date(ageDiffMonth);
+      const birthday = new Date(year, (month - 1), day);
+      const ageDiffMonth = Date.now() - birthday.getTime();
+      const ageDate = new Date(ageDiffMonth);
       return Math.abs(ageDate.getUTCFullYear() - 1970);
     } else {
       return null;

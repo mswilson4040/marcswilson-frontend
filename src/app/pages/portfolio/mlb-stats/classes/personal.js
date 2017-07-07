@@ -1,8 +1,8 @@
 "use strict";
 var Personal = (function () {
-    //</editor-fold>
+    // </editor-fold>
     function Personal(data) {
-        //<editor-fold desc="Personal Class Properties">
+        // <editor-fold desc="Personal Class Properties">
         this.playerID = null;
         this.birthYear = null;
         this.birthMonth = null;
@@ -29,7 +29,9 @@ var Personal = (function () {
         this.finalGame = null;
         if (data) {
             for (var obj in data) {
-                this[obj] = data[obj];
+                if (data.hasOwnProperty(obj)) {
+                    this[obj] = data[obj];
+                }
             }
             this.init();
         }

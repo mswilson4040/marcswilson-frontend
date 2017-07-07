@@ -47,7 +47,7 @@ export class MlbStatsApi {
     });
     this.router.get('/players/name/:playerName', (request, response) => {
       const playerName = request.params.playerName;
-      this.getPlayerIDFromName(playerName).then(data => {
+      this.getPlayersByName(playerName).then(data => {
         response.json(data);
       });
     });
@@ -418,7 +418,7 @@ export class MlbStatsApi {
       });
     });
   }
-  getPlayerIDFromName(name: string): Promise<any> {
+  getPlayersByName(name: string): Promise<Array<any>> {
     return new Promise( (resolve, reject) => {
       this.mongodb.connect(this.DB_PATH, (connectionError, db) => {
         const collection = db.collection('peoples');
