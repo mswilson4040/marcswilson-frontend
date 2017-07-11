@@ -3,7 +3,6 @@
 // TODO: http://gd2.mlb.com/components/ <--- LOOK INTO THIS (Box Scores and other game stats from ESPN)
 import {Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {Team} from './classes/team';
-import {UIService} from '../../../shared-services/ui.service';
 import {MlbStatsService} from './services/mlb-stats.service';
 import {MLBPlayersComponent} from './mlbplayers/mlbplayers.component';
 import {MLBTeamComponent} from './mlbteam/mlbteam.component';

@@ -8,18 +8,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require('@angular/core');
 var team_1 = require('../classes/team');
 var MLBTeamComponent = (function () {
-    function MLBTeamComponent(mlbStatsService) {
+    function MLBTeamComponent(_mlbStatsService, _uiService) {
         var _this = this;
-        this.mlbStatsService = mlbStatsService;
+        this._mlbStatsService = _mlbStatsService;
+        this._uiService = _uiService;
         this.selectedTeam = new team_1.Team();
-        this.mlbStatsService.selectedTeam$.subscribe(function (team) {
+        this._uiService.showOverlay('Fetching Teams from ' + this._mlbStatsService.selectedYear + '...');
+        this._mlbStatsService.selectedTeam$.subscribe(function (team) {
             if (team !== null) {
                 _this.selectedTeam = team;
-                _this.mlbStatsService.getTeamByYear(_this.mlbStatsService.selectedYear, _this.selectedTeam).then(function (t) {
+                _this._mlbStatsService.getTeamByYear(_this._mlbStatsService.selectedYear, _this.selectedTeam).then(function (t) {
                     _this.selectedTeam = t;
                     var data = _this.buildChartData(null, 'HR');
                     _this.buildChart(data, 'HR');
-                    $('html,body').delay(1000).animate({ scrollTop: 0 }, 100); // TODO: Shouldn't need a .delay here...
+                    _this._uiService.hideOverlay();
                 });
             }
         });
@@ -53,7 +55,7 @@ var MLBTeamComponent = (function () {
                 type: 'column'
             },
             title: {
-                text: 'Stats for the ' + this.mlbStatsService.selectedYear + ' ' + this.mlbStatsService.selectedTeam.name
+                text: 'Stats for the ' + this._mlbStatsService.selectedYear + ' ' + this._mlbStatsService.selectedTeam.name
             },
             subtitle: {
                 text: 'Source: <a href="https://github.com/chadwickbureau/baseballdatabank" target="_blank">Baseball Databank</a>',
@@ -92,7 +94,7 @@ var MLBTeamComponent = (function () {
         this.buildChart(data, stat);
     };
     MLBTeamComponent.prototype.goToPlayer = function (player) {
-        this.mlbStatsService.setSelectedPlayer(player);
+        this._mlbStatsService.setSelectedPlayer(player);
     };
     MLBTeamComponent = __decorate([
         // TODO: Fix reference to proper ES6 syntax

@@ -22,7 +22,7 @@ export class MlbApiExplorerComponent implements OnInit {
   public selectedPlayerID: string = null;
   public endpointSelected = false;
 
-  constructor(private http: Http, private uiService: UIService, private mlbStatsService: MlbStatsService) {
+  constructor(private _http: Http, private _uiService: UIService, private _mlbStatsService: MlbStatsService) {
   }
 
   ngOnInit(): void {
@@ -42,21 +42,21 @@ export class MlbApiExplorerComponent implements OnInit {
   }
   fetchAPIResult(): void {
     if (this.path !== this.URL_ROOT) {
-      this.uiService.showOverlay('Fetching API Results');
-      this.http.get(this.path).subscribe(response => {
+      this._uiService.showOverlay('Fetching API Results...');
+      this._http.get(this.path).subscribe(response => {
         const jObj = JSON.parse(response[ '_body' ]);
         $('#results')[ 'jsonViewer' ](jObj);
-        this.uiService.hideOverlay();
+        this._uiService.hideOverlay();
       });
     } else {
 
     }
   }
   getDistinctYears(): void {
-    this.uiService.showOverlay('Fetching seasons...');
-    this.mlbStatsService.getDistinctYears().then( years => {
+    this._uiService.showOverlay('Fetching seasons...');
+    this._mlbStatsService.getDistinctYears().then( years => {
       this.years = years;
-      this.uiService.hideOverlay();
+      this._uiService.hideOverlay();
     });
   }
   selectedYearChange(e, type): void {
@@ -71,18 +71,18 @@ export class MlbApiExplorerComponent implements OnInit {
 
   }
   getTeamsByYear() {
-    this.uiService.showOverlay('Fetching teams...');
-    this.mlbStatsService.getTeamsByYear(this.selectedYear).then( teams => {
+    this._uiService.showOverlay('Fetching teams...');
+    this._mlbStatsService.getTeamsByYear(this.selectedYear).then( teams => {
       this.teams = teams;
-      this.uiService.hideOverlay();
+      this._uiService.hideOverlay();
     });
   }
   getPlayersByYear() {
-    this.uiService.showOverlay('Fetching players...');
-    this.http.get(this.URL_ROOT + 'api/mlbstats/years/' + this.selectedYear + '/players').subscribe(players => {
+    this._uiService.showOverlay('Fetching players...');
+    this._http.get(this.URL_ROOT + 'api/mlbstats/years/' + this.selectedYear + '/players').subscribe(players => {
       const parsed = JSON.parse(players['_body']);
       this.players = parsed;
-      this.uiService.hideOverlay();
+      this._uiService.hideOverlay();
     });
   }
   selectedTeamChange(e): void {

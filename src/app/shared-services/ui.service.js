@@ -9,26 +9,17 @@ var core_1 = require('@angular/core');
 var BehaviorSubject_1 = require('rxjs/BehaviorSubject');
 var UIService = (function () {
     function UIService() {
-        this.dialogService$ = new BehaviorSubject_1.BehaviorSubject(null);
         this.overlayService$ = new BehaviorSubject_1.BehaviorSubject(null);
     }
-    Object.defineProperty(UIService.prototype, "dialogService", {
-        set: function (value) {
-            this.dialogService$.next(value);
-        },
-        enumerable: true,
-        configurable: true
-    });
     Object.defineProperty(UIService.prototype, "overlayService", {
         set: function (value) {
-            this.overlayService$.next(value);
+            if (value !== null) {
+                this.overlayService$.next(value);
+            }
         },
         enumerable: true,
         configurable: true
     });
-    UIService.prototype.showDialog = function (title, message, callback) {
-        this.dialogService = { title: title, message: message, callback: callback };
-    };
     UIService.prototype.showOverlay = function (message) {
         this.overlayService = { visible: true, message: message };
     };

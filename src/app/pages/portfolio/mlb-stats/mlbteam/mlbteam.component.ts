@@ -2,6 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Player} from '../classes/player';
 import {Team} from '../classes/team';
 import {MlbStatsService} from '../services/mlb-stats.service';
+import {UIService} from '../../../../shared-services/ui.service';
 declare const Highcharts: any; // TODO: Fix reference to proper ES6 syntax
 
 @Component({
@@ -12,15 +13,16 @@ declare const Highcharts: any; // TODO: Fix reference to proper ES6 syntax
 export class MLBTeamComponent implements OnInit, OnDestroy {
 
   public selectedTeam: Team = new Team();
-  constructor(private mlbStatsService: MlbStatsService) {
-    this.mlbStatsService.selectedTeam$.subscribe(team => {
+  constructor(private _mlbStatsService: MlbStatsService, private _uiService: UIService) {
+    this._uiService.showOverlay('Fetching Teams from ' + this._mlbStatsService.selectedYear + '...');
+    this._mlbStatsService.selectedTeam$.subscribe(team => {
       if (team !== null) {
         this.selectedTeam = team;
-        this.mlbStatsService.getTeamByYear(this.mlbStatsService.selectedYear, this.selectedTeam).then(t => {
+        this._mlbStatsService.getTeamByYear(this._mlbStatsService.selectedYear, this.selectedTeam).then(t => {
           this.selectedTeam = t
           const data = this.buildChartData(null, 'HR');
           this.buildChart(data, 'HR');
-          $('html,body').delay(1000).animate({scrollTop: 0}, 100); // TODO: Shouldn't need a .delay here...
+          this._uiService.hideOverlay();
         });
       }
     });
@@ -53,7 +55,7 @@ export class MLBTeamComponent implements OnInit, OnDestroy {
         type: 'column'
       },
       title: {
-        text: 'Stats for the ' + this.mlbStatsService.selectedYear + ' ' + this.mlbStatsService.selectedTeam.name
+        text: 'Stats for the ' + this._mlbStatsService.selectedYear + ' ' + this._mlbStatsService.selectedTeam.name
       },
       subtitle: {
         text: 'Source: <a href="https://github.com/chadwickbureau/baseballdatabank" target="_blank">Baseball Databank</a>',
@@ -92,6 +94,6 @@ export class MLBTeamComponent implements OnInit, OnDestroy {
     this.buildChart(data, stat);
   }
   goToPlayer(player: Player): void {
-    this.mlbStatsService.setSelectedPlayer(player);
+    this._mlbStatsService.setSelectedPlayer(player);
   }
 }

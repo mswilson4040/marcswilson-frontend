@@ -8,14 +8,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require('@angular/core');
 var ballpark_1 = require('../classes/ballpark');
 var MLBBallparksComponent = (function () {
-    function MLBBallparksComponent(mlbstatsService) {
+    function MLBBallparksComponent(_mlbstatsService, _uiService) {
         var _this = this;
-        this.mlbstatsService = mlbstatsService;
+        this._mlbstatsService = _mlbstatsService;
+        this._uiService = _uiService;
         this.ballparks = new Array();
-        this.mlbstatsService.getAllBallparks().then(function (parks) {
+        this._uiService.showOverlay('Fetching ballparks...');
+        this._mlbstatsService.getAllBallparks().then(function (parks) {
             _this.ballparks = parks.map(function (p) {
                 return new ballpark_1.Ballpark(p);
             });
+            _this._uiService.hideOverlay();
         });
     }
     MLBBallparksComponent.prototype.ngOnInit = function () {

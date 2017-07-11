@@ -8,14 +8,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require('@angular/core');
 var appearance_1 = require('../classes/appearance');
 var MLBPlayersComponent = (function () {
-    function MLBPlayersComponent(mlbStatsService) {
-        this.mlbStatsService = mlbStatsService;
+    function MLBPlayersComponent(_mlbStatsService, _uiService) {
+        this._mlbStatsService = _mlbStatsService;
+        this._uiService = _uiService;
         this.playerName = null;
         this.searchResult = new Array();
         this.selectedPlayer = new Array();
     }
     MLBPlayersComponent.prototype.ngOnInit = function () {
-        var selectedPlayer = this.mlbStatsService.selectedPlayer;
+        var selectedPlayer = this._mlbStatsService.selectedPlayer;
         if (selectedPlayer !== null) {
             this.playerName = selectedPlayer.personal[0].fullName;
             this.goToPlayer(selectedPlayer);
@@ -29,14 +30,15 @@ var MLBPlayersComponent = (function () {
         this.selectedPlayer = [];
         $('#appearancesChart').empty();
         if (val && val.length > 3) {
-            this.mlbStatsService.getPlayersByName(val).then(function (player) {
+            this._mlbStatsService.getPlayersByName(val).then(function (player) {
                 _this.searchResult = player;
             });
         }
     };
     MLBPlayersComponent.prototype.goToPlayer = function (player) {
         var _this = this;
-        this.mlbStatsService.getFullPlayerStats(player).then(function (appearances) {
+        this._uiService.showOverlay('Fetching Player Stats...');
+        this._mlbStatsService.getFullPlayerStats(player).then(function (appearances) {
             appearances = appearances.map(function (a) {
                 return new appearance_1.Appearance(a);
             });
@@ -44,6 +46,7 @@ var MLBPlayersComponent = (function () {
             _this.selectedPlayer = appearances;
             var data = _this.buildChartData('batting', 'HR');
             _this.buildChart(data, 'HR');
+            _this._uiService.hideOverlay();
         });
     };
     MLBPlayersComponent.prototype.buildChartData = function (node, stat) {

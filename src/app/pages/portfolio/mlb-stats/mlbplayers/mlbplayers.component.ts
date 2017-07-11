@@ -3,6 +3,7 @@ import {Player} from '../classes/player';
 import {Appearance} from '../classes/appearance';
 import {MlbStatsService} from '../services/mlb-stats.service';
 import {Personal} from '../classes/personal';
+import {UIService} from '../../../../shared-services/ui.service';
 
 declare const Highcharts: any; // TODO: Fix reference to proper ES6 syntax
 
@@ -16,9 +17,9 @@ export class MLBPlayersComponent implements OnInit, OnDestroy {
   public playerName: string = null;
   public searchResult: Array<Personal> = new Array<Personal>();
   public selectedPlayer: Array<Appearance> = new Array<Appearance>();
-  constructor(private mlbStatsService: MlbStatsService) {}
+  constructor(private _mlbStatsService: MlbStatsService, private _uiService: UIService) {}
   ngOnInit(): void {
-    const selectedPlayer = this.mlbStatsService.selectedPlayer;
+    const selectedPlayer = this._mlbStatsService.selectedPlayer;
 
     if (selectedPlayer !== null) {
       this.playerName = selectedPlayer.personal[0].fullName;
@@ -33,13 +34,14 @@ export class MLBPlayersComponent implements OnInit, OnDestroy {
     this.selectedPlayer = [];
     $('#appearancesChart').empty();
     if (val && val.length > 3) {
-      this.mlbStatsService.getPlayersByName(val).then(player => {
+      this._mlbStatsService.getPlayersByName(val).then(player => {
         this.searchResult = player;
       });
     }
   }
   goToPlayer(player: Player) {
-    this.mlbStatsService.getFullPlayerStats(player).then(appearances => {
+    this._uiService.showOverlay('Fetching Player Stats...');
+    this._mlbStatsService.getFullPlayerStats(player).then(appearances => {
       appearances = appearances.map( (a) => {
         return new Appearance(a);
       });
@@ -47,6 +49,7 @@ export class MLBPlayersComponent implements OnInit, OnDestroy {
       this.selectedPlayer = appearances;
       const data = this.buildChartData('batting', 'HR');
       this.buildChart(data, 'HR');
+      this._uiService.hideOverlay();
     });
   }
   buildChartData(node, stat): Array<any> {

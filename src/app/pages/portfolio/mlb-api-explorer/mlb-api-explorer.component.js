@@ -7,10 +7,10 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require('@angular/core');
 var MlbApiExplorerComponent = (function () {
-    function MlbApiExplorerComponent(http, uiService, mlbStatsService) {
-        this.http = http;
-        this.uiService = uiService;
-        this.mlbStatsService = mlbStatsService;
+    function MlbApiExplorerComponent(_http, _uiService, _mlbStatsService) {
+        this._http = _http;
+        this._uiService = _uiService;
+        this._mlbStatsService = _mlbStatsService;
         this.URL_ROOT = this.getUrlRoot();
         this.path = null;
         this.selectedYear = null;
@@ -36,11 +36,11 @@ var MlbApiExplorerComponent = (function () {
     MlbApiExplorerComponent.prototype.fetchAPIResult = function () {
         var _this = this;
         if (this.path !== this.URL_ROOT) {
-            this.uiService.showOverlay('Fetching API Results');
-            this.http.get(this.path).subscribe(function (response) {
+            this._uiService.showOverlay('Fetching API Results...');
+            this._http.get(this.path).subscribe(function (response) {
                 var jObj = JSON.parse(response['_body']);
                 $('#results')['jsonViewer'](jObj);
-                _this.uiService.hideOverlay();
+                _this._uiService.hideOverlay();
             });
         }
         else {
@@ -48,10 +48,10 @@ var MlbApiExplorerComponent = (function () {
     };
     MlbApiExplorerComponent.prototype.getDistinctYears = function () {
         var _this = this;
-        this.uiService.showOverlay('Fetching seasons...');
-        this.mlbStatsService.getDistinctYears().then(function (years) {
+        this._uiService.showOverlay('Fetching seasons...');
+        this._mlbStatsService.getDistinctYears().then(function (years) {
             _this.years = years;
-            _this.uiService.hideOverlay();
+            _this._uiService.hideOverlay();
         });
     };
     MlbApiExplorerComponent.prototype.selectedYearChange = function (e, type) {
@@ -67,19 +67,19 @@ var MlbApiExplorerComponent = (function () {
     };
     MlbApiExplorerComponent.prototype.getTeamsByYear = function () {
         var _this = this;
-        this.uiService.showOverlay('Fetching teams...');
-        this.mlbStatsService.getTeamsByYear(this.selectedYear).then(function (teams) {
+        this._uiService.showOverlay('Fetching teams...');
+        this._mlbStatsService.getTeamsByYear(this.selectedYear).then(function (teams) {
             _this.teams = teams;
-            _this.uiService.hideOverlay();
+            _this._uiService.hideOverlay();
         });
     };
     MlbApiExplorerComponent.prototype.getPlayersByYear = function () {
         var _this = this;
-        this.uiService.showOverlay('Fetching players...');
-        this.http.get(this.URL_ROOT + 'api/mlbstats/years/' + this.selectedYear + '/players').subscribe(function (players) {
+        this._uiService.showOverlay('Fetching players...');
+        this._http.get(this.URL_ROOT + 'api/mlbstats/years/' + this.selectedYear + '/players').subscribe(function (players) {
             var parsed = JSON.parse(players['_body']);
             _this.players = parsed;
-            _this.uiService.hideOverlay();
+            _this._uiService.hideOverlay();
         });
     };
     MlbApiExplorerComponent.prototype.selectedTeamChange = function (e) {
