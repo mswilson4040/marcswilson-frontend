@@ -8,17 +8,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require('@angular/core');
 var powerball_data_1 = require('./classes/powerball-data');
 var PowerballComponent = (function () {
-    function PowerballComponent(_powerballService) {
+    function PowerballComponent(_powerballService, _uiService) {
         this._powerballService = _powerballService;
+        this._uiService = _uiService;
         this.powerballData = new powerball_data_1.PowerballData();
         this.oneThroughSixtyNine = this.generateSixtyNine();
     }
     PowerballComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this._uiService.showOverlay('Fetching Powerball numbers...');
         this._powerballService.getPowerball().then(function (pb) {
             _this.powerballData = pb;
             var data = _this.powerballData.getHighchartsData();
             _this.drawChart(data);
+            _this._uiService.hideOverlay();
         });
     };
     PowerballComponent.prototype.drawChart = function (data) {
