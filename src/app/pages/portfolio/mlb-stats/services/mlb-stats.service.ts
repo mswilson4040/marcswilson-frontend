@@ -109,6 +109,14 @@ export class MlbStatsService {
       });
     });
   }
+  getBoxScores(date: Date): Promise<any> {
+    return new Promise( (resolve, reject) => {
+      this.http.get(this.API_PATH + 'boxscores').subscribe( bs => {
+        bs = JSON.parse(bs['_body']);
+        resolve(bs);
+      });
+    });
+  }
   setSelectedTeam(team: Team) {
     this.selectedTeam = team;
   }

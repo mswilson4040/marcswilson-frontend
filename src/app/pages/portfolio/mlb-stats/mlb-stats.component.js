@@ -14,10 +14,11 @@ var mlbteam_component_1 = require('./mlbteam/mlbteam.component');
 var mlbballparks_component_1 = require('./mlbballparks/mlbballparks.component');
 var mlbteams_component_1 = require('./mlbteams/mlbteams.component');
 var MlbStatsComponent = (function () {
-    function MlbStatsComponent(_mlbStatsService, _componentFactoryResolver) {
+    function MlbStatsComponent(_mlbStatsService, _componentFactoryResolver, _uiService) {
         var _this = this;
         this._mlbStatsService = _mlbStatsService;
         this._componentFactoryResolver = _componentFactoryResolver;
+        this._uiService = _uiService;
         this.currentComponentRef = null;
         this._mlbStatsService.selectedYear$.subscribe(function (year) {
             _this.selectedYear = year;
@@ -38,6 +39,12 @@ var MlbStatsComponent = (function () {
         });
     }
     MlbStatsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._uiService.showOverlay('Fetching Box Scores...');
+        this._mlbStatsService.getBoxScores(new Date()).then(function (bs) {
+            alert(JSON.stringify(bs));
+            _this._uiService.hideOverlay();
+        });
     };
     MlbStatsComponent.prototype.addComponent = function (component) {
         if (this.currentComponentRef !== null) {

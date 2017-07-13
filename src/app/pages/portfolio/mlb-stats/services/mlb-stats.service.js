@@ -126,6 +126,15 @@ var MlbStatsService = (function () {
             });
         });
     };
+    MlbStatsService.prototype.getBoxScores = function (date) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.http.get(_this.API_PATH + 'boxscores').subscribe(function (bs) {
+                bs = JSON.parse(bs['_body']);
+                resolve(bs);
+            });
+        });
+    };
     MlbStatsService.prototype.setSelectedTeam = function (team) {
         this.selectedTeam = team;
     };

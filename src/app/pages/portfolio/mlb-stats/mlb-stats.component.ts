@@ -8,6 +8,7 @@ import {MLBPlayersComponent} from './mlbplayers/mlbplayers.component';
 import {MLBTeamComponent} from './mlbteam/mlbteam.component';
 import {MLBBallparksComponent} from './mlbballparks/mlbballparks.component';
 import {MLBteamsComponent} from './mlbteams/mlbteams.component';
+import {UIService} from '../../../shared-services/ui.service';
 
 @Component({
   selector: 'app-mlb-stats',
@@ -22,7 +23,7 @@ export class MlbStatsComponent implements OnInit {
 
   @ViewChild('componentPlaceholder', {read: ViewContainerRef}) viewContainerRef;
 
-  constructor(private _mlbStatsService: MlbStatsService, private _componentFactoryResolver: ComponentFactoryResolver) {
+  constructor(private _mlbStatsService: MlbStatsService, private _componentFactoryResolver: ComponentFactoryResolver, private _uiService: UIService) {
 
     this._mlbStatsService.selectedYear$.subscribe(year => {
       this.selectedYear = year;
@@ -44,7 +45,11 @@ export class MlbStatsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this._uiService.showOverlay('Fetching Box Scores...');
+    this._mlbStatsService.getBoxScores(new Date()).then( bs => {
+      alert(JSON.stringify(bs));
+      this._uiService.hideOverlay();
+    });
   }
   addComponent(component): void {
     if (this.currentComponentRef !== null) {
