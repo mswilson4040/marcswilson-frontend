@@ -24,6 +24,7 @@ export class PowerballComponent implements OnInit {
     });
   }
   drawChart(data) {
+
     Highcharts.chart('powerballChart', {
       chart: {
         type: 'column'
@@ -52,6 +53,7 @@ export class PowerballComponent implements OnInit {
       },
       series: data
     });
+
   }
   generateSixtyNine(): Array<number> {
     const arr = [];

@@ -5,15 +5,12 @@
   </div>
   <div id="appsContainer" class="container">
     <div class="app-container rounded col-xl-4 col-lg-6 col-md-6 col-6" *ngFor="let app of apps" routerLink="{{app.url}}">
-      <div class="app-image-container" (mouseenter)="showHoverDisplay($event)" (mouseleave)="hideHoverDisplay($event)">
+      <div class="app-image-container">
         <img src="{{app.image}}" />
       </div>
       <div class="app-content-container">
         <div class="app-header">
           <h1 class="display-4">{{app.name}}</h1>
-        </div>
-        <div class="app-footer">
-          {{app.description}}
         </div>
       </div>
     </div>

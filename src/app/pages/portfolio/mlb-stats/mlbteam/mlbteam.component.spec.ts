@@ -4,6 +4,7 @@ import { MLBTeamComponent } from './mlbteam.component';
 import {MlbStatsService} from '../services/mlb-stats.service';
 import {Http} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
+import {UIService} from '../../../../shared-services/ui.service';
 
 describe('MLBTeamComponent', () => {
   let component: MLBTeamComponent;
@@ -12,7 +13,7 @@ describe('MLBTeamComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ MLBTeamComponent ],
-      providers: [ MlbStatsService, {provide: Http, deps: [MockBackend]} ]
+      providers: [ MlbStatsService, {provide: Http, deps: [MockBackend]}, UIService ]
     })
     .compileComponents();
   }));

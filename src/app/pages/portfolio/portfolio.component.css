@@ -30,11 +30,6 @@
         width: 100%; }
         #portfolioContainer #appsContainer .app-container .app-content-container .app-header h1 {
           float: right; }
-      #portfolioContainer #appsContainer .app-container .app-content-container .app-footer {
-        display: none;
-        padding: 10px;
-        height: 60px;
-        background-color: #2f4050; }
   #portfolioContainer #appsContainer .app-container:hover .app-image-container {
     opacity: 0.9; }
     #portfolioContainer #appsContainer .app-container:hover .app-image-container img {

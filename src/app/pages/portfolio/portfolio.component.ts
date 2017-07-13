@@ -24,15 +24,4 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
       delay += 100;
     }
   }
-  showHoverDisplay(evt): void {
-
-    const container = $(evt.currentTarget);
-    container.closest('.app-container').find('.app-footer').show('slide', {}, 300);
-  }
-  hideHoverDisplay(evt): void {
-
-    const container = $(evt.currentTarget);
-    container.closest('.app-container').find('.app-footer').hide();
-  }
-
 }

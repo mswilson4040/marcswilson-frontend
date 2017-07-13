@@ -18,7 +18,7 @@ var MLBBallparksComponent = (function () {
             _this.ballparks = parks.map(function (p) {
                 return new ballpark_1.Ballpark(p);
             });
-            //this._uiService.hideOverlay();
+            _this._uiService.hideOverlay();
         });
     }
     MLBBallparksComponent.prototype.ngOnInit = function () {

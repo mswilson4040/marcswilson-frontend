@@ -62,6 +62,13 @@ export class MlbStatsApi {
         response.json(park);
       });
     });
+    this.router.get('/boxscores', (request, response) => {
+      this.getBoxScore().then(score => {
+        response.json(score);
+      }, error => {
+        response.json(error);
+      });
+    });
 
     module.exports = this.router;
   }
@@ -449,6 +456,15 @@ export class MlbStatsApi {
             });
           }
         }
+      });
+    });
+  }
+  getBoxScore(): Promise<any> {
+    return new Promise( (resolve, reject) => {
+      this.request('http://gd2.mlb.com/components/game/mlb/year_2017/month_07/day_04/master_scoreboard.json', (err, res, body) => {
+        resolve(JSON.parse(body));
+      }, error => {
+        reject(error.message);
       });
     });
   }

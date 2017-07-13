@@ -62,6 +62,13 @@ var MlbStatsApi = (function () {
                 response.json(park);
             });
         });
+        this.router.get('/boxscores', function (request, response) {
+            _this.getBoxScore().then(function (score) {
+                response.json(score);
+            }, function (error) {
+                response.json(error);
+            });
+        });
         module.exports = this.router;
     }
     MlbStatsApi.prototype.getDistinctYears = function () {
@@ -478,6 +485,16 @@ var MlbStatsApi = (function () {
                         });
                     }
                 }
+            });
+        });
+    };
+    MlbStatsApi.prototype.getBoxScore = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this.request('http://gd2.mlb.com/components/game/mlb/year_2017/month_07/day_04/master_scoreboard.json', function (err, res, body) {
+                resolve(JSON.parse(body));
+            }, function (error) {
+                reject(error.message);
             });
         });
     };

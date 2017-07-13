@@ -3,18 +3,16 @@
   height: 100%; }
   #mlbStatsContainer .jumbotron {
     text-align: center; }
-  #mlbStatsContainer .container {
-    height: 100%; }
-    #mlbStatsContainer .container #mlbstatsSelectorContainer {
-      margin: 10px; }
-      #mlbStatsContainer .container #mlbstatsSelectorContainer .card-group .card .card-block .card-title {
-        font-weight: 500; }
-      #mlbStatsContainer .container #mlbstatsSelectorContainer .card-group .card .card-block hr {
-        margin: 5px 0 5px 0; }
-      #mlbStatsContainer .container #mlbstatsSelectorContainer .card-group .card:hover {
-        color: white;
-        background-color: #2f4050;
-        cursor: pointer; }
+  #mlbStatsContainer .container #mlbstatsSelectorContainer {
+    margin: 10px; }
+    #mlbStatsContainer .container #mlbstatsSelectorContainer .card-group .card .card-block .card-title {
+      font-weight: 500; }
+    #mlbStatsContainer .container #mlbstatsSelectorContainer .card-group .card .card-block hr {
+      margin: 5px 0 5px 0; }
+    #mlbStatsContainer .container #mlbstatsSelectorContainer .card-group .card:hover {
+      color: white;
+      background-color: #2f4050;
+      cursor: pointer; }
 
 @media (max-width: 575px) {
   .jumbotron .display-4 {

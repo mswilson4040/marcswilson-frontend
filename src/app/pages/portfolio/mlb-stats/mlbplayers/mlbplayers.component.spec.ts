@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {MlbStatsService} from '../services/mlb-stats.service';
 import {Http} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
+import {UIService} from '../../../../shared-services/ui.service';
 
 describe('MLBPlayersComponent', () => {
   let component: MLBPlayersComponent;
@@ -14,7 +15,7 @@ describe('MLBPlayersComponent', () => {
     TestBed.configureTestingModule({
       imports: [FormsModule],
       declarations: [ MLBPlayersComponent ],
-      providers: [MlbStatsService, {provide: Http, deps: [MockBackend]}]
+      providers: [MlbStatsService, {provide: Http, deps: [MockBackend]}, UIService]
     })
     .compileComponents();
   }));

@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PowerballComponent } from './powerball.component';
+import {PowerballService} from './services/powerball.service';
+import {MockBackend} from '@angular/http/testing';
+import {Http} from '@angular/http';
+import {UIService} from '../../../shared-services/ui.service';
 
 describe('PowerballComponent', () => {
   let component: PowerballComponent;
@@ -8,7 +12,8 @@ describe('PowerballComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PowerballComponent ]
+      declarations: [ PowerballComponent ],
+      providers: [PowerballService, {provide: Http, deps: [MockBackend]}, UIService ]
     })
     .compileComponents();
   }));

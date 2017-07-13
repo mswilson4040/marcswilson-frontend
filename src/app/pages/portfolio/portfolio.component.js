@@ -24,14 +24,6 @@ var PortfolioComponent = (function () {
             delay += 100;
         }
     };
-    PortfolioComponent.prototype.showHoverDisplay = function (evt) {
-        var container = $(evt.currentTarget);
-        container.closest('.app-container').find('.app-footer').show('slide', {}, 300);
-    };
-    PortfolioComponent.prototype.hideHoverDisplay = function (evt) {
-        var container = $(evt.currentTarget);
-        container.closest('.app-container').find('.app-footer').hide();
-    };
     PortfolioComponent = __decorate([
         core_1.Component({
             selector: 'app-portfolio',
