@@ -3,6 +3,21 @@
     <div class="display-4">MLB Stats Explorer</div>
     <p class="lead">Explore MLB Stats From 1871 - 2016</p>
   </div>
+  <div id="boxscores" class="container-fluid">
+    <div class="scorecard" *ngFor="let bs of boxscores" [hidden]="boxscores.length === 0">
+      <div class="score">
+        <small>{{bs.homeTeamNameAbbr}}</small>
+        <small>{{bs.linescore.r.home}}</small>
+      </div>
+      <div class="score">
+        <small>{{bs.awayTeamNameAbbr}}</small>
+        <small>{{bs.linescore.r.away}}</small>
+      </div>
+      <small class="status">
+        {{bs.status.status}}
+      </small>
+    </div>
+  </div>
   <div class="container">
     <div id="mlbstatsSelectorContainer">
       <div class="card-group">

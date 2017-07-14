@@ -62,8 +62,11 @@ export class MlbStatsApi {
         response.json(park);
       });
     });
-    this.router.get('/boxscores', (request, response) => {
-      this.getBoxScore().then(score => {
+    this.router.get('/boxscores/:year/:month/:day', (request, response) => {
+      const year = request.params.year;
+      const month = request.params.month < 10 ? '0' + request.params.month + 1 : request.params.month + 1;
+      const day = request.params.day < 10 ? '0' + request.params.day + 1 : request.params.day + 1;
+      this.getBoxScore(year, month, day).then(score => {
         response.json(score);
       }, error => {
         response.json(error);
@@ -459,10 +462,24 @@ export class MlbStatsApi {
       });
     });
   }
-  getBoxScore(): Promise<any> {
+  getBoxScore(year: string, month: string, day: string): Promise<any> {
+    let err = false;
     return new Promise( (resolve, reject) => {
-      this.request('http://gd2.mlb.com/components/game/mlb/year_2017/month_07/day_04/master_scoreboard.json', (err, res, body) => {
-        resolve(JSON.parse(body));
+      this.request('http://gd2.mlb.com/components/game/mlb/year_' + year + '/month_' +
+        month + '/day_' + day + '/master_scoreboard.json', (err, res, body) => {
+        let ret = null;
+        try {
+          ret = JSON.parse(body);
+        } catch (ex) {
+          ret = ex;
+          err = true;
+        } finally {
+          if (err === false) {
+            resolve(ret);
+          } else {
+            reject(ret);
+          }
+        }
       }, error => {
         reject(error.message);
       });

@@ -20,6 +20,7 @@ var MlbStatsComponent = (function () {
         this._componentFactoryResolver = _componentFactoryResolver;
         this._uiService = _uiService;
         this.currentComponentRef = null;
+        this.boxscores = new Array();
         this._mlbStatsService.selectedYear$.subscribe(function (year) {
             _this.selectedYear = year;
         });
@@ -42,7 +43,7 @@ var MlbStatsComponent = (function () {
         var _this = this;
         this._uiService.showOverlay('Fetching Box Scores...');
         this._mlbStatsService.getBoxScores(new Date()).then(function (bs) {
-            alert(JSON.stringify(bs));
+            _this.boxscores = bs;
             _this._uiService.hideOverlay();
         });
     };

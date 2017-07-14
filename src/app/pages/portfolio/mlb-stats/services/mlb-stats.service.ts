@@ -6,6 +6,7 @@ import { Http } from '@angular/http';
 import { Ballpark } from '../classes/ballpark';
 import { Appearance } from '../classes/appearance';
 import {Personal} from '../classes/personal';
+import {Game} from '../classes/game';
 
 @Injectable()
 export class MlbStatsService {
@@ -111,9 +112,18 @@ export class MlbStatsService {
   }
   getBoxScores(date: Date): Promise<any> {
     return new Promise( (resolve, reject) => {
-      this.http.get(this.API_PATH + 'boxscores').subscribe( bs => {
-        bs = JSON.parse(bs['_body']);
-        resolve(bs);
+      this.http.get(this.API_PATH + 'boxscores/' + date.getFullYear().toString() + '/' +
+        date.getMonth().toString() + '/' + date.getDay().toString()).subscribe( bs => {
+        const obj = JSON.parse(bs['_body']);
+        let ret = new Array<Game>();
+        if (obj.hasOwnProperty('data')) {
+          ret = obj.data.games.game.map(g => {
+            return new Game(g);
+          });
+        }
+        resolve(ret);
+      }, error => {
+          reject(error);
       });
     });
   }

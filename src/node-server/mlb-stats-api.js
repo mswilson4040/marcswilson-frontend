@@ -62,8 +62,11 @@ var MlbStatsApi = (function () {
                 response.json(park);
             });
         });
-        this.router.get('/boxscores', function (request, response) {
-            _this.getBoxScore().then(function (score) {
+        this.router.get('/boxscores/:year/:month/:day', function (request, response) {
+            var year = request.params.year;
+            var month = request.params.month < 10 ? '0' + request.params.month + 1 : request.params.month + 1;
+            var day = request.params.day < 10 ? '0' + request.params.day + 1 : request.params.day + 1;
+            _this.getBoxScore(year, month, day).then(function (score) {
                 response.json(score);
             }, function (error) {
                 response.json(error);
@@ -488,11 +491,28 @@ var MlbStatsApi = (function () {
             });
         });
     };
-    MlbStatsApi.prototype.getBoxScore = function () {
+    MlbStatsApi.prototype.getBoxScore = function (year, month, day) {
         var _this = this;
+        var err = false;
         return new Promise(function (resolve, reject) {
-            _this.request('http://gd2.mlb.com/components/game/mlb/year_2017/month_07/day_04/master_scoreboard.json', function (err, res, body) {
-                resolve(JSON.parse(body));
+            _this.request('http://gd2.mlb.com/components/game/mlb/year_' + year + '/month_' +
+                month + '/day_' + day + '/master_scoreboard.json', function (err, res, body) {
+                var ret = null;
+                try {
+                    ret = JSON.parse(body);
+                }
+                catch (ex) {
+                    ret = ex;
+                    err = true;
+                }
+                finally {
+                    if (err === false) {
+                        resolve(ret);
+                    }
+                    else {
+                        reject(ret);
+                    }
+                }
             }, function (error) {
                 reject(error.message);
             });
