@@ -80,6 +80,12 @@ var MlbStatsComponent = (function () {
             });
         });
     };
+    MlbStatsComponent.prototype.shiftRight = function () {
+        $('#scorecardContainer').animate({ scrollLeft: $('#scorecardContainer').scrollLeft() + 500 });
+    };
+    MlbStatsComponent.prototype.shiftLeft = function () {
+        $('#scorecardContainer').animate({ scrollLeft: $('#scorecardContainer').scrollLeft() - 500 });
+    };
     __decorate([
         core_1.ViewChild('componentPlaceholder', { read: core_1.ViewContainerRef })
     ], MlbStatsComponent.prototype, "viewContainerRef");

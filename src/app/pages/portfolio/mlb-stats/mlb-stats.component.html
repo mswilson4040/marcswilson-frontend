@@ -4,44 +4,56 @@
     <p class="lead">Explore MLB Stats From 1871 - 2016</p>
   </div>
   <div id="boxscores">
-    <div class="scorecard" *ngFor="let bs of boxscores">
-      <small class="game-status">Top 8th</small>
-      <div class="game-info">
-        <div class="scores">
-          <div class="score">
-            <div class="logo">
-              <img src="http://via.placeholder.com/25x25" />
-            </div>
-            <div class="team">
-              <small>{{bs.away_name_abbrev}}</small>
-              <small>{{bs.linescore.r.away}}</small>
-            </div>
-          </div>
-          <div class="score">
-            <div class="logo">
-              <img src="http://via.placeholder.com/25x25" />
-            </div>
-            <div class="team">
-              <small>{{bs.home_name_abbrev}}</small>
-              <small>{{bs.linescore.r.home}}</small>
-            </div>
-          </div>
+    <div class="shifter shifter-left" (click)="shiftLeft()">
+      <div class="fade"></div>
+    </div>
+    <div id="scorecardContainer">
+      <div class="scorecard" *ngFor="let bs of boxscores">
+        <div [hidden]="bs.status.status !== 'In Progress'">
+          <small class="game-status" [hidden]="bs.status.top_inning !== 'Y'">Top {{bs.status.inning}}</small>
+          <small class="game-status" [hidden]="bs.status.top_inning !== 'N'">Bottom {{bs.status.inning}}</small>
         </div>
-        <div class="inning-info">
-          <div class="diamond">
-            <div class="diamond-inner">
-              <div class="base"></div>
-              <div class="base"></div>
-              <div class="base"></div>
+        <div [hidden]="bs.status.status === 'In Progress'">
+          <small class="game-status">{{bs.status.status}}</small>
+        </div>
+        <div class="game-info">
+          <div class="scores">
+            <div class="score">
+              <div class="logo">
+                <img [src]="bs.away_team_logo" />
+              </div>
+              <div class="team">
+                <small>{{bs.away_name_abbrev}}</small>
+                <small>{{bs.linescore.r.away}}</small>
+              </div>
+            </div>
+            <div class="score">
+              <div class="logo">
+                <img [src]="bs.home_team_logo" />
+              </div>
+              <div class="team">
+                <small>{{bs.home_name_abbrev}}</small>
+                <small>{{bs.linescore.r.home}}</small>
+              </div>
             </div>
           </div>
-          <div class="outs">
-            <div class="out"></div>
-            <div class="out"></div>
+          <div class="inning-info" [hidden]="bs.status.status !== 'In Progress'">
+            <div class="diamond">
+              <div class="diamond-inner">
+                <div class="base" [class.fill]="bs.runners_on_base.runner_on_2b.onBase === true"></div>
+                <div class="base" [class.fill]="bs.runners_on_base.runner_on_1b.onBase === true"></div>
+                <div class="base" [class.fill]="bs.runners_on_base.runner_on_3b.onBase === true"></div>
+              </div>
+            </div>
+            <div class="outs">
+              <div class="out" [class.fill]="bs.status.o === '2'"></div>
+              <div class="out"[class.fill]="bs.status.o === '2' || bs.status.o === '1'"></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
+    <div class="shifter shifter-right" (click)="shiftRight()"></div>
   </div>
   <div class="container">
     <div id="mlbstatsSelectorContainer">

@@ -10,71 +10,107 @@
     height: 100px;
     background-color: #1E2933;
     display: flex;
-    .scorecard {
-      height: 100%;
-      width: 200px;
+    .shifter {
+      height: 100px;
+      min-width: 20px;
       background-color: red;
-      padding: 5px;
-      .game-status {
-        background-color: blue;
-      }
-      .game-info {
-        display: flex;
-        background-color: yellow;
-        .scores {
-          background-color: green;
-          width: 100%;
-          .score {
-            display: flex;
-            .team {
-              width: 100%;
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-            }
-          }
-        }
-        .inning-info {
-          background-color: gray;
-          width: 100%;
-          display: flex;
-          .diamond {
-            background-color: orange;
-            height: 100%;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            .diamond-inner {
-              width: 45%;
-              height: 60%;
-              display: flex;
-              flex-wrap: wrap;
-              background-color: lime;
-              transform: rotate(45deg);
-              .base {
-                background-color: lightgray;
-                height: 10px;
-                width: 10px;
-                margin: 3px;
+    }
+    .shifter.shifter-left {
+      position: absolute;
+      left: 0;
+      .fade {
+        position: absolute;
+        width: 100%;
+        height: 100px;
 
+      }
+    }
+    .shifter.shifter-right {
+      position: absolute;
+      right: 0;
+    }
+    #scorecardContainer {
+      display: flex;
+      overflow: hidden;
+
+      .scorecard {
+        height: 100%;
+        min-width: 200px;
+        padding: 5px;
+        border: 1px solid gray;
+        .game-status {
+          color: white;
+        }
+        .game-info {
+          display: flex;
+          .scores {
+            color: white;
+            width: 100%;
+            .score {
+              display: flex;
+              align-items: center;
+              .logo {
+                padding-right: 2px;
+                width: 30px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img {
+                  height: 18px;
+                }
+              }
+              .team {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
               }
             }
           }
-          .outs {
-            background-color: pink;
-            width: 30%;
-            height: 100%;
+          .inning-info {
+            width: 100%;
             display: flex;
-            align-items: center;
-            flex-direction: column;
-            justify-content: center;
-            .out {
-              background-color: black;
-              height: 10px;
-              width: 10px;
-              margin: 5px;
-              border-radius: 50%;
+            .diamond {
+              height: 100%;
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              .diamond-inner {
+                width: 45%;
+                height: 60%;
+                display: flex;
+                flex-wrap: wrap;
+                transform: rotate(45deg);
+                .base {
+                  background-color: lightgray;
+                  height: 10px;
+                  width: 10px;
+                  margin: 3px;
+
+                }
+                .base.fill {
+                  background-color: #ff222b;
+                }
+              }
+            }
+            .outs {
+              width: 30%;
+              height: 100%;
+              display: flex;
+              align-items: center;
+              flex-direction: column;
+              justify-content: center;
+              .out {
+                background-color: lightgray;
+                height: 10px;
+                width: 10px;
+                margin: 5px;
+                border-radius: 50%;
+              }
+              .out.fill {
+                background-color: #ffc821;
+              }
             }
           }
         }

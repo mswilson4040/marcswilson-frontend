@@ -51,6 +51,7 @@ export class MlbStatsComponent implements OnInit {
     this._uiService.showOverlay('Fetching Box Scores...');
     this._mlbStatsService.getBoxScores(new Date()).then( bs => {
       this.boxscores = bs;
+
       this._uiService.hideOverlay();
     });
   }
@@ -85,6 +86,12 @@ export class MlbStatsComponent implements OnInit {
       });
 
     });
+  }
+  shiftRight(): void {
+    $('#scorecardContainer').animate({scrollLeft: $('#scorecardContainer').scrollLeft() + 500});
+  }
+  shiftLeft(): void {
+    $('#scorecardContainer').animate({scrollLeft: $('#scorecardContainer').scrollLeft() - 500});
   }
 
 }
