@@ -9,7 +9,7 @@ import {MLBTeamComponent} from './mlbteam/mlbteam.component';
 import {MLBBallparksComponent} from './mlbballparks/mlbballparks.component';
 import {MLBteamsComponent} from './mlbteams/mlbteams.component';
 import {UIService} from '../../../shared-services/ui.service';
-import {Game} from './classes/game';
+import {Game} from './classes/boxscores/game';
 
 @Component({
   selector: 'app-mlb-stats',

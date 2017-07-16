@@ -3,19 +3,44 @@
     <div class="display-4">MLB Stats Explorer</div>
     <p class="lead">Explore MLB Stats From 1871 - 2016</p>
   </div>
-  <div id="boxscores" class="container-fluid">
-    <div class="scorecard" *ngFor="let bs of boxscores" [hidden]="boxscores.length === 0">
-      <div class="score">
-        <small>{{bs.homeTeamNameAbbr}}</small>
-        <small>{{bs.linescore.r.home}}</small>
+  <div id="boxscores">
+    <div class="scorecard" *ngFor="let bs of boxscores">
+      <small class="game-status">Top 8th</small>
+      <div class="game-info">
+        <div class="scores">
+          <div class="score">
+            <div class="logo">
+              <img src="http://via.placeholder.com/25x25" />
+            </div>
+            <div class="team">
+              <small>{{bs.away_name_abbrev}}</small>
+              <small>{{bs.linescore.r.away}}</small>
+            </div>
+          </div>
+          <div class="score">
+            <div class="logo">
+              <img src="http://via.placeholder.com/25x25" />
+            </div>
+            <div class="team">
+              <small>{{bs.home_name_abbrev}}</small>
+              <small>{{bs.linescore.r.home}}</small>
+            </div>
+          </div>
+        </div>
+        <div class="inning-info">
+          <div class="diamond">
+            <div class="diamond-inner">
+              <div class="base"></div>
+              <div class="base"></div>
+              <div class="base"></div>
+            </div>
+          </div>
+          <div class="outs">
+            <div class="out"></div>
+            <div class="out"></div>
+          </div>
+        </div>
       </div>
-      <div class="score">
-        <small>{{bs.awayTeamNameAbbr}}</small>
-        <small>{{bs.linescore.r.away}}</small>
-      </div>
-      <small class="status">
-        {{bs.status.status}}
-      </small>
     </div>
   </div>
   <div class="container">

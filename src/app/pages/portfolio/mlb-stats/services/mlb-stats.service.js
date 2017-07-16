@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var core_1 = require('@angular/core');
 var BehaviorSubject_1 = require('rxjs/BehaviorSubject');
 var team_1 = require('../classes/team');
-var game_1 = require('../classes/game');
+var game_1 = require('../classes/boxscores/game');
 var MlbStatsService = (function () {
     function MlbStatsService(http) {
         this.http = http;
@@ -129,9 +129,9 @@ var MlbStatsService = (function () {
     };
     MlbStatsService.prototype.getBoxScores = function (date) {
         var _this = this;
+        var url = this.API_PATH + "boxscores/" + date.getFullYear() + "/" + date.getMonth() + "/" + date.getDate();
         return new Promise(function (resolve, reject) {
-            _this.http.get(_this.API_PATH + 'boxscores/' + date.getFullYear().toString() + '/' +
-                date.getMonth().toString() + '/' + date.getDay().toString()).subscribe(function (bs) {
+            _this.http.get(url).subscribe(function (bs) {
                 var obj = JSON.parse(bs['_body']);
                 var ret = new Array();
                 if (obj.hasOwnProperty('data')) {

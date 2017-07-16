@@ -6,7 +6,7 @@ import { Http } from '@angular/http';
 import { Ballpark } from '../classes/ballpark';
 import { Appearance } from '../classes/appearance';
 import {Personal} from '../classes/personal';
-import {Game} from '../classes/game';
+import {Game} from '../classes/boxscores/game';
 
 @Injectable()
 export class MlbStatsService {
@@ -111,9 +111,9 @@ export class MlbStatsService {
     });
   }
   getBoxScores(date: Date): Promise<any> {
+    const url = `${this.API_PATH}boxscores/${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`;
     return new Promise( (resolve, reject) => {
-      this.http.get(this.API_PATH + 'boxscores/' + date.getFullYear().toString() + '/' +
-        date.getMonth().toString() + '/' + date.getDay().toString()).subscribe( bs => {
+      this.http.get(url).subscribe( bs => {
         const obj = JSON.parse(bs['_body']);
         let ret = new Array<Game>();
         if (obj.hasOwnProperty('data')) {

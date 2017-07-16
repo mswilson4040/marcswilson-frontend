@@ -64,9 +64,9 @@ var MlbStatsApi = (function () {
         });
         this.router.get('/boxscores/:year/:month/:day', function (request, response) {
             var year = request.params.year;
-            var month = request.params.month < 10 ? '0' + request.params.month + 1 : request.params.month + 1;
-            var day = request.params.day < 10 ? '0' + request.params.day + 1 : request.params.day + 1;
-            _this.getBoxScore(year, month, day).then(function (score) {
+            var month = request.params.month < 10 ? '0' + (+request.params.month + 1) : (+request.params.month + 1);
+            var day = request.params.day < 10 ? '0' + (+request.params.day) : (+request.params.day);
+            _this.getBoxScore(year.toString(), month.toString(), day.toString()).then(function (score) {
                 response.json(score);
             }, function (error) {
                 response.json(error);
@@ -493,20 +493,19 @@ var MlbStatsApi = (function () {
     };
     MlbStatsApi.prototype.getBoxScore = function (year, month, day) {
         var _this = this;
-        var err = false;
+        var url = "http://gd2.mlb.com/components/game/mlb/year_" + year + "/month_" + month + "/day_" + day + "/master_scoreboard.json";
+        console.log(url);
         return new Promise(function (resolve, reject) {
-            _this.request('http://gd2.mlb.com/components/game/mlb/year_' + year + '/month_' +
-                month + '/day_' + day + '/master_scoreboard.json', function (err, res, body) {
+            _this.request(url, function (err, res, body) {
                 var ret = null;
                 try {
                     ret = JSON.parse(body);
                 }
                 catch (ex) {
                     ret = ex;
-                    err = true;
                 }
                 finally {
-                    if (err === false) {
+                    if (!err) {
                         resolve(ret);
                     }
                     else {
