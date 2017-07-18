@@ -1,3 +1,11 @@
+$facebookBlue: #3b5998;
+$linkedInBlue: #0077B5;
+$githubBlack: #24292e;
+$stackoverflowOrange: #f69c55;
+$twitterBlue: #1da1f2;
+$microsoftBlue: #0072C6;
+$csvGreen: #0F760F;
+
 #aboutContainer {
   margin-top: 55px;
   #header {
@@ -16,6 +24,98 @@
         border-radius: 100px;
         border: 3px solid gray;
         display: none;
+      }
+    }
+  }
+  #socialMediaContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    height: 60px;
+    .social-media-container {
+      // width: 40%;
+      display: flex;
+      justify-content: space-around;
+      height: 60px;
+      .icon-container {
+        display: none;
+        height: 55px;
+        width: 55px;
+        .social-media-icon {
+          border: 1px solid transparent;
+          border-radius: 50%;
+          height: 55px;
+          width: 55px;
+          padding: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+        }
+        .social-media-icon.facebook {
+          color: $facebookBlue;
+          transition: 200ms all;
+        }
+        .social-media-icon.facebook:hover {
+          color: white;
+          background-color: $facebookBlue;
+          border: 1px solid #fff;
+        }
+        .social-media-icon.linkedIn {
+          color: $linkedInBlue;
+          transition: 200ms all;
+        }
+        .social-media-icon.linkedIn:hover {
+          color: white;
+          background-color: $linkedInBlue;
+          border: 1px solid #fff;
+        }
+        .social-media-icon.github {
+          color: $githubBlack;
+          transition: 200ms all;
+        }
+        .social-media-icon.github:hover {
+          color: white;
+          background-color: $githubBlack;
+          border: 1px solid #fff;
+        }
+        .social-media-icon.stackoverflow {
+          color: $stackoverflowOrange;
+          transition: 200ms all;
+        }
+        .social-media-icon.stackoverflow:hover {
+          color: white;
+          background-color: $stackoverflowOrange;
+          border: 1px solid #fff;
+        }
+        .social-media-icon.twitter {
+          color: $twitterBlue;
+          transition: 200ms all;
+        }
+        .social-media-icon.twitter:hover {
+          color: white;
+          background-color: $twitterBlue;
+          border: 1px solid #fff;
+        }
+        .social-media-icon.mail {
+          color: $microsoftBlue;
+          transition: 200ms all;
+        }
+        .social-media-icon.mail:hover {
+          color: white;
+          background-color: $microsoftBlue;
+          border: 1px solid #fff;
+        }
+        .social-media-icon.csv {
+          color: $csvGreen;
+          transition: 200ms all;
+        }
+        .social-media-icon.csv:hover {
+          color: white;
+          background-color: $csvGreen;
+          border: 1px solid #fff;
+        }
       }
     }
   }
@@ -72,6 +172,11 @@
       }
     }
   }
+  #socialMediaContainer {
+    .social-media-container {
+      width: 60%;
+    }
+  }
   #body {
     .content-row-outter {
       margin: 10px 0 10px 0;
@@ -117,6 +222,11 @@
         height: 110px;
         width: 110px;
       }
+    }
+  }
+  #socialMediaContainer {
+    .social-media-container {
+      width: 20%;
     }
   }
   #body {
@@ -166,6 +276,11 @@
       }
     }
   }
+  #socialMediaContainer {
+    .social-media-container {
+      width: 40%;
+    }
+  }
   #body {
     .content-row-outter {
       margin: 10px 0 10px 0;
@@ -213,6 +328,11 @@
       }
     }
   }
+  #socialMediaContainer {
+    .social-media-container {
+      width: 40%;
+    }
+  }
   #body {
     .content-row-outter {
       margin: 10px 0 10px 0;
@@ -258,6 +378,11 @@
         height: 130px;
         width: 130px;
       }
+    }
+  }
+  #socialMediaContainer {
+    .social-media-container {
+      width: 40%;
     }
   }
   #body {
