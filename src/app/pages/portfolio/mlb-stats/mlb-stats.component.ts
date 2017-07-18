@@ -14,7 +14,7 @@ import {Game} from './classes/boxscores/game';
 @Component({
   selector: 'app-mlb-stats',
   templateUrl: './mlb-stats.component.html',
-  styleUrls: ['./mlb-stats.component.css']
+  styleUrls: ['./mlb-stats.component.scss']
 })
 export class MlbStatsComponent implements OnInit {
 

@@ -93,7 +93,7 @@ var MlbStatsComponent = (function () {
         core_1.Component({
             selector: 'app-mlb-stats',
             templateUrl: './mlb-stats.component.html',
-            styleUrls: ['./mlb-stats.component.css']
+            styleUrls: ['./mlb-stats.component.scss']
         })
     ], MlbStatsComponent);
     return MlbStatsComponent;

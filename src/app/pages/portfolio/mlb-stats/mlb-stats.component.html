@@ -5,7 +5,7 @@
   </div>
   <div id="boxscores">
     <div class="shifter shifter-left" (click)="shiftLeft()">
-      <div class="fade"></div>
+      <i class="fa fa-chevron-left" aria-hidden="true"></i>
     </div>
     <div id="scorecardContainer">
       <div class="scorecard" *ngFor="let bs of boxscores">
@@ -53,7 +53,9 @@
         </div>
       </div>
     </div>
-    <div class="shifter shifter-right" (click)="shiftRight()"></div>
+    <div class="shifter shifter-right" (click)="shiftRight()">
+      <i class="fa fa-chevron-right" aria-hidden="true"></i>
+    </div>
   </div>
   <div class="container">
     <div id="mlbstatsSelectorContainer">
