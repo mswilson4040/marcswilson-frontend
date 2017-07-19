@@ -1,5 +1,4 @@
-.g-full-screen, #homeContainer, #homeContainer #coverImage {
-  height: 100%;
+.g-full-screen {
   width: 100%; }
 
 .modal-open {
@@ -15,13 +14,12 @@ button {
   width: 100%;
   display: none; }
 #homeContainer #welcomeScreen {
+  position: absolute;
+  left: 25%;
+  top: 50%;
   z-index: 999;
   text-align: center;
-  color: black;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column; }
+  color: black; }
   #homeContainer #welcomeScreen .name-container {
     display: flex;
     flex-direction: row;

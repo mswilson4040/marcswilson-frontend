@@ -1,22 +1,19 @@
 @import '../../../globals';
 
 #homeContainer {
-  @extend .g-full-screen;
   #coverImage {
     position: absolute;
     height: 100%;
     width: 100%;
     display: none;
-    @extend .g-full-screen;
   }
   #welcomeScreen {
+    position: absolute;
+    left: 25%;
+    top: 50%;
     z-index: 999;
     text-align: center;
     color: black;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
     .name-container {
       display: flex;
       flex-direction: row;
@@ -42,6 +39,8 @@
     }
   }
 }
+
+// <editor-fold desc="Media Queries">
 
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) {
@@ -107,3 +106,5 @@
     font-size: 45px;
   }
 }
+
+// </editor-fold>
