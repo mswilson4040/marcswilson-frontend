@@ -28,7 +28,7 @@ $csvGreen: #0F760F;
       img {
         border-radius: 100px;
         border: 3px solid gray;
-        display: none;
+        // display: none;
       }
     }
   }
@@ -118,69 +118,29 @@ $csvGreen: #0F760F;
           background-color: $microsoftBlue;
           border: 1px solid #fff;
         }
-        .social-media-icon.csv {
-          @include fadeInIcon(1400ms);
-          color: $csvGreen;
-          transition: 200ms all;
-        }
-        .social-media-icon.csv:hover {
-          color: white;
-          background-color: $csvGreen;
-          border: 1px solid #fff;
-        }
       }
     }
   }
   #body {
-    .content-row-outter {
-      margin: 10px 0 10px 0;
-      .content-row {
-        display: flex;
-        justify-content: space-between;
+    .info-cards {
+      .info-card {
+        text-align: center;
         background-color: white;
-        border-top-left-radius: 100px;
-        border-bottom-left-radius: 100px;
-        border-left: none;
-        .image-container {
-          //min-height: 150px;
-          //min-width: 150px;
-          img {
-            //height: 150px;
-            //width: 150px;
-            border-radius: 100px;
-            border: 1px solid gray;
-            display: none;
-          }
-        }
-        .content-container {
-          // padding-left: 25px;
-          display: none;
-          h3 {
-            font-weight: 400;
-          }
+        opacity: 0;
+        .display-4 {
+          font-size: 26px;
+          padding-top: 20px;
         }
       }
-    }
-    .jumper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      animation: bounce 1s infinite;
-      .jumper-button {
-        border-radius: 50%;
-        padding: 20px;
-        height: 7%;
-        width: 7%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        i {
-          font-size: 42px;
-        }
+      .info-card.life {
+        animation: fadeInInfoCards 1s 200ms forwards ease-out;
       }
-    }
-    #csv {
-      padding: 90px;
+      .info-card.what-i-do {
+        animation: fadeInInfoCards 1s 500ms forwards ease-out;
+      }
+      .info-card.career {
+        animation: fadeInInfoCards 1s 1000ms forwards ease-out;
+      }
     }
   }
 }
@@ -462,6 +422,24 @@ $csvGreen: #0F760F;
   0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
   40% {transform: translateY(-30px);}
   60% {transform: translateY(-15px);}
+}
+@keyframes fadeInInfoCards {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes shiftCareer {
+  from {
+    position: absolute;
+    left: 25%;
+  }
+  to {
+    position: relative;
+    left: 50%;
+  }
 }
 
 // </editor-fold>

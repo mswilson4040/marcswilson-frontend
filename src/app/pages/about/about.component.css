@@ -13,8 +13,7 @@
       text-align: center; }
       #aboutContainer #header #imageContainer img {
         border-radius: 100px;
-        border: 3px solid gray;
-        display: none; }
+        border: 3px solid gray; }
   #aboutContainer #socialMediaContainer {
     display: flex;
     justify-content: center;
@@ -92,49 +91,19 @@
           color: white;
           background-color: #0072C6;
           border: 1px solid #fff; }
-        #aboutContainer #socialMediaContainer .social-media-container .icon-container .social-media-icon.csv {
-          opacity: 0;
-          animation: fadeSocialMediaIcon 1000ms 1400ms forwards ease-in;
-          color: #0F760F;
-          transition: 200ms all; }
-        #aboutContainer #socialMediaContainer .social-media-container .icon-container .social-media-icon.csv:hover {
-          color: white;
-          background-color: #0F760F;
-          border: 1px solid #fff; }
-  #aboutContainer #body .content-row-outter {
-    margin: 10px 0 10px 0; }
-    #aboutContainer #body .content-row-outter .content-row {
-      display: flex;
-      justify-content: space-between;
-      background-color: white;
-      border-top-left-radius: 100px;
-      border-bottom-left-radius: 100px;
-      border-left: none; }
-      #aboutContainer #body .content-row-outter .content-row .image-container img {
-        border-radius: 100px;
-        border: 1px solid gray;
-        display: none; }
-      #aboutContainer #body .content-row-outter .content-row .content-container {
-        display: none; }
-        #aboutContainer #body .content-row-outter .content-row .content-container h3 {
-          font-weight: 400; }
-  #aboutContainer #body .jumper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    animation: bounce 1s infinite; }
-    #aboutContainer #body .jumper .jumper-button {
-      border-radius: 50%;
-      padding: 20px;
-      height: 7%;
-      width: 7%;
-      display: flex;
-      justify-content: center;
-      align-items: center; }
-      #aboutContainer #body .jumper .jumper-button i {
-        font-size: 42px; }
-  #aboutContainer #body #csv {
-    padding: 90px; }
+  #aboutContainer #body .info-cards .info-card {
+    text-align: center;
+    background-color: white;
+    opacity: 0; }
+    #aboutContainer #body .info-cards .info-card .display-4 {
+      font-size: 26px;
+      padding-top: 20px; }
+  #aboutContainer #body .info-cards .info-card.life {
+    animation: fadeInInfoCards 1s 200ms forwards ease-out; }
+  #aboutContainer #body .info-cards .info-card.what-i-do {
+    animation: fadeInInfoCards 1s 500ms forwards ease-out; }
+  #aboutContainer #body .info-cards .info-card.career {
+    animation: fadeInInfoCards 1s 1000ms forwards ease-out; }
 
 @media (max-width: 575px) {
   #header .jumbotron .display-4 {
@@ -293,5 +262,17 @@
     transform: translateY(-30px); }
   60% {
     transform: translateY(-15px); } }
+@keyframes fadeInInfoCards {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes shiftCareer {
+  from {
+    position: absolute;
+    left: 25%; }
+  to {
+    position: relative;
+    left: 50%; } }
 
 /*# sourceMappingURL=about.component.css.map */
