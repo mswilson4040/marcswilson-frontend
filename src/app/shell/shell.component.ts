@@ -5,12 +5,13 @@ import 'jquery';
 import 'jqueryui';
 import 'select2';
 import 'bootstrap';
+import 'hammerjs';
 import {PowerballService} from '../pages/portfolio/powerball/services/powerball.service';
 
 @Component({
   selector: 'app-shell',
   templateUrl: './shell.component.html',
-  styleUrls: ['./shell.component.css'],
+  styleUrls: ['./shell.component.scss'],
   providers: [UIService, MlbStatsService, PowerballService]
 })
 export class ShellComponent implements OnInit {

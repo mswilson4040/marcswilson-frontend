@@ -1,7 +1,8 @@
+"use strict";
 /**
  * Created by Marc on 6/20/2017.
  */
-"use strict";
+exports.__esModule = true;
 var PowerballApi = (function () {
     function PowerballApi() {
         var _this = this;
@@ -22,4 +23,3 @@ var PowerballApi = (function () {
 }());
 exports.PowerballApi = PowerballApi;
 new PowerballApi();
-//# sourceMappingURL=powerball-api.js.map

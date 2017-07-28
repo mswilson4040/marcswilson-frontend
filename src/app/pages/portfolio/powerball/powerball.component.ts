@@ -7,7 +7,7 @@ declare const Highcharts: any;
 @Component({
   selector: 'app-powerball',
   templateUrl: './powerball.component.html',
-  styleUrls: ['./powerball.component.css']
+  styleUrls: ['./powerball.component.scss']
 })
 export class PowerballComponent implements OnInit {
   public powerballData: PowerballData = new PowerballData();

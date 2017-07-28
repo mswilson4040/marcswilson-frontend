@@ -4,7 +4,7 @@ import {UIService} from '../../shared-services/ui.service';
 @Component({
   selector: 'app-overlay',
   templateUrl: './overlay.component.html',
-  styleUrls: ['./overlay.component.css']
+  styleUrls: ['./overlay.component.scss']
 })
 export class OverlayComponent implements OnInit {
   public message: string = null;

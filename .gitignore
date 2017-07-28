@@ -32,6 +32,12 @@
 npm-debug.log
 testem.log
 /typings
+*.css
+*.css.map
+src/*.js
+*.js.map
+createMongoIndexes.js
+
 
 # e2e
 /e2e/*.js

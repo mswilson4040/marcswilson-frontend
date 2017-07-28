@@ -72,8 +72,11 @@ export class MlbStatsService {
   getTeamsByYear(yearID: number): Promise<Array<Team>> {
     return new Promise( (resolve, reject) => {
       this.http.get(this.API_PATH + 'years/' + yearID + '/teams').subscribe( teams => {
-        teams = JSON.parse(teams['_body']);
-        resolve(teams);
+        const parsed = JSON.parse(teams['_body']);
+        const ts = parsed.map( (t) => {
+          return new Team(t);
+        });
+        resolve(ts);
       });
     });
   }
@@ -94,6 +97,17 @@ export class MlbStatsService {
       });
     });
   }
+  getPlayersByYear(yearID: number): Promise<Array<Player>> {
+    return new Promise( (resolve, reject) => {
+      this.http.get(`${this.API_PATH}years/${yearID}/players`).subscribe( players => {
+        const body = JSON.parse(players['_body']);
+        const retPlayers = body.map( p => {
+          return new Player(p);
+        });
+        resolve(retPlayers);
+      });
+    });
+  }
   getFullPlayerStats(player: Player): Promise<Array<Appearance>> {
     return new Promise( (resolve, reject) => {
       this.http.get(this.API_PATH + 'players/id/' + player.playerID).subscribe( appearances => {
@@ -111,7 +125,7 @@ export class MlbStatsService {
     });
   }
   getBoxScores(date: Date): Promise<any> {
-    const url = `${this.API_PATH}boxscores/${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`;
+    const url = `${this.API_PATH}boxscores/${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
     return new Promise( (resolve, reject) => {
       this.http.get(url).subscribe( bs => {
         const obj = JSON.parse(bs['_body']);

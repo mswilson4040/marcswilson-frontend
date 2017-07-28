@@ -23,8 +23,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css",
-        "globals.css",
+        "styles.scss",
+        "globals.scss",
         "../node_modules/jqueryui/jquery-ui.min.css",
         "../node_modules/tether/dist/css/tether.min.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",

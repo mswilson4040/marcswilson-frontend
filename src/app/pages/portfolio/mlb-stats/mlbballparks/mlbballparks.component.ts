@@ -6,7 +6,7 @@ import {UIService} from '../../../../shared-services/ui.service';
 @Component({
   selector: 'app-mlbballparks',
   templateUrl: './mlbballparks.component.html',
-  styleUrls: ['./mlbballparks.component.css']
+  styleUrls: ['./mlbballparks.component.scss']
 })
 export class MLBBallparksComponent implements OnInit, OnDestroy {
 

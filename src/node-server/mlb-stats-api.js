@@ -1,4 +1,5 @@
 "use strict";
+exports.__esModule = true;
 var MlbStatsApi = (function () {
     function MlbStatsApi() {
         var _this = this;
@@ -64,7 +65,7 @@ var MlbStatsApi = (function () {
         });
         this.router.get('/boxscores/:year/:month/:day', function (request, response) {
             var year = request.params.year;
-            var month = request.params.month < 10 ? '0' + (+request.params.month + 1) : (+request.params.month + 1);
+            var month = request.params.month < 10 ? '0' + +request.params.month : +request.params.month;
             var day = request.params.day < 10 ? '0' + (+request.params.day) : (+request.params.day);
             _this.getBoxScore(year.toString(), month.toString(), day.toString()).then(function (score) {
                 response.json(score);
@@ -383,7 +384,7 @@ var MlbStatsApi = (function () {
                     ]).toArray(function (queryError, docs) {
                         if (docs && docs.length > 0) {
                             var appearances = new Array();
-                            var _loop_1 = function(i) {
+                            var _loop_1 = function (i) {
                                 docs[i].fielding = docs[i].fielding.filter(function (f) { return f.yearID === docs[i].yearID; });
                                 docs[i].allstar = docs[i].allstar.filter(function (a) { return a.yearID === docs[i].yearID; });
                                 docs[i].batting = docs[i].batting.filter(function (b) { return b.yearID === docs[i].yearID; });
@@ -494,7 +495,6 @@ var MlbStatsApi = (function () {
     MlbStatsApi.prototype.getBoxScore = function (year, month, day) {
         var _this = this;
         var url = "http://gd2.mlb.com/components/game/mlb/year_" + year + "/month_" + month + "/day_" + day + "/master_scoreboard.json";
-        console.log(url);
         return new Promise(function (resolve, reject) {
             _this.request(url, function (err, res, body) {
                 var ret = null;
@@ -521,4 +521,3 @@ var MlbStatsApi = (function () {
 }());
 exports.MlbStatsApi = MlbStatsApi;
 new MlbStatsApi();
-//# sourceMappingURL=mlb-stats-api.js.map

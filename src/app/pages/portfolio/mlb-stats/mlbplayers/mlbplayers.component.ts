@@ -10,7 +10,7 @@ declare const Highcharts: any; // TODO: Fix reference to proper ES6 syntax
 @Component({
   selector: 'app-mlbplayers',
   templateUrl: './mlbplayers.component.html',
-  styleUrls: ['./mlbplayers.component.css']
+  styleUrls: ['./mlbplayers.component.scss']
 })
 export class MLBPlayersComponent implements OnInit, OnDestroy {
 

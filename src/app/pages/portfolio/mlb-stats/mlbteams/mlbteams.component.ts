@@ -5,7 +5,7 @@ declare const Highcharts: any; // TODO: Fix reference to proper ES6 syntax
 @Component({
   selector: 'app-mlbteams',
   templateUrl: './mlbteams.component.html',
-  styleUrls: ['./mlbteams.component.css']
+  styleUrls: ['./mlbteams.component.scss']
 })
 export class MLBteamsComponent implements OnInit, OnDestroy {
 

@@ -1,18 +1,19 @@
+"use strict";
 /**
  * Created by Marc on 12/16/2016.
  */
-"use strict";
-var MLBStatsAPIFile = require('./mlb-stats-api');
-var PowerballAPIFile = require('./powerball-api');
+exports.__esModule = true;
+var MLBStatsAPIFile = require("./mlb-stats-api");
+var PowerballAPIFile = require("./powerball-api");
 var Server = (function () {
     function Server(express, app, bodyParser, path, server, cors) {
-        var _this = this;
         if (express === void 0) { express = null; }
         if (app === void 0) { app = null; }
         if (bodyParser === void 0) { bodyParser = null; }
         if (path === void 0) { path = null; }
         if (server === void 0) { server = null; }
         if (cors === void 0) { cors = null; }
+        var _this = this;
         this.express = express;
         this.app = app;
         this.bodyParser = bodyParser;
@@ -40,4 +41,3 @@ var Server = (function () {
     return Server;
 }());
 new Server();
-//# sourceMappingURL=server.js.map

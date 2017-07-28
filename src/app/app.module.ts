@@ -1,8 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
 import { AppRoutingModule } from './app-routing.module';
 import { ShellComponent } from './shell/shell.component';
 import {HomeComponent} from './pages/home/home.component';
@@ -18,6 +17,11 @@ import { MLBteamsComponent } from './pages/portfolio/mlb-stats/mlbteams/mlbteams
 import { SliderComponent } from './pages/portfolio/mlb-stats/slider/slider.component';
 import { PowerballComponent } from './pages/portfolio/powerball/powerball.component';
 import { OverlayComponent } from './shared-components/overlay/overlay.component';
+import {
+  MdAutocompleteModule, MdCardModule, MdDatepickerModule, MdInputModule, MdNativeDateModule, MdSliderModule,
+  MdTabsModule
+} from '@angular/material';
+import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -39,10 +43,20 @@ import { OverlayComponent } from './shared-components/overlay/overlay.component'
   ],
   entryComponents: [MLBBallparksComponent, MLBPlayersComponent, MLBTeamComponent, MLBteamsComponent],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MdDatepickerModule,
+    MdInputModule,
+    MdNativeDateModule,
+    MdAutocompleteModule,
+    ReactiveFormsModule,
+    MdTabsModule,
+    MdCardModule,
+    MdSliderModule,
+    NoopAnimationsModule
   ],
   providers: [],
   bootstrap: [ShellComponent]

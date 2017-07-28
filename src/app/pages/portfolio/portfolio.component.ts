@@ -4,7 +4,7 @@ import {App} from '../../shared-classes/app';
 @Component({
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
-  styleUrls: ['./portfolio.component.css']
+  styleUrls: ['./portfolio.component.scss']
 })
 export class PortfolioComponent implements OnInit, AfterViewInit {
   public apps: Array<App> = new Array<App>();

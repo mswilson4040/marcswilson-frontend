@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,cAAe;EACb,MAAM,EAAE,eAAe;EACvB,KAAK,EAAE,IAAI;;AAKb,WAAY;EACV,aAAa,EAAE,cAAc;EAC7B,QAAQ,EAAE,kBAAkB;;AAG9B,MAAO;EACL,MAAM,EAAE,OAAO",
-"sources": ["globals.scss"],
-"names": [],
-"file": "globals.css"
-}

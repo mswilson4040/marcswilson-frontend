@@ -64,7 +64,7 @@ export class MlbStatsApi {
     });
     this.router.get('/boxscores/:year/:month/:day', (request, response) => {
       const year = request.params.year;
-      const month = request.params.month < 10 ? '0' + (+request.params.month + 1) : (+request.params.month + 1);
+      const month = request.params.month < 10 ? '0' + +request.params.month : +request.params.month;
       const day = request.params.day < 10 ? '0' + (+request.params.day) : (+request.params.day);
       this.getBoxScore(year.toString(), month.toString(), day.toString()).then(score => {
         response.json(score);
@@ -464,7 +464,6 @@ export class MlbStatsApi {
   }
   getBoxScore(year: string, month: string, day: string): Promise<any> {
     const url = `http://gd2.mlb.com/components/game/mlb/year_${year}/month_${month}/day_${day}/master_scoreboard.json`;
-    console.log(url);
     return new Promise( (resolve, reject) => {
       this.request(url, (err, res, body) => {
         let ret = null;

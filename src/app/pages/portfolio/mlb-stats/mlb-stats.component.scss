@@ -44,7 +44,8 @@
     #scorecardContainer {
       display: flex;
       overflow: hidden;
-
+      margin-left: 30px;
+      margin-right: 30px;
       .scorecard {
         height: 100%;
         min-width: 200px;
