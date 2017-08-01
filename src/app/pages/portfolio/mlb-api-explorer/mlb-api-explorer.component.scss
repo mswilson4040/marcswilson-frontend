@@ -24,8 +24,16 @@
       font-weight: 300;
     }
     margin-top: 15px;
-    .panel-text {
-      padding: 15px;
+    .tab-inner {
+      padding: 10px;
+      text-align: center;
+      .mlb-slider {
+        padding-top: 15px;
+        width: 100%;
+      }
+      .mlb-dropdown {
+        width: 100%;
+      }
     }
     #addressBar {
       margin: 15px 0;
@@ -64,15 +72,6 @@
     h1 {
       font-size: 18px;
     }
-    p {
-      font-size: 16px;
-    }
-    .mb-0 a {
-      font-size: 14px;
-    }
-    .panel-text {
-      font-size: 12px;
-    }
   }
 }
 
@@ -98,15 +97,6 @@
   #body {
     h1 {
       font-size: 22px;
-    }
-    p {
-      font-size: 18px;
-    }
-    .mb-0 a {
-      font-size: 14px;
-    }
-    .panel-text {
-      font-size: 12px;
     }
   }
 }
@@ -134,15 +124,6 @@
     h1 {
       font-size: 26px;
     }
-    p {
-      font-size: 20px;
-    }
-    .mb-0 a {
-      font-size: 18px;
-    }
-    .panel-text {
-      font-size: 14px;
-    }
   }
 }
 
@@ -169,15 +150,6 @@
     h1 {
       font-size: 32px;
     }
-    p {
-      font-size: 28px;
-    }
-    .mb-0 a {
-      font-size: 22px;
-    }
-    .panel-text {
-      font-size: 18px;
-    }
   }
 }
 
@@ -203,15 +175,6 @@
   #body {
     h1 {
       font-size: 32px;
-    }
-    p {
-      font-size: 28px;
-    }
-    .mb-0 a {
-      font-size: 22px;
-    }
-    .panel-text {
-      font-size: 18px;
     }
   }
 }

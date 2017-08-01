@@ -29,7 +29,7 @@ export class MlbApiExplorerComponent implements OnInit {
   public years: Array<number>;
   public playerYear: FormControl;
   public filteredPlayerYears: Observable<Array<number>>;
-  public selectedPlayersYear: number = null;
+  public selectedPlayersYear = 1977;
   public players: Array<Player> = new Array<Player>();
   public player: FormControl;
   public filteredPlayers: Observable<Array<Player>>;
@@ -72,6 +72,12 @@ export class MlbApiExplorerComponent implements OnInit {
       return this.teams;
     }
   }
+  playersYearSelected(evt): void {
+    this.selectedPlayersYear = evt.source.value;
+    this._mlbStatsService.getPlayersByYear(this.selectedPlayersYear).then(players => {
+      this.players = players;
+    });
+  }
   filterYears(year: number): Array<number> {
     if (year) {
       const res = this.years.filter(y => {
@@ -80,16 +86,6 @@ export class MlbApiExplorerComponent implements OnInit {
       return res;
     } else {
       return this.years;
-    }
-  }
-  yearSelected(evt): void {
-    this.selectedPlayersYear = evt.source.value;
-    if (this.selectedPlayersYear !== null) {
-      this._uiService.showOverlay('Fetching Players...');
-      this._mlbStatsService.getPlayersByYear(this.selectedPlayersYear).then( players => {
-        this.players = players;
-        this._uiService.hideOverlay();
-      });
     }
   }
   filterPlayers(player: string): Array<Player> {
