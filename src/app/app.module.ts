@@ -14,7 +14,6 @@ import { MLBPlayersComponent } from './pages/portfolio/mlb-stats/mlbplayers/mlbp
 import { MLBTeamComponent } from './pages/portfolio/mlb-stats/mlbteam/mlbteam.component';
 import { MLBBallparksComponent } from './pages/portfolio/mlb-stats/mlbballparks/mlbballparks.component';
 import { MLBteamsComponent } from './pages/portfolio/mlb-stats/mlbteams/mlbteams.component';
-import { SliderComponent } from './pages/portfolio/mlb-stats/slider/slider.component';
 import { PowerballComponent } from './pages/portfolio/powerball/powerball.component';
 import { OverlayComponent } from './shared-components/overlay/overlay.component';
 import {
@@ -37,7 +36,6 @@ import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-b
     MLBTeamComponent,
     MLBBallparksComponent,
     MLBteamsComponent,
-    SliderComponent,
     PowerballComponent,
     OverlayComponent
   ],

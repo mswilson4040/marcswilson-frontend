@@ -1,5 +1,10 @@
 #mlbTeamStatsContainer {
   display: none;
+  .mlb-slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   #teamCardsContainer {
     display: flex;
     flex-wrap: wrap;

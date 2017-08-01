@@ -147,4 +147,7 @@ export class MlbStatsService {
   setSelectedPlayer(player: Player) {
     this.selectedPlayer = player;
   }
+  setSelectedYear(year: number) {
+    this.selectedYear = year;
+  }
 }

@@ -1,5 +1,7 @@
 <div id="mlbTeamStatsContainer">
-  <app-slider></app-slider>
+  <div class="mlb-slider">
+    <md-slider class="col-xl-6" min="1871" max="2016" [value]="selectedYear" [thumbLabel]="true" (change)="yearSelected($event)"></md-slider>
+  </div>
   <div id="mlbTeamChartContainer"></div>
   <div id="teamCardsContainer">
     <div class="col-xl-4 team-card-container" *ngFor="let team of teams">

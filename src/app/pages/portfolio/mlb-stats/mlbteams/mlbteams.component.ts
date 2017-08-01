@@ -10,6 +10,7 @@ declare const Highcharts: any; // TODO: Fix reference to proper ES6 syntax
 export class MLBteamsComponent implements OnInit, OnDestroy {
 
   public teams: Array<Team> = new Array<Team>();
+  public selectedYear = 1977;
   constructor(private mlbstatsService: MlbStatsService) {
     this.mlbstatsService.selectedYear$.subscribe(year => {
       this.mlbstatsService.getTeamsByYear(year).then(teams => {
@@ -28,6 +29,10 @@ export class MLBteamsComponent implements OnInit, OnDestroy {
   }
   ngOnDestroy(): void {
     $('#mlbTeamStatsContainer').fadeOut();
+  }
+  yearSelected(evt): void {
+    this.selectedYear = evt.source.value;
+    this.mlbstatsService.setSelectedYear(this.selectedYear);
   }
   buildChartData(data): Array<any> {
     const ret = data.map( (team) => {
