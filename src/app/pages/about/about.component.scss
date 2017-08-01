@@ -12,7 +12,6 @@ $csvGreen: #0F760F;
 }
 
 #aboutContainer {
-  margin-top: 55px;
   #header {
     width: 100%;
     .jumbotron {
@@ -28,7 +27,6 @@ $csvGreen: #0F760F;
       img {
         border-radius: 100px;
         border: 3px solid gray;
-        // display: none;
       }
     }
   }
@@ -39,7 +37,6 @@ $csvGreen: #0F760F;
     margin: 20px;
     height: 60px;
     .social-media-container {
-      // width: 40%;
       display: flex;
       justify-content: space-around;
       height: 60px;

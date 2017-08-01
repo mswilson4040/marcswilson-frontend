@@ -18,9 +18,9 @@ export class GlobalNavComponent implements OnInit {
       $('.navbar-collapse').removeClass('show'); // collapses nav if expanded
       const path = data['url'];
       if (path === '/' || path === '/home') {
-        this.fadeNavColors('white', '#2F4050');
+        this.fadeNavColors('white', 'transparent');
       } else if (path === '/about') {
-        this.fadeNavColors('white', '#2F4050');
+        this.fadeNavColors('black', 'transparent');
       } else if (path === '/portfolio') {
         this.fadeNavColors('white', '#2F4050');
       } else if (path === '/contact') {

@@ -1,6 +1,6 @@
 // https://github.com/chadwickbureau/baseballdatabank/tree/master/core
 // https://github.com/jimniels/teamcolors
-// TODO: http://gd2.mlb.com/components/ <--- LOOK INTO THIS (Box Scores and other game stats from ESPN)
+// http://gd2.mlb.com/components/
 import {Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {Team} from './classes/team';
 import {MlbStatsService} from './services/mlb-stats.service';
