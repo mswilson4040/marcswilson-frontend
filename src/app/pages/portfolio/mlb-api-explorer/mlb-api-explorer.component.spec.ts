@@ -1,11 +1,16 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MlbApiExplorerComponent } from './mlb-api-explorer.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MockBackend} from '@angular/http/testing';
 import {Http} from '@angular/http';
 import {UIService} from '../../../shared-services/ui.service';
 import {MlbStatsService} from '../mlb-stats/services/mlb-stats.service';
+import {
+  MdAutocompleteModule, MdDatepickerModule, MdInputModule, MdNativeDateModule,
+  MdSliderModule
+} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 describe('MlbApiExplorerComponent', () => {
   let component: MlbApiExplorerComponent;
@@ -13,7 +18,16 @@ describe('MlbApiExplorerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [FormsModule],
+      imports: [
+        FormsModule,
+        MdSliderModule,
+        MdAutocompleteModule,
+        ReactiveFormsModule,
+        MdInputModule,
+        MdDatepickerModule,
+        MdNativeDateModule,
+        BrowserAnimationsModule
+      ],
       declarations: [ MlbApiExplorerComponent ],
       providers: [ UIService, MlbStatsService, {provide: Http, deps: [MockBackend]} ]
     })
