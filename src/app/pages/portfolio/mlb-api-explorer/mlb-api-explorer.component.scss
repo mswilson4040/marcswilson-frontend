@@ -26,13 +26,21 @@
     margin-top: 15px;
     .tab-inner {
       padding: 10px;
-      text-align: center;
-      .mlb-slider {
-        padding-top: 15px;
-        width: 100%;
-      }
-      .mlb-dropdown {
-        width: 100%;
+      .section-inputs {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .mlb-slider {
+          .year-label {
+            color: rgba(0, 0, 0, .38);
+            text-align: left;
+          }
+          padding-top: 10px;
+          width: 100%;
+        }
+        .mlb-dropdown {
+          width: 100%;
+        }
       }
     }
     #addressBar {

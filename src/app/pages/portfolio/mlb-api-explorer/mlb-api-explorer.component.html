@@ -21,69 +21,76 @@
       <div>
         <md-tab-group>
           <md-tab label="Teams">
-
             <div class="tab-inner">
-              <p>The teams endpoint takes in two arguments: <strong>Year</strong> and <strong>Team ID</strong>. <br />
-                Example: /api/mlbstats/years/:yearID/teams/:teamID <br />
-                /api/mlbstats/years/1977/teams/SEA
+              <p>The teams endpoint takes in two arguments: <strong>Year</strong> and <strong>Team ID</strong>. The return is an array of type Team.
               </p>
-              <div class="mlb-slider">
-                <md-slider class="col-xl-6" min="1871" max="2016" [value]="selectedTeamYear" [thumbLabel]="true" (change)="teamYearSelected($event)"></md-slider>
-              </div>
-              <div class="mlb-dropdown">
-                <md-input-container class="col-xl-6">
-                  <input mdInput placeholder="Team" [mdAutocomplete]="teamsAutocomplete" [formControl]="team" />
-                </md-input-container>
-                <md-autocomplete #teamsAutocomplete="mdAutocomplete">
-                  <md-option *ngFor="let team of filteredTeams | async" [value]="team.name" (onSelectionChange)="teamSelected(team)">
-                    {{team.name}}
-                  </md-option>
-                </md-autocomplete>
+              <pre>/api/mlbstats/years/<strong>:yearID</strong>/teams/<strong>:teamID</strong></pre>
+              <pre>/api/mlbstats/years/<strong>1977</strong>/teams/<strong>SEA</strong></pre>
+              <div class="section-inputs">
+                <div class="mlb-slider">
+                  <div class="year-label">Year {{selectedTeamYear}}</div>
+                  <md-slider class="col-xl-12" min="1871" max="2016" [value]="selectedTeamYear" [thumbLabel]="true" (change)="teamYearSelected($event)"></md-slider>
+                </div>
+                <div class="mlb-dropdown">
+                  <md-input-container class="col-xl-12">
+                    <input mdInput placeholder="Team" [mdAutocomplete]="teamsAutocomplete" [formControl]="team" />
+                  </md-input-container>
+                  <md-autocomplete #teamsAutocomplete="mdAutocomplete">
+                    <md-option *ngFor="let team of filteredTeams | async" [value]="team.name" (onSelectionChange)="teamSelected(team)">
+                      {{team.name}}
+                    </md-option>
+                  </md-autocomplete>
+                </div>
               </div>
             </div>
           </md-tab>
           <md-tab label="Players">
             <div class="tab-inner">
-              <p>The players endpoint takes in one argument: <strong>Player ID</strong>. <br />
-                Example: /api/mlbstats/players/:playerID <br />
-                /api/mlbstats/players/id/griffke02
+              <p>The players endpoint takes in one argument: <strong>Player ID</strong>. The return is an array of type Players.
               </p>
-              <div class="mlb-slider">
-                <md-slider class="col-xl-6" min="1871" max="2016" [value]="selectedPlayersYear" [thumbLabel]="true" (change)="playersYearSelected($event)"></md-slider>
-              </div>
-              <div class="mlb-dropdown">
-                <md-input-container class="col-xl-6">
-                  <input mdInput placeholder="Player" [mdAutocomplete]="playersAutocomplete" [formControl]="player" />
-                </md-input-container>
-                <md-autocomplete #playersAutocomplete="mdAutocomplete">
-                  <md-option *ngFor="let player of filteredPlayers | async" [value]="player.personal[0].fullName" (onSelectionChange)="playerSelected(player)">
-                    {{player.personal[0].fullName}}
-                  </md-option>
-                </md-autocomplete>
+              <pre>/api/mlbstats/players/id/<strong>:playerID</strong></pre>
+              <pre>/api/mlbstats/players/id/<strong>griffke02</strong></pre>
+              <div class="section-inputs">
+                <div class="mlb-slider">
+                  <div class="year-label">Year {{selectedPlayersYear}}</div>
+                  <md-slider class="col-xl-12" min="1871" max="2016" [value]="selectedPlayersYear" [thumbLabel]="true" (change)="playersYearSelected($event)"></md-slider>
+                </div>
+                <div class="mlb-dropdown">
+                  <md-input-container class="col-xl-12">
+                    <input mdInput placeholder="Player" [mdAutocomplete]="playersAutocomplete" [formControl]="player" />
+                  </md-input-container>
+                  <md-autocomplete #playersAutocomplete="mdAutocomplete">
+                    <md-option *ngFor="let player of filteredPlayers | async" [value]="player.personal[0].fullName" (onSelectionChange)="playerSelected(player)">
+                      {{player.personal[0].fullName}}
+                    </md-option>
+                  </md-autocomplete>
+                </div>
               </div>
             </div>
           </md-tab>
           <md-tab label="Ballparks">
             <div class="tab-inner">
-              <p>The ballparks endpoint takes in one optional argument: <strong>Player ID</strong>. <br />
-                Example: /api/mlbstats/players/:playerID <br />
-                /api/mlbstats/ballparks <br />
-                or <br />
-                /api/mlbstats/ballparks/:key
+              <p>The ballparks endpoint takes in one optional argument: <strong>Player ID</strong>. The return is an array of type Ballpark
               </p>
-              <button type="button" class="btn btn-primary" (click)="getAllBallparks()">Get All Ballparks</button>
+              <pre>/api/mlbstats/ballparks</pre>
+              <pre>/api/mlbstats/ballparks/<strong>:key</strong></pre>
+              <div class="section-inputs">
+                <button type="button" class="btn btn-primary" (click)="getAllBallparks()">Get All Ballparks</button>
+              </div>
             </div>
           </md-tab>
           <md-tab label="Boxscores">
             <div class="tab-inner">
-              <p>The boxscores endpoint takes in three arguments: <strong>Year</strong>, <strong>Month</strong>, and <strong>Day</strong>. <br />
-                Example: /api/mlbstats/boxscores/2017/7/27<br />
-                /api/mlbstats/boxscores/:year/:month/:day
+              <p>The boxscores endpoint takes in three arguments: <strong>Year</strong>, <strong>Month</strong>, and <strong>Day</strong>. The return is an array of type Boxscore
               </p>
-              <md-input-container>
-                <input mdInput [mdDatepicker]="picker" placeholder="Choose a date" >
-                <button mdSuffix [mdDatepickerToggle]="picker"></button>
-              </md-input-container>
+              <pre>/api/mlbstats/boxscores/<strong>2017</strong>/<strong>7</strong>/<strong>27</strong></pre>
+              <pre>/api/mlbstats/boxscores/<strong>:year</strong>/<strong>:month</strong>/<strong>:day</strong></pre>
+              <div class="section-inputs">
+                <md-input-container>
+                  <input mdInput [mdDatepicker]="picker" placeholder="Choose a date" >
+                  <button mdSuffix [mdDatepickerToggle]="picker"></button>
+                </md-input-container>
+              </div>
               <md-datepicker #picker (selectedChanged)="boxscoresDateChanged($event)"></md-datepicker>
             </div>
           </md-tab>
