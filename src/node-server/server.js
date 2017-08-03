@@ -1,10 +1,8 @@
 "use strict";
-/**
- * Created by Marc on 12/16/2016.
- */
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var MLBStatsAPIFile = require("./mlb-stats-api");
 var PowerballAPIFile = require("./powerball-api");
+var AuthAPIFile = require("./auth-api");
 var Server = (function () {
     function Server(express, app, bodyParser, path, server, cors) {
         if (express === void 0) { express = null; }
@@ -33,6 +31,7 @@ var Server = (function () {
         this.app.use(this.cors());
         this.app.use('/api/mlbstats', MLBStatsAPIFile);
         this.app.use('/api/powerball', PowerballAPIFile);
+        this.app.use('/api/auth', AuthAPIFile);
         // this.app.use('/api/yelp', require('./public/shared/apis/yelp.api'));
         this.app.get('/*', function (req, res) {
             res.sendFile(_this.path.join(__dirname + '/../index.html'));
@@ -41,3 +40,4 @@ var Server = (function () {
     return Server;
 }());
 new Server();
+//# sourceMappingURL=server.js.map

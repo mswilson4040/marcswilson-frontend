@@ -56,8 +56,8 @@ export class MlbStatsService {
   getDistinctYears(): Promise<Array<number>> {
     return new Promise((resolve, reject) => {
       this.http.get(this.API_PATH + 'years').subscribe(years => {
-        years = JSON.parse(years['_body']);
-        resolve(years);
+        const ret = JSON.parse(years['_body']);
+        resolve(ret);
       });
     });
   }
@@ -92,8 +92,8 @@ export class MlbStatsService {
   getPlayersByName(name: string): Promise<Array<Personal>> {
     return new Promise( (resolve, reject) => {
       this.http.get(this.API_PATH + 'players/name/' + name).subscribe( personal => {
-        personal = JSON.parse(personal['_body']);
-        resolve(personal);
+        const ret = JSON.parse(personal['_body']);
+        resolve(ret);
       });
     });
   }
@@ -111,16 +111,16 @@ export class MlbStatsService {
   getFullPlayerStats(player: Player): Promise<Array<Appearance>> {
     return new Promise( (resolve, reject) => {
       this.http.get(this.API_PATH + 'players/id/' + player.playerID).subscribe( appearances => {
-        appearances = JSON.parse(appearances['_body']);
-        resolve(appearances);
+        const ret = JSON.parse(appearances['_body']);
+        resolve(ret);
       });
     });
   }
   getAllBallparks(): Promise<Array<Ballpark>> {
     return new Promise( (resolve, reject) => {
       this.http.get(this.API_PATH + 'ballparks').subscribe( ballparks => {
-        ballparks = JSON.parse(ballparks['_body']);
-        resolve(ballparks);
+        const ret = JSON.parse(ballparks['_body']);
+        resolve(ret);
       });
     });
   }

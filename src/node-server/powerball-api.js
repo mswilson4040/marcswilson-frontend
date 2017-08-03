@@ -2,7 +2,7 @@
 /**
  * Created by Marc on 6/20/2017.
  */
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var PowerballApi = (function () {
     function PowerballApi() {
         var _this = this;
@@ -23,3 +23,4 @@ var PowerballApi = (function () {
 }());
 exports.PowerballApi = PowerballApi;
 new PowerballApi();
+//# sourceMappingURL=powerball-api.js.map

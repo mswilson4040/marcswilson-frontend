@@ -1,9 +1,6 @@
-/**
- * Created by Marc on 12/16/2016.
- */
-
 import * as MLBStatsAPIFile from './mlb-stats-api';
 import * as PowerballAPIFile from './powerball-api';
+import * as AuthAPIFile from './auth-api';
 
 class Server {
   constructor(
@@ -27,6 +24,7 @@ class Server {
     this.app.use(this.cors());
     this.app.use('/api/mlbstats', MLBStatsAPIFile);
     this.app.use('/api/powerball', PowerballAPIFile);
+    this.app.use('/api/auth', AuthAPIFile);
     // this.app.use('/api/yelp', require('./public/shared/apis/yelp.api'));
     this.app.get('/*', (req: any, res: any) => {
       res.sendFile(this.path.join(__dirname + '/../index.html'));

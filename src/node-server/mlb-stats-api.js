@@ -1,5 +1,5 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var MlbStatsApi = (function () {
     function MlbStatsApi() {
         var _this = this;
@@ -521,3 +521,4 @@ var MlbStatsApi = (function () {
 }());
 exports.MlbStatsApi = MlbStatsApi;
 new MlbStatsApi();
+//# sourceMappingURL=mlb-stats-api.js.map
