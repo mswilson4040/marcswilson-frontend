@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {App} from '../../shared-classes/app';
+import {AuthService} from '../../shared-services/auth.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -8,7 +9,7 @@ import {App} from '../../shared-classes/app';
 })
 export class PortfolioComponent implements OnInit, AfterViewInit {
   public apps: Array<App> = new Array<App>();
-  constructor() {
+  constructor(private _authService: AuthService) {
     this.apps.push(new App('MLB Stats API', 'REST API for MLB Stats...', 'images/cruzswing.jpg', '/mlbstatsapi'));
     this.apps.push(new App('MLB Stats', 'In Progress...', 'images/handshakes.jpg', '/mlbstats'));
     this.apps.push(new App('Powerball', 'In Progress...', 'images/blue-angels.jpg', '/powerball'));
@@ -23,5 +24,12 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
       $(containers[i]).delay(delay).fadeIn(700);
       delay += 100;
     }
+  }
+  test(): void {
+    this._authService.login().then(data => {
+      console.log(data);
+    }, error => {
+      alert(error.message);
+    });
   }
 }

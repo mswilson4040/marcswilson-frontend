@@ -11,8 +11,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var app_1 = require("../../shared-classes/app");
+var auth_service_1 = require("../../shared-services/auth.service");
 var PortfolioComponent = (function () {
-    function PortfolioComponent() {
+    function PortfolioComponent(_authService) {
+        this._authService = _authService;
         this.apps = new Array();
         this.apps.push(new app_1.App('MLB Stats API', 'REST API for MLB Stats...', 'images/cruzswing.jpg', '/mlbstatsapi'));
         this.apps.push(new app_1.App('MLB Stats', 'In Progress...', 'images/handshakes.jpg', '/mlbstats'));
@@ -28,13 +30,20 @@ var PortfolioComponent = (function () {
             delay += 100;
         }
     };
+    PortfolioComponent.prototype.test = function () {
+        this._authService.login().then(function (data) {
+            console.log(data);
+        }, function (error) {
+            alert(error.message);
+        });
+    };
     PortfolioComponent = __decorate([
         core_1.Component({
             selector: 'app-portfolio',
             templateUrl: './portfolio.component.html',
             styleUrls: ['./portfolio.component.scss']
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [auth_service_1.AuthService])
     ], PortfolioComponent);
     return PortfolioComponent;
 }());

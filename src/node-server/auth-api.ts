@@ -1,3 +1,5 @@
+import {environment} from '../environments/environment';
+
 export class AuthApi {
   public express: any = null;
   public request: any = null;
@@ -14,7 +16,7 @@ export class AuthApi {
     this.passport.use(new this.strategy({
       clientID: '1813751935560209',
       clientSecret: '7a8fbb2e45d3bae62b8e7b54282b9e55',
-      callbackURL: 'http://localhost:3000/api/auth/login/facebook/return'
+      callbackURL: `${environment.API_PATH}/auth/facebook/return`
     }, (accessToken, refreshToken, profile, cb) => {
       return cb(null, profile);
     }));
@@ -22,11 +24,12 @@ export class AuthApi {
     this.router.use(this.passport.session());
     this.passport.serializeUser( (user, cb) => { cb(null, user); });
     this.passport.deserializeUser( (obj, cb) => { cb(null, obj); });
-    this.router.get('/login/facebook', this.passport.authenticate('facebook'));
+    this.router.get('/facebook', this.passport.authenticate('facebook'));
 
-    this.router.get('/login/facebook/return', this.passport.authenticate('facebook', { failureRedirect: '/'}),
+
+    this.router.get('/facebook/return', this.passport.authenticate('facebook', { failureRedirect: '/'}),
       (request, response) => {
-      response.redirect('http://localhost:4200');
+      response.redirect(environment.ROOT_URL);
     });
     module.exports = this.router;
   }

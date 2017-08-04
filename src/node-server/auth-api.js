@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+var environment_1 = require("../environments/environment");
 var AuthApi = (function () {
     function AuthApi() {
         this.express = null;
@@ -15,7 +16,7 @@ var AuthApi = (function () {
         this.passport.use(new this.strategy({
             clientID: '1813751935560209',
             clientSecret: '7a8fbb2e45d3bae62b8e7b54282b9e55',
-            callbackURL: 'http://localhost:3000/api/auth/login/facebook/return'
+            callbackURL: environment_1.environment.API_PATH + "/auth/facebook/return"
         }, function (accessToken, refreshToken, profile, cb) {
             return cb(null, profile);
         }));
@@ -23,9 +24,9 @@ var AuthApi = (function () {
         this.router.use(this.passport.session());
         this.passport.serializeUser(function (user, cb) { cb(null, user); });
         this.passport.deserializeUser(function (obj, cb) { cb(null, obj); });
-        this.router.get('/login/facebook', this.passport.authenticate('facebook'));
-        this.router.get('/login/facebook/return', this.passport.authenticate('facebook', { failureRedirect: '/' }), function (request, response) {
-            response.redirect('http://localhost:4200');
+        this.router.get('/facebook', this.passport.authenticate('facebook'));
+        this.router.get('/facebook/return', this.passport.authenticate('facebook', { failureRedirect: '/' }), function (request, response) {
+            response.redirect(environment_1.environment.ROOT_URL);
         });
         module.exports = this.router;
     }

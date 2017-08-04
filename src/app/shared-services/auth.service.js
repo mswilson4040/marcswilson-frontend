@@ -19,7 +19,7 @@ var AuthService = (function () {
     AuthService.prototype.login = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            var url = environment_1.environment.API_PATH + "/auth/login/facebook";
+            var url = environment_1.environment.API_PATH + "/auth/facebook";
             console.log(url);
             _this._http.get(url).subscribe(function (data) {
                 resolve(data);
