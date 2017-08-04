@@ -34,7 +34,7 @@ var PortfolioComponent = (function () {
         this._authService.login().then(function (data) {
             console.log(data);
         }, function (error) {
-            alert(error.message);
+            console.log(error);
         });
     };
     PortfolioComponent = __decorate([

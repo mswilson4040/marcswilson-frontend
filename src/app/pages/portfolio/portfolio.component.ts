@@ -29,7 +29,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
     this._authService.login().then(data => {
       console.log(data);
     }, error => {
-      alert(error.message);
+      console.log(error);
     });
   }
 }
