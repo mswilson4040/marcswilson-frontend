@@ -6,6 +6,7 @@ import {PortfolioComponent} from './pages/portfolio/portfolio.component';
 import {MlbApiExplorerComponent} from './pages/portfolio/mlb-api-explorer/mlb-api-explorer.component';
 import {MlbStatsComponent} from './pages/portfolio/mlb-stats/mlb-stats.component';
 import {PowerballComponent} from './pages/portfolio/powerball/powerball.component';
+import {TimeTrackerComponent} from './pages/portfolio/time-tracker/time-tracker.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'portfolio', component: PortfolioComponent },
   { path: 'mlbstatsapi', component: MlbApiExplorerComponent},
   { path: 'mlbstats', component: MlbStatsComponent},
-  { path: 'powerball', component: PowerballComponent}
+  { path: 'powerball', component: PowerballComponent},
+  { path: 'timetracker', component: TimeTrackerComponent}
 ];
 
 @NgModule({

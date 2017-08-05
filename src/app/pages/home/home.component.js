@@ -10,8 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var material_1 = require("@angular/material");
+var contact_form_dialog_component_1 = require("../../shared-components/contact-form-dialog/contact-form-dialog.component");
 var HomeComponent = (function () {
-    function HomeComponent() {
+    function HomeComponent(_dialog) {
+        this._dialog = _dialog;
     }
     HomeComponent.prototype.ngOnInit = function () {
         $('#firstName').addClass('first-name-width', 500);
@@ -21,13 +24,16 @@ var HomeComponent = (function () {
             $('#welcomeScreen').animate({ color: 'white' }, 500);
         });
     };
+    HomeComponent.prototype.openContactForm = function () {
+        this._dialog.open(contact_form_dialog_component_1.ContactFormDialogComponent);
+    };
     HomeComponent = __decorate([
         core_1.Component({
             selector: 'app-home',
             templateUrl: './home.component.html',
             styleUrls: ['./home.component.scss']
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [material_1.MdDialog])
     ], HomeComponent);
     return HomeComponent;
 }());

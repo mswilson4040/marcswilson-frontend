@@ -44,6 +44,9 @@ var GlobalNavComponent = (function () {
             else if (path === '/powerball') {
                 _this.fadeNavColors('white', '#2F4050');
             }
+            else if (path === '/timetracker') {
+                _this.fadeNavColors('white', '#2F4050');
+            }
             $('.nav-collapsable').hide('slide', { direction: 'up' }, 200);
         });
     }

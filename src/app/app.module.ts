@@ -1,10 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { ShellComponent } from './shell/shell.component';
-import {HomeComponent} from './pages/home/home.component';
+import { HomeComponent } from './pages/home/home.component';
 import { GlobalNavComponent } from './shared-components/global-nav/global-nav.component';
 import { AboutComponent } from './pages/about/about.component';
 import { PortfolioComponent } from './pages/portfolio/portfolio.component';
@@ -17,10 +17,14 @@ import { MLBteamsComponent } from './pages/portfolio/mlb-stats/mlbteams/mlbteams
 import { PowerballComponent } from './pages/portfolio/powerball/powerball.component';
 import { OverlayComponent } from './shared-components/overlay/overlay.component';
 import {
-  MdAutocompleteModule, MdCardModule, MdDatepickerModule, MdInputModule, MdNativeDateModule, MdSliderModule,
+  MdAutocompleteModule, MdButtonModule, MdCardModule, MdDatepickerModule, MdDialogModule, MdInputModule,
+  MdNativeDateModule,
+  MdSliderModule,
   MdTabsModule
 } from '@angular/material';
-import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TimeTrackerComponent } from './pages/portfolio/time-tracker/time-tracker.component';
+import { ContactFormDialogComponent } from './shared-components/contact-form-dialog/contact-form-dialog.component';
 
 
 @NgModule({
@@ -37,9 +41,17 @@ import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-b
     MLBBallparksComponent,
     MLBteamsComponent,
     PowerballComponent,
-    OverlayComponent
+    OverlayComponent,
+    TimeTrackerComponent,
+    ContactFormDialogComponent
   ],
-  entryComponents: [MLBBallparksComponent, MLBPlayersComponent, MLBTeamComponent, MLBteamsComponent],
+  entryComponents: [
+    MLBBallparksComponent,
+    MLBPlayersComponent,
+    MLBTeamComponent,
+    MLBteamsComponent,
+    ContactFormDialogComponent
+  ],
   imports: [
     BrowserAnimationsModule,
     BrowserModule,
@@ -54,7 +66,8 @@ import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-b
     MdTabsModule,
     MdCardModule,
     MdSliderModule,
-    NoopAnimationsModule
+    MdDialogModule,
+    MdButtonModule
   ],
   providers: [],
   bootstrap: [ShellComponent]

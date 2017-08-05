@@ -14,6 +14,7 @@ var portfolio_component_1 = require("./pages/portfolio/portfolio.component");
 var mlb_api_explorer_component_1 = require("./pages/portfolio/mlb-api-explorer/mlb-api-explorer.component");
 var mlb_stats_component_1 = require("./pages/portfolio/mlb-stats/mlb-stats.component");
 var powerball_component_1 = require("./pages/portfolio/powerball/powerball.component");
+var time_tracker_component_1 = require("./pages/portfolio/time-tracker/time-tracker.component");
 var routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: home_component_1.HomeComponent },
@@ -21,7 +22,8 @@ var routes = [
     { path: 'portfolio', component: portfolio_component_1.PortfolioComponent },
     { path: 'mlbstatsapi', component: mlb_api_explorer_component_1.MlbApiExplorerComponent },
     { path: 'mlbstats', component: mlb_stats_component_1.MlbStatsComponent },
-    { path: 'powerball', component: powerball_component_1.PowerballComponent }
+    { path: 'powerball', component: powerball_component_1.PowerballComponent },
+    { path: 'timetracker', component: time_tracker_component_1.TimeTrackerComponent }
 ];
 var AppRoutingModule = (function () {
     function AppRoutingModule() {

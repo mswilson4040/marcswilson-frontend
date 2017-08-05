@@ -11,7 +11,6 @@ export class AuthService {
   login(): Promise<any> {
     return new Promise( (resolve, reject) => {
       const url = `${environment.API_PATH}/auth/facebook`;
-      console.log(url);
       this._http.get(url).subscribe(data => {
         resolve(data);
       }, error => {

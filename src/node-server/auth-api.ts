@@ -32,11 +32,12 @@ export class AuthApi {
     module.exports = this.router;
   }
   getEnvironmentVariables() {
-      const prod = 'prod';
-      if (prod === 'prod') {
+      let prod;
+      prod = false;
+      if (prod === false) {
         return {
           API_PATH: 'http://localhost:3000/api',
-          ROOT_URL: 'http://localhost:4200',
+          ROOT_URL: 'http://localhost:3000',
           CLIENT_ID: '1813751935560209',
           CLIENT_SECRET: '7a8fbb2e45d3bae62b8e7b54282b9e55'
         };

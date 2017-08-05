@@ -10,28 +10,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var http_1 = require("@angular/http");
-var environment_1 = require("../../environments/environment");
-var AuthService = (function () {
-    function AuthService(_http) {
-        this._http = _http;
+var ContactFormDialogComponent = (function () {
+    function ContactFormDialogComponent() {
     }
-    AuthService.prototype.login = function () {
-        var _this = this;
-        return new Promise(function (resolve, reject) {
-            var url = environment_1.environment.API_PATH + "/auth/facebook";
-            _this._http.get(url).subscribe(function (data) {
-                resolve(data);
-            }, function (error) {
-                reject(error);
-            });
-        });
+    ContactFormDialogComponent.prototype.ngOnInit = function () {
     };
-    AuthService = __decorate([
-        core_1.Injectable(),
-        __metadata("design:paramtypes", [http_1.Http])
-    ], AuthService);
-    return AuthService;
+    ContactFormDialogComponent = __decorate([
+        core_1.Component({
+            selector: 'app-contact-form-dialog',
+            templateUrl: './contact-form-dialog.component.html',
+            styleUrls: ['./contact-form-dialog.component.scss']
+        }),
+        __metadata("design:paramtypes", [])
+    ], ContactFormDialogComponent);
+    return ContactFormDialogComponent;
 }());
-exports.AuthService = AuthService;
-//# sourceMappingURL=auth.service.js.map
+exports.ContactFormDialogComponent = ContactFormDialogComponent;
+//# sourceMappingURL=contact-form-dialog.component.js.map
