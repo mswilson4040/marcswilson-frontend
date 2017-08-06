@@ -10,13 +10,15 @@ class Server {
     private bodyParser: any = null,
     private path: any = null,
     private server: any = null,
-    private cors: any = null
+    private cors: any = null,
+    private dotenv: any = null
   ) {
     this.cors = require('cors');
     this.express = require('express');
     this.app = this.express();
     this.bodyParser = require('body-parser');
     this.path = require('path');
+    this.dotenv = require('dotenv').config({path: 'server.env'});
     this.server = require('http').createServer(this.app);
     this.app.listen(process.env.PORT || 3000);
     this.app.use(this.bodyParser.urlencoded({ extended: true }));

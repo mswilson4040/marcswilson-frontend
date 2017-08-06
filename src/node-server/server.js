@@ -5,13 +5,14 @@ var PowerballAPI = require("./powerball-api");
 var AuthAPI = require("./auth-api");
 var EmailAPI = require("./email-api");
 var Server = (function () {
-    function Server(express, app, bodyParser, path, server, cors) {
+    function Server(express, app, bodyParser, path, server, cors, dotenv) {
         if (express === void 0) { express = null; }
         if (app === void 0) { app = null; }
         if (bodyParser === void 0) { bodyParser = null; }
         if (path === void 0) { path = null; }
         if (server === void 0) { server = null; }
         if (cors === void 0) { cors = null; }
+        if (dotenv === void 0) { dotenv = null; }
         var _this = this;
         this.express = express;
         this.app = app;
@@ -19,11 +20,13 @@ var Server = (function () {
         this.path = path;
         this.server = server;
         this.cors = cors;
+        this.dotenv = dotenv;
         this.cors = require('cors');
         this.express = require('express');
         this.app = this.express();
         this.bodyParser = require('body-parser');
         this.path = require('path');
+        this.dotenv = require('dotenv').config({ path: 'server.env' });
         this.server = require('http').createServer(this.app);
         this.app.listen(process.env.PORT || 3000);
         this.app.use(this.bodyParser.urlencoded({ extended: true }));

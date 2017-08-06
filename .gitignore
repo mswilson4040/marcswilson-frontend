@@ -46,3 +46,4 @@ createMongoIndexes.js
 # System Files
 .DS_Store
 Thumbs.db
+/server.env

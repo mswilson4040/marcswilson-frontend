@@ -10,10 +10,10 @@ export class EmailApi {
     this.nodemailer = require('nodemailer');
     this.aws = require('aws-sdk');
     this.router.post('/sendemail', (request, response) => {
-      const params = request.params;
-      const subject = params.subject;
-      const from = params.from;
-      const message = params.message;
+      const body = request.body;
+      const subject = body.subject;
+      const from = body.from;
+      const message = body.message;
       this.sendEmail(subject, from, message).then( result => {
         response.json(result);
       }, error => {
@@ -25,7 +25,13 @@ export class EmailApi {
   }
   sendEmail(subject: string, from: string, message: string): Promise<any> {
     return new Promise( (resolve, reject) => {
-      this.aws.config.loadFromPath('aws.ses.config.example.json')
+      // this.aws.config.loadFromPath('aws.ses.config.example.json');
+
+      this.aws.config = {
+        accessKeyId: process.env.AWS_ACCESS_ID,
+        secretAccessKey: process.env.AWS_ACCESS_KEY,
+        region: 'us-east-1'
+      };
       const transporter = this.nodemailer.createTransport({
         SES: new this.aws.SES({
           apiVersion: '2012-10-17'

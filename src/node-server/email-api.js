@@ -12,10 +12,10 @@ var EmailApi = (function () {
         this.nodemailer = require('nodemailer');
         this.aws = require('aws-sdk');
         this.router.post('/sendemail', function (request, response) {
-            var params = request.params;
-            var subject = params.subject;
-            var from = params.from;
-            var message = params.message;
+            var body = request.body;
+            var subject = body.subject;
+            var from = body.from;
+            var message = body.message;
             _this.sendEmail(subject, from, message).then(function (result) {
                 response.json(result);
             }, function (error) {
@@ -27,7 +27,12 @@ var EmailApi = (function () {
     EmailApi.prototype.sendEmail = function (subject, from, message) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.aws.config.loadFromPath('aws.ses.config.example.json');
+            // this.aws.config.loadFromPath('aws.ses.config.example.json');
+            _this.aws.config = {
+                accessKeyId: process.env.AWS_ACCESS_ID,
+                secretAccessKey: process.env.AWS_ACCESS_KEY,
+                region: 'us-east-1'
+            };
             var transporter = _this.nodemailer.createTransport({
                 SES: new _this.aws.SES({
                     apiVersion: '2012-10-17'
