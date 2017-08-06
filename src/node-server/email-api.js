@@ -27,7 +27,6 @@ var EmailApi = (function () {
     EmailApi.prototype.sendEmail = function (subject, from, message) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            // this.aws.config.loadFromPath('aws.ses.config.example.json');
             _this.aws.config = {
                 accessKeyId: process.env.AWS_ACCESS_ID,
                 secretAccessKey: process.env.AWS_ACCESS_KEY,

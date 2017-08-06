@@ -25,8 +25,6 @@ export class EmailApi {
   }
   sendEmail(subject: string, from: string, message: string): Promise<any> {
     return new Promise( (resolve, reject) => {
-      // this.aws.config.loadFromPath('aws.ses.config.example.json');
-
       this.aws.config = {
         accessKeyId: process.env.AWS_ACCESS_ID,
         secretAccessKey: process.env.AWS_ACCESS_KEY,
