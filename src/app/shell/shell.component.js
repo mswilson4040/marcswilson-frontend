@@ -19,6 +19,7 @@ require("bootstrap");
 require("hammerjs");
 var powerball_service_1 = require("../pages/portfolio/powerball/services/powerball.service");
 var auth_service_1 = require("../shared-services/auth.service");
+var email_service_1 = require("../shared-services/email.service");
 var ShellComponent = (function () {
     function ShellComponent() {
     }
@@ -32,7 +33,13 @@ var ShellComponent = (function () {
             selector: 'app-shell',
             templateUrl: './shell.component.html',
             styleUrls: ['./shell.component.scss'],
-            providers: [ui_service_1.UIService, mlb_stats_service_1.MlbStatsService, powerball_service_1.PowerballService, auth_service_1.AuthService]
+            providers: [
+                ui_service_1.UIService,
+                mlb_stats_service_1.MlbStatsService,
+                powerball_service_1.PowerballService,
+                auth_service_1.AuthService,
+                email_service_1.EmailService
+            ]
         }),
         __metadata("design:paramtypes", [])
     ], ShellComponent);

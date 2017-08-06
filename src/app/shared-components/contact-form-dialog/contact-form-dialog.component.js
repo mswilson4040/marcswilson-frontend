@@ -10,8 +10,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var material_1 = require("@angular/material");
 var ContactFormDialogComponent = (function () {
-    function ContactFormDialogComponent() {
+    function ContactFormDialogComponent(_dialogRef) {
+        this._dialogRef = _dialogRef;
+        this.subject = 'test dubject';
+        this.from = 'mwilson@marcswilson.com';
+        this.message = 'message';
     }
     ContactFormDialogComponent.prototype.ngOnInit = function () {
     };
@@ -21,7 +26,7 @@ var ContactFormDialogComponent = (function () {
             templateUrl: './contact-form-dialog.component.html',
             styleUrls: ['./contact-form-dialog.component.scss']
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [material_1.MdDialogRef])
     ], ContactFormDialogComponent);
     return ContactFormDialogComponent;
 }());

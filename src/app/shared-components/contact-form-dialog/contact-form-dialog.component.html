@@ -2,23 +2,22 @@
   <h4 md-dialog-title>Contact Form</h4>
   <div md-dialog-content>
     <div class="row">
-      <md-input-container class="col-xl-12">
-        <input mdInput placeholder="From" />
+      <md-input-container class="col-xl-6">
+        <input mdInput placeholder="From" [(ngModel)]="from" />
+      </md-input-container>
+      <md-input-container class="col-xl-6">
+        <input mdInput placeholder="Subject" [(ngModel)]="subject" />
       </md-input-container>
     </div>
+
     <div class="row">
       <md-input-container class="col-xl-12">
-        <input mdInput placeholder="Subject" />
-      </md-input-container>
-    </div>
-    <div class="row">
-      <md-input-container class="col-xl-12">
-        <textarea mdInput placeholder="Message" rows="4"></textarea>
+        <textarea mdInput placeholder="Message" rows="4" [(ngModel)]="message"></textarea>
       </md-input-container>
     </div>
   </div>
   <div md-dialog-actions>
-    <button md-dialog-close="Send" md-button md-raised-button>Send</button>
-    <button md-dialog-close="Close" md-button>Close</button>
+    <button md-dialog-close="true" md-button md-raised-button>Send</button>
+    <button md-dialog-close="false" md-button>Close</button>
   </div>
 </div>

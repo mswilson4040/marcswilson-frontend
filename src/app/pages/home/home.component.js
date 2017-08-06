@@ -12,9 +12,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var material_1 = require("@angular/material");
 var contact_form_dialog_component_1 = require("../../shared-components/contact-form-dialog/contact-form-dialog.component");
+var email_service_1 = require("../../shared-services/email.service");
 var HomeComponent = (function () {
-    function HomeComponent(_dialog) {
+    function HomeComponent(_dialog, _emailService) {
         this._dialog = _dialog;
+        this._emailService = _emailService;
     }
     HomeComponent.prototype.ngOnInit = function () {
         $('#firstName').addClass('first-name-width', 500);
@@ -25,7 +27,21 @@ var HomeComponent = (function () {
         });
     };
     HomeComponent.prototype.openContactForm = function () {
-        this._dialog.open(contact_form_dialog_component_1.ContactFormDialogComponent);
+        var _this = this;
+        var dialogRef = this._dialog.open(contact_form_dialog_component_1.ContactFormDialogComponent);
+        dialogRef.afterClosed().subscribe(function (data) {
+            if (data) {
+                var componentInstance = dialogRef.componentInstance;
+                var subject = componentInstance.subject;
+                var from = componentInstance.from;
+                var message = componentInstance.message;
+                _this._emailService.sendEmail(from, subject, message).then(function (result) {
+                    alert(result);
+                }, function (error) {
+                    console.log(error);
+                });
+            }
+        });
     };
     HomeComponent = __decorate([
         core_1.Component({
@@ -33,7 +49,7 @@ var HomeComponent = (function () {
             templateUrl: './home.component.html',
             styleUrls: ['./home.component.scss']
         }),
-        __metadata("design:paramtypes", [material_1.MdDialog])
+        __metadata("design:paramtypes", [material_1.MdDialog, email_service_1.EmailService])
     ], HomeComponent);
     return HomeComponent;
 }());

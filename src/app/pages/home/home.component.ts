@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MdDialog} from '@angular/material';
 import {ContactFormDialogComponent} from '../../shared-components/contact-form-dialog/contact-form-dialog.component';
+import {EmailService} from '../../shared-services/email.service';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +10,7 @@ import {ContactFormDialogComponent} from '../../shared-components/contact-form-d
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private _dialog: MdDialog) { }
+  constructor(private _dialog: MdDialog, private _emailService: EmailService) { }
 
   ngOnInit() {
     $('#firstName').addClass('first-name-width', 500);
@@ -20,7 +21,20 @@ export class HomeComponent implements OnInit {
     });
   }
   openContactForm(): void {
-    this._dialog.open(ContactFormDialogComponent);
+    const dialogRef = this._dialog.open(ContactFormDialogComponent);
+    dialogRef.afterClosed().subscribe(data => {
+      if (data) {
+        const componentInstance = dialogRef.componentInstance;
+        const subject = componentInstance.subject;
+        const from = componentInstance.from;
+        const message = componentInstance.message;
+        this._emailService.sendEmail(from, subject, message).then( result => {
+            alert(result);
+        }, error => {
+          console.log(error);
+        });
+      }
+    });
   }
 
 }

@@ -1,6 +1,7 @@
-import * as MLBStatsAPIFile from './mlb-stats-api';
-import * as PowerballAPIFile from './powerball-api';
-import * as AuthAPIFile from './auth-api';
+import * as MLBStatsAPI from './mlb-stats-api';
+import * as PowerballAPI from './powerball-api';
+import * as AuthAPI from './auth-api';
+import * as EmailAPI from './email-api';
 
 class Server {
   constructor(
@@ -22,9 +23,10 @@ class Server {
     this.app.use(this.bodyParser.json());
     this.app.use(this.express.static(this.path.join(__dirname + '/../')));
     this.app.use(this.cors());
-    this.app.use('/api/mlbstats', MLBStatsAPIFile);
-    this.app.use('/api/powerball', PowerballAPIFile);
-    this.app.use('/api/auth', AuthAPIFile);
+    this.app.use('/api/mlbstats', MLBStatsAPI);
+    this.app.use('/api/powerball', PowerballAPI);
+    this.app.use('/api/auth', AuthAPI);
+    this.app.use('/api/email', EmailAPI);
     // this.app.use('/api/yelp', require('./public/shared/apis/yelp.api'));
     this.app.get('/*', (req: any, res: any) => {
       res.sendFile(this.path.join(__dirname + '/../index.html'));

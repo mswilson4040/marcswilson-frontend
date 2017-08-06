@@ -8,12 +8,19 @@ import 'bootstrap';
 import 'hammerjs';
 import {PowerballService} from '../pages/portfolio/powerball/services/powerball.service';
 import {AuthService} from '../shared-services/auth.service';
+import {EmailService} from '../shared-services/email.service';
 
 @Component({
   selector: 'app-shell',
   templateUrl: './shell.component.html',
   styleUrls: ['./shell.component.scss'],
-  providers: [UIService, MlbStatsService, PowerballService, AuthService]
+  providers: [
+    UIService,
+    MlbStatsService,
+    PowerballService,
+    AuthService,
+    EmailService
+  ]
 })
 export class ShellComponent implements OnInit {
 
