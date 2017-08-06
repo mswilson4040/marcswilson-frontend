@@ -30,7 +30,8 @@ var HomeComponent = (function () {
         var _this = this;
         var dialogRef = this._dialog.open(contact_form_dialog_component_1.ContactFormDialogComponent);
         dialogRef.afterClosed().subscribe(function (data) {
-            if (data) {
+            data = data === 'true' ? true : false;
+            if (data === true) {
                 var componentInstance = dialogRef.componentInstance;
                 var subject = componentInstance.subject;
                 var from = componentInstance.from;
@@ -38,7 +39,7 @@ var HomeComponent = (function () {
                 _this._emailService.sendEmail(from, subject, message).then(function (result) {
                     alert(result);
                 }, function (error) {
-                    console.log(error);
+                    alert('send email error');
                 });
             }
         });

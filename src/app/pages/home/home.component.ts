@@ -23,7 +23,8 @@ export class HomeComponent implements OnInit {
   openContactForm(): void {
     const dialogRef = this._dialog.open(ContactFormDialogComponent);
     dialogRef.afterClosed().subscribe(data => {
-      if (data) {
+      data = data === 'true' ? true : false;
+      if (data === true) {
         const componentInstance = dialogRef.componentInstance;
         const subject = componentInstance.subject;
         const from = componentInstance.from;
@@ -31,7 +32,7 @@ export class HomeComponent implements OnInit {
         this._emailService.sendEmail(from, subject, message).then( result => {
             alert(result);
         }, error => {
-          console.log(error);
+          alert('send email error');
         });
       }
     });
