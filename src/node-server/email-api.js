@@ -38,10 +38,10 @@ var EmailApi = (function () {
                 })
             });
             var mailOptions = {
-                from: from,
+                from: 'mwilson@marcswilson.com',
                 to: 'mwilson@marcswilson.com',
                 subject: subject,
-                text: message
+                text: "Message from " + from + " \n " + message
             };
             transporter.sendMail(mailOptions, function (error, info) {
                 if (error) {

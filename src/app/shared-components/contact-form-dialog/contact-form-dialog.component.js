@@ -14,9 +14,9 @@ var material_1 = require("@angular/material");
 var ContactFormDialogComponent = (function () {
     function ContactFormDialogComponent(_dialogRef) {
         this._dialogRef = _dialogRef;
-        this.subject = 'test dubject';
-        this.from = 'mwilson@marcswilson.com';
-        this.message = 'message';
+        this.subject = null;
+        this.from = null;
+        this.message = null;
     }
     ContactFormDialogComponent.prototype.ngOnInit = function () {
     };

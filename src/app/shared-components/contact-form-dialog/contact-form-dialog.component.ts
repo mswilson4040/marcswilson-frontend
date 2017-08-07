@@ -7,9 +7,9 @@ import {MdDialogRef} from '@angular/material';
   styleUrls: ['./contact-form-dialog.component.scss']
 })
 export class ContactFormDialogComponent implements OnInit {
-  public subject: string = 'test dubject';
-  public from: string = 'mwilson@marcswilson.com';
-  public message: string = 'message';
+  public subject: string = null;
+  public from: string = null;
+  public message: string = null;
   constructor(private _dialogRef: MdDialogRef<ContactFormDialogComponent>) { }
 
   ngOnInit() {

@@ -10,13 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var material_1 = require("@angular/material");
-var contact_form_dialog_component_1 = require("../../shared-components/contact-form-dialog/contact-form-dialog.component");
-var email_service_1 = require("../../shared-services/email.service");
 var HomeComponent = (function () {
-    function HomeComponent(_dialog, _emailService) {
-        this._dialog = _dialog;
-        this._emailService = _emailService;
+    function HomeComponent() {
     }
     HomeComponent.prototype.ngOnInit = function () {
         $('#firstName').addClass('first-name-width', 500);
@@ -26,31 +21,13 @@ var HomeComponent = (function () {
             $('#welcomeScreen').animate({ color: 'white' }, 500);
         });
     };
-    HomeComponent.prototype.openContactForm = function () {
-        var _this = this;
-        var dialogRef = this._dialog.open(contact_form_dialog_component_1.ContactFormDialogComponent);
-        dialogRef.afterClosed().subscribe(function (data) {
-            data = data === 'true' ? true : false;
-            if (data === true) {
-                var componentInstance = dialogRef.componentInstance;
-                var subject = componentInstance.subject;
-                var from = componentInstance.from;
-                var message = componentInstance.message;
-                _this._emailService.sendEmail(from, subject, message).then(function (result) {
-                    alert(result);
-                }, function (error) {
-                    alert('send email error');
-                });
-            }
-        });
-    };
     HomeComponent = __decorate([
         core_1.Component({
             selector: 'app-home',
             templateUrl: './home.component.html',
             styleUrls: ['./home.component.scss']
         }),
-        __metadata("design:paramtypes", [material_1.MdDialog, email_service_1.EmailService])
+        __metadata("design:paramtypes", [])
     ], HomeComponent);
     return HomeComponent;
 }());

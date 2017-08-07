@@ -12,10 +12,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var link_1 = require("../../shared-classes/link");
 var router_1 = require("@angular/router");
+var contact_form_dialog_component_1 = require("../contact-form-dialog/contact-form-dialog.component");
+var material_1 = require("@angular/material");
+var email_service_1 = require("../../shared-services/email.service");
 var GlobalNavComponent = (function () {
-    function GlobalNavComponent(_router) {
+    function GlobalNavComponent(_router, _dialog, _emailService) {
         var _this = this;
         this._router = _router;
+        this._dialog = _dialog;
+        this._emailService = _emailService;
         this.links = new Array();
         this.links.push(new link_1.Link('/home', 'Home', 'fa-home'));
         this.links.push(new link_1.Link('/about', 'About', 'fa-user'));
@@ -51,12 +56,32 @@ var GlobalNavComponent = (function () {
         });
     }
     GlobalNavComponent.prototype.fadeNavColors = function (textColor, backgroundColor) {
-        var textColorJqEl = $('#globalNav').find('a');
+        var textColorJqEl = $('#globalNav').find('a,.navbar-text');
         var backgroundColorJqEl = $('#globalNav');
         textColorJqEl.animate({ color: textColor }, 200);
         backgroundColorJqEl.animate({ 'background-color': backgroundColor }, 200);
     };
     GlobalNavComponent.prototype.ngOnInit = function () {
+    };
+    GlobalNavComponent.prototype.openContactForm = function () {
+        var _this = this;
+        var dialogRef = this._dialog.open(contact_form_dialog_component_1.ContactFormDialogComponent);
+        dialogRef.afterClosed().subscribe(function (data) {
+            data = data === 'true' ? true : false;
+            if (data === true) {
+                var componentInstance = dialogRef.componentInstance;
+                var subject = componentInstance.subject;
+                var from = componentInstance.from;
+                var message = componentInstance.message;
+                _this._emailService.sendEmail(from, subject, message).then(function (result) {
+                    if (result.ok === true) {
+                        // show verification screen
+                    }
+                }, function (error) {
+                    // display error
+                });
+            }
+        });
     };
     GlobalNavComponent = __decorate([
         core_1.Component({
@@ -64,7 +89,7 @@ var GlobalNavComponent = (function () {
             templateUrl: './global-nav.component.html',
             styleUrls: ['./global-nav.component.scss']
         }),
-        __metadata("design:paramtypes", [router_1.Router])
+        __metadata("design:paramtypes", [router_1.Router, material_1.MdDialog, email_service_1.EmailService])
     ], GlobalNavComponent);
     return GlobalNavComponent;
 }());
