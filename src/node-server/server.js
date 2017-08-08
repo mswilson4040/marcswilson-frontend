@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-var MLBStatsAPI = require("./mlb-stats-api");
+var MlbStatsApi = require("./mlb-stats-api");
 var PowerballAPI = require("./powerball-api");
 var AuthAPI = require("./auth-api");
 var EmailAPI = require("./email-api");
@@ -33,11 +33,10 @@ var Server = (function () {
         this.app.use(this.bodyParser.json());
         this.app.use(this.express.static(this.path.join(__dirname + '/../')));
         this.app.use(this.cors());
-        this.app.use('/api/mlbstats', MLBStatsAPI);
+        this.app.use('/api/mlbstats', MlbStatsApi);
         this.app.use('/api/powerball', PowerballAPI);
         this.app.use('/api/auth', AuthAPI);
         this.app.use('/api/email', EmailAPI);
-        // this.app.use('/api/yelp', require('./public/shared/apis/yelp.api'));
         this.app.get('/*', function (req, res) {
             res.sendFile(_this.path.join(__dirname + '/../index.html'));
         });

@@ -18,8 +18,8 @@ var PortfolioComponent = (function () {
         this.apps = new Array();
         this.apps.push(new app_1.App('MLB Stats API', 'REST API for MLB Stats...', 'images/cruzswing.jpg', '/mlbstatsapi'));
         this.apps.push(new app_1.App('MLB Stats', 'In Progress...', 'images/handshakes.jpg', '/mlbstats'));
-        this.apps.push(new app_1.App('Powerball', 'In Progress...', 'images/blue-angels.jpg', '/powerball'));
-        this.apps.push(new app_1.App('Time Tracker', 'In Progress...', 'images/blue-angels.jpg', '/timetracker'));
+        // this.apps.push(new App('Powerball', 'In Progress...', 'images/blue-angels.jpg', '/powerball'));
+        // this.apps.push(new App('Time Tracker', 'In Progress...', 'images/blue-angels.jpg', '/timetracker'));
     }
     PortfolioComponent.prototype.ngOnInit = function () {
     };
