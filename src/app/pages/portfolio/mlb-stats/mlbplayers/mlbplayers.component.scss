@@ -31,12 +31,10 @@
     }
   }
   #chartSelectors {
-    .tab-pane {
-      .selectors {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
+    .selectors {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
     }
     .selector-container {
       display: flex;
@@ -97,28 +95,24 @@
   }
   #chartArea {
     #chartSelectors {
-      .tab-content {
-        .selectors {
-          .selector-container {
-            width: 20%;
-            .text-muted {
-              font-size: 11px;
-            }
+      .selectors {
+        .selector-container {
+          width: 20%;
+          .text-muted {
+            font-size: 11px;
           }
         }
       }
     }
   }
   #yearTabsContainer {
-    .tab-content {
-      .stat-category-container {
-        .category-title {
-          font-size: 14px;
-        }
-        .stat-container {
-          .text-muted {
-            font-size: 12px;
-          }
+    .stat-category-container {
+      .category-title {
+        font-size: 14px;
+      }
+      .stat-container {
+        .text-muted {
+          font-size: 12px;
         }
       }
     }
@@ -159,28 +153,25 @@
   }
   #chartArea {
     #chartSelectors {
-      .tab-content {
-        .selectors {
-          .selector-container {
-            width: 20%;
-            .text-muted {
-              font-size: 12px;
-            }
+      .selectors {
+        .selector-container {
+          width: 20%;
+          .text-muted {
+            font-size: 12px;
           }
         }
       }
     }
   }
   #yearTabsContainer {
-    .tab-content {
-      .stat-category-container {
-        .category-title {
-          font-size: 15px;
-        }
-        .stat-container {
-          .text-muted {
-            font-size: 13px;
-          }
+
+    .stat-category-container {
+      .category-title {
+        font-size: 15px;
+      }
+      .stat-container {
+        .text-muted {
+          font-size: 13px;
         }
       }
     }
@@ -221,28 +212,25 @@
   }
   #chartArea {
     #chartSelectors {
-      .tab-content {
-        .selectors {
-          .selector-container {
-            width: 20%;
-            .text-muted {
-              font-size: 14px;
-            }
+      .selectors {
+        .selector-container {
+          width: 20%;
+          .text-muted {
+            font-size: 14px;
           }
         }
       }
     }
   }
   #yearTabsContainer {
-    .tab-content {
-      .stat-category-container {
-        .category-title {
-          font-size: 16px;
-        }
-        .stat-container {
-          .text-muted {
-            font-size: 14px;
-          }
+
+    .stat-category-container {
+      .category-title {
+        font-size: 16px;
+      }
+      .stat-container {
+        .text-muted {
+          font-size: 14px;
         }
       }
     }
@@ -284,28 +272,24 @@
   }
   #chartArea {
     #chartSelectors {
-      .tab-content {
-        .selectors {
-          .selector-container {
-            width: 20%;
-            .text-muted {
-              font-size: 15px;
-            }
+      .selectors {
+        .selector-container {
+          width: 20%;
+          .text-muted {
+            font-size: 15px;
           }
         }
       }
     }
   }
   #yearTabsContainer {
-    .tab-content {
-      .stat-category-container {
-        .category-title {
-          font-size: 16px;
-        }
-        .stat-container {
-          .text-muted {
-            font-size: 15px;
-          }
+    .stat-category-container {
+      .category-title {
+        font-size: 16px;
+      }
+      .stat-container {
+        .text-muted {
+          font-size: 15px;
         }
       }
     }
@@ -347,28 +331,24 @@
   }
   #chartArea {
     #chartSelectors {
-      .tab-content {
-        .selectors {
-          .selector-container {
-            width: 15%;
-            .text-muted {
-              font-size: 16px;
-            }
+      .selectors {
+        .selector-container {
+          width: 15%;
+          .text-muted {
+            font-size: 16px;
           }
         }
       }
     }
   }
   #yearTabsContainer {
-    .tab-content {
-      .stat-category-container {
-        .category-title {
-          font-size: 17px;
-        }
-        .stat-container {
-          .text-muted {
-            font-size: 16px;
-          }
+    .stat-category-container {
+      .category-title {
+        font-size: 17px;
+      }
+      .stat-container {
+        .text-muted {
+          font-size: 16px;
         }
       }
     }

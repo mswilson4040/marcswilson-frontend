@@ -18,22 +18,8 @@
   </div>
   <div id="chartArea">
     <div id="chartSelectors" [hidden]="selectedPlayer.length === 0">
-      <ul class="nav nav-tabs" role="tablist">
-        <li class="nav-item">
-          <a class="nav-link active" data-toggle="tab" href="#tabBatting" role="tab">Batting</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#tabFielding" role="tab">Fielding</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#tabPitching" role="tab">Pitching</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-toggle="tab" href="#tabSalaries" role="tab">Salaries</a>
-        </li>
-      </ul>
-      <div class="tab-content">
-        <div class="tab-pane active" id="tabBatting" role="tabpanel">
+      <md-tab-group>
+        <md-tab label="Batting">
           <div class="selectors">
             <div class="selector-container rounded" (click)="switchChart('batting', 'HR')">
               <div class="text-muted">Homeruns</div>
@@ -81,31 +67,8 @@
               <div class="text-muted">Sacrifice Fly</div>
             </div>
           </div>
-        </div>
-        <div class="tab-pane" id="tabFielding" role="tabpanel">
-          <div class="selectors">
-            <div class="selector-container rounded" (click)="switchChart('fielding', 'G')">
-              <div class="text-muted">Games</div>
-            </div>
-            <div class="selector-container rounded" (click)="switchChart('fielding', 'GS')">
-              <div class="text-muted">Starts</div>
-            </div>
-            <div class="selector-container rounded" (click)="switchChart('fielding', 'PO')">
-              <div class="text-muted">Putouts</div>
-            </div>
-            <div class="selector-container rounded" (click)="switchChart('fielding', 'A')">
-              <div class="text-muted">Assists</div>
-            </div>
-            <div class="selector-container rounded" (click)="switchChart('fielding', 'E')">
-              <div class="text-muted">Errors</div>
-            </div>
-            <div class="selector-container rounded" (click)="switchChart('fielding', 'DP')">
-              <div class="text-muted">Double Plays</div>
-            </div>
-          </div>
-
-        </div>
-        <div class="tab-pane" id="tabPitching" role="tabpanel">
+        </md-tab>
+        <md-tab label="Pitching">
           <div class="selectors">
             <div class="selector-container rounded" (click)="switchChart('pitching', 'W')">
               <div class="text-muted">Wins</div>
@@ -180,16 +143,37 @@
               <div class="text-muted">Sacrifice Flies</div>
             </div>
           </div>
-        </div>
-        <div class="tab-pane" id="tabSalaries" role="tabpanel">
+        </md-tab>
+        <md-tab label="Fielding">
+          <div class="selectors">
+            <div class="selector-container rounded" (click)="switchChart('fielding', 'G')">
+              <div class="text-muted">Games</div>
+            </div>
+            <div class="selector-container rounded" (click)="switchChart('fielding', 'GS')">
+              <div class="text-muted">Starts</div>
+            </div>
+            <div class="selector-container rounded" (click)="switchChart('fielding', 'PO')">
+              <div class="text-muted">Putouts</div>
+            </div>
+            <div class="selector-container rounded" (click)="switchChart('fielding', 'A')">
+              <div class="text-muted">Assists</div>
+            </div>
+            <div class="selector-container rounded" (click)="switchChart('fielding', 'E')">
+              <div class="text-muted">Errors</div>
+            </div>
+            <div class="selector-container rounded" (click)="switchChart('fielding', 'DP')">
+              <div class="text-muted">Double Plays</div>
+            </div>
+          </div>
+        </md-tab>
+        <md-tab label="Salaries">
           <div class="selectors">
             <div class="selector-container rounded" (click)="switchChart('salaries', 'salary')">
               <div class="text-muted">Salary</div>
             </div>
           </div>
-        </div>
-      </div>
-
+        </md-tab>
+      </md-tab-group>
     </div>
     <div id="appearancesChart"></div>
     <div id="yearTabsContainer">

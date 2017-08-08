@@ -26,11 +26,4 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
       delay += 100;
     }
   }
-  test(): void {
-    this._authService.login().then(data => {
-      console.log(data);
-    }, error => {
-      console.log(error);
-    });
-  }
 }

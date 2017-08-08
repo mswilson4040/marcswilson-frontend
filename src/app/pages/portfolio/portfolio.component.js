@@ -31,13 +31,6 @@ var PortfolioComponent = (function () {
             delay += 100;
         }
     };
-    PortfolioComponent.prototype.test = function () {
-        this._authService.login().then(function (data) {
-            console.log(data);
-        }, function (error) {
-            console.log(error);
-        });
-    };
     PortfolioComponent = __decorate([
         core_1.Component({
             selector: 'app-portfolio',
