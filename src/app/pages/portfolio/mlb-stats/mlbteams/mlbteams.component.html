@@ -23,6 +23,7 @@
         </div>
         <div class="accolade-container">
           <hr/>
+          <span class="badge badge-default" [hidden]="team.WSWin === 'Y' || team.LgWin === 'Y' || team.WCWin === 'Y' || team.DivWin === 'Y'">No Team Titles</span>
           <span class="badge badge-primary" [hidden]="team.WSWin !== 'Y'">World Series Win</span>
           <span class="badge badge-primary" [hidden]="team.LgWin !== 'Y'">League Win</span>
           <span class="badge badge-primary" [hidden]="team.WCWin !== 'Y'">Wild Card Win</span>

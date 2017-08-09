@@ -11,7 +11,7 @@ import {Game} from '../classes/boxscores/game';
 @Injectable()
 export class MlbStatsService {
 
-  public selectedYear$: BehaviorSubject<any> = new BehaviorSubject<any>(1871);
+  public selectedYear$: BehaviorSubject<any> = new BehaviorSubject<any>(1977);
   public selectedTeam$: BehaviorSubject<Team> = new BehaviorSubject<Team>(null);
   public selectedPlayer$: BehaviorSubject<Player> = new BehaviorSubject<Player>(null);
   public API_PATH: string = null;

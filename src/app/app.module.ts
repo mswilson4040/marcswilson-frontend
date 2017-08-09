@@ -18,9 +18,9 @@ import { PowerballComponent } from './pages/portfolio/powerball/powerball.compon
 import { OverlayComponent } from './shared-components/overlay/overlay.component';
 import {
   MdAutocompleteModule, MdButtonModule, MdCardModule, MdDatepickerModule, MdDialogModule, MdInputModule,
-  MdNativeDateModule,
+  MdNativeDateModule, MdSidenavModule,
   MdSliderModule,
-  MdTabsModule
+  MdTabsModule, MdTooltipModule
 } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TimeTrackerComponent } from './pages/portfolio/time-tracker/time-tracker.component';
@@ -67,7 +67,9 @@ import { ContactFormDialogComponent } from './shared-components/contact-form-dia
     MdCardModule,
     MdSliderModule,
     MdDialogModule,
-    MdButtonModule
+    MdButtonModule,
+    MdTooltipModule,
+    MdSidenavModule
   ],
   providers: [],
   bootstrap: [ShellComponent]

@@ -9,6 +9,7 @@ import 'hammerjs';
 import {PowerballService} from '../pages/portfolio/powerball/services/powerball.service';
 import {AuthService} from '../shared-services/auth.service';
 import {EmailService} from '../shared-services/email.service';
+import {TimeTrackerService} from '../pages/portfolio/time-tracker/services/time-tracker.service';
 
 @Component({
   selector: 'app-shell',
@@ -19,7 +20,8 @@ import {EmailService} from '../shared-services/email.service';
     MlbStatsService,
     PowerballService,
     AuthService,
-    EmailService
+    EmailService,
+    TimeTrackerService
   ]
 })
 export class ShellComponent implements OnInit {

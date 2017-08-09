@@ -18,7 +18,7 @@ var game_1 = require("../classes/boxscores/game");
 var MlbStatsService = (function () {
     function MlbStatsService(http) {
         this.http = http;
-        this.selectedYear$ = new BehaviorSubject_1.BehaviorSubject(1871);
+        this.selectedYear$ = new BehaviorSubject_1.BehaviorSubject(1977);
         this.selectedTeam$ = new BehaviorSubject_1.BehaviorSubject(null);
         this.selectedPlayer$ = new BehaviorSubject_1.BehaviorSubject(null);
         this.API_PATH = null;

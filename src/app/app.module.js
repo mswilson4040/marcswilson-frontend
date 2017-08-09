@@ -72,7 +72,9 @@ var AppModule = (function () {
                 material_1.MdCardModule,
                 material_1.MdSliderModule,
                 material_1.MdDialogModule,
-                material_1.MdButtonModule
+                material_1.MdButtonModule,
+                material_1.MdTooltipModule,
+                material_1.MdSidenavModule
             ],
             providers: [],
             bootstrap: [shell_component_1.ShellComponent]

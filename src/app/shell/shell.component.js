@@ -20,6 +20,7 @@ require("hammerjs");
 var powerball_service_1 = require("../pages/portfolio/powerball/services/powerball.service");
 var auth_service_1 = require("../shared-services/auth.service");
 var email_service_1 = require("../shared-services/email.service");
+var time_tracker_service_1 = require("../pages/portfolio/time-tracker/services/time-tracker.service");
 var ShellComponent = (function () {
     function ShellComponent() {
     }
@@ -38,7 +39,8 @@ var ShellComponent = (function () {
                 mlb_stats_service_1.MlbStatsService,
                 powerball_service_1.PowerballService,
                 auth_service_1.AuthService,
-                email_service_1.EmailService
+                email_service_1.EmailService,
+                time_tracker_service_1.TimeTrackerService
             ]
         }),
         __metadata("design:paramtypes", [])

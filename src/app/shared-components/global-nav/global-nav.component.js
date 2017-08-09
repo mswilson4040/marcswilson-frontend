@@ -44,7 +44,7 @@ var GlobalNavComponent = (function () {
                 _this.fadeNavColors('white', '#2F4050');
             }
             else if (path === '/mlbstatsapi') {
-                _this.fadeNavColors('white', '#2F4050');
+                _this.fadeNavColors('white', 'transparent');
             }
             else if (path === '/powerball') {
                 _this.fadeNavColors('white', '#2F4050');

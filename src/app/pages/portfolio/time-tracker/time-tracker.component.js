@@ -10,10 +10,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var time_tracker_service_1 = require("./services/time-tracker.service");
 var TimeTrackerComponent = (function () {
-    function TimeTrackerComponent() {
+    function TimeTrackerComponent(_timeTrackerService) {
+        this._timeTrackerService = _timeTrackerService;
+        this.companies = new Array();
     }
     TimeTrackerComponent.prototype.ngOnInit = function () {
+    };
+    TimeTrackerComponent.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        this._timeTrackerService.getCompanies().then(function (companies) {
+            _this.companies = companies;
+        }, function (error) {
+            alert(error.message);
+        });
     };
     TimeTrackerComponent = __decorate([
         core_1.Component({
@@ -21,7 +32,7 @@ var TimeTrackerComponent = (function () {
             templateUrl: './time-tracker.component.html',
             styleUrls: ['./time-tracker.component.scss']
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [time_tracker_service_1.TimeTrackerService])
     ], TimeTrackerComponent);
     return TimeTrackerComponent;
 }());

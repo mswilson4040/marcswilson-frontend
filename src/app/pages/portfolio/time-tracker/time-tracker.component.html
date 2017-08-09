@@ -1,3 +1,8 @@
-<p>
-  time-tracker works!
-</p>
+<md-sidenav-container class="side-nav-container">
+  <md-sidenav #sidenav class="side-nav">
+    <div class="company-item" *ngFor="let company of companies">{{company.name}}</div>
+  </md-sidenav>
+  <div id="pageContent">
+    <button type="button" md-button (click)="sidenav.open()">Open</button>
+  </div>
+</md-sidenav-container>
