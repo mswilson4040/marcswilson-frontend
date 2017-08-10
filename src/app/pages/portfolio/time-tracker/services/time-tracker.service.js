@@ -13,18 +13,34 @@ var core_1 = require("@angular/core");
 var company_1 = require("../classes/company");
 var TimeTrackerService = (function () {
     function TimeTrackerService() {
+        this.companies = new Array();
     }
     TimeTrackerService.prototype.getCompanies = function () {
+        var _this = this;
         return new Promise(function (resolve, reject) {
-            var companies = new Array();
+            _this.companies = new Array();
             for (var i = 0; i < 15; i++) {
-                companies.push(new company_1.Company({ name: "Company " + i }));
+                _this.companies.push(new company_1.Company({ name: "Company " + i }));
             }
-            if (companies) {
-                resolve(companies);
+            if (_this.companies) {
+                resolve(_this.companies);
             }
             else {
                 reject(new Error('No Companies'));
+            }
+        });
+    };
+    TimeTrackerService.prototype.addCompany = function (company) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            try {
+                if (company !== null) {
+                    _this.companies.push(company);
+                }
+                resolve(_this.companies);
+            }
+            catch (ex) {
+                reject(ex);
             }
         });
     };

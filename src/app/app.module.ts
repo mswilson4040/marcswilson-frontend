@@ -25,6 +25,7 @@ import {
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TimeTrackerComponent } from './pages/portfolio/time-tracker/time-tracker.component';
 import { ContactFormDialogComponent } from './shared-components/contact-form-dialog/contact-form-dialog.component';
+import { NewCompanyDialogComponent } from './pages/portfolio/time-tracker/new-company-dialog/new-company-dialog.component';
 
 
 @NgModule({
@@ -43,14 +44,16 @@ import { ContactFormDialogComponent } from './shared-components/contact-form-dia
     PowerballComponent,
     OverlayComponent,
     TimeTrackerComponent,
-    ContactFormDialogComponent
+    ContactFormDialogComponent,
+    NewCompanyDialogComponent
   ],
   entryComponents: [
     MLBBallparksComponent,
     MLBPlayersComponent,
     MLBTeamComponent,
     MLBteamsComponent,
-    ContactFormDialogComponent
+    ContactFormDialogComponent,
+    NewCompanyDialogComponent
   ],
   imports: [
     BrowserAnimationsModule,

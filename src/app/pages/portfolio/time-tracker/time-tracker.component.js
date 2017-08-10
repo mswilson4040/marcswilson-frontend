@@ -11,9 +11,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var time_tracker_service_1 = require("./services/time-tracker.service");
+var material_1 = require("@angular/material");
+var new_company_dialog_component_1 = require("./new-company-dialog/new-company-dialog.component");
 var TimeTrackerComponent = (function () {
-    function TimeTrackerComponent(_timeTrackerService) {
+    function TimeTrackerComponent(_timeTrackerService, _dialog) {
         this._timeTrackerService = _timeTrackerService;
+        this._dialog = _dialog;
         this.companies = new Array();
     }
     TimeTrackerComponent.prototype.ngOnInit = function () {
@@ -26,13 +29,29 @@ var TimeTrackerComponent = (function () {
             alert(error.message);
         });
     };
+    TimeTrackerComponent.prototype.addCompany = function () {
+        var _this = this;
+        var dialogRef = this._dialog.open(new_company_dialog_component_1.NewCompanyDialogComponent);
+        dialogRef.afterClosed().subscribe(function (company) {
+            _this._timeTrackerService.addCompany(company).then(function (companies) {
+                if (companies) {
+                    _this.companies = companies;
+                }
+                else {
+                    alert('cant add company');
+                }
+            }, function (error) {
+                alert(error.message);
+            });
+        });
+    };
     TimeTrackerComponent = __decorate([
         core_1.Component({
             selector: 'app-time-tracker',
             templateUrl: './time-tracker.component.html',
             styleUrls: ['./time-tracker.component.scss']
         }),
-        __metadata("design:paramtypes", [time_tracker_service_1.TimeTrackerService])
+        __metadata("design:paramtypes", [time_tracker_service_1.TimeTrackerService, material_1.MdDialog])
     ], TimeTrackerComponent);
     return TimeTrackerComponent;
 }());

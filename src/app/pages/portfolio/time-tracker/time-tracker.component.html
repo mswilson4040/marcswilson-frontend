@@ -1,8 +1,28 @@
 <md-sidenav-container class="side-nav-container">
   <md-sidenav #sidenav class="side-nav">
     <div class="company-item" *ngFor="let company of companies">{{company.name}}</div>
+    <div class="new-company-button">
+      <button md-button md-raised-button (click)="addCompany()">New Company</button>
+    </div>
   </md-sidenav>
   <div id="pageContent">
-    <button type="button" md-button (click)="sidenav.open()">Open</button>
+    <!--<button type="button" md-button (click)="sidenav.open()">Open</button>-->
+    <div class="side-bar" (click)="sidenav.open()">
+      <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+    </div>
+    <div class="main-content">
+      <md-tab-group>
+        <md-tab label="Home">
+          <div class="home-cards-container">
+            <md-card>Calendar</md-card>
+            <md-card>Timecards</md-card>
+            <md-card>Invoices</md-card>
+            <md-card>Breakdown</md-card>
+          </div>
+        </md-tab>
+        <md-tab label="Timesheet">Timesheet</md-tab>
+        <md-tab label="Invoices">Invoices</md-tab>
+      </md-tab-group>
+    </div>
   </div>
 </md-sidenav-container>

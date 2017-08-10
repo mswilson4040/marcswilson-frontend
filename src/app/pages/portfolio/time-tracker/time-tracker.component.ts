@@ -1,6 +1,8 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {Company} from './classes/company';
 import {TimeTrackerService} from './services/time-tracker.service';
+import {MdDialog} from '@angular/material';
+import {NewCompanyDialogComponent} from './new-company-dialog/new-company-dialog.component';
 
 @Component({
   selector: 'app-time-tracker',
@@ -9,7 +11,7 @@ import {TimeTrackerService} from './services/time-tracker.service';
 })
 export class TimeTrackerComponent implements OnInit, AfterViewInit {
   public companies: Array<Company> = new Array<Company>();
-  constructor(private _timeTrackerService: TimeTrackerService) { }
+  constructor(private _timeTrackerService: TimeTrackerService, private _dialog: MdDialog) { }
 
   ngOnInit() {
   }
@@ -18,6 +20,20 @@ export class TimeTrackerComponent implements OnInit, AfterViewInit {
       this.companies = companies;
     }, error => {
       alert(error.message);
+    });
+  }
+  addCompany(): void {
+    const dialogRef = this._dialog.open(NewCompanyDialogComponent);
+    dialogRef.afterClosed().subscribe( company => {
+      this._timeTrackerService.addCompany(company).then( companies => {
+        if (companies) {
+          this.companies = companies;
+        } else {
+          alert('cant add company');
+        }
+      }, error => {
+        alert(error.message);
+      });
     });
   }
 

@@ -1,0 +1,10 @@
+<h2 md-dialog-title>New Company</h2>
+<md-dialog-content>
+  <md-input-container>
+    <input mdInput placeholder="Comapny Name" [(ngModel)]="company.name" />
+  </md-input-container>
+</md-dialog-content>
+<md-dialog-actions>
+  <button md-button md-raised-button (click)="close()">OK</button>
+  <button md-button (click)="close()">Cancel</button>
+</md-dialog-actions>
