@@ -26,7 +26,6 @@ var GlobalNavComponent = (function () {
         this.links.push(new link_1.Link('/about', 'About', 'fa-user'));
         this.links.push(new link_1.Link('/portfolio', 'Portfolio', 'fa-briefcase'));
         this._router.events.subscribe(function (data) {
-            $('.navbar-collapse').removeClass('show'); // collapses nav if expanded
             var path = data['url'];
             if (path === '/' || path === '/home') {
                 _this.fadeNavColors('white', 'transparent');

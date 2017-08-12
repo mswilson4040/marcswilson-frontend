@@ -1,16 +1,19 @@
-<nav class="navbar fixed-top navbar-toggleable-md navbar-light" id="globalNav">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-light" id="globalNav">
+  <a class="navbar-brand" routerLink="/home">Marc Wilson</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <a class="navbar-brand" href="home">Marc Wilson</a>
-  <div class="collapse navbar-collapse" id="navbarText">
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li *ngFor="let link of links" class="nav-item">
         <a class="nav-link" routerLink="{{link.routerLink}}">{{link.name}}</a>
       </li>
     </ul>
-    <span class="navbar-text" (click)="openContactForm()" mdTooltip="Contact Me">
+    <form class="form-inline my-2 my-lg-0">
+      <span class="navbar-text" (click)="openContactForm()" mdTooltip="Contact Me">
       Contact Me
     </span>
+    </form>
   </div>
 </nav>

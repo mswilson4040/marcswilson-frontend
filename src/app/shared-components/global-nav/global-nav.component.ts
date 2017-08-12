@@ -18,7 +18,6 @@ export class GlobalNavComponent implements OnInit {
     this.links.push(new Link('/portfolio', 'Portfolio', 'fa-briefcase'));
 
     this._router.events.subscribe((data) => {
-      $('.navbar-collapse').removeClass('show'); // collapses nav if expanded
       const path = data['url'];
       if (path === '/' || path === '/home') {
         this.fadeNavColors('white', 'transparent');
