@@ -26,9 +26,8 @@
         "styles.scss",
         "globals.scss",
         "../node_modules/jqueryui/jquery-ui.min.css",
-        "../node_modules/tether/dist/css/tether.min.css",
-        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "../node_modules/font-awesome/css/font-awesome.css",
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "../node_modules/select2/dist/css/select2.min.css",
         "../node_modules/jquery.json-viewer/json-viewer/jquery.json-viewer.css",
         "../node_modules/highcharts/css/highcharts.css"
@@ -36,12 +35,12 @@
       "scripts": [
         "../node_modules/jquery/dist/jquery.min.js",
         "../node_modules/jqueryui/jquery-ui.min.js",
-        "../node_modules/tether/dist/js/tether.min.js",
-        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
         "../node_modules/select2/dist/js/select2.min.js",
         "../node_modules/jquery.json-viewer/json-viewer/jquery.json-viewer.js",
         "../node_modules/highcharts/js/highcharts.js",
-        "../node_modules/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"
+        "../node_modules/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js",
+        "../node_modules/popper.js/dist/umd/popper.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

@@ -15,7 +15,6 @@ var mlb_stats_service_1 = require("../pages/portfolio/mlb-stats/services/mlb-sta
 require("jquery");
 require("jqueryui");
 require("select2");
-require("bootstrap");
 require("hammerjs");
 var powerball_service_1 = require("../pages/portfolio/powerball/services/powerball.service");
 var auth_service_1 = require("../shared-services/auth.service");

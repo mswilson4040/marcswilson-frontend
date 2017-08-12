@@ -4,7 +4,6 @@ import {MlbStatsService} from '../pages/portfolio/mlb-stats/services/mlb-stats.s
 import 'jquery';
 import 'jqueryui';
 import 'select2';
-import 'bootstrap';
 import 'hammerjs';
 import {PowerballService} from '../pages/portfolio/powerball/services/powerball.service';
 import {AuthService} from '../shared-services/auth.service';
@@ -25,7 +24,6 @@ import {TimeTrackerService} from '../pages/portfolio/time-tracker/services/time-
   ]
 })
 export class ShellComponent implements OnInit {
-
   constructor() { }
 
   ngOnInit() {
