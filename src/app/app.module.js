@@ -62,6 +62,7 @@ var AppModule = (function () {
             ],
             imports: [
                 animations_1.BrowserAnimationsModule,
+                animations_1.NoopAnimationsModule,
                 platform_browser_1.BrowserModule,
                 forms_1.FormsModule,
                 http_1.HttpModule,

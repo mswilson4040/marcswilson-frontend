@@ -22,7 +22,7 @@ import {
   MdSliderModule,
   MdTabsModule, MdTooltipModule
 } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { TimeTrackerComponent } from './pages/portfolio/time-tracker/time-tracker.component';
 import { ContactFormDialogComponent } from './shared-components/contact-form-dialog/contact-form-dialog.component';
 import { NewCompanyDialogComponent } from './pages/portfolio/time-tracker/new-company-dialog/new-company-dialog.component';
@@ -57,6 +57,7 @@ import { NewCompanyDialogComponent } from './pages/portfolio/time-tracker/new-co
   ],
   imports: [
     BrowserAnimationsModule,
+    NoopAnimationsModule,
     BrowserModule,
     FormsModule,
     HttpModule,

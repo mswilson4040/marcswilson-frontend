@@ -6,18 +6,33 @@
     </div>
   </md-sidenav>
   <div id="pageContent">
-    <!--<button type="button" md-button (click)="sidenav.open()">Open</button>-->
     <div class="side-bar" (click)="sidenav.open()">
       <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
     </div>
     <div class="main-content">
-      <md-tab-group>
+      <md-tab-group class="tab-group">
         <md-tab label="Home">
           <div class="home-cards-container">
-            <md-card>Calendar</md-card>
-            <md-card>Timecards</md-card>
-            <md-card>Invoices</md-card>
-            <md-card>Breakdown</md-card>
+            <md-card class="tile-card blue">
+              <md-card-content class="tile-card-content">
+                <i class="fa fa-calendar" aria-hidden="true"></i>
+              </md-card-content>
+            </md-card>
+            <md-card class="tile-card red">
+              <md-card-content class="tile-card-content">
+                <i class="fa fa-clock-o" aria-hidden="true"></i>
+              </md-card-content>
+            </md-card>
+            <md-card class="tile-card light-blue">
+              <md-card-content class="tile-card-content">
+                <i class="fa fa-book" aria-hidden="true"></i>
+              </md-card-content>
+            </md-card>
+            <md-card class="tile-card green">
+              <md-card-content class="tile-card-content">
+                <i class="fa fa-bar-chart" aria-hidden="true"></i>
+              </md-card-content>
+            </md-card>
           </div>
         </md-tab>
         <md-tab label="Timesheet">Timesheet</md-tab>

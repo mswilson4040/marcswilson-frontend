@@ -53,6 +53,40 @@
     .main-content {
       width: 100%;
       height: 100%;
+      .tab-group {
+        height: 100%;
+        .home-cards-container {
+          height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .tile-card {
+            height: 150px;
+            width: 150px;
+            margin: 5px;
+            .tile-card-content {
+              height: 100%;
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              cursor: pointer;
+              .fa {
+                font-size: 250%;
+                color: #eceff1;
+              }
+            }
+          }
+          .blue {  background-color: #5c6bc0; transition: all 300ms; }
+          .blue:hover { background-color: #3949ab; }
+          .red { background-color: #e84e40; transition: all 300ms; }
+          .red:hover { background-color: #dd191d; }
+          .light-blue { background-color: #29b6f6; transition: all 300ms; }
+          .light-blue:hover { background-color: #039be5; }
+          .green { background-color: #2baf2b; transition: all 300ms; }
+          .green:hover { background-color: #0a8f08; }
+        }
+      }
     }
   }
 }
