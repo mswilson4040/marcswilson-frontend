@@ -18,6 +18,7 @@ var TimeTrackerComponent = (function () {
         this._timeTrackerService = _timeTrackerService;
         this._dialog = _dialog;
         this.companies = new Array();
+        this.selectedTab = 0;
     }
     TimeTrackerComponent.prototype.ngOnInit = function () {
     };
@@ -44,6 +45,9 @@ var TimeTrackerComponent = (function () {
                 alert(error.message);
             });
         });
+    };
+    TimeTrackerComponent.prototype.changeTab = function (index) {
+        this.selectedTab = index;
     };
     TimeTrackerComponent = __decorate([
         core_1.Component({

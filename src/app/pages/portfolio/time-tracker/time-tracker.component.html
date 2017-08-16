@@ -10,33 +10,37 @@
       <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
     </div>
     <div class="main-content">
-      <md-tab-group class="tab-group">
+      <md-tab-group class="tab-group" [selectedIndex]="selectedTab">
         <md-tab label="Home">
           <div class="home-cards-container">
             <md-card class="tile-card blue">
-              <md-card-content class="tile-card-content">
+              <md-card-content class="tile-card-content" (click)="changeTab(1)">
                 <i class="fa fa-calendar" aria-hidden="true"></i>
               </md-card-content>
             </md-card>
-            <md-card class="tile-card red">
+            <md-card class="tile-card red" (click)="changeTab(2)">
               <md-card-content class="tile-card-content">
                 <i class="fa fa-clock-o" aria-hidden="true"></i>
               </md-card-content>
             </md-card>
-            <md-card class="tile-card light-blue">
+            <md-card class="tile-card light-blue" (click)="changeTab(3)">
               <md-card-content class="tile-card-content">
                 <i class="fa fa-book" aria-hidden="true"></i>
               </md-card-content>
             </md-card>
-            <md-card class="tile-card green">
+            <md-card class="tile-card green" (click)="changeTab(4)">
               <md-card-content class="tile-card-content">
                 <i class="fa fa-bar-chart" aria-hidden="true"></i>
               </md-card-content>
             </md-card>
           </div>
         </md-tab>
-        <md-tab label="Timesheet">Timesheet</md-tab>
+        <md-tab label="Calendar">Calendar</md-tab>
+        <md-tab label="Timesheet">
+          <app-time-tracker-timesheet></app-time-tracker-timesheet>
+        </md-tab>
         <md-tab label="Invoices">Invoices</md-tab>
+        <md-tab label="Breakdown">Breakdown</md-tab>
       </md-tab-group>
     </div>
   </div>

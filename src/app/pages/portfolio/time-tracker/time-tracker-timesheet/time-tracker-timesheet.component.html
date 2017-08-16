@@ -1,0 +1,31 @@
+<div id="timesheetContainer" class="container">
+  <md-tab-group>
+    <md-tab *ngFor="let company of companies" label="{{company.name}}"></md-tab>
+  </md-tab-group>
+  <div id="timesheet">
+    <table class="table">
+      <thead class="thead-inverse">
+        <tr>
+          <th>Project</th>
+          <th>Description</th>
+          <th>Time Spent</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3">
+            <button md-raised-button (click)="addEntry()">
+              <i class="fa fa-plus" aria-hidden="true"></i>
+              Add Entry
+            </button>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

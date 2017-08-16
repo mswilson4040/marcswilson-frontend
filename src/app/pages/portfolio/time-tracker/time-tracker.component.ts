@@ -11,6 +11,7 @@ import {NewCompanyDialogComponent} from './new-company-dialog/new-company-dialog
 })
 export class TimeTrackerComponent implements OnInit, AfterViewInit {
   public companies: Array<Company> = new Array<Company>();
+  public selectedTab = 0;
   constructor(private _timeTrackerService: TimeTrackerService, private _dialog: MdDialog) { }
 
   ngOnInit() {
@@ -35,6 +36,9 @@ export class TimeTrackerComponent implements OnInit, AfterViewInit {
         alert(error.message);
       });
     });
+  }
+  changeTab(index: number): void {
+    this.selectedTab = index;
   }
 
 }

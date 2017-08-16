@@ -26,6 +26,7 @@ import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-b
 import { TimeTrackerComponent } from './pages/portfolio/time-tracker/time-tracker.component';
 import { ContactFormDialogComponent } from './shared-components/contact-form-dialog/contact-form-dialog.component';
 import { NewCompanyDialogComponent } from './pages/portfolio/time-tracker/new-company-dialog/new-company-dialog.component';
+import { TimeTrackerTimesheetComponent } from './pages/portfolio/time-tracker/time-tracker-timesheet/time-tracker-timesheet.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { NewCompanyDialogComponent } from './pages/portfolio/time-tracker/new-co
     OverlayComponent,
     TimeTrackerComponent,
     ContactFormDialogComponent,
-    NewCompanyDialogComponent
+    NewCompanyDialogComponent,
+    TimeTrackerTimesheetComponent
   ],
   entryComponents: [
     MLBBallparksComponent,

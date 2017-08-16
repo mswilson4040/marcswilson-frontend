@@ -4,6 +4,7 @@ var MlbStatsApi = require("./mlb-stats-api");
 var PowerballAPI = require("./powerball-api");
 var AuthAPI = require("./auth-api");
 var EmailAPI = require("./email-api");
+var TimeTrackerAPI = require("./timetracker-api");
 var Server = (function () {
     function Server(express, app, bodyParser, path, server, cors, dotenv) {
         if (express === void 0) { express = null; }
@@ -37,6 +38,7 @@ var Server = (function () {
         this.app.use('/api/powerball', PowerballAPI);
         this.app.use('/api/auth', AuthAPI);
         this.app.use('/api/email', EmailAPI);
+        this.app.use('/api/timetracker', TimeTrackerAPI);
         this.app.get('/*', function (req, res) {
             res.sendFile(_this.path.join(__dirname + '/../index.html'));
         });

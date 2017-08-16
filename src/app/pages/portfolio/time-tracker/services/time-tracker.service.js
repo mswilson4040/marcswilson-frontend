@@ -11,8 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var company_1 = require("../classes/company");
+var http_1 = require("@angular/http");
+var environment_1 = require("../../../../../environments/environment");
 var TimeTrackerService = (function () {
-    function TimeTrackerService() {
+    function TimeTrackerService(_http) {
+        this._http = _http;
         this.companies = new Array();
     }
     TimeTrackerService.prototype.getCompanies = function () {
@@ -35,9 +38,15 @@ var TimeTrackerService = (function () {
         return new Promise(function (resolve, reject) {
             try {
                 if (company !== null) {
-                    _this.companies.push(company);
+                    _this._http.post(environment_1.environment.API_PATH + "/timetracker/add", { company: company }).subscribe(function (result) {
+                        if (result) {
+                            var comp = new Array();
+                            resolve(comp);
+                        }
+                    }, function (error) {
+                        reject(error);
+                    });
                 }
-                resolve(_this.companies);
             }
             catch (ex) {
                 reject(ex);
@@ -46,7 +55,7 @@ var TimeTrackerService = (function () {
     };
     TimeTrackerService = __decorate([
         core_1.Injectable(),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [http_1.Http])
     ], TimeTrackerService);
     return TimeTrackerService;
 }());

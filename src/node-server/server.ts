@@ -2,6 +2,7 @@ import * as MlbStatsApi from './mlb-stats-api';
 import * as PowerballAPI from './powerball-api';
 import * as AuthAPI from './auth-api';
 import * as EmailAPI from './email-api';
+import * as TimeTrackerAPI from './timetracker-api';
 
 class Server {
   constructor(
@@ -29,6 +30,7 @@ class Server {
     this.app.use('/api/powerball', PowerballAPI);
     this.app.use('/api/auth', AuthAPI);
     this.app.use('/api/email', EmailAPI);
+    this.app.use('/api/timetracker', TimeTrackerAPI);
     this.app.get('/*', (req: any, res: any) => {
       res.sendFile(this.path.join(__dirname + '/../index.html'));
     });

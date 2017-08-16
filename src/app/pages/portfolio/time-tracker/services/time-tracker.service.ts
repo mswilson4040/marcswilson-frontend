@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Company } from '../classes/company';
+import { Http } from '@angular/http';
+import {environment} from '../../../../../environments/environment';
 
 @Injectable()
 export class TimeTrackerService {
   public companies: Array<Company> = new Array<Company>();
-  constructor() { }
+  constructor(private _http: Http) { }
   getCompanies(): Promise<Array<Company>> {
     return new Promise( (resolve, reject) => {
       this.companies = new Array<Company>();
@@ -22,9 +24,15 @@ export class TimeTrackerService {
     return new Promise( (resolve, reject) => {
       try {
         if (company !== null) {
-          this.companies.push(company);
+          this._http.post(`${environment.API_PATH}/timetracker/add`, {company: company}).subscribe( result => {
+            if (result) {
+              const comp = new Array<Company>();
+              resolve(comp);
+            }
+          }, error => {
+            reject(error);
+          });
         }
-        resolve(this.companies);
       } catch (ex) {
         reject(ex);
       }
