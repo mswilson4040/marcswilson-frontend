@@ -51,7 +51,7 @@ export class TimeTrackerApi {
             resolve(docs);
           });
         }
-      })
+      });
     });
   }
 }

@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NewCompanyDialogComponent } from './new-company-dialog.component';
+import {FormsModule} from '@angular/forms';
 
 describe('NewCompanyDialogComponent', () => {
   let component: NewCompanyDialogComponent;
@@ -8,7 +9,8 @@ describe('NewCompanyDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewCompanyDialogComponent ]
+      declarations: [ NewCompanyDialogComponent ],
+      imports: [FormsModule]
     })
     .compileComponents();
   }));

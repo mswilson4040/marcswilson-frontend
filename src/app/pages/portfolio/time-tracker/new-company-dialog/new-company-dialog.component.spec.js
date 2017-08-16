@@ -2,12 +2,14 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var testing_1 = require("@angular/core/testing");
 var new_company_dialog_component_1 = require("./new-company-dialog.component");
+var forms_1 = require("@angular/forms");
 describe('NewCompanyDialogComponent', function () {
     var component;
     var fixture;
     beforeEach(testing_1.async(function () {
         testing_1.TestBed.configureTestingModule({
-            declarations: [new_company_dialog_component_1.NewCompanyDialogComponent]
+            declarations: [new_company_dialog_component_1.NewCompanyDialogComponent],
+            imports: [forms_1.FormsModule]
         })
             .compileComponents();
     }));
