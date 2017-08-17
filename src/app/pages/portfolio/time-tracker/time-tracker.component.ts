@@ -1,8 +1,9 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
-import {Company} from './classes/company';
-import {TimeTrackerService} from './services/time-tracker.service';
-import {MdDialog} from '@angular/material';
-import {NewCompanyDialogComponent} from './new-company-dialog/new-company-dialog.component';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import {Company, Project} from './classes/company';
+import { TimeTrackerService } from './services/time-tracker.service';
+import { MdDialog } from '@angular/material';
+import { NewCompanyDialogComponent } from './dialogs/new-company-dialog/new-company-dialog.component';
+import {NewProjectDialogComponent} from './dialogs/new-project-dialog/new-project-dialog.component';
 
 @Component({
   selector: 'app-time-tracker',
@@ -32,6 +33,16 @@ export class TimeTrackerComponent implements OnInit, AfterViewInit {
         } else {
           alert('cant add company');
         }
+      }, error => {
+        alert(error.message);
+      });
+    });
+  }
+  addProject(): void {
+    const dialogRef = this._dialog.open(NewProjectDialogComponent);
+    dialogRef.afterClosed().subscribe( project => {
+      this._timeTrackerService.addProject(new Company(), new Project()).then( something => {
+
       }, error => {
         alert(error.message);
       });

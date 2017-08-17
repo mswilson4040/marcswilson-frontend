@@ -8,14 +8,27 @@ export class TimeTrackerApi {
     this._express = require('express');
     this._mongodb = require('mongodb').MongoClient;
     this._router = this._express.Router();
-    this._router.post('/add', (request, response) => {
-      this.addCompany(request.params.company).then( result => {
+    this._router.post('/addcompany', (request, response) => {
+      this.addCompany(request.body.company).then( result => {
         response.json(result);
       }, error => {
         response.json(error);
       });
     });
-
+    this._router.post('/addproject', (request, response) => {
+      this.addProject(request.body.company, request.body.project).then( result => {
+        response.json(result);
+      }, error => {
+        response.json(error);
+      });
+    });
+    this._router.get('/companies', (request, response) => {
+      this.getCompanies().then(companies => {
+        response.json(companies);
+      }, error => {
+        response.json(error);
+      });
+    });
     module.exports = this._router;
   }
   addCompany(company): Promise<any> {
@@ -28,12 +41,29 @@ export class TimeTrackerApi {
         } else {
           collection.insert(company).then( response => {
             this.getCompanies().then( companies => {
+              db.close();
               resolve(companies);
             });
-            db.close();
+
           }, error => {
             db.close();
             reject(error);
+          });
+        }
+      });
+    });
+  }
+  addProject(company, project): Promise<any> {
+    return new Promise( (resolve, reject) => {
+      this._mongodb.connect(this._DB_PATH, (connectionError, db) => {
+        if (connectionError) {
+          reject(connectionError);
+          db.close();
+        } else {
+          const collection = db.collection('projects');
+          collection.insert({test: 't'}).then( response => {
+            db.close();
+            resolve(response);
           });
         }
       });
@@ -46,9 +76,14 @@ export class TimeTrackerApi {
         if (connectionError) {
           reject(connectionError);
         } else {
-          collection.distinct('name', {}).then( docs => {
-            db.close();
-            resolve(docs);
+          collection.find().toArray( (queryError, docs) => {
+            if (queryError) {
+              db.close();
+              reject(queryError);
+            } else {
+              db.close();
+              resolve(docs);
+            }
           });
         }
       });

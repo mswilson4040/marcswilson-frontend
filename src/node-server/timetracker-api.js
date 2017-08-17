@@ -10,9 +10,23 @@ var TimeTrackerApi = (function () {
         this._express = require('express');
         this._mongodb = require('mongodb').MongoClient;
         this._router = this._express.Router();
-        this._router.post('/add', function (request, response) {
-            _this.addCompany(request.params.company).then(function (result) {
+        this._router.post('/addcompany', function (request, response) {
+            _this.addCompany(request.body.company).then(function (result) {
                 response.json(result);
+            }, function (error) {
+                response.json(error);
+            });
+        });
+        this._router.post('/addproject', function (request, response) {
+            _this.addProject(request.body.company, request.body.project).then(function (result) {
+                response.json(result);
+            }, function (error) {
+                response.json(error);
+            });
+        });
+        this._router.get('/companies', function (request, response) {
+            _this.getCompanies().then(function (companies) {
+                response.json(companies);
             }, function (error) {
                 response.json(error);
             });
@@ -31,12 +45,30 @@ var TimeTrackerApi = (function () {
                 else {
                     collection.insert(company).then(function (response) {
                         _this.getCompanies().then(function (companies) {
+                            db.close();
                             resolve(companies);
                         });
-                        db.close();
                     }, function (error) {
                         db.close();
                         reject(error);
+                    });
+                }
+            });
+        });
+    };
+    TimeTrackerApi.prototype.addProject = function (company, project) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this._mongodb.connect(_this._DB_PATH, function (connectionError, db) {
+                if (connectionError) {
+                    reject(connectionError);
+                    db.close();
+                }
+                else {
+                    var collection = db.collection('projects');
+                    collection.insert({ test: 't' }).then(function (response) {
+                        db.close();
+                        resolve(response);
                     });
                 }
             });
@@ -51,9 +83,15 @@ var TimeTrackerApi = (function () {
                     reject(connectionError);
                 }
                 else {
-                    collection.distinct('name', {}).then(function (docs) {
-                        db.close();
-                        resolve(docs);
+                    collection.find().toArray(function (queryError, docs) {
+                        if (queryError) {
+                            db.close();
+                            reject(queryError);
+                        }
+                        else {
+                            db.close();
+                            resolve(docs);
+                        }
                     });
                 }
             });

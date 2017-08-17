@@ -10,9 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var company_1 = require("./classes/company");
 var time_tracker_service_1 = require("./services/time-tracker.service");
 var material_1 = require("@angular/material");
-var new_company_dialog_component_1 = require("./new-company-dialog/new-company-dialog.component");
+var new_company_dialog_component_1 = require("./dialogs/new-company-dialog/new-company-dialog.component");
+var new_project_dialog_component_1 = require("./dialogs/new-project-dialog/new-project-dialog.component");
 var TimeTrackerComponent = (function () {
     function TimeTrackerComponent(_timeTrackerService, _dialog) {
         this._timeTrackerService = _timeTrackerService;
@@ -41,6 +43,16 @@ var TimeTrackerComponent = (function () {
                 else {
                     alert('cant add company');
                 }
+            }, function (error) {
+                alert(error.message);
+            });
+        });
+    };
+    TimeTrackerComponent.prototype.addProject = function () {
+        var _this = this;
+        var dialogRef = this._dialog.open(new_project_dialog_component_1.NewProjectDialogComponent);
+        dialogRef.afterClosed().subscribe(function (project) {
+            _this._timeTrackerService.addProject(new company_1.Company(), new company_1.Project()).then(function (something) {
             }, function (error) {
                 alert(error.message);
             });

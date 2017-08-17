@@ -25,8 +25,9 @@ import {
 import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
 import { TimeTrackerComponent } from './pages/portfolio/time-tracker/time-tracker.component';
 import { ContactFormDialogComponent } from './shared-components/contact-form-dialog/contact-form-dialog.component';
-import { NewCompanyDialogComponent } from './pages/portfolio/time-tracker/new-company-dialog/new-company-dialog.component';
+import { NewCompanyDialogComponent } from './pages/portfolio/time-tracker/dialogs/new-company-dialog/new-company-dialog.component';
 import { TimeTrackerTimesheetComponent } from './pages/portfolio/time-tracker/time-tracker-timesheet/time-tracker-timesheet.component';
+import { NewProjectDialogComponent } from './pages/portfolio/time-tracker/dialogs/new-project-dialog/new-project-dialog.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { TimeTrackerTimesheetComponent } from './pages/portfolio/time-tracker/ti
     TimeTrackerComponent,
     ContactFormDialogComponent,
     NewCompanyDialogComponent,
-    TimeTrackerTimesheetComponent
+    TimeTrackerTimesheetComponent,
+    NewProjectDialogComponent
   ],
   entryComponents: [
     MLBBallparksComponent,
@@ -55,7 +57,8 @@ import { TimeTrackerTimesheetComponent } from './pages/portfolio/time-tracker/ti
     MLBTeamComponent,
     MLBteamsComponent,
     ContactFormDialogComponent,
-    NewCompanyDialogComponent
+    NewCompanyDialogComponent,
+    NewProjectDialogComponent
   ],
   imports: [
     BrowserAnimationsModule,

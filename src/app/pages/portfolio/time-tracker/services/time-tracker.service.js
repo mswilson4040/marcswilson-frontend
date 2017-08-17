@@ -21,35 +21,46 @@ var TimeTrackerService = (function () {
     TimeTrackerService.prototype.getCompanies = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this.companies = new Array();
-            for (var i = 0; i < 15; i++) {
-                _this.companies.push(new company_1.Company({ name: "Company " + i }));
-            }
-            if (_this.companies) {
-                resolve(_this.companies);
-            }
-            else {
-                reject(new Error('No Companies'));
-            }
+            _this._http.get(environment_1.environment.API_PATH + "/timetracker/companies").subscribe(function (companies) {
+                if (companies) {
+                    var docs = JSON.parse(companies['_body']);
+                    var ret = docs.map(function (d) { return new company_1.Company(d); });
+                    resolve(ret);
+                }
+                else {
+                    reject(companies);
+                }
+            });
         });
     };
     TimeTrackerService.prototype.addCompany = function (company) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            try {
-                if (company !== null) {
-                    _this._http.post(environment_1.environment.API_PATH + "/timetracker/add", { company: company }).subscribe(function (result) {
-                        if (result) {
-                            var comp = new Array();
-                            resolve(comp);
-                        }
-                    }, function (error) {
-                        reject(error);
-                    });
-                }
+            if (company !== null) {
+                _this._http.post(environment_1.environment.API_PATH + "/timetracker/addcompany", { company: company }).subscribe(function (result) {
+                    if (result) {
+                        var docs = JSON.parse(result['_body']);
+                        var comp = docs.map(function (d) { return new company_1.Company(d); });
+                        resolve(comp);
+                    }
+                }, function (error) {
+                    reject(error);
+                });
             }
-            catch (ex) {
-                reject(ex);
+        });
+    };
+    TimeTrackerService.prototype.addProject = function (company, project) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            if (company && project) {
+                _this._http.post(environment_1.environment.API_PATH + "/timetracker/addproject", { company: company, project: project }).subscribe(function (result) {
+                    resolve(result);
+                }, function (error) {
+                    reject(error);
+                });
+            }
+            else {
+                reject(new Error('No Company or Project passed in'));
             }
         });
     };

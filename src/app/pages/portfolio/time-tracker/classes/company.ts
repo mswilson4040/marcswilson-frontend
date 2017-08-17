@@ -1,9 +1,11 @@
 export class Company {
   public name: string = null;
-  public entries: Array<Entry> = new Array<Entry>();
+  public _id: string = null;
+  public projects: Array<Project> = new Array<Project>();
   constructor(data?) {
     if (data) {
       this.name = data.name;
+      this._id = data._id;
     }
   }
 }
@@ -15,7 +17,9 @@ class Entry {
   constructor() {}
 }
 
-class Project {
+export class Project {
   public name: string = null;
+  public _id: string = null;
+  public companyId: string = null;
   constructor() {}
 }

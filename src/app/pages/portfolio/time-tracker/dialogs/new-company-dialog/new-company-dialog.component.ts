@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Company} from '../classes/company';
+import {Company} from '../../classes/company';
 import {MdDialogRef} from '@angular/material';
 
 @Component({

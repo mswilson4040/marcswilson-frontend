@@ -3,9 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var Company = (function () {
     function Company(data) {
         this.name = null;
-        this.entries = new Array();
+        this._id = null;
+        this.projects = new Array();
         if (data) {
             this.name = data.name;
+            this._id = data._id;
         }
     }
     return Company;
@@ -22,7 +24,10 @@ var Entry = (function () {
 var Project = (function () {
     function Project() {
         this.name = null;
+        this._id = null;
+        this.companyId = null;
     }
     return Project;
 }());
+exports.Project = Project;
 //# sourceMappingURL=company.js.map
