@@ -29,6 +29,13 @@ export class TimeTrackerApi {
         response.json(error);
       });
     });
+    this._router.get('/projects/:companyId', (request, response) => {
+      this.getProjectsByCompanyId(request.params.companyId).then(projects => {
+        response.json(projects);
+      }, error => {
+        response.json(error);
+      });
+    });
     module.exports = this._router;
   }
   addCompany(company): Promise<any> {
@@ -39,12 +46,9 @@ export class TimeTrackerApi {
           reject(connectionError);
           db.close();
         } else {
-          collection.insert(company).then( response => {
-            this.getCompanies().then( companies => {
-              db.close();
-              resolve(companies);
-            });
-
+          collection.insert({name: company.name}).then( response => {
+            db.close();
+            resolve(response);
           }, error => {
             db.close();
             reject(error);
@@ -61,7 +65,7 @@ export class TimeTrackerApi {
           db.close();
         } else {
           const collection = db.collection('projects');
-          collection.insert({test: 't'}).then( response => {
+          collection.insert({companyId: company._id, name: project.name}).then( response => {
             db.close();
             resolve(response);
           });
@@ -84,6 +88,23 @@ export class TimeTrackerApi {
               db.close();
               resolve(docs);
             }
+          });
+        }
+      });
+    });
+  }
+  getProjectsByCompanyId(companyId): Promise<any> {
+    return new Promise( (resolve, reject) => {
+      this._mongodb.connect(this._DB_PATH, (connectionError, db) => {
+        const collection = db.collection('projects');
+        if (connectionError) {
+          db.close();
+          reject(connectionError);
+        } else {
+          collection.find({ companyId: companyId }).toArray( (queryError, docs) => {
+            resolve(docs);
+          }, error => {
+            reject(error);
           });
         }
       });

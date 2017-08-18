@@ -8,6 +8,10 @@ var Company = (function () {
         if (data) {
             this.name = data.name;
             this._id = data._id;
+            this.projects.push(new Project());
+            this.projects.push(new Project());
+            this.projects.push(new Project());
+            this.projects.push(new Project());
         }
     }
     return Company;

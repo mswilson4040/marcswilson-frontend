@@ -14,16 +14,16 @@ export class TimeTrackerTimesheetComponent implements OnInit, AfterViewInit {
   constructor(private _timeTrackerService: TimeTrackerService, private _uiService: UIService) { }
 
   ngOnInit() {
-  }
-  ngAfterViewInit(): void {
     // TODO: Bug(?): Tabs don't show left/right shifters on load
     this._uiService.showOverlay('Fetching Companies...');
-    this._timeTrackerService.getCompanies().then( companies => {
+    this._timeTrackerService.companies$.subscribe( companies => {
       this.companies = companies;
       this._uiService.hideOverlay();
     }, error => {
       alert(error.message);
     });
+  }
+  ngAfterViewInit(): void {
   }
   addEntry(): void {
   }

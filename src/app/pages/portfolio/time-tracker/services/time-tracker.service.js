@@ -13,15 +13,49 @@ var core_1 = require("@angular/core");
 var company_1 = require("../classes/company");
 var http_1 = require("@angular/http");
 var environment_1 = require("../../../../../environments/environment");
+var BehaviorSubject_1 = require("rxjs/BehaviorSubject");
 var TimeTrackerService = (function () {
     function TimeTrackerService(_http) {
+        var _this = this;
         this._http = _http;
-        this.companies = new Array();
+        // public companies: Array<Company> = new Array<Company>();
+        this.companies$ = new BehaviorSubject_1.BehaviorSubject(null);
+        this.activeCompany$ = new BehaviorSubject_1.BehaviorSubject(null);
+        this.API_PATH = environment_1.environment.API_PATH + "/timetracker";
+        this.getCompanies().then(function (companies) {
+            _this.companies = companies;
+        }, function (error) {
+            _this.companies = error;
+        });
     }
+    Object.defineProperty(TimeTrackerService.prototype, "companies", {
+        get: function () {
+            return this.companies$.getValue();
+        },
+        set: function (value) {
+            if (value !== null) {
+                this.companies$.next(value);
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
+    Object.defineProperty(TimeTrackerService.prototype, "activeCompany", {
+        get: function () {
+            return this.activeCompany$.getValue();
+        },
+        set: function (value) {
+            if (value !== null) {
+                this.activeCompany$.next(value);
+            }
+        },
+        enumerable: true,
+        configurable: true
+    });
     TimeTrackerService.prototype.getCompanies = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this._http.get(environment_1.environment.API_PATH + "/timetracker/companies").subscribe(function (companies) {
+            _this._http.get(_this.API_PATH + "/companies").subscribe(function (companies) {
                 if (companies) {
                     var docs = JSON.parse(companies['_body']);
                     var ret = docs.map(function (d) { return new company_1.Company(d); });
@@ -30,6 +64,17 @@ var TimeTrackerService = (function () {
                 else {
                     reject(companies);
                 }
+            }, function (error) {
+                reject(error);
+            });
+        });
+    };
+    TimeTrackerService.prototype.getProjectsByCompany = function (company) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this._http.get(_this.API_PATH + "/projects/" + company._id).subscribe(function (result) {
+                if (result) {
+                }
             });
         });
     };
@@ -37,11 +82,12 @@ var TimeTrackerService = (function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
             if (company !== null) {
-                _this._http.post(environment_1.environment.API_PATH + "/timetracker/addcompany", { company: company }).subscribe(function (result) {
+                _this._http.post(_this.API_PATH + "/addcompany", { company: company }).subscribe(function (result) {
                     if (result) {
-                        var docs = JSON.parse(result['_body']);
-                        var comp = docs.map(function (d) { return new company_1.Company(d); });
-                        resolve(comp);
+                        _this.getCompanies().then(function (companies) {
+                            _this.companies = companies;
+                            resolve(_this.companies);
+                        });
                     }
                 }, function (error) {
                     reject(error);
@@ -53,7 +99,7 @@ var TimeTrackerService = (function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
             if (company && project) {
-                _this._http.post(environment_1.environment.API_PATH + "/timetracker/addproject", { company: company, project: project }).subscribe(function (result) {
+                _this._http.post(_this.API_PATH + "/addproject", { company: company, project: project }).subscribe(function (result) {
                     resolve(result);
                 }, function (error) {
                     reject(error);

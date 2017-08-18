@@ -21,17 +21,17 @@ var TimeTrackerTimesheetComponent = (function () {
         this.selectedCompany = new company_1.Company();
     }
     TimeTrackerTimesheetComponent.prototype.ngOnInit = function () {
-    };
-    TimeTrackerTimesheetComponent.prototype.ngAfterViewInit = function () {
         var _this = this;
         // TODO: Bug(?): Tabs don't show left/right shifters on load
         this._uiService.showOverlay('Fetching Companies...');
-        this._timeTrackerService.getCompanies().then(function (companies) {
+        this._timeTrackerService.companies$.subscribe(function (companies) {
             _this.companies = companies;
             _this._uiService.hideOverlay();
         }, function (error) {
             alert(error.message);
         });
+    };
+    TimeTrackerTimesheetComponent.prototype.ngAfterViewInit = function () {
     };
     TimeTrackerTimesheetComponent.prototype.addEntry = function () {
     };

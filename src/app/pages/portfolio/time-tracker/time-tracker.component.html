@@ -1,6 +1,22 @@
 <md-sidenav-container class="side-nav-container">
   <md-sidenav #sidenav class="side-nav">
-    <div class="company-item" *ngFor="let company of companies">{{company.name}}</div>
+    <div class="company-item-container" *ngFor="let company of companies">
+      <div class="company-item" (click)="expandProjects(company)">
+        <div>{{company.name}}</div>
+        <div><i class="fa fa-angle-double-right" aria-hidden="true" [class.rotated]="clickedCompany.name === company.name"></i></div>
+      </div>
+      <div class="company-project-container" [class.expanded]="clickedCompany.name === company.name">
+        <ul>
+          <li *ngFor="let project of company.projects">{{project.name}}</li>
+          <li>
+            <button md-raised-button (click)="addProject(company)">
+              <i class="fa fa-plus" aria-hidden="true"></i>
+              New Project
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
     <div class="new-company-button">
       <button md-button md-raised-button (click)="addCompany()">New Company</button>
       <button md-button md-raised-button (click)="addProject()">New Project</button>

@@ -31,6 +31,13 @@ var TimeTrackerApi = (function () {
                 response.json(error);
             });
         });
+        this._router.get('/projects/:companyId', function (request, response) {
+            _this.getProjectsByCompanyId(request.params.companyId).then(function (projects) {
+                response.json(projects);
+            }, function (error) {
+                response.json(error);
+            });
+        });
         module.exports = this._router;
     }
     TimeTrackerApi.prototype.addCompany = function (company) {
@@ -43,11 +50,9 @@ var TimeTrackerApi = (function () {
                     db.close();
                 }
                 else {
-                    collection.insert(company).then(function (response) {
-                        _this.getCompanies().then(function (companies) {
-                            db.close();
-                            resolve(companies);
-                        });
+                    collection.insert({ name: company.name }).then(function (response) {
+                        db.close();
+                        resolve(response);
                     }, function (error) {
                         db.close();
                         reject(error);
@@ -66,7 +71,7 @@ var TimeTrackerApi = (function () {
                 }
                 else {
                     var collection = db.collection('projects');
-                    collection.insert({ test: 't' }).then(function (response) {
+                    collection.insert({ companyId: company._id, name: project.name }).then(function (response) {
                         db.close();
                         resolve(response);
                     });
@@ -92,6 +97,25 @@ var TimeTrackerApi = (function () {
                             db.close();
                             resolve(docs);
                         }
+                    });
+                }
+            });
+        });
+    };
+    TimeTrackerApi.prototype.getProjectsByCompanyId = function (companyId) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this._mongodb.connect(_this._DB_PATH, function (connectionError, db) {
+                var collection = db.collection('projects');
+                if (connectionError) {
+                    db.close();
+                    reject(connectionError);
+                }
+                else {
+                    collection.find({ companyId: companyId }).toArray(function (queryError, docs) {
+                        resolve(docs);
+                    }, function (error) {
+                        reject(error);
                     });
                 }
             });

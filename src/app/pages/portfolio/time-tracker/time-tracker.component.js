@@ -21,26 +21,24 @@ var TimeTrackerComponent = (function () {
         this._dialog = _dialog;
         this.companies = new Array();
         this.selectedTab = 0;
+        this.clickedCompany = new company_1.Company();
     }
     TimeTrackerComponent.prototype.ngOnInit = function () {
-    };
-    TimeTrackerComponent.prototype.ngAfterViewInit = function () {
         var _this = this;
-        this._timeTrackerService.getCompanies().then(function (companies) {
+        this._timeTrackerService.companies$.subscribe(function (companies) {
             _this.companies = companies;
         }, function (error) {
             alert(error.message);
         });
     };
+    TimeTrackerComponent.prototype.ngAfterViewInit = function () {
+    };
     TimeTrackerComponent.prototype.addCompany = function () {
         var _this = this;
         var dialogRef = this._dialog.open(new_company_dialog_component_1.NewCompanyDialogComponent);
         dialogRef.afterClosed().subscribe(function (company) {
-            _this._timeTrackerService.addCompany(company).then(function (companies) {
-                if (companies) {
-                    _this.companies = companies;
-                }
-                else {
+            _this._timeTrackerService.addCompany(company).then(function (result) {
+                if (!result) {
                     alert('cant add company');
                 }
             }, function (error) {
@@ -48,11 +46,11 @@ var TimeTrackerComponent = (function () {
             });
         });
     };
-    TimeTrackerComponent.prototype.addProject = function () {
+    TimeTrackerComponent.prototype.addProject = function (company) {
         var _this = this;
         var dialogRef = this._dialog.open(new_project_dialog_component_1.NewProjectDialogComponent);
         dialogRef.afterClosed().subscribe(function (project) {
-            _this._timeTrackerService.addProject(new company_1.Company(), new company_1.Project()).then(function (something) {
+            _this._timeTrackerService.addProject(company, project).then(function (something) {
             }, function (error) {
                 alert(error.message);
             });
@@ -60,6 +58,14 @@ var TimeTrackerComponent = (function () {
     };
     TimeTrackerComponent.prototype.changeTab = function (index) {
         this.selectedTab = index;
+    };
+    TimeTrackerComponent.prototype.expandProjects = function (company) {
+        if (company.name === this.clickedCompany.name) {
+            this.clickedCompany = new company_1.Company();
+        }
+        else {
+            this.clickedCompany = company;
+        }
     };
     TimeTrackerComponent = __decorate([
         core_1.Component({

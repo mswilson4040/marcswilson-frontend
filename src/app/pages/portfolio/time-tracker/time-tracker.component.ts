@@ -13,24 +13,23 @@ import {NewProjectDialogComponent} from './dialogs/new-project-dialog/new-projec
 export class TimeTrackerComponent implements OnInit, AfterViewInit {
   public companies: Array<Company> = new Array<Company>();
   public selectedTab = 0;
+  public clickedCompany: Company = new Company();
   constructor(private _timeTrackerService: TimeTrackerService, private _dialog: MdDialog) { }
 
   ngOnInit() {
-  }
-  ngAfterViewInit(): void {
-    this._timeTrackerService.getCompanies().then( companies => {
+    this._timeTrackerService.companies$.subscribe( companies => {
       this.companies = companies;
     }, error => {
       alert(error.message);
     });
   }
+  ngAfterViewInit(): void {
+  }
   addCompany(): void {
     const dialogRef = this._dialog.open(NewCompanyDialogComponent);
     dialogRef.afterClosed().subscribe( company => {
-      this._timeTrackerService.addCompany(company).then( companies => {
-        if (companies) {
-          this.companies = companies;
-        } else {
+      this._timeTrackerService.addCompany(company).then( result => {
+        if (!result) {
           alert('cant add company');
         }
       }, error => {
@@ -38,10 +37,10 @@ export class TimeTrackerComponent implements OnInit, AfterViewInit {
       });
     });
   }
-  addProject(): void {
+  addProject(company: Company): void {
     const dialogRef = this._dialog.open(NewProjectDialogComponent);
     dialogRef.afterClosed().subscribe( project => {
-      this._timeTrackerService.addProject(new Company(), new Project()).then( something => {
+      this._timeTrackerService.addProject(company, project).then( something => {
 
       }, error => {
         alert(error.message);
@@ -50,6 +49,13 @@ export class TimeTrackerComponent implements OnInit, AfterViewInit {
   }
   changeTab(index: number): void {
     this.selectedTab = index;
+  }
+  expandProjects(company: Company) {
+    if (company.name === this.clickedCompany.name) {
+      this.clickedCompany = new Company();
+    } else {
+      this.clickedCompany = company;
+    }
   }
 
 }
