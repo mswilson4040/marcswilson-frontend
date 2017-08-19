@@ -8,10 +8,11 @@ var Company = (function () {
         if (data) {
             this.name = data.name;
             this._id = data._id;
-            this.projects.push(new Project());
-            this.projects.push(new Project());
-            this.projects.push(new Project());
-            this.projects.push(new Project());
+            if (data.hasOwnProperty('projects')) {
+                this.projects = data.projects.map(function (p) {
+                    return new Project(p);
+                });
+            }
         }
     }
     return Company;
@@ -26,10 +27,15 @@ var Entry = (function () {
     return Entry;
 }());
 var Project = (function () {
-    function Project() {
+    function Project(data) {
         this.name = null;
         this._id = null;
         this.companyId = null;
+        if (data) {
+            this.name = data.name;
+            this._id = data._id;
+            this.companyId = data.companyId;
+        }
     }
     return Project;
 }());

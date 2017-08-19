@@ -6,7 +6,6 @@ import {BehaviorSubject} from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class TimeTrackerService {
-  // public companies: Array<Company> = new Array<Company>();
   public companies$: BehaviorSubject<Array<Company>> = new BehaviorSubject<Array<Company>>(null);
   public activeCompany$: BehaviorSubject<Company> = new BehaviorSubject<Company>(null);
   public API_PATH = `${environment.API_PATH}/timetracker`;
@@ -26,6 +25,7 @@ export class TimeTrackerService {
   get activeCompany() {
     return this.activeCompany$.getValue();
   }
+
   constructor(private _http: Http) {
     this.getCompanies().then( companies => {
       this.companies = companies;
@@ -52,9 +52,14 @@ export class TimeTrackerService {
     return new Promise( (resolve, reject) => {
       this._http.get(`${this.API_PATH}/projects/${company._id}`).subscribe( result => {
         if (result) {
-
+          const parsed = JSON.parse(result['_body']);
+          const projects = parsed.map( p => {
+            return new Project(p);
+          });
+          this.activeCompany.projects = projects;
+          resolve(projects);
         }
-      })
+      });
     });
   }
   addCompany(company: Company): Promise<Array<Company>> {
@@ -77,7 +82,11 @@ export class TimeTrackerService {
     return new Promise( (resolve, reject) => {
       if (company && project) {
         this._http.post(`${this.API_PATH}/addproject`, {company: company, project: project}).subscribe( result => {
-          resolve(result);
+          if (result) {
+            this.getProjectsByCompany(company).then( projects => {
+              resolve(projects);
+            });
+          }
         }, error => {
           reject(error);
         });

@@ -6,10 +6,11 @@ export class Company {
     if (data) {
       this.name = data.name;
       this._id = data._id;
-      this.projects.push(new Project());
-      this.projects.push(new Project());
-      this.projects.push(new Project());
-      this.projects.push(new Project());
+      if (data.hasOwnProperty('projects')) {
+        this.projects = data.projects.map(p => {
+          return new Project(p);
+        });
+      }
     }
   }
 }
@@ -25,5 +26,11 @@ export class Project {
   public name: string = null;
   public _id: string = null;
   public companyId: string = null;
-  constructor() {}
+  constructor(data?) {
+    if (data) {
+      this.name = data.name;
+      this._id = data._id;
+      this.companyId = data.companyId;
+    }
+  }
 }

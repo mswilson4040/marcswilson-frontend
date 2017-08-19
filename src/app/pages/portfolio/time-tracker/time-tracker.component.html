@@ -3,9 +3,9 @@
     <div class="company-item-container" *ngFor="let company of companies">
       <div class="company-item" (click)="expandProjects(company)">
         <div>{{company.name}}</div>
-        <div><i class="fa fa-angle-double-right" aria-hidden="true" [class.rotated]="clickedCompany.name === company.name"></i></div>
+        <div><i class="fa fa-angle-double-right" aria-hidden="true" [class.rotated]="activeCompany && activeCompany.name === company.name"></i></div>
       </div>
-      <div class="company-project-container" [class.expanded]="clickedCompany.name === company.name">
+      <div class="company-project-container" [class.expanded]="activeCompany && activeCompany.name === company.name">
         <ul>
           <li *ngFor="let project of company.projects">{{project.name}}</li>
           <li>

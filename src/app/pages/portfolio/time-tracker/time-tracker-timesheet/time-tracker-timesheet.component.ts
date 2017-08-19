@@ -10,22 +10,40 @@ import { UIService } from '../../../../shared-services/ui.service';
 })
 export class TimeTrackerTimesheetComponent implements OnInit, AfterViewInit {
   public companies: Array<Company> = new Array<Company>();
-  public selectedCompany: Company = new Company();
+  public activeCompany: Company = null;
+  public selectedIndex = 0;
   constructor(private _timeTrackerService: TimeTrackerService, private _uiService: UIService) { }
 
   ngOnInit() {
     // TODO: Bug(?): Tabs don't show left/right shifters on load
-    this._uiService.showOverlay('Fetching Companies...');
     this._timeTrackerService.companies$.subscribe( companies => {
       this.companies = companies;
-      this._uiService.hideOverlay();
     }, error => {
       alert(error.message);
+    });
+    this._timeTrackerService.activeCompany$.subscribe( company => {
+      if (company) {
+        this.activeCompany = company;
+        const index = this.companies.findIndex( c => { return c._id === this.activeCompany._id; });
+        this.changeTab(index);
+      }
     });
   }
   ngAfterViewInit(): void {
   }
   addEntry(): void {
+  }
+  changeTab(index: number) {
+    this.selectedIndex = index;
+  }
+  onTabChange(evt): void {
+    if (evt) {
+      try {
+        const company = this.companies[ evt.index ];
+        this._timeTrackerService.activeCompany = company;
+      } catch (ex) {
+      }
+    }
   }
 
 }

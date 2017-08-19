@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var company_1 = require("./classes/company");
 var time_tracker_service_1 = require("./services/time-tracker.service");
 var material_1 = require("@angular/material");
 var new_company_dialog_component_1 = require("./dialogs/new-company-dialog/new-company-dialog.component");
@@ -21,12 +20,21 @@ var TimeTrackerComponent = (function () {
         this._dialog = _dialog;
         this.companies = new Array();
         this.selectedTab = 0;
-        this.clickedCompany = new company_1.Company();
+        this.activeCompany = null;
     }
     TimeTrackerComponent.prototype.ngOnInit = function () {
         var _this = this;
         this._timeTrackerService.companies$.subscribe(function (companies) {
-            _this.companies = companies;
+            if (companies) {
+                _this.companies = companies;
+            }
+        }, function (error) {
+            alert(error.message);
+        });
+        this._timeTrackerService.activeCompany$.subscribe(function (company) {
+            if (company !== null) {
+                _this.activeCompany = company;
+            }
         }, function (error) {
             alert(error.message);
         });
@@ -50,7 +58,9 @@ var TimeTrackerComponent = (function () {
         var _this = this;
         var dialogRef = this._dialog.open(new_project_dialog_component_1.NewProjectDialogComponent);
         dialogRef.afterClosed().subscribe(function (project) {
-            _this._timeTrackerService.addProject(company, project).then(function (something) {
+            _this._timeTrackerService.addProject(company, project).then(function (projects) {
+                _this.activeCompany.projects = projects;
+                _this._timeTrackerService.activeCompany = _this.activeCompany;
             }, function (error) {
                 alert(error.message);
             });
@@ -60,12 +70,11 @@ var TimeTrackerComponent = (function () {
         this.selectedTab = index;
     };
     TimeTrackerComponent.prototype.expandProjects = function (company) {
-        if (company.name === this.clickedCompany.name) {
-            this.clickedCompany = new company_1.Company();
-        }
-        else {
-            this.clickedCompany = company;
-        }
+        var _this = this;
+        this._timeTrackerService.getProjectsByCompany(company).then(function (projects) {
+            company.projects = projects;
+            _this._timeTrackerService.activeCompany = company;
+        });
     };
     TimeTrackerComponent = __decorate([
         core_1.Component({

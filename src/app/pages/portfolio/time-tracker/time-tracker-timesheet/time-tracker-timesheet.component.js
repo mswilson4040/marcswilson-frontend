@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var company_1 = require("../classes/company");
 var time_tracker_service_1 = require("../services/time-tracker.service");
 var ui_service_1 = require("../../../../shared-services/ui.service");
 var TimeTrackerTimesheetComponent = (function () {
@@ -18,22 +17,41 @@ var TimeTrackerTimesheetComponent = (function () {
         this._timeTrackerService = _timeTrackerService;
         this._uiService = _uiService;
         this.companies = new Array();
-        this.selectedCompany = new company_1.Company();
+        this.activeCompany = null;
+        this.selectedIndex = 0;
     }
     TimeTrackerTimesheetComponent.prototype.ngOnInit = function () {
         var _this = this;
         // TODO: Bug(?): Tabs don't show left/right shifters on load
-        this._uiService.showOverlay('Fetching Companies...');
         this._timeTrackerService.companies$.subscribe(function (companies) {
             _this.companies = companies;
-            _this._uiService.hideOverlay();
         }, function (error) {
             alert(error.message);
+        });
+        this._timeTrackerService.activeCompany$.subscribe(function (company) {
+            if (company) {
+                _this.activeCompany = company;
+                var index = _this.companies.findIndex(function (c) { return c._id === _this.activeCompany._id; });
+                _this.changeTab(index);
+            }
         });
     };
     TimeTrackerTimesheetComponent.prototype.ngAfterViewInit = function () {
     };
     TimeTrackerTimesheetComponent.prototype.addEntry = function () {
+    };
+    TimeTrackerTimesheetComponent.prototype.changeTab = function (index) {
+        this.selectedIndex = index;
+    };
+    TimeTrackerTimesheetComponent.prototype.onTabChange = function (evt) {
+        if (evt) {
+            try {
+                var company = this.companies[evt.index];
+                this._timeTrackerService.activeCompany = company;
+            }
+            catch (ex) {
+            }
+        }
     };
     TimeTrackerTimesheetComponent = __decorate([
         core_1.Component({

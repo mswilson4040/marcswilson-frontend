@@ -18,7 +18,6 @@ var TimeTrackerService = (function () {
     function TimeTrackerService(_http) {
         var _this = this;
         this._http = _http;
-        // public companies: Array<Company> = new Array<Company>();
         this.companies$ = new BehaviorSubject_1.BehaviorSubject(null);
         this.activeCompany$ = new BehaviorSubject_1.BehaviorSubject(null);
         this.API_PATH = environment_1.environment.API_PATH + "/timetracker";
@@ -74,6 +73,12 @@ var TimeTrackerService = (function () {
         return new Promise(function (resolve, reject) {
             _this._http.get(_this.API_PATH + "/projects/" + company._id).subscribe(function (result) {
                 if (result) {
+                    var parsed = JSON.parse(result['_body']);
+                    var projects = parsed.map(function (p) {
+                        return new company_1.Project(p);
+                    });
+                    _this.activeCompany.projects = projects;
+                    resolve(projects);
                 }
             });
         });
@@ -100,7 +105,11 @@ var TimeTrackerService = (function () {
         return new Promise(function (resolve, reject) {
             if (company && project) {
                 _this._http.post(_this.API_PATH + "/addproject", { company: company, project: project }).subscribe(function (result) {
-                    resolve(result);
+                    if (result) {
+                        _this.getProjectsByCompany(company).then(function (projects) {
+                            resolve(projects);
+                        });
+                    }
                 }, function (error) {
                     reject(error);
                 });

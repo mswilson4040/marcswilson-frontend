@@ -1,9 +1,9 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import {Company, Project} from './classes/company';
+import { Company } from './classes/company';
 import { TimeTrackerService } from './services/time-tracker.service';
 import { MdDialog } from '@angular/material';
 import { NewCompanyDialogComponent } from './dialogs/new-company-dialog/new-company-dialog.component';
-import {NewProjectDialogComponent} from './dialogs/new-project-dialog/new-project-dialog.component';
+import { NewProjectDialogComponent } from './dialogs/new-project-dialog/new-project-dialog.component';
 
 @Component({
   selector: 'app-time-tracker',
@@ -13,12 +13,21 @@ import {NewProjectDialogComponent} from './dialogs/new-project-dialog/new-projec
 export class TimeTrackerComponent implements OnInit, AfterViewInit {
   public companies: Array<Company> = new Array<Company>();
   public selectedTab = 0;
-  public clickedCompany: Company = new Company();
+  public activeCompany: Company = null;
   constructor(private _timeTrackerService: TimeTrackerService, private _dialog: MdDialog) { }
 
   ngOnInit() {
     this._timeTrackerService.companies$.subscribe( companies => {
-      this.companies = companies;
+      if (companies) {
+        this.companies = companies;
+      }
+    }, error => {
+      alert(error.message);
+    });
+    this._timeTrackerService.activeCompany$.subscribe( company => {
+      if (company !== null) {
+        this.activeCompany = company;
+      }
     }, error => {
       alert(error.message);
     });
@@ -40,8 +49,9 @@ export class TimeTrackerComponent implements OnInit, AfterViewInit {
   addProject(company: Company): void {
     const dialogRef = this._dialog.open(NewProjectDialogComponent);
     dialogRef.afterClosed().subscribe( project => {
-      this._timeTrackerService.addProject(company, project).then( something => {
-
+      this._timeTrackerService.addProject(company, project).then( projects => {
+        this.activeCompany.projects = projects;
+        this._timeTrackerService.activeCompany = this.activeCompany;
       }, error => {
         alert(error.message);
       });
@@ -51,11 +61,10 @@ export class TimeTrackerComponent implements OnInit, AfterViewInit {
     this.selectedTab = index;
   }
   expandProjects(company: Company) {
-    if (company.name === this.clickedCompany.name) {
-      this.clickedCompany = new Company();
-    } else {
-      this.clickedCompany = company;
-    }
+    this._timeTrackerService.getProjectsByCompany(company).then( projects => {
+      company.projects = projects;
+      this._timeTrackerService.activeCompany = company;
+    });
   }
 
 }
