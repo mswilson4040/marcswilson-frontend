@@ -104,7 +104,7 @@ var TimeTrackerService = (function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
             if (company && project) {
-                _this._http.post(_this.API_PATH + "/addproject", { company: company, project: project }).subscribe(function (result) {
+                _this._http.post(_this.API_PATH + "/company/addproject", { company: company, project: project }).subscribe(function (result) {
                     if (result) {
                         _this.getProjectsByCompany(company).then(function (projects) {
                             resolve(projects);
@@ -117,6 +117,21 @@ var TimeTrackerService = (function () {
             else {
                 reject(new Error('No Company or Project passed in'));
             }
+        });
+    };
+    TimeTrackerService.prototype.addEntry = function (entry) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this._http.post(_this.API_PATH + "/project/addentry", { entry: entry }).subscribe(function (result) {
+                if (result) {
+                    resolve();
+                }
+                else {
+                    reject(result);
+                }
+            }, function (error) {
+                reject(error);
+            });
         });
     };
     TimeTrackerService = __decorate([

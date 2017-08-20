@@ -18,7 +18,7 @@ import { PowerballComponent } from './pages/portfolio/powerball/powerball.compon
 import { OverlayComponent } from './shared-components/overlay/overlay.component';
 import {
   MdAutocompleteModule, MdButtonModule, MdCardModule, MdDatepickerModule, MdDialogModule, MdInputModule,
-  MdNativeDateModule, MdSidenavModule,
+  MdNativeDateModule, MdSelectModule, MdSidenavModule,
   MdSliderModule,
   MdTabsModule, MdTooltipModule
 } from '@angular/material';
@@ -28,6 +28,7 @@ import { ContactFormDialogComponent } from './shared-components/contact-form-dia
 import { NewCompanyDialogComponent } from './pages/portfolio/time-tracker/dialogs/new-company-dialog/new-company-dialog.component';
 import { TimeTrackerTimesheetComponent } from './pages/portfolio/time-tracker/time-tracker-timesheet/time-tracker-timesheet.component';
 import { NewProjectDialogComponent } from './pages/portfolio/time-tracker/dialogs/new-project-dialog/new-project-dialog.component';
+import { NewEntryDialogComponent } from './pages/portfolio/time-tracker/dialogs/new-entry-dialog/new-entry-dialog.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { NewProjectDialogComponent } from './pages/portfolio/time-tracker/dialog
     ContactFormDialogComponent,
     NewCompanyDialogComponent,
     TimeTrackerTimesheetComponent,
-    NewProjectDialogComponent
+    NewProjectDialogComponent,
+    NewEntryDialogComponent
   ],
   entryComponents: [
     MLBBallparksComponent,
@@ -58,7 +60,8 @@ import { NewProjectDialogComponent } from './pages/portfolio/time-tracker/dialog
     MLBteamsComponent,
     ContactFormDialogComponent,
     NewCompanyDialogComponent,
-    NewProjectDialogComponent
+    NewProjectDialogComponent,
+    NewEntryDialogComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -78,7 +81,8 @@ import { NewProjectDialogComponent } from './pages/portfolio/time-tracker/dialog
     MdDialogModule,
     MdButtonModule,
     MdTooltipModule,
-    MdSidenavModule
+    MdSidenavModule,
+    MdSelectModule
   ],
   providers: [],
   bootstrap: [ShellComponent]

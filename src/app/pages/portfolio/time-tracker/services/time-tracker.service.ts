@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Company, Project} from '../classes/company';
+import {Company, Entry, Project} from '../classes/company';
 import { Http } from '@angular/http';
 import {environment} from '../../../../../environments/environment';
 import {BehaviorSubject} from 'rxjs/BehaviorSubject';
@@ -78,10 +78,10 @@ export class TimeTrackerService {
       }
     });
   }
-  addProject(company: Company, project: Project): Promise<any> {
+  addProject(company: Company, project: Project): Promise<Array<Project>> {
     return new Promise( (resolve, reject) => {
       if (company && project) {
-        this._http.post(`${this.API_PATH}/addproject`, {company: company, project: project}).subscribe( result => {
+        this._http.post(`${this.API_PATH}/company/addproject`, {company: company, project: project}).subscribe( result => {
           if (result) {
             this.getProjectsByCompany(company).then( projects => {
               resolve(projects);
@@ -95,5 +95,17 @@ export class TimeTrackerService {
       }
     });
   }
-
+  addEntry(entry: Entry): Promise<Array<Entry>> {
+    return new Promise( (resolve, reject) => {
+      this._http.post(`${this.API_PATH}/project/addentry`, {entry: entry}).subscribe( result => {
+        if (result) {
+          resolve();
+        } else {
+          reject(result);
+        }
+      }, error => {
+        reject(error);
+      });
+    });
+  }
 }

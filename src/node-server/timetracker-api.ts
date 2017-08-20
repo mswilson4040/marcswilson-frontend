@@ -15,7 +15,7 @@ export class TimeTrackerApi {
         response.json(error);
       });
     });
-    this._router.post('/addproject', (request, response) => {
+    this._router.post('company/addproject', (request, response) => {
       this.addProject(request.body.company, request.body.project).then( result => {
         response.json(result);
       }, error => {
@@ -36,6 +36,13 @@ export class TimeTrackerApi {
         response.json(error);
       });
     });
+    this._router.post('/project/addentry', (request, response) => {
+      this.addEntry(request.body.entry).then( result => {
+        response.json(result);
+      }, error => {
+        response.json(error);
+      });
+    });
     module.exports = this._router;
   }
   addCompany(company): Promise<any> {
@@ -43,10 +50,35 @@ export class TimeTrackerApi {
       this._mongodb.connect(this._DB_PATH, (connectionError, db) => {
         const collection = db.collection('companies');
         if (connectionError) {
-          reject(connectionError);
           db.close();
+          reject(connectionError);
         } else {
           collection.insert({name: company.name}).then( response => {
+            db.close();
+            resolve(response);
+          }, error => {
+            db.close();
+            reject(error);
+          });
+        }
+      });
+    });
+  }
+  addEntry(entry): Promise<any> {
+    return new Promise( (resolve, reject) => {
+      this._mongodb.connect(this._DB_PATH, (connectionError, db) => {
+        const collection = db.collection('entries');
+        if (connectionError) {
+          db.close();
+          reject(connectionError);
+        } else {
+          collection.insert({
+            date: entry.date,
+            projectId: entry.projectId,
+            companyId: entry.companyId,
+            description: entry.description,
+            timeSpent: entry.timeSpent
+          }).then( response => {
             db.close();
             resolve(response);
           }, error => {

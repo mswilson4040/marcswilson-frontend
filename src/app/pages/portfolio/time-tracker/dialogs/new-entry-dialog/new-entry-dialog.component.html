@@ -1,0 +1,34 @@
+<div class="new-entry-dialog">
+  <div class="dialog-header">
+    <h4>New Entry</h4>
+  </div>
+  <div class="dialog-content">
+    <div class="input-container">
+      <md-select placeholder="Project" [(ngModel)]="entry.projectId">
+        <md-option *ngFor="let project of projects" [value]="project._id">{{project.name}}</md-option>
+      </md-select>
+    </div>
+    <div class="input-container">
+      <md-input-container>
+        <input mdInput [mdDatepicker]="entryDate" placeholder="Date" [(ngModel)]="entry.date"/>
+        <button mdSuffix [mdDatepickerToggle]="entryDate"></button>
+      </md-input-container>
+      <md-datepicker #entryDate></md-datepicker>
+    </div>
+    <div class="input-container">
+      <md-input-container>
+        <textarea mdInput placeholder="Description" rows="3" [(ngModel)]="entry.description"></textarea>
+      </md-input-container>
+    </div>
+    <div class="input-container">
+      <md-input-container>
+        <input mdInput placeholder="Hours" type="number" [(ngModel)]="entry.timeSpent"/>
+      </md-input-container>
+    </div>
+  </div>
+  <div class="dialog-footer">
+    <button md-raised-button (click)="closeDialog()">Add</button>
+    <button md-raised-button (click)="cancel()">Cancel</button>
+  </div>
+
+</div>

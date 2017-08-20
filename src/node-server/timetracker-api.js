@@ -17,7 +17,7 @@ var TimeTrackerApi = (function () {
                 response.json(error);
             });
         });
-        this._router.post('/addproject', function (request, response) {
+        this._router.post('company/addproject', function (request, response) {
             _this.addProject(request.body.company, request.body.project).then(function (result) {
                 response.json(result);
             }, function (error) {
@@ -38,6 +38,13 @@ var TimeTrackerApi = (function () {
                 response.json(error);
             });
         });
+        this._router.post('/project/addentry', function (request, response) {
+            _this.addEntry(request.body.entry).then(function (result) {
+                response.json(result);
+            }, function (error) {
+                response.json(error);
+            });
+        });
         module.exports = this._router;
     }
     TimeTrackerApi.prototype.addCompany = function (company) {
@@ -46,11 +53,38 @@ var TimeTrackerApi = (function () {
             _this._mongodb.connect(_this._DB_PATH, function (connectionError, db) {
                 var collection = db.collection('companies');
                 if (connectionError) {
-                    reject(connectionError);
                     db.close();
+                    reject(connectionError);
                 }
                 else {
                     collection.insert({ name: company.name }).then(function (response) {
+                        db.close();
+                        resolve(response);
+                    }, function (error) {
+                        db.close();
+                        reject(error);
+                    });
+                }
+            });
+        });
+    };
+    TimeTrackerApi.prototype.addEntry = function (entry) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this._mongodb.connect(_this._DB_PATH, function (connectionError, db) {
+                var collection = db.collection('entries');
+                if (connectionError) {
+                    db.close();
+                    reject(connectionError);
+                }
+                else {
+                    collection.insert({
+                        date: entry.date,
+                        projectId: entry.projectId,
+                        companyId: entry.companyId,
+                        description: entry.description,
+                        timeSpent: entry.timeSpent
+                    }).then(function (response) {
                         db.close();
                         resolve(response);
                     }, function (error) {
