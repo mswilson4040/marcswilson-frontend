@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var company_1 = require("../classes/company");
 var time_tracker_service_1 = require("../services/time-tracker.service");
 var ui_service_1 = require("../../../../shared-services/ui.service");
 var material_1 = require("@angular/material");
@@ -20,7 +21,7 @@ var TimeTrackerTimesheetComponent = (function () {
         this._uiService = _uiService;
         this._dialog = _dialog;
         this.companies = new Array();
-        this.activeCompany = null;
+        this.activeCompany = new company_1.Company();
         this.selectedIndex = 0;
     }
     TimeTrackerTimesheetComponent.prototype.ngOnInit = function () {
@@ -52,6 +53,7 @@ var TimeTrackerTimesheetComponent = (function () {
         dialogRef.afterClosed().subscribe(function (entry) {
             if (entry) {
                 _this._timeTrackerService.addEntry(entry).then(function (entries) {
+                    _this.activeCompany.entries = entries;
                 }, function (error) {
                     alert(error.message);
                 });

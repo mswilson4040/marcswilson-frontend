@@ -2,6 +2,7 @@ export class Company {
   public name: string = null;
   public _id: string = null;
   public projects: Array<Project> = new Array<Project>();
+  public entries: Array<Entry> = new Array<Entry>();
   constructor(data?) {
     if (data) {
       this.name = data.name;
@@ -11,6 +12,11 @@ export class Company {
           return new Project(p);
         });
       }
+      if (data.hasOwnProperty('entries')) {
+        this.entries = data.entries.map( e => {
+          return new Entry(e);
+        });
+      }
     }
   }
 }
@@ -18,13 +24,11 @@ export class Project {
   public name: string = null;
   public _id: string = null;
   public companyId: string = null;
-  public entries: Array<Entry> = new Array<Entry>();
   constructor(data?) {
     if (data) {
       this.name = data.name;
       this._id = data._id;
       this.companyId = data.companyId;
-      this.entries = data.entries;
     }
   }
 }

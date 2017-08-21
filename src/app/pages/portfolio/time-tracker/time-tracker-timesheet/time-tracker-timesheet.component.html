@@ -13,8 +13,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-
+        <tr *ngFor="let entry of activeCompany.entries">
+          <td>{{entry.date}}</td>
+          <td>{{entry.projectId}}</td>
+          <td>{{entry.description}}</td>
+          <td>{{entry.timeSpent}}</td>
         </tr>
       </tbody>
       <tfoot>

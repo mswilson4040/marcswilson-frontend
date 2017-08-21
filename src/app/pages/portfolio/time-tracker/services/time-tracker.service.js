@@ -44,8 +44,12 @@ var TimeTrackerService = (function () {
             return this.activeCompany$.getValue();
         },
         set: function (value) {
+            var _this = this;
             if (value !== null) {
-                this.activeCompany$.next(value);
+                this.getEntriesByCompany(value).then(function (entries) {
+                    value.entries = entries;
+                    _this.activeCompany$.next(value);
+                });
             }
         },
         enumerable: true,
@@ -80,6 +84,25 @@ var TimeTrackerService = (function () {
                     _this.activeCompany.projects = projects;
                     resolve(projects);
                 }
+            });
+        });
+    };
+    TimeTrackerService.prototype.getEntriesByCompany = function (company) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this._http.get(_this.API_PATH + "/company/entries/" + company._id).subscribe(function (response) {
+                var parsed = JSON.parse(response['_body']);
+                if (parsed) {
+                    var entries = parsed.map(function (e) {
+                        return new company_1.Entry(e);
+                    });
+                    resolve(entries);
+                }
+                else {
+                    resolve(new Array());
+                }
+            }, function (error) {
+                reject(error);
             });
         });
     };
@@ -124,7 +147,11 @@ var TimeTrackerService = (function () {
         return new Promise(function (resolve, reject) {
             _this._http.post(_this.API_PATH + "/project/addentry", { entry: entry }).subscribe(function (result) {
                 if (result) {
-                    resolve();
+                    _this.getEntriesByCompany(_this.activeCompany).then(function (entries) {
+                        resolve(entries);
+                    }, function (error) {
+                        reject(error);
+                    });
                 }
                 else {
                     reject(result);

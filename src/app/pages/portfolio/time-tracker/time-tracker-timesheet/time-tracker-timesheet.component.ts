@@ -12,7 +12,7 @@ import { NewEntryDialogComponent } from '../dialogs/new-entry-dialog/new-entry-d
 })
 export class TimeTrackerTimesheetComponent implements OnInit, AfterViewInit {
   public companies: Array<Company> = new Array<Company>();
-  public activeCompany: Company = null;
+  public activeCompany: Company = new Company();
   public selectedIndex = 0;
   constructor(private _timeTrackerService: TimeTrackerService, private _uiService: UIService,
               private _dialog: MdDialog) { }
@@ -44,7 +44,7 @@ export class TimeTrackerTimesheetComponent implements OnInit, AfterViewInit {
     dialogRef.afterClosed().subscribe( entry => {
       if (entry) {
         this._timeTrackerService.addEntry(entry).then(entries => {
-
+          this.activeCompany.entries = entries;
         }, error => {
           alert(error.message);
         });

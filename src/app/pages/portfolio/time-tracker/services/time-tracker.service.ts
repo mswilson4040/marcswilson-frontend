@@ -19,7 +19,10 @@ export class TimeTrackerService {
   }
   set activeCompany(value: Company) {
     if (value !== null) {
-      this.activeCompany$.next(value);
+      this.getEntriesByCompany(value).then( entries => {
+        value.entries = entries;
+        this.activeCompany$.next(value);
+      });
     }
   }
   get activeCompany() {
@@ -62,6 +65,23 @@ export class TimeTrackerService {
       });
     });
   }
+  getEntriesByCompany(company: Company): Promise<Array<Entry>> {
+    return new Promise( (resolve, reject) => {
+      this._http.get(`${this.API_PATH}/company/entries/${company._id}`).subscribe( response => {
+        const parsed = JSON.parse(response['_body']);
+        if (parsed) {
+          const entries = parsed.map(e => {
+            return new Entry(e);
+          });
+          resolve(entries);
+        } else {
+          resolve(new Array<Entry>());
+        }
+      }, error => {
+        reject(error);
+      });
+    });
+  }
   addCompany(company: Company): Promise<Array<Company>> {
     return new Promise( (resolve, reject) => {
       if (company !== null) {
@@ -99,7 +119,11 @@ export class TimeTrackerService {
     return new Promise( (resolve, reject) => {
       this._http.post(`${this.API_PATH}/project/addentry`, {entry: entry}).subscribe( result => {
         if (result) {
-          resolve();
+          this.getEntriesByCompany(this.activeCompany).then( entries => {
+            resolve(entries);
+          }, error => {
+            reject(error);
+          });
         } else {
           reject(result);
         }

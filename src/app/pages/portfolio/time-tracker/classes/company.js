@@ -5,12 +5,18 @@ var Company = (function () {
         this.name = null;
         this._id = null;
         this.projects = new Array();
+        this.entries = new Array();
         if (data) {
             this.name = data.name;
             this._id = data._id;
             if (data.hasOwnProperty('projects')) {
                 this.projects = data.projects.map(function (p) {
                     return new Project(p);
+                });
+            }
+            if (data.hasOwnProperty('entries')) {
+                this.entries = data.entries.map(function (e) {
+                    return new Entry(e);
                 });
             }
         }
@@ -23,12 +29,10 @@ var Project = (function () {
         this.name = null;
         this._id = null;
         this.companyId = null;
-        this.entries = new Array();
         if (data) {
             this.name = data.name;
             this._id = data._id;
             this.companyId = data.companyId;
-            this.entries = data.entries;
         }
     }
     return Project;

@@ -15,7 +15,7 @@ export class TimeTrackerApi {
         response.json(error);
       });
     });
-    this._router.post('company/addproject', (request, response) => {
+    this._router.post('/company/addproject', (request, response) => {
       this.addProject(request.body.company, request.body.project).then( result => {
         response.json(result);
       }, error => {
@@ -39,6 +39,14 @@ export class TimeTrackerApi {
     this._router.post('/project/addentry', (request, response) => {
       this.addEntry(request.body.entry).then( result => {
         response.json(result);
+      }, error => {
+        response.json(error);
+      });
+    });
+    this._router.get('/company/entries/:companyId', (request, response) => {
+      const companyId = request.params.companyId;
+      this.getEntriesByCompanyId(companyId).then( entries => {
+        response.json(entries);
       }, error => {
         response.json(error);
       });
@@ -136,6 +144,30 @@ export class TimeTrackerApi {
           collection.find({ companyId: companyId }).toArray( (queryError, docs) => {
             resolve(docs);
           }, error => {
+            reject(error);
+          });
+        }
+      });
+    });
+  }
+  getEntriesByCompanyId(companyId): Promise<any> {
+    return new Promise( (resolve, reject) => {
+      this._mongodb.connect(this._DB_PATH, (connectionError, db) => {
+        const collection = db.collection('entries');
+        if (connectionError) {
+          db.close();
+          reject(connectionError);
+        } else {
+          collection.find({ companyId: companyId}).toArray( (queryError, docs) => {
+            if (queryError) {
+              db.close();
+              reject(queryError);
+            } else {
+              db.close();
+              resolve(docs);
+            }
+          }, error => {
+            db.close();
             reject(error);
           });
         }
