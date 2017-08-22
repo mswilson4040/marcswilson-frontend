@@ -54,10 +54,10 @@ export class TimeTrackerTimesheetComponent implements OnInit, AfterViewInit {
   changeTab(index: number) {
     this.selectedIndex = index;
   }
-  onTabChange(evt): void {
-    if (evt) {
+  onTabChange(index): void {
+    if (index || index === 0) {
       try {
-        const company = this.companies[ evt.index ];
+        const company = this.companies[ index ];
         this._timeTrackerService.activeCompany = company;
       } catch (ex) {
       }

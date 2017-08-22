@@ -63,10 +63,10 @@ var TimeTrackerTimesheetComponent = (function () {
     TimeTrackerTimesheetComponent.prototype.changeTab = function (index) {
         this.selectedIndex = index;
     };
-    TimeTrackerTimesheetComponent.prototype.onTabChange = function (evt) {
-        if (evt) {
+    TimeTrackerTimesheetComponent.prototype.onTabChange = function (index) {
+        if (index || index === 0) {
             try {
-                var company = this.companies[evt.index];
+                var company = this.companies[index];
                 this._timeTrackerService.activeCompany = company;
             }
             catch (ex) {

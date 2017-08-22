@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var company_1 = require("./classes/company");
 var time_tracker_service_1 = require("./services/time-tracker.service");
 var material_1 = require("@angular/material");
 var new_company_dialog_component_1 = require("./dialogs/new-company-dialog/new-company-dialog.component");
@@ -45,13 +46,15 @@ var TimeTrackerComponent = (function () {
         var _this = this;
         var dialogRef = this._dialog.open(new_company_dialog_component_1.NewCompanyDialogComponent);
         dialogRef.afterClosed().subscribe(function (company) {
-            _this._timeTrackerService.addCompany(company).then(function (result) {
-                if (!result) {
-                    alert('cant add company');
-                }
-            }, function (error) {
-                alert(error.message);
-            });
+            if (company) {
+                _this._timeTrackerService.addCompany(company).then(function (result) {
+                    if (!result) {
+                        alert('cant add company');
+                    }
+                }, function (error) {
+                    alert(error.message);
+                });
+            }
         });
     };
     TimeTrackerComponent.prototype.addProject = function (company) {
@@ -71,10 +74,15 @@ var TimeTrackerComponent = (function () {
     };
     TimeTrackerComponent.prototype.expandProjects = function (company) {
         var _this = this;
-        this._timeTrackerService.getProjectsByCompany(company).then(function (projects) {
-            company.projects = projects;
-            _this._timeTrackerService.activeCompany = company;
-        });
+        if (this.activeCompany && company._id === this.activeCompany._id) {
+            this.activeCompany = new company_1.Company();
+        }
+        else {
+            this._timeTrackerService.getProjectsByCompany(company).then(function (projects) {
+                company.projects = projects;
+                _this._timeTrackerService.activeCompany = company;
+            });
+        }
     };
     TimeTrackerComponent = __decorate([
         core_1.Component({

@@ -13,12 +13,15 @@ export class NewCompanyDialogComponent implements OnInit {
 
   ngOnInit() {
   }
-  close(): void {
+  closeDialog(): void {
     if (this.company.name !== null) {
       this._dialogRef.close(this.company);
     } else {
       this._dialogRef.close(null);
     }
+  }
+  cancel(): void {
+    this._dialogRef.close(null);
   }
 
 }

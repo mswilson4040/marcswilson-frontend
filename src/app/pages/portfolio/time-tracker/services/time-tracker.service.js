@@ -81,7 +81,7 @@ var TimeTrackerService = (function () {
                     var projects = parsed.map(function (p) {
                         return new company_1.Project(p);
                     });
-                    _this.activeCompany.projects = projects;
+                    // this.activeCompany.projects = projects;
                     resolve(projects);
                 }
             });

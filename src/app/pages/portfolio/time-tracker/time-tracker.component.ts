@@ -37,13 +37,15 @@ export class TimeTrackerComponent implements OnInit, AfterViewInit {
   addCompany(): void {
     const dialogRef = this._dialog.open(NewCompanyDialogComponent);
     dialogRef.afterClosed().subscribe( company => {
-      this._timeTrackerService.addCompany(company).then( result => {
-        if (!result) {
-          alert('cant add company');
-        }
-      }, error => {
-        alert(error.message);
-      });
+      if (company) {
+        this._timeTrackerService.addCompany(company).then(result => {
+          if (!result) {
+            alert('cant add company');
+          }
+        }, error => {
+          alert(error.message);
+        });
+      }
     });
   }
   addProject(company: Company): void {
@@ -61,10 +63,14 @@ export class TimeTrackerComponent implements OnInit, AfterViewInit {
     this.selectedTab = index;
   }
   expandProjects(company: Company) {
-    this._timeTrackerService.getProjectsByCompany(company).then( projects => {
-      company.projects = projects;
-      this._timeTrackerService.activeCompany = company;
-    });
+    if (this.activeCompany && company._id === this.activeCompany._id) {
+      this.activeCompany = new Company();
+    } else {
+      this._timeTrackerService.getProjectsByCompany(company).then(projects => {
+        company.projects = projects;
+        this._timeTrackerService.activeCompany = company;
+      });
+    }
   }
 
 }

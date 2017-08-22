@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Company, Entry, Project} from '../classes/company';
+import { Company, Entry, Project } from '../classes/company';
 import { Http } from '@angular/http';
-import {environment} from '../../../../../environments/environment';
-import {BehaviorSubject} from 'rxjs/BehaviorSubject';
+import { environment } from '../../../../../environments/environment';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class TimeTrackerService {
@@ -59,7 +59,7 @@ export class TimeTrackerService {
           const projects = parsed.map( p => {
             return new Project(p);
           });
-          this.activeCompany.projects = projects;
+          // this.activeCompany.projects = projects;
           resolve(projects);
         }
       });

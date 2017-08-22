@@ -9,17 +9,19 @@
         <ul>
           <li *ngFor="let project of company.projects">{{project.name}}</li>
           <li>
-            <button md-raised-button (click)="addProject(company)">
+            <div (click)="addProject(company)">
               <i class="fa fa-plus" aria-hidden="true"></i>
               New Project
-            </button>
+            </div>
           </li>
         </ul>
       </div>
     </div>
     <div class="new-company-button">
-      <button md-button md-raised-button (click)="addCompany()">New Company</button>
-      <button md-button md-raised-button (click)="addProject()">New Project</button>
+      <div (click)="addCompany()">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+        New Company
+      </div>
     </div>
   </md-sidenav>
   <div id="pageContent">

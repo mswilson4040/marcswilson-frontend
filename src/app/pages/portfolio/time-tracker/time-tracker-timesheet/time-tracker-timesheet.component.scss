@@ -1,5 +1,10 @@
 #timesheetContainer {
   #timesheet {
+    table {
+      th, td {
+        text-align: center;
+      }
+    }
     tfoot tr td {
       button {
         float: right;

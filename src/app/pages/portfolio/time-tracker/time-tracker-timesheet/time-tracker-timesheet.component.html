@@ -1,5 +1,5 @@
 <div id="timesheetContainer" class="container">
-  <md-tab-group [selectedIndex]="selectedIndex" (selectChange)="onTabChange($event)">
+  <md-tab-group [selectedIndex]="selectedIndex" (selectedIndexChange)="onTabChange($event)">
     <md-tab *ngFor="let company of companies" label="{{company.name}}"></md-tab>
   </md-tab-group>
   <div id="timesheet">
@@ -14,7 +14,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let entry of activeCompany.entries">
-          <td>{{entry.date}}</td>
+          <td>{{entry.date | date}}</td>
           <td>{{entry.projectId}}</td>
           <td>{{entry.description}}</td>
           <td>{{entry.timeSpent}}</td>

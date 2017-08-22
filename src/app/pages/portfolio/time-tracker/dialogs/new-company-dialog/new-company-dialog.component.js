@@ -19,13 +19,16 @@ var NewCompanyDialogComponent = (function () {
     }
     NewCompanyDialogComponent.prototype.ngOnInit = function () {
     };
-    NewCompanyDialogComponent.prototype.close = function () {
+    NewCompanyDialogComponent.prototype.closeDialog = function () {
         if (this.company.name !== null) {
             this._dialogRef.close(this.company);
         }
         else {
             this._dialogRef.close(null);
         }
+    };
+    NewCompanyDialogComponent.prototype.cancel = function () {
+        this._dialogRef.close(null);
     };
     NewCompanyDialogComponent = __decorate([
         core_1.Component({
