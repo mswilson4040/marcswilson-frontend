@@ -10,35 +10,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
-var company_1 = require("../../classes/company");
 var material_1 = require("@angular/material");
-var NewCompanyDialogComponent = (function () {
-    function NewCompanyDialogComponent(_dialogRef) {
+var CompanyDialogComponent = (function () {
+    function CompanyDialogComponent(_dialogRef) {
         this._dialogRef = _dialogRef;
-        this.company = new company_1.Company();
     }
-    NewCompanyDialogComponent.prototype.ngOnInit = function () {
+    CompanyDialogComponent.prototype.ngOnInit = function () {
     };
-    NewCompanyDialogComponent.prototype.closeDialog = function () {
-        if (this.company.name !== null) {
-            this._dialogRef.close(this.company);
-        }
-        else {
-            this._dialogRef.close(null);
-        }
+    CompanyDialogComponent.prototype.closeDialog = function () {
+        this._dialogRef.close();
     };
-    NewCompanyDialogComponent.prototype.cancel = function () {
-        this._dialogRef.close(null);
-    };
-    NewCompanyDialogComponent = __decorate([
+    CompanyDialogComponent = __decorate([
         core_1.Component({
-            selector: 'app-new-company-dialog',
-            templateUrl: './new-company-dialog.component.html',
-            styleUrls: ['./new-company-dialog.component.scss']
+            selector: 'app-company-dialog',
+            templateUrl: './company-dialog.component.html',
+            styleUrls: ['./company-dialog.component.scss']
         }),
         __metadata("design:paramtypes", [material_1.MdDialogRef])
-    ], NewCompanyDialogComponent);
-    return NewCompanyDialogComponent;
+    ], CompanyDialogComponent);
+    return CompanyDialogComponent;
 }());
-exports.NewCompanyDialogComponent = NewCompanyDialogComponent;
-//# sourceMappingURL=new-company-dialog.component.js.map
+exports.CompanyDialogComponent = CompanyDialogComponent;
+//# sourceMappingURL=company-dialog.component.js.map

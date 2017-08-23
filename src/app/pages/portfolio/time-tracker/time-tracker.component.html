@@ -1,27 +1,29 @@
 <md-sidenav-container class="side-nav-container">
   <md-sidenav #sidenav class="side-nav">
-    <div class="company-item-container" *ngFor="let company of companies">
-      <div class="company-item" (click)="expandProjects(company)">
-        <div>{{company.name}}</div>
-        <div><i class="fa fa-angle-double-right" aria-hidden="true" [class.rotated]="activeCompany && activeCompany.name === company.name"></i></div>
+    <div class="company-item-container">
+      <div class="company-item">
+        <div class="side-nav-text">Company Name</div>
+        <div><i class="fa fa-angle-double-right" aria-hidden="true" [class.rotated]="false"></i></div>
       </div>
-      <div class="company-project-container" [class.expanded]="activeCompany && activeCompany.name === company.name">
+      <div class="company-project-container" [class.expanded]="false">
         <ul>
-          <li *ngFor="let project of company.projects">{{project.name}}</li>
           <li>
-            <div (click)="addProject(company)">
+            <div class="side-nav-text">
+              Project Name
+            </div>
+          </li>
+          <li>
+            <div>
               <i class="fa fa-plus" aria-hidden="true"></i>
-              New Project
+              <div class="side-nav-text">New Project</div>
             </div>
           </li>
         </ul>
       </div>
     </div>
-    <div class="new-company-button">
-      <div (click)="addCompany()">
-        <i class="fa fa-plus" aria-hidden="true"></i>
-        New Company
-      </div>
+    <div class="new-company-button" (click)="addCompany()">
+      <i class="fa fa-plus" aria-hidden="true"></i>
+      <div class="side-nav-text">New Company</div>
     </div>
   </md-sidenav>
   <div id="pageContent">
@@ -56,7 +58,7 @@
         </md-tab>
         <md-tab label="Calendar">Calendar</md-tab>
         <md-tab label="Timesheet">
-          <app-time-tracker-timesheet></app-time-tracker-timesheet>
+
         </md-tab>
         <md-tab label="Invoices">Invoices</md-tab>
         <md-tab label="Breakdown">Breakdown</md-tab>

@@ -6,14 +6,17 @@
     padding-top: 55px;
     width: 10%;
     background-color: #1E2933;
+    .side-nav-text {
+      font-size: 14px;
+      color: #ccc;
+    }
     .company-item-container {
       width: 100%;
       height: auto;
       color: white;
       border-bottom: 1px solid #393939;
-      color: #ccc;
       cursor: pointer;
-      font-size: 80%;
+      padding-right: 10px;
       .company-item {
         width: 100%;
         height: 100%;
@@ -44,8 +47,14 @@
       }
     }
     .new-company-button {
-      div {
-        color: white;
+      color: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      height: 50px;
+      padding-left: 10px;
+      .fa {
+        margin: 3px;
       }
     }
   }
