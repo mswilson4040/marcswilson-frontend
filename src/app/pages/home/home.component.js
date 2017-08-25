@@ -10,8 +10,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var http_1 = require("@angular/http");
 var HomeComponent = (function () {
-    function HomeComponent() {
+    function HomeComponent(_http) {
+        this._http = _http;
     }
     HomeComponent.prototype.ngOnInit = function () {
         $('#firstName').addClass('first-name-width', 500);
@@ -27,7 +29,7 @@ var HomeComponent = (function () {
             templateUrl: './home.component.html',
             styleUrls: ['./home.component.scss']
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [http_1.Http])
     ], HomeComponent);
     return HomeComponent;
 }());
