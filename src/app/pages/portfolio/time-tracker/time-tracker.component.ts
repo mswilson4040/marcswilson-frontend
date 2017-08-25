@@ -24,6 +24,15 @@ export class TimeTrackerComponent implements OnInit, AfterViewInit {
     this.selectedTab = index;
   }
   addCompany(): void {
-    this._dialog.open(CompanyDialogComponent);
+    const dialogRef = this._dialog.open(CompanyDialogComponent);
+    dialogRef.afterClosed().subscribe( company => {
+      if (company) {
+        this._timeTrackerService.addCompany(company).then( companies => {
+          this.companies = companies;
+        }, error => {
+          alert(error.message);
+        });
+      }
+    });
   }
 }

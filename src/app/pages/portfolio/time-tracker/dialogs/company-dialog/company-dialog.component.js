@@ -11,14 +11,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var material_1 = require("@angular/material");
+var company_1 = require("../../classes/company");
 var CompanyDialogComponent = (function () {
     function CompanyDialogComponent(_dialogRef) {
         this._dialogRef = _dialogRef;
+        this.company = new company_1.Company();
     }
     CompanyDialogComponent.prototype.ngOnInit = function () {
     };
-    CompanyDialogComponent.prototype.closeDialog = function () {
-        this._dialogRef.close();
+    CompanyDialogComponent.prototype.closeDialog = function (company) {
+        this._dialogRef.close(company);
+    };
+    CompanyDialogComponent.prototype.addCompany = function () {
+        this.closeDialog(this.company);
+    };
+    CompanyDialogComponent.prototype.cancel = function () {
+        this.closeDialog(null);
     };
     CompanyDialogComponent = __decorate([
         core_1.Component({

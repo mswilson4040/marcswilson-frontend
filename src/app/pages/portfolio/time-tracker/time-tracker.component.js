@@ -28,7 +28,17 @@ var TimeTrackerComponent = (function () {
         this.selectedTab = index;
     };
     TimeTrackerComponent.prototype.addCompany = function () {
-        this._dialog.open(company_dialog_component_1.CompanyDialogComponent);
+        var _this = this;
+        var dialogRef = this._dialog.open(company_dialog_component_1.CompanyDialogComponent);
+        dialogRef.afterClosed().subscribe(function (company) {
+            if (company) {
+                _this._timeTrackerService.addCompany(company).then(function (companies) {
+                    _this.companies = companies;
+                }, function (error) {
+                    alert(error.message);
+                });
+            }
+        });
     };
     TimeTrackerComponent = __decorate([
         core_1.Component({

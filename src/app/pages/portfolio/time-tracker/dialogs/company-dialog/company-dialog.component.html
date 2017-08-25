@@ -1,5 +1,14 @@
-<div>
-  <md-input-container>
-    <input mdInput placeholder="Company Name" />
-  </md-input-container>
+<div class="g-dialog-container">
+  <div>
+    <h5 class="g-dialog-title">Add New Company</h5>
+  </div>
+  <div>
+    <md-input-container>
+      <input mdInput placeholder="Company Name" [(ngModel)]="company.name" />
+    </md-input-container>
+  </div>
+  <div>
+    <button md-raised-button (click)="addCompany()">Add</button>
+    <button md-raised-button (click)="cancel()">Cancel</button>
+  </div>
 </div>

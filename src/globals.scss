@@ -3,10 +3,10 @@
   width: 100%;
 }
 
-//Override bootstrap modal content jump
-.modal-open {
-  padding-right: 0px !important;
-  overflow: inherit !important;
+.g-dialog-container {
+  .g-dialog-title {
+    font-weight: 100;
+  }
 }
 
 button {

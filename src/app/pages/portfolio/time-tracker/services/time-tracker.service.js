@@ -12,11 +12,26 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var environment_1 = require("../../../../../environments/environment");
+var company_1 = require("../classes/company");
 var TimeTrackerService = (function () {
     function TimeTrackerService(_http) {
         this._http = _http;
         this.API_PATH = environment_1.environment.API_PATH + "/timetracker";
     }
+    TimeTrackerService.prototype.addCompany = function (company) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this._http.post(_this.API_PATH + "/addcompany", { company: company }).subscribe(function (_companies) {
+                try {
+                    var companies = JSON.parse(_companies['_body']).map(function (c) { return new company_1.Company(c); });
+                    resolve(companies);
+                }
+                catch (err) {
+                    reject(err.message);
+                }
+            });
+        });
+    };
     TimeTrackerService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.Http])
