@@ -23,6 +23,12 @@ var TimeTrackerComponent = (function () {
     TimeTrackerComponent.prototype.ngOnInit = function () {
     };
     TimeTrackerComponent.prototype.ngAfterViewInit = function () {
+        var _this = this;
+        this._timeTrackerService.getCompanies().then(function (companies) {
+            _this.companies = companies;
+        }, function (error) {
+            alert(error.message);
+        });
     };
     TimeTrackerComponent.prototype.changeTab = function (index) {
         this.selectedTab = index;

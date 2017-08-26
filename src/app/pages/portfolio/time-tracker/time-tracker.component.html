@@ -1,8 +1,8 @@
 <md-sidenav-container class="side-nav-container">
   <md-sidenav #sidenav class="side-nav">
     <div class="company-item-container">
-      <div class="company-item">
-        <div class="side-nav-text">Company Name</div>
+      <div class="company-item" *ngFor="let company of companies">
+        <div class="side-nav-text">{{company.name}}</div>
         <div><i class="fa fa-angle-double-right" aria-hidden="true" [class.rotated]="false"></i></div>
       </div>
       <div class="company-project-container" [class.expanded]="false">
@@ -58,7 +58,7 @@
         </md-tab>
         <md-tab label="Calendar">Calendar</md-tab>
         <md-tab label="Timesheet">
-
+          <app-time-tracker-timesheet></app-time-tracker-timesheet>
         </md-tab>
         <md-tab label="Invoices">Invoices</md-tab>
         <md-tab label="Breakdown">Breakdown</md-tab>

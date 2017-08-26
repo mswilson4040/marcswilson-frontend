@@ -29,6 +29,7 @@ var animations_1 = require("@angular/platform-browser/animations");
 var time_tracker_component_1 = require("./pages/portfolio/time-tracker/time-tracker.component");
 var contact_form_dialog_component_1 = require("./shared-components/contact-form-dialog/contact-form-dialog.component");
 var company_dialog_component_1 = require("./pages/portfolio/time-tracker/dialogs/company-dialog/company-dialog.component");
+var time_tracker_timesheet_component_1 = require("./pages/portfolio/time-tracker/time-tracker-timesheet/time-tracker-timesheet.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -50,7 +51,8 @@ var AppModule = (function () {
                 overlay_component_1.OverlayComponent,
                 time_tracker_component_1.TimeTrackerComponent,
                 contact_form_dialog_component_1.ContactFormDialogComponent,
-                company_dialog_component_1.CompanyDialogComponent
+                company_dialog_component_1.CompanyDialogComponent,
+                time_tracker_timesheet_component_1.TimeTrackerTimesheetComponent
             ],
             entryComponents: [
                 mlbballparks_component_1.MLBBallparksComponent,

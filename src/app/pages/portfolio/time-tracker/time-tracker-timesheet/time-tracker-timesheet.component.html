@@ -1,0 +1,28 @@
+<section class="container" id="timesheetContainer">
+  <section id="timesheetRibbon">
+    <h3>{{currentDate | date: 'fullDate'}}</h3>
+    <md-select placeholder="Company">
+      <md-option *ngFor="let company of companies">{{company.name}}</md-option>
+    </md-select>
+  </section>
+  <section>
+    <nav>
+      <md-tab-group>
+        <md-tab label="SUN"></md-tab>
+        <md-tab label="MON"></md-tab>
+        <md-tab label="TUE"></md-tab>
+        <md-tab label="WED"></md-tab>
+        <md-tab label="THU"></md-tab>
+        <md-tab label="FRI"></md-tab>
+        <md-tab label="SAT"></md-tab>
+      </md-tab-group>
+    </nav>
+    <section id="timecardBody">
+      <section>
+        <p>Project Name</p>
+        <hr />
+        <p>this would be the description and stuff</p>
+      </section>
+    </section>
+  </section>
+</section>

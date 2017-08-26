@@ -1,0 +1,16 @@
+#timesheetContainer {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  #timesheetRibbon {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    md-select { width: 400px; }
+
+  }
+  #timecardBody {
+    padding: 10px;
+  }
+}

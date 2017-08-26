@@ -19,6 +19,11 @@ export class TimeTrackerComponent implements OnInit, AfterViewInit {
 
   }
   ngAfterViewInit(): void {
+    this._timeTrackerService.getCompanies().then( companies => {
+      this.companies = companies;
+    }, error => {
+      alert(error.message);
+    });
   }
   changeTab(index: number): void {
     this.selectedTab = index;
