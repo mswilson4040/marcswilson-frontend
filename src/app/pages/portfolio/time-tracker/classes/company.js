@@ -17,9 +17,13 @@ var Company = (function () {
 }());
 exports.Company = Company;
 var Project = (function () {
-    function Project() {
+    function Project(data) {
         this.name = null;
         this._id = null;
+        if (data) {
+            this.name = data.name;
+            this._id = data._id;
+        }
     }
     return Project;
 }());

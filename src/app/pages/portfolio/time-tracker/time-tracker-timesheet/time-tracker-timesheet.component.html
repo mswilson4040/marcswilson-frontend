@@ -7,7 +7,7 @@
   </section>
   <section>
     <nav>
-      <md-tab-group>
+      <md-tab-group [selectedIndex]="selectedIndex">
         <md-tab label="SUN"></md-tab>
         <md-tab label="MON"></md-tab>
         <md-tab label="TUE"></md-tab>
@@ -21,7 +21,16 @@
       <section>
         <p>Project Name</p>
         <hr />
-        <p>this would be the description and stuff</p>
+        <section class="entry-info">
+          <p class="entry-description">this would be the description and stuff</p>
+          <h5 class="entry-time">1.50</h5>
+        </section>
+      </section>
+      <section class="timecard-actions">
+        <button md-raised-button (click)="addNewEntry()">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+          Add Entry
+        </button>
       </section>
     </section>
   </section>

@@ -10,15 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var company_1 = require("./classes/company");
 var time_tracker_service_1 = require("./services/time-tracker.service");
 var material_1 = require("@angular/material");
 var company_dialog_component_1 = require("./dialogs/company-dialog/company-dialog.component");
+var project_dialog_component_1 = require("./dialogs/project-dialog/project-dialog.component");
+var error_dialog_component_1 = require("../../../shared-components/error-dialog/error-dialog.component");
 var TimeTrackerComponent = (function () {
     function TimeTrackerComponent(_timeTrackerService, _dialog) {
         this._timeTrackerService = _timeTrackerService;
         this._dialog = _dialog;
         this.companies = new Array();
         this.selectedTab = 0;
+        this.selectedCompany = new company_1.Company();
     }
     TimeTrackerComponent.prototype.ngOnInit = function () {
     };
@@ -27,7 +31,8 @@ var TimeTrackerComponent = (function () {
         this._timeTrackerService.getCompanies().then(function (companies) {
             _this.companies = companies;
         }, function (error) {
-            alert(error.message);
+            var edr = _this._dialog.open(error_dialog_component_1.ErrorDialogComponent);
+            edr.componentInstance.error = error;
         });
     };
     TimeTrackerComponent.prototype.changeTab = function (index) {
@@ -41,10 +46,34 @@ var TimeTrackerComponent = (function () {
                 _this._timeTrackerService.addCompany(company).then(function (companies) {
                     _this.companies = companies;
                 }, function (error) {
-                    alert(error.message);
+                    var edr = _this._dialog.open(error_dialog_component_1.ErrorDialogComponent);
+                    edr.componentInstance.error = error;
                 });
             }
         });
+    };
+    TimeTrackerComponent.prototype.addProject = function () {
+        var _this = this;
+        var dialogRef = this._dialog.open(project_dialog_component_1.ProjectDialogComponent);
+        dialogRef.afterClosed().subscribe(function (project) {
+            if (project) {
+                _this._timeTrackerService.addProject(_this.selectedCompany, project).then(function (projects) {
+                    var company = _this.companies.find(function (c) { return c._id === _this.selectedCompany._id; });
+                    company.projects = projects;
+                }, function (error) {
+                    var edr = _this._dialog.open(error_dialog_component_1.ErrorDialogComponent);
+                    edr.componentInstance.error = error;
+                });
+            }
+        });
+    };
+    TimeTrackerComponent.prototype.toggleCollapse = function (company) {
+        if (this.selectedCompany._id === company._id) {
+            this.selectedCompany = new company_1.Company();
+        }
+        else {
+            this.selectedCompany = company;
+        }
     };
     TimeTrackerComponent = __decorate([
         core_1.Component({

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { environment } from '../../../../../environments/environment';
-import { Company } from '../classes/company';
+import {Company, Project} from '../classes/company';
 
 @Injectable()
 export class TimeTrackerService {
@@ -20,6 +20,16 @@ export class TimeTrackerService {
         } catch (err) {
           reject(err.message);
         }
+      }, error => {
+        reject(error);
+      });
+    });
+  }
+  addProject(company: Company, project: Project): Promise<Array<Project>> {
+    return new Promise( (resolve, reject) => {
+      this._http.post(`${this.API_PATH}/addproject`, { company: company, project: project }).subscribe( _projects => {
+        const projects = JSON.parse(_projects['_body']).map( p => { return new Project(p); });
+        resolve(projects);
       }, error => {
         reject(error);
       });

@@ -40,6 +40,14 @@
         ul {
           list-style-type: none;
         }
+        .new-project-button {
+          display: flex;
+          align-items: center;
+          font-size: 14px;
+          .fa {
+            padding: 0 5px;
+          }
+        }
       }
       .company-project-container.expanded {
         height: auto;

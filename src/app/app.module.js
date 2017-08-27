@@ -30,6 +30,9 @@ var time_tracker_component_1 = require("./pages/portfolio/time-tracker/time-trac
 var contact_form_dialog_component_1 = require("./shared-components/contact-form-dialog/contact-form-dialog.component");
 var company_dialog_component_1 = require("./pages/portfolio/time-tracker/dialogs/company-dialog/company-dialog.component");
 var time_tracker_timesheet_component_1 = require("./pages/portfolio/time-tracker/time-tracker-timesheet/time-tracker-timesheet.component");
+var entry_dialog_component_1 = require("./pages/portfolio/time-tracker/dialogs/entry-dialog/entry-dialog.component");
+var project_dialog_component_1 = require("./pages/portfolio/time-tracker/dialogs/project-dialog/project-dialog.component");
+var error_dialog_component_1 = require("./shared-components/error-dialog/error-dialog.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -52,7 +55,10 @@ var AppModule = (function () {
                 time_tracker_component_1.TimeTrackerComponent,
                 contact_form_dialog_component_1.ContactFormDialogComponent,
                 company_dialog_component_1.CompanyDialogComponent,
-                time_tracker_timesheet_component_1.TimeTrackerTimesheetComponent
+                time_tracker_timesheet_component_1.TimeTrackerTimesheetComponent,
+                entry_dialog_component_1.EntryDialogComponent,
+                project_dialog_component_1.ProjectDialogComponent,
+                error_dialog_component_1.ErrorDialogComponent
             ],
             entryComponents: [
                 mlbballparks_component_1.MLBBallparksComponent,
@@ -60,7 +66,10 @@ var AppModule = (function () {
                 mlbteam_component_1.MLBTeamComponent,
                 mlbteams_component_1.MLBteamsComponent,
                 contact_form_dialog_component_1.ContactFormDialogComponent,
-                company_dialog_component_1.CompanyDialogComponent
+                company_dialog_component_1.CompanyDialogComponent,
+                entry_dialog_component_1.EntryDialogComponent,
+                project_dialog_component_1.ProjectDialogComponent,
+                error_dialog_component_1.ErrorDialogComponent
             ],
             imports: [
                 animations_1.BrowserAnimationsModule,

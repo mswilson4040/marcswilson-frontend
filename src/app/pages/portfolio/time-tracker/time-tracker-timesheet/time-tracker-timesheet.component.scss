@@ -12,5 +12,21 @@
   }
   #timecardBody {
     padding: 10px;
+    .entry-info {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .entry-description {
+        font-size: 16px;
+        font-weight: 200;
+        color: gray;
+      }
+      .entry-time {
+        font-weight: 600;
+      }
+    }
+    .timecard-actions {
+      text-align: right;
+    }
   }
 }

@@ -27,6 +27,9 @@ import { TimeTrackerComponent } from './pages/portfolio/time-tracker/time-tracke
 import { ContactFormDialogComponent } from './shared-components/contact-form-dialog/contact-form-dialog.component';
 import { CompanyDialogComponent } from './pages/portfolio/time-tracker/dialogs/company-dialog/company-dialog.component';
 import { TimeTrackerTimesheetComponent } from './pages/portfolio/time-tracker/time-tracker-timesheet/time-tracker-timesheet.component';
+import { EntryDialogComponent } from './pages/portfolio/time-tracker/dialogs/entry-dialog/entry-dialog.component';
+import { ProjectDialogComponent } from './pages/portfolio/time-tracker/dialogs/project-dialog/project-dialog.component';
+import { ErrorDialogComponent } from './shared-components/error-dialog/error-dialog.component';
 
 
 @NgModule({
@@ -47,7 +50,10 @@ import { TimeTrackerTimesheetComponent } from './pages/portfolio/time-tracker/ti
     TimeTrackerComponent,
     ContactFormDialogComponent,
     CompanyDialogComponent,
-    TimeTrackerTimesheetComponent
+    TimeTrackerTimesheetComponent,
+    EntryDialogComponent,
+    ProjectDialogComponent,
+    ErrorDialogComponent
   ],
   entryComponents: [
     MLBBallparksComponent,
@@ -55,7 +61,10 @@ import { TimeTrackerTimesheetComponent } from './pages/portfolio/time-tracker/ti
     MLBTeamComponent,
     MLBteamsComponent,
     ContactFormDialogComponent,
-    CompanyDialogComponent
+    CompanyDialogComponent,
+    EntryDialogComponent,
+    ProjectDialogComponent,
+    ErrorDialogComponent
   ],
   imports: [
     BrowserAnimationsModule,

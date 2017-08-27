@@ -16,6 +16,12 @@ export class Company {
 export class Project {
   public name: string = null;
   public _id: string = null;
+  constructor(data?) {
+    if (data) {
+      this.name = data.name;
+      this._id = data._id;
+    }
+  }
 }
 
 export class Entry {
