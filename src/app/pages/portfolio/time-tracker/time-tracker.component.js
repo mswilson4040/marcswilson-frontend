@@ -68,11 +68,18 @@ var TimeTrackerComponent = (function () {
         });
     };
     TimeTrackerComponent.prototype.toggleCollapse = function (company) {
+        var _this = this;
         if (this.selectedCompany._id === company._id) {
             this.selectedCompany = new company_1.Company();
         }
         else {
-            this.selectedCompany = company;
+            this._timeTrackerService.getProjectsByCompany(company).then(function (projects) {
+                company.projects = projects;
+                _this.selectedCompany = company;
+            }, function (error) {
+                var edr = _this._dialog.open(error_dialog_component_1.ErrorDialogComponent);
+                edr.componentInstance.error = error;
+            });
         }
     };
     TimeTrackerComponent = __decorate([

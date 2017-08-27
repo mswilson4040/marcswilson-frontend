@@ -61,6 +61,17 @@ var TimeTrackerService = (function () {
             });
         });
     };
+    TimeTrackerService.prototype.getProjectsByCompany = function (company) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this._http.get(_this.API_PATH + "/projects/" + company._id).subscribe(function (response) {
+                var projects = JSON.parse(response['_body']).map(function (p) { return new company_1.Project(p); });
+                resolve(projects);
+            }, function (error) {
+                reject(error);
+            });
+        });
+    };
     TimeTrackerService = __decorate([
         core_1.Injectable(),
         __metadata("design:paramtypes", [http_1.Http])

@@ -49,4 +49,14 @@ export class TimeTrackerService {
       });
     });
   }
+  getProjectsByCompany(company: Company): Promise<Array<Project>> {
+    return new Promise( (resolve, reject) => {
+      this._http.get(`${this.API_PATH}/projects/${company._id}`).subscribe( response => {
+        const projects = JSON.parse(response['_body']).map( p => { return new Project(p); });
+        resolve(projects);
+      }, error => {
+        reject(error);
+      });
+    });
+  }
 }

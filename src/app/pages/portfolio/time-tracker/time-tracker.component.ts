@@ -62,7 +62,13 @@ export class TimeTrackerComponent implements OnInit, AfterViewInit {
     if (this.selectedCompany._id === company._id) {
       this.selectedCompany = new Company();
     } else {
-      this.selectedCompany = company;
+      this._timeTrackerService.getProjectsByCompany(company).then( projects => {
+        company.projects = projects;
+        this.selectedCompany = company;
+      }, error => {
+        const edr = this._dialog.open(ErrorDialogComponent);
+        edr.componentInstance.error = error;
+      });
     }
   }
 }
