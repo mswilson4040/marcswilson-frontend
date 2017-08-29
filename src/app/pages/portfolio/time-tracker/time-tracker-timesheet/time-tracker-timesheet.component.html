@@ -1,8 +1,8 @@
 <section class="container" id="timesheetContainer">
   <section id="timesheetRibbon">
     <h3>{{currentDate | date: 'fullDate'}}</h3>
-    <md-select placeholder="Company">
-      <md-option *ngFor="let company of companies">{{company.name}}</md-option>
+    <md-select placeholder="Company" [(ngModel)]="selectedCompany">
+      <md-option *ngFor="let company of companies" [value]="company">{{company.name}}</md-option>
     </md-select>
   </section>
   <section>

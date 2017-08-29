@@ -33,7 +33,7 @@ var Entry = (function () {
         this.date = null;
         this.project = new Project();
         this.description = null;
-        this.hours = null;
+        this.timeSpent = null;
     }
     return Entry;
 }());

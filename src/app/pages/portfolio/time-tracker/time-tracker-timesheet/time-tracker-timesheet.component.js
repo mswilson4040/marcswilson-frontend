@@ -20,6 +20,7 @@ var TimeTrackerTimesheetComponent = (function () {
         this.companies = new Array();
         this.currentDate = new Date();
         this.selectedIndex = 0;
+        this.selectedCompany = null;
     }
     TimeTrackerTimesheetComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -32,8 +33,17 @@ var TimeTrackerTimesheetComponent = (function () {
     TimeTrackerTimesheetComponent.prototype.ngAfterViewInit = function () {
     };
     TimeTrackerTimesheetComponent.prototype.addNewEntry = function () {
+        var _this = this;
         var dialogRef = this._dialog.open(entry_dialog_component_1.EntryDialogComponent);
-        dialogRef.afterClosed().subscribe(function (result) {
+        dialogRef.afterClosed().subscribe(function (entry) {
+            if (entry) {
+                _this._timeTrackerService.addEntry(_this.selectedCompany, entry).then(function (companies) {
+                    if (companies) {
+                    }
+                });
+            }
+            else {
+            }
         });
     };
     TimeTrackerTimesheetComponent = __decorate([

@@ -11,22 +11,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var material_1 = require("@angular/material");
+var company_1 = require("../../classes/company");
+var time_tracker_service_1 = require("../../services/time-tracker.service");
+var error_dialog_component_1 = require("../../../../../shared-components/error-dialog/error-dialog.component");
 var EntryDialogComponent = (function () {
-    function EntryDialogComponent(_dialogRef) {
+    function EntryDialogComponent(_dialogRef, _timeTrackerService, _dialog) {
+        var _this = this;
         this._dialogRef = _dialogRef;
+        this._timeTrackerService = _timeTrackerService;
+        this._dialog = _dialog;
+        this.companies = new Array();
+        this.entry = new company_1.Entry();
+        this._timeTrackerService.getCompanies().then(function (companies) {
+            _this.companies = companies;
+        }, function (error) {
+            var edr = _this._dialog.open(error_dialog_component_1.ErrorDialogComponent);
+            edr.componentInstance.error = error;
+        });
     }
     EntryDialogComponent.prototype.ngOnInit = function () {
+        this.entry.date = this.entry.date === null ? new Date() : this.entry.date;
     };
     EntryDialogComponent.prototype.closeDialog = function () {
-        this._dialogRef.close();
+        this._dialogRef.close(this.entry);
+    };
+    EntryDialogComponent.prototype.cancel = function () {
+        this._dialogRef.close(null);
     };
     EntryDialogComponent = __decorate([
         core_1.Component({
             selector: 'app-entry-dialog',
             templateUrl: './entry-dialog.component.html',
-            styleUrls: ['./entry-dialog.component.scss']
+            styleUrls: ['./entry-dialog.component.scss'],
+            providers: [time_tracker_service_1.TimeTrackerService]
         }),
-        __metadata("design:paramtypes", [material_1.MdDialogRef])
+        __metadata("design:paramtypes", [material_1.MdDialogRef, time_tracker_service_1.TimeTrackerService,
+            material_1.MdDialog])
     ], EntryDialogComponent);
     return EntryDialogComponent;
 }());

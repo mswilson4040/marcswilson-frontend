@@ -28,5 +28,5 @@ export class Entry {
   public date: Date = null;
   public project: Project = new Project();
   public description: string = null;
-  public hours: number = null;
+  public timeSpent: number = null;
 }

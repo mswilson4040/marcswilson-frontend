@@ -1,3 +1,31 @@
-<p>
-  entry-dialog works!
-</p>
+<section id="addEntryDialogContainer">
+  <div class="dialog-header">
+    <h4>New Entry</h4>
+  </div>
+  <div class="input-section">
+    <md-select placeholder="Company" [(ngModel)]="entry.company">
+      <md-option *ngFor="let company of companies" [value]="company">{{company.name}}</md-option>
+    </md-select>
+  </div>
+  <div class="input-section">
+    <md-input-container>
+      <input mdInput [mdDatepicker]="picker" placeholder="Date" [(ngModel)]="entry.date" />
+      <button mdSuffix [mdDatepickerToggle]="picker"></button>
+    </md-input-container>
+    <md-datepicker #picker></md-datepicker>
+  </div>
+  <div class="input-section">
+    <md-input-container>
+      <input type="number" mdInput placeholder="Time Spent" [(ngModel)]="entry.timeSpent" />
+    </md-input-container>
+  </div>
+  <div class="input-section">
+    <md-input-container>
+      <textarea mdInput placeholder="Description" rows="3" [(ngModel)]="entry.description"></textarea>
+    </md-input-container>
+  </div>
+  <div class="button-container">
+    <button md-raised-button (click)="closeDialog()">Add</button>
+    <button md-raised-button (click)="cancel()">Cancel</button>
+  </div>
+</section>

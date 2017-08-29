@@ -45,6 +45,17 @@ var TimeTrackerService = (function () {
             });
         });
     };
+    TimeTrackerService.prototype.addEntry = function (company, entry) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this._http.post(_this.API_PATH + "/company/addentry", { company: company, entry: entry }).subscribe(function (_companies) {
+                var companies = JSON.parse(_companies['_body']);
+                resolve(companies);
+            }, function (error) {
+                reject(error);
+            });
+        });
+    };
     TimeTrackerService.prototype.getCompanies = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
