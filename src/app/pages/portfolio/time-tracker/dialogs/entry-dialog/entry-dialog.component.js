@@ -21,6 +21,8 @@ var EntryDialogComponent = (function () {
         this._timeTrackerService = _timeTrackerService;
         this._dialog = _dialog;
         this.companies = new Array();
+        this.selectedCompany = new company_1.Company();
+        this.projects = new Array();
         this.entry = new company_1.Entry();
         this._timeTrackerService.getCompanies().then(function (companies) {
             _this.companies = companies;
@@ -32,8 +34,17 @@ var EntryDialogComponent = (function () {
     EntryDialogComponent.prototype.ngOnInit = function () {
         this.entry.date = this.entry.date === null ? new Date() : this.entry.date;
     };
+    EntryDialogComponent.prototype.onCompanyChange = function () {
+        var _this = this;
+        this._timeTrackerService.getProjectsByCompany(this.selectedCompany).then(function (projects) {
+            _this.projects = projects;
+        }, function (error) {
+            var edr = _this._dialog.open(error_dialog_component_1.ErrorDialogComponent);
+            edr.componentInstance.error = error;
+        });
+    };
     EntryDialogComponent.prototype.closeDialog = function () {
-        this._dialogRef.close(this.entry);
+        this._dialogRef.close({ entry: this.entry, company: this.selectedCompany });
     };
     EntryDialogComponent.prototype.cancel = function () {
         this._dialogRef.close(null);

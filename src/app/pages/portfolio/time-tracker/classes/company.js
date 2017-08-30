@@ -29,11 +29,17 @@ var Project = (function () {
 }());
 exports.Project = Project;
 var Entry = (function () {
-    function Entry() {
+    function Entry(data) {
         this.date = null;
         this.project = new Project();
         this.description = null;
         this.timeSpent = null;
+        if (data) {
+            this.date = data.date;
+            this.project = new Project(data.project);
+            this.description = data.description;
+            this.timeSpent = data.timeSpent;
+        }
     }
     return Entry;
 }());

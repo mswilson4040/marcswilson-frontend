@@ -1,8 +1,9 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { TimeTrackerService } from '../services/time-tracker.service';
-import { Company } from '../classes/company';
+import { Company, Entry } from '../classes/company';
 import { MdDialog} from '@angular/material';
 import { EntryDialogComponent } from '../dialogs/entry-dialog/entry-dialog.component';
+import { ErrorDialogComponent } from '../../../../shared-components/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-time-tracker-timesheet',
@@ -14,7 +15,7 @@ export class TimeTrackerTimesheetComponent implements OnInit, AfterViewInit {
   public companies: Array<Company> = new Array<Company>();
   public currentDate: Date = new Date();
   public selectedIndex = 0;
-  public selectedCompany: Company = null;
+  public selectedCompany: Company = new Company();
   constructor(private _timeTrackerService: TimeTrackerService, private _dialog: MdDialog) {
   }
 
@@ -28,12 +29,13 @@ export class TimeTrackerTimesheetComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
   }
   addNewEntry(): void {
-    const dialogRef = this._dialog.open(EntryDialogComponent);
-    dialogRef.afterClosed().subscribe( entry => {
-      if (entry) {
-        this._timeTrackerService.addEntry(this.selectedCompany, entry).then( companies => {
-          if (companies) {
-
+    const dialogRef = this._dialog.open(EntryDialogComponent, { height: '60%', width: '30%'});
+    dialogRef.componentInstance.selectedCompany = this.selectedCompany;
+    dialogRef.afterClosed().subscribe( resultObj => {
+      if (resultObj) {
+        this._timeTrackerService.addEntry(resultObj.company, resultObj.entry).then( entries => {
+          if (entries) {
+            this.selectedCompany.entries = entries;
           }
         });
       } else {
@@ -41,5 +43,17 @@ export class TimeTrackerTimesheetComponent implements OnInit, AfterViewInit {
       }
     });
   }
-
+  onCompanyChange(): void {
+    this._timeTrackerService.getEntriesByCompany(this.selectedCompany).then( entries => {
+      this.selectedCompany.entries = entries;
+    }, error => {
+      const edr = this._dialog.open(ErrorDialogComponent);
+      edr.componentInstance.error = error;
+    });
+  }
+  editEntry(entry: Entry): void {
+    const dialogRef = this._dialog.open(EntryDialogComponent, { height: '60%', width: '30%'});
+    dialogRef.componentInstance.entry = entry;
+    dialogRef.componentInstance.selectedCompany = this.selectedCompany;
+  }
 }

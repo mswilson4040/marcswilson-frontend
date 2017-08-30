@@ -48,9 +48,9 @@ var TimeTrackerService = (function () {
     TimeTrackerService.prototype.addEntry = function (company, entry) {
         var _this = this;
         return new Promise(function (resolve, reject) {
-            _this._http.post(_this.API_PATH + "/company/addentry", { company: company, entry: entry }).subscribe(function (_companies) {
-                var companies = JSON.parse(_companies['_body']);
-                resolve(companies);
+            _this._http.post(_this.API_PATH + "/company/addentry", { company: company, entry: entry }).subscribe(function (_entries) {
+                var entries = JSON.parse(_entries['_body']);
+                resolve(entries);
             }, function (error) {
                 reject(error);
             });
@@ -78,6 +78,22 @@ var TimeTrackerService = (function () {
             _this._http.get(_this.API_PATH + "/projects/" + company._id).subscribe(function (response) {
                 var projects = JSON.parse(response['_body']).map(function (p) { return new company_1.Project(p); });
                 resolve(projects);
+            }, function (error) {
+                reject(error);
+            });
+        });
+    };
+    TimeTrackerService.prototype.getEntriesByCompany = function (company) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _this._http.get(_this.API_PATH + "/company/entries/" + company._id).subscribe(function (_entries) {
+                try {
+                    var entries = JSON.parse(_entries['_body']).map(function (e) { return new company_1.Entry(e); });
+                    resolve(entries);
+                }
+                catch (ex) {
+                    reject(ex);
+                }
             }, function (error) {
                 reject(error);
             });

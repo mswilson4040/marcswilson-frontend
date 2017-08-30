@@ -1,7 +1,7 @@
 <section class="container" id="timesheetContainer">
   <section id="timesheetRibbon">
     <h3>{{currentDate | date: 'fullDate'}}</h3>
-    <md-select placeholder="Company" [(ngModel)]="selectedCompany">
+    <md-select placeholder="Company" [(ngModel)]="selectedCompany" (change)="onCompanyChange()">
       <md-option *ngFor="let company of companies" [value]="company">{{company.name}}</md-option>
     </md-select>
   </section>
@@ -18,13 +18,18 @@
       </md-tab-group>
     </nav>
     <section id="timecardBody">
-      <section>
-        <p>Project Name</p>
-        <hr />
+      <section *ngFor="let entry of selectedCompany.entries">
+        <div class="project-name">{{entry.date | date}} - {{entry.project.name}}</div>
         <section class="entry-info">
-          <p class="entry-description">this would be the description and stuff</p>
-          <h5 class="entry-time">1.50</h5>
+          <p class="entry-description">{{entry.description}}</p>
+          <div class="entry-info-right">
+            <div class="entry-time">{{entry.timeSpent | number: '1.2-2'}}</div>
+            <button md-raised-button (click)="editEntry(entry)">
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+          </div>
         </section>
+        <hr />
       </section>
       <section class="timecard-actions">
         <button md-raised-button (click)="addNewEntry()">
