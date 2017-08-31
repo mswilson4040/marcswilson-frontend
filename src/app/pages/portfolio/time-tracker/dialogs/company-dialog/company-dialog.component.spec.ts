@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CompanyDialogComponent } from './company-dialog.component';
+import {FormsModule} from '@angular/forms';
+import {MdDialogRef, MdInputModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+class MdDialogRefMock {}
 
 describe('CompanyDialogComponent', () => {
   let component: CompanyDialogComponent;
@@ -8,7 +13,15 @@ describe('CompanyDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CompanyDialogComponent ]
+      imports: [
+        FormsModule,
+        MdInputModule,
+        BrowserAnimationsModule
+      ],
+      declarations: [ CompanyDialogComponent ],
+      providers: [
+        {provide: MdDialogRef, useClass: MdDialogRefMock}
+      ]
     })
     .compileComponents();
   }));
