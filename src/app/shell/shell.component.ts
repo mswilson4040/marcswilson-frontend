@@ -3,7 +3,6 @@ import {UIService} from '../shared-services/ui.service';
 import {MlbStatsService} from '../pages/portfolio/mlb-stats/services/mlb-stats.service';
 import 'jquery';
 import 'jqueryui';
-import 'select2';
 import 'hammerjs';
 import {PowerballService} from '../pages/portfolio/powerball/services/powerball.service';
 import {AuthService} from '../shared-services/auth.service';

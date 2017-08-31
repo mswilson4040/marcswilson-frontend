@@ -34,9 +34,9 @@ testem.log
 /typings
 *.css
 *.css.map
-src/*.js
+*.js
+*.spec.js
 *.js.map
-createMongoIndexes.js
 
 
 # e2e

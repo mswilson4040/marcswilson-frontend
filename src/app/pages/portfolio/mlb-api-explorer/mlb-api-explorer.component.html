@@ -86,12 +86,12 @@
               <pre>/api/mlbstats/boxscores/<strong>2017</strong>/<strong>7</strong>/<strong>27</strong></pre>
               <pre>/api/mlbstats/boxscores/<strong>:year</strong>/<strong>:month</strong>/<strong>:day</strong></pre>
               <div class="section-inputs">
-                <md-input-container>
+                <md-form-field>
                   <input mdInput [mdDatepicker]="picker" placeholder="Choose a date" >
-                  <button mdSuffix [mdDatepickerToggle]="picker"></button>
-                </md-input-container>
+                  <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+                  <md-datepicker #picker (selectedChanged)="boxscoresDateChanged($event)"></md-datepicker>
+                </md-form-field>
               </div>
-              <md-datepicker #picker (selectedChanged)="boxscoresDateChanged($event)"></md-datepicker>
             </div>
           </md-tab>
         </md-tab-group>
