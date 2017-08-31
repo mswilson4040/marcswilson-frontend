@@ -1,11 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ShellComponent } from './shell.component';
-import {GlobalNavComponent} from '../shared-components/global-nav/global-nav.component';
-import {RouterTestingModule} from '@angular/router/testing';
-import {OverlayComponent} from '../shared-components/overlay/overlay.component';
-import {MdDialogModule} from '@angular/material';
-import {HttpModule} from '@angular/http';
+import { GlobalNavComponent } from '../shared-components/global-nav/global-nav.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { OverlayComponent } from '../shared-components/overlay/overlay.component';
+import { MdDialogModule } from '@angular/material';
+import { HttpModule } from '@angular/http';
 
 describe('ShellComponent', () => {
   let component: ShellComponent;
