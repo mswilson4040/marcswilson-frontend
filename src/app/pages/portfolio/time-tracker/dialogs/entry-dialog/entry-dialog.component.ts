@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, NgZone, OnInit} from '@angular/core';
 import { MdDialog, MdDialogRef } from '@angular/material';
 import {Company, Entry, Project} from '../../classes/company';
 import { TimeTrackerService } from '../../services/time-tracker.service';
@@ -10,10 +10,10 @@ import { ErrorDialogComponent } from '../../../../../shared-components/error-dia
   styleUrls: ['./entry-dialog.component.scss'],
   providers: [TimeTrackerService]
 })
-export class EntryDialogComponent implements OnInit {
+export class EntryDialogComponent implements OnInit, AfterViewInit {
 
   public companies: Array<Company> = new Array<Company>();
-  public selectedCompany: Company = new Company();
+  public selectedCompany: Company = null;
   public projects: Array<Project> = new Array<Project>();
   public entry: Entry = new Entry();
 
@@ -28,6 +28,8 @@ export class EntryDialogComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+  ngAfterViewInit(): void {
     this.entry.date = this.entry.date === null ? new Date() : this.entry.date;
   }
   onCompanyChange(): void {
@@ -44,5 +46,4 @@ export class EntryDialogComponent implements OnInit {
   cancel(): void {
     this._dialogRef.close(null);
   }
-
 }

@@ -29,12 +29,14 @@ export class Entry {
   public project: Project = new Project();
   public description: string = null;
   public timeSpent: number = null;
+  public _id: string = null;
   constructor(data?) {
     if (data) {
-      this.date = data.date;
+      this.date = new Date(data.date);
       this.project = new Project(data.project);
       this.description = data.description;
       this.timeSpent = data.timeSpent;
+      this._id = data._id;
     }
   }
 }

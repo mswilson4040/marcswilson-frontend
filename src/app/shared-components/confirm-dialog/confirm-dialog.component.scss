@@ -1,0 +1,17 @@
+@import '../../../globals';
+
+.dialog-container {
+  @extend .g-dialog-container;
+  .dialog-header {
+    @extend .g-dialog-header;
+    .dialog-title {
+      @extend .g-dialog-title;
+    }
+  }
+  .dialog-main {
+    @extend .g-dialog-main;
+  }
+  .dialog-footer {
+    @extend .g-dialog-footer;
+  }
+}

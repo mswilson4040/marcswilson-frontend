@@ -7,7 +7,7 @@
   </section>
   <section>
     <nav>
-      <md-tab-group [selectedIndex]="selectedIndex">
+      <md-tab-group [selectedIndex]="selectedTabIndex">
         <md-tab label="SUN"></md-tab>
         <md-tab label="MON"></md-tab>
         <md-tab label="TUE"></md-tab>
@@ -24,8 +24,11 @@
           <p class="entry-description">{{entry.description}}</p>
           <div class="entry-info-right">
             <div class="entry-time">{{entry.timeSpent | number: '1.2-2'}}</div>
-            <button md-raised-button (click)="editEntry(entry)">
+            <button md-raised-button (click)="editEntry(entry)" mdTooltip="Edit Entry">
               <i class="fa fa-pencil" aria-hidden="true"></i>
+            </button>
+            <button md-raised-button (click)="deleteEntry(entry)" mdTooltip="Delete Entry">
+              <i class="fa fa-trash" aria-hidden="true"></i>
             </button>
           </div>
         </section>

@@ -4,8 +4,20 @@
 }
 
 .g-dialog-container {
-  .g-dialog-title {
-    font-weight: 100;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  .g-dialog-header {
+    .g-dialog-title {
+      font-weight: 100;
+    }
+  }
+  .g-dialog-main {
+    flex-grow: 1;
+  }
+  .g-dialog-footer {
+    text-align: right;
   }
 }
 

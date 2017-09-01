@@ -1,0 +1,13 @@
+<section class="dialog-container">
+  <header class="dialog-header">
+    <h3 class="dialog-title">Are you sure?</h3>
+    <hr />
+  </header>
+  <main class="dialog-main">
+    <p>{{message}}</p>
+  </main>
+  <footer class="dialog-footer">
+    <button md-raised-button color="primary" (click)="closeDialog(true)">OK</button>
+    <button md-raised-button (click)="closeDialog(false)">Cancel</button>
+  </footer>
+</section>
