@@ -45,6 +45,16 @@ export class TimeTrackerService {
       });
     });
   }
+  updateEntry(company: Company, entry: Entry): Promise<Array<Entry>> {
+    return new Promise( (resolve, reject) => {
+      this._http.post(`${this.API_PATH}/company/updateentry`, {company: company, entry: entry}).subscribe( _entries => {
+        const entries = JSON.parse(_entries['_body']).map( e => { return new Entry(e); });
+        resolve(entries);
+      }, error => {
+        reject(error);
+      });
+    });
+  }
   deleteEntry(entry: Entry, company: Company): Promise<Array<Entry>> {
     return new Promise( (resolve, reject) => {
       this._http.get(`${this.API_PATH}/company/${company._id}/entries/${entry._id}/delete`).subscribe( _entries => {

@@ -1,4 +1,4 @@
-import {AfterViewInit, ChangeDetectorRef, Component, NgZone, OnInit} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { MdDialog, MdDialogRef } from '@angular/material';
 import {Company, Entry, Project} from '../../classes/company';
 import { TimeTrackerService } from '../../services/time-tracker.service';
@@ -16,11 +16,20 @@ export class EntryDialogComponent implements OnInit, AfterViewInit {
   public selectedCompany: Company = null;
   public projects: Array<Project> = new Array<Project>();
   public entry: Entry = new Entry();
+  public selectedProject: Project = null;
 
   constructor(private _dialogRef: MdDialogRef<EntryDialogComponent>, private _timeTrackerService: TimeTrackerService,
-              private _dialog: MdDialog) {
+              private _dialog: MdDialog, private _changeDetectorRef: ChangeDetectorRef) {
     this._timeTrackerService.getCompanies().then( companies => {
       this.companies = companies;
+      if (this.selectedCompany._id !== null) {
+        this._timeTrackerService.getProjectsByCompany(this.selectedCompany).then( projects => {
+          this.projects = projects;
+        }, error => {
+          const edr = this._dialog.open(ErrorDialogComponent);
+          edr.componentInstance.error = error;
+        });
+      }
     }, error => {
       const edr = this._dialog.open(ErrorDialogComponent);
       edr.componentInstance.error = error;
@@ -31,6 +40,9 @@ export class EntryDialogComponent implements OnInit, AfterViewInit {
   }
   ngAfterViewInit(): void {
     this.entry.date = this.entry.date === null ? new Date() : this.entry.date;
+    this.entry.project = this.selectedProject;
+    this._changeDetectorRef.detectChanges();
+
   }
   onCompanyChange(): void {
     this._timeTrackerService.getProjectsByCompany(this.selectedCompany).then( projects => {
@@ -41,6 +53,7 @@ export class EntryDialogComponent implements OnInit, AfterViewInit {
     });
   }
   closeDialog(): void {
+    this.entry.project = this.projects.find( p => { return p._id === this.selectedProject._id; });
     this._dialogRef.close({entry: this.entry, company: this.selectedCompany});
   }
   cancel(): void {

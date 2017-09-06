@@ -12,7 +12,7 @@ export class PortfolioComponent implements OnInit, AfterViewInit {
   constructor(private _authService: AuthService) {
     this.apps.push(new App('MLB Stats API', 'REST API for MLB Stats...', 'images/cruzswing.jpg', '/mlbstatsapi'));
     this.apps.push(new App('MLB Stats', 'In Progress...', 'images/handshakes.jpg', '/mlbstats'));
-    // this.apps.push(new App('Powerball', 'In Progress...', 'images/blue-angels.jpg', '/powerball'));
+    this.apps.push(new App('Powerball', 'In Progress...', 'images/blue-angels.jpg', '/powerball'));
     this.apps.push(new App('Time Tracker', 'In Progress...', 'images/blue-angels.jpg', '/timetracker'));
   }
 

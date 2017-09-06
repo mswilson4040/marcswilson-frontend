@@ -4,13 +4,13 @@
     <hr />
   </div>
   <div class="input-section">
-    <md-select placeholder="Company" [(ngModel)]="selectedCompany" (change)="onCompanyChange()">
-      <md-option *ngFor="let company of companies" [value]="company">{{company.name}}</md-option>
+    <md-select placeholder="Company" [(ngModel)]="selectedCompany._id" (change)="onCompanyChange()">
+      <md-option *ngFor="let company of companies" [value]="company._id">{{company.name}}</md-option>
     </md-select>
   </div>
   <div class="input-section">
-    <md-select placeholder="Project" [(ngModel)]="entry.project">
-      <md-option *ngFor="let project of projects" [value]="project">{{project.name}}</md-option>
+    <md-select placeholder="Project" [(ngModel)]="selectedProject._id">
+      <md-option *ngFor="let project of projects" [value]="project._id">{{project.name}}</md-option>
     </md-select>
   </div>
   <div class="input-section">

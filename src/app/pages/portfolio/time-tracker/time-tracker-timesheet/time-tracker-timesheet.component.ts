@@ -34,6 +34,7 @@ export class TimeTrackerTimesheetComponent implements OnInit, AfterViewInit, Aft
   addNewEntry(): void {
     const dialogRef = this._dialog.open(EntryDialogComponent, { height: '60%', width: '30%'});
     dialogRef.componentInstance.selectedCompany = this.selectedCompany;
+    dialogRef.componentInstance.selectedProject = new Project();
     dialogRef.afterClosed().subscribe( resultObj => {
       if (resultObj) {
         this._timeTrackerService.addEntry(resultObj.company, resultObj.entry).then( entries => {
@@ -58,6 +59,17 @@ export class TimeTrackerTimesheetComponent implements OnInit, AfterViewInit, Aft
     const dialogRef = this._dialog.open(EntryDialogComponent, { height: '60%', width: '30%'});
     dialogRef.componentInstance.entry = entry;
     dialogRef.componentInstance.selectedCompany = this.selectedCompany;
+    dialogRef.componentInstance.selectedProject = entry.project;
+    dialogRef.afterClosed().subscribe( resultObj => {
+      this._timeTrackerService.updateEntry(resultObj.company, resultObj.entry).then( entries => {
+        if (entries) {
+          this.selectedCompany.entries = entries;
+        }
+      }, error => {
+        const edr = this._dialog.open(ErrorDialogComponent);
+        edr.componentInstance.error = error;
+      });
+    });
   }
   deleteEntry(entry: Entry): void {
     const cdr = this._dialog.open(ConfirmDialogComponent, { height: '15%', width: '25%'});
