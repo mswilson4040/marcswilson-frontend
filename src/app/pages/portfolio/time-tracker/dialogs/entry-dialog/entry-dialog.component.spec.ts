@@ -5,6 +5,7 @@ import {FormsModule} from '@angular/forms';
 import {MdDatepickerModule, MdDialogRef, MdNativeDateModule, MdOptionModule, MdSelectModule} from '@angular/material';
 import {HttpModule} from '@angular/http';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {Company, Project} from '../../classes/company';
 
 class MdDialogRefMock {}
 
@@ -25,7 +26,7 @@ describe('EntryDialogComponent', () => {
       ],
       declarations: [ EntryDialogComponent ],
       providers: [
-        {provide: MdDialogRef, useClass: MdDialogRefMock}
+        { provide: MdDialogRef, useClass: MdDialogRefMock }
       ]
     })
     .compileComponents();
@@ -34,6 +35,8 @@ describe('EntryDialogComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(EntryDialogComponent);
     component = fixture.componentInstance;
+    component.selectedCompany = new Company();
+    component.selectedProject = new Project();
     fixture.detectChanges();
   });
 

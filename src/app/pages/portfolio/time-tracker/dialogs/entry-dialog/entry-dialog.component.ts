@@ -22,7 +22,7 @@ export class EntryDialogComponent implements OnInit, AfterViewInit {
               private _dialog: MdDialog, private _changeDetectorRef: ChangeDetectorRef) {
     this._timeTrackerService.getCompanies().then( companies => {
       this.companies = companies;
-      if (this.selectedCompany._id !== null) {
+      if (this.selectedCompany && this.selectedCompany._id !== null) {
         this._timeTrackerService.getProjectsByCompany(this.selectedCompany).then( projects => {
           this.projects = projects;
         }, error => {
