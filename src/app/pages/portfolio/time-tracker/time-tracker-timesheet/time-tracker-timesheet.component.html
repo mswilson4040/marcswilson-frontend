@@ -7,7 +7,7 @@
   </section>
   <section>
     <nav>
-      <md-tab-group [selectedIndex]="selectedTabIndex">
+      <md-tab-group [selectedIndex]="selectedTabIndex" (selectedIndexChange)="onTabChanged($event)">
         <md-tab label="SUN"></md-tab>
         <md-tab label="MON"></md-tab>
         <md-tab label="TUE"></md-tab>
@@ -18,7 +18,7 @@
       </md-tab-group>
     </nav>
     <section id="timecardBody">
-      <section *ngFor="let entry of selectedCompany.entries">
+      <section *ngFor="let entry of filteredEntries">
         <div class="project-name">{{entry.date | date}} - {{entry.project.name}}</div>
         <section class="entry-info">
           <p class="entry-description">{{entry.description}}</p>
