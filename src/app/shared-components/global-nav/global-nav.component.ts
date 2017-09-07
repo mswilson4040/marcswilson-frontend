@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Link} from '../../shared-classes/link';
-import {Router} from '@angular/router';
-import {ContactFormDialogComponent} from '../contact-form-dialog/contact-form-dialog.component';
-import {MdDialog} from '@angular/material';
-import {EmailService} from '../../shared-services/email.service';
+import { Link } from '../../shared-classes/link';
+import { Router } from '@angular/router';
+import { ContactFormDialogComponent } from '../contact-form-dialog/contact-form-dialog.component';
+import { MdDialog } from '@angular/material';
+import { EmailService } from '../../shared-services/email.service';
 
 @Component({
   selector: 'app-global-nav',
@@ -12,28 +12,29 @@ import {EmailService} from '../../shared-services/email.service';
 })
 export class GlobalNavComponent implements OnInit {
   public links: Array<Link> = new Array<Link>();
+  public path: string = null;
   constructor(private _router: Router, private _dialog: MdDialog, private _emailService: EmailService) {
     this.links.push(new Link('/home', 'Home', 'fa-home'));
     this.links.push(new Link('/about', 'About', 'fa-user'));
     this.links.push(new Link('/portfolio', 'Portfolio', 'fa-briefcase'));
 
     this._router.events.subscribe((data) => {
-      const path = data['url'];
-      if (path === '/' || path === '/home') {
+      this.path = data['url'];
+      if (this.path === '/' || this.path === '/home') {
         this.fadeNavColors('white', 'transparent');
-      } else if (path === '/about') {
+      } else if (this.path === '/about') {
         this.fadeNavColors('black', 'transparent');
-      } else if (path === '/portfolio') {
+      } else if (this.path === '/portfolio') {
         this.fadeNavColors('white', '#2F4050');
-      } else if (path === '/contact') {
+      } else if (this.path === '/contact') {
         this.fadeNavColors('white', '#2F4050');
-      } else if (path === '/mlbstats') {
+      } else if (this.path === '/mlbstats') {
         this.fadeNavColors('white', '#2F4050');
-      } else if (path === '/mlbstatsapi') {
+      } else if (this.path === '/mlbstatsapi') {
         this.fadeNavColors('white', 'transparent');
-      } else if (path === '/powerball') {
+      } else if (this.path === '/powerball') {
         this.fadeNavColors('white', '#2F4050');
-      } else if (path === '/timetracker') {
+      } else if (this.path === '/timetracker') {
         this.fadeNavColors('white', '#2F4050');
       }
       $('.nav-collapsable').hide('slide', {direction: 'up'}, 200);

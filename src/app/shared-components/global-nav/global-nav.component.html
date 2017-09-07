@@ -6,7 +6,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li *ngFor="let link of links" class="nav-item">
+      <li *ngFor="let link of links" class="nav-item" [class.active]="path === link.routerLink">
         <a class="nav-link" routerLink="{{link.routerLink}}">{{link.name}}</a>
       </li>
     </ul>
