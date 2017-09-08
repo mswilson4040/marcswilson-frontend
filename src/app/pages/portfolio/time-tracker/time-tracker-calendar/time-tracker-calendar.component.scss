@@ -1,0 +1,19 @@
+#calendarContainer {
+  .calendar-container {
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    .day-container {
+      height: 8rem;
+      width: 14.28%;
+      border: 1px solid lightgray;
+    }
+    .day-container:nth-child(n+8) {
+      border-top: none;
+    }
+    .day-container:nth-child(n) {
+      border-left: none;
+    }
+  }
+}
