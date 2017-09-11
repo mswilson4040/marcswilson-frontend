@@ -1,6 +1,16 @@
 #calendarContainer {
+  .button-container {
+    text-align: right;
+  }
+  .day-labels {
+    display: flex;
+    align-items: center;
+    .day-label {
+      width: 14.28%;
+      text-align: center;
+    }
+  }
   .calendar-container {
-    margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -9,11 +19,21 @@
       width: 14.28%;
       border: 1px solid lightgray;
     }
+    .day-container:nth-child(-n+7) {
+      border-left: none;
+    }
+    .day-container:first-child {
+      border-left: 1px solid lightgray;
+    }
     .day-container:nth-child(n+8) {
       border-top: none;
-    }
-    .day-container:nth-child(n) {
       border-left: none;
+    }
+    .day-container:nth-child(7n+8) {
+      border-left: 1px solid lightgray;
+    }
+    .day-container-fade {
+      opacity: 0.6;
     }
   }
 }
