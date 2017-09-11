@@ -1,6 +1,15 @@
 #calendarContainer {
-  .button-container {
-    text-align: right;
+  #calendarHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    .mat-display-1 {
+      margin-bottom: 0 !important; // TODO: Don't use !important
+    }
+    .button-container {
+      text-align: right;
+    }
   }
   .day-labels {
     display: flex;

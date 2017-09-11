@@ -1,17 +1,20 @@
 <section class="container" id="calendarContainer">
-  <section>
-    {{activeMonthName}} {{activeMonth.getUTCFullYear()}}
+  <section id="calendarHeader">
+    <div class="mat-display-1">
+      {{activeMonthName}} {{activeMonth.getUTCFullYear()}}
+    </div>
+    <div class="button-container">
+      <button md-raised-button (click)="previousMonth()">
+        <i class="fa fa-angle-double-left" aria-hidden="true"></i>
+        Previous
+      </button>
+      <button md-raised-button (click)="nextMonth()">
+        Next
+        <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+      </button>
+    </div>
   </section>
-  <section class="button-container">
-    <button md-raised-button (click)="previousMonth()">
-      <i class="fa fa-angle-double-left" aria-hidden="true"></i>
-      Previous
-    </button>
-    <button md-raised-button (click)="nextMonth()">
-      Next
-      <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-    </button>
-  </section>
+
   <section class="day-labels">
     <div class="day-label">Sunday</div>
     <div class="day-label">Monday</div>
