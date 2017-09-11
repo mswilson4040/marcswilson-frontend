@@ -27,7 +27,7 @@ export class TimeTrackerCalendarComponent implements OnInit {
     const lastDay = new Date(days[days.length]);
     if (firstDay.getDay() !== 0) {
       const prefixDays = new Array<Date>();
-      const lastMonthIndex = month === 0 ? 11 : month;
+      const lastMonthIndex = month === 0 ? 12 : month;
       const lastYearIndex = month === 0 ? year - 1 : year;
       const lastMonth = new Date(lastYearIndex, lastMonthIndex, 0);
       while (lastMonth.getDay() !== 6) {

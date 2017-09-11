@@ -23,8 +23,7 @@
   </section>
   <section class="calendar-container">
     <div *ngFor="let day of calendarDays" class="day-container" [class.day-container-fade]="activeMonth.getMonth() !== day.getMonth()">
-      {{day.getDate()}}
-      {{day | date}}
+      <div class="day-label">{{day.getDate()}}</div>
     </div>
   </section>
 </section>

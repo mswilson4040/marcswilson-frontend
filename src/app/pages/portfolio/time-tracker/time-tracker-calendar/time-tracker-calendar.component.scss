@@ -18,6 +18,10 @@
       height: 8rem;
       width: 14.28%;
       border: 1px solid lightgray;
+      .day-label {
+        text-align: right;
+        padding: 5px;
+      }
     }
     .day-container:nth-child(-n+7) {
       border-left: none;
