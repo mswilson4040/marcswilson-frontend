@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Calendar, CalendarDay } from '../classes/calendar';
+import { TimeTrackerService } from '../services/time-tracker.service';
+import { MdDialog } from '@angular/material';
+import { ErrorDialogComponent } from '../../../../shared-components/error-dialog/error-dialog.component';
+import { Entry } from '../classes/company';
 
 @Component({
   selector: 'app-time-tracker-calendar',
@@ -7,67 +12,56 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TimeTrackerCalendarComponent implements OnInit {
   public todaysDate: Date = new Date();
-  public calendarDays: Array<Date> = new Array<Date>();
+  public calendarDays: Array<CalendarDay> = new Array<CalendarDay>();
   public activeMonth: Date = new Date();
-  public activeMonthName: string = this.getMonthName(this.activeMonth.getMonth());
-  constructor() {
-    this.calendarDays = this.getCalendarDays(this.todaysDate.getMonth(), this.todaysDate.getFullYear());
+  public calendar: Calendar = new Calendar();
+  public activeMonthName: string = this.calendar.getMonthName(this.activeMonth.getMonth());
+
+  constructor(private _timetrackerService: TimeTrackerService, private _dialog: MdDialog) {
+    this.calendarDays = this.calendar.getCalendarDays(this.todaysDate.getMonth(), this.todaysDate.getFullYear(), new Array<Entry>());
+    const start = this.calendarDays[0].date;
+    const end = this.calendarDays[this.calendarDays.length - 1].date;
+    this._timetrackerService.getEntriesByDateRange(start, end).then( entries => {
+      if (entries) {
+        this.calendarDays = this.calendar.getCalendarDays(this.todaysDate.getMonth(), this.todaysDate.getFullYear(), entries);
+      }
+    }, error => {
+      const edr = this._dialog.open(ErrorDialogComponent);
+      edr.componentInstance.error = error;
+    });
+
   }
 
   ngOnInit() {
-  }
-  getCalendarDays(month: number, year: number): Array<Date> {
-    const date = new Date(year, month, 1);
-    let days = new Array<Date>();
-    while (date.getMonth() === month) {
-      days.push(new Date(date));
-      date.setDate(date.getDate() + 1);
-    }
-    const firstDay = new Date(days[0]);
-    const lastDay = new Date(days[days.length]);
-    if (firstDay.getDay() !== 0) {
-      const prefixDays = new Array<Date>();
-      const lastMonthIndex = month === 0 ? 12 : month;
-      const lastYearIndex = month === 0 ? year - 1 : year;
-      const lastMonth = new Date(lastYearIndex, lastMonthIndex, 0);
-      while (lastMonth.getDay() !== 6) {
-        prefixDays.push(new Date(lastMonth));
-        lastMonth.setDate(lastMonth.getDate() - 1);
-      }
-      days = prefixDays.reverse().concat(days);
-    }
-    if (lastDay.getDay() !== 6) {
-      const nextMonthIndex = month === 11 ? 0 : month + 1;
-      const nextYearIndex = month === 11 ? year + 1 : year;
-      const nextMonth = new Date(nextYearIndex, nextMonthIndex, 1);
-      while (nextMonth.getDay() !== 0) {
-        days.push(new Date(nextMonth));
-        nextMonth.setDate(nextMonth.getDate() + 1);
-      }
-    }
-    return days;
-  }
-  getMonthName(month: number): string {
-    const months = [
-      'January', 'February', 'March',
-      'April', 'May', 'June', 'July',
-      'August', 'September', 'October',
-      'November', 'December'
-    ];
-    return months[month];
   }
   nextMonth(): void {
     const nextMonth = this.activeMonth.getMonth() === 11 ? 0 : this.activeMonth.getMonth() + 1;
     const nextYear = this.activeMonth.getMonth() === 11 ? this.activeMonth.getFullYear() + 1 : this.activeMonth.getFullYear();
     this.activeMonth = new Date(nextYear, nextMonth, 1);
-    this.calendarDays = this.getCalendarDays(this.activeMonth.getMonth(), this.activeMonth.getFullYear());
-    this.activeMonthName = this.getMonthName(this.activeMonth.getMonth());
+    this.calendarDays = this.calendar.getCalendarDays(this.activeMonth.getMonth(), this.activeMonth.getFullYear(), new Array<Entry>());
+    this.activeMonthName = this.calendar.getMonthName(this.activeMonth.getMonth());
+    const start = this.calendarDays[0].date;
+    const end = this.calendarDays[this.calendarDays.length - 1].date;
+    this._timetrackerService.getEntriesByDateRange(start, end).then( entries => {
+      this.calendarDays = this.calendar.getCalendarDays(nextMonth, nextYear, entries);
+    }, error => {
+      const edr = this._dialog.open(ErrorDialogComponent);
+      edr.componentInstance.error = error;
+    });
   }
   previousMonth(): void {
     const previousMonth = this.activeMonth.getMonth() === 0 ? 11 : this.activeMonth.getMonth() - 1;
     const previousYear = this.activeMonth.getMonth() === 0 ? this.activeMonth.getFullYear() - 1 : this.activeMonth.getFullYear();
     this.activeMonth = new Date(previousYear, previousMonth, 1);
-    this.calendarDays = this.getCalendarDays(this.activeMonth.getMonth(), this.activeMonth.getFullYear());
-    this.activeMonthName = this.getMonthName(this.activeMonth.getMonth());
+    this.calendarDays = this.calendar.getCalendarDays(this.activeMonth.getMonth(), this.activeMonth.getFullYear(), new Array<Entry>());
+    this.activeMonthName = this.calendar.getMonthName(this.activeMonth.getMonth());
+    const start = this.calendarDays[0].date;
+    const end = this.calendarDays[this.calendarDays.length - 1].date;
+    this._timetrackerService.getEntriesByDateRange(start, end).then( entries => {
+      this.calendarDays = this.calendar.getCalendarDays(previousMonth, previousYear, entries);
+    }, error => {
+      const edr = this._dialog.open(ErrorDialogComponent);
+      edr.componentInstance.error = error;
+    });
   }
 }

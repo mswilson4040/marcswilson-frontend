@@ -1,4 +1,12 @@
 #calendarContainer {
+  .billable-hour {
+    background-color: #5484ed;
+    color: white;
+  }
+  .holiday {
+    background-color: #dbadff;
+    color: white;
+  }
   #calendarHeader {
     display: flex;
     justify-content: space-between;
@@ -30,6 +38,17 @@
       .day-label {
         text-align: right;
         padding: 5px;
+      }
+      .entries {
+        .entry {
+          margin: 2px;
+          padding: 2px 5px;
+          border-radius: 5px;
+          font-size: 70%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
       }
     }
     .day-container:nth-child(-n+7) {

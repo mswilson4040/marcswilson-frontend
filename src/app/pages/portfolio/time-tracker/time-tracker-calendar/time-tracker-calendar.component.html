@@ -25,8 +25,23 @@
     <div class="day-label">Saturday</div>
   </section>
   <section class="calendar-container">
-    <div *ngFor="let day of calendarDays" class="day-container" [class.day-container-fade]="activeMonth.getMonth() !== day.getMonth()">
-      <div class="day-label">{{day.getDate()}}</div>
+    <div *ngFor="let day of calendarDays" class="day-container" [class.day-container-fade]="activeMonth.getMonth() !== day.date.getMonth()">
+      <div class="day-label">{{day.date.getDate()}}</div>
+      <div class="entries">
+        <div class="entry holiday" *ngIf="day.holiday">
+          {{day.holiday.name}}
+        </div>
+        <div *ngFor="let entry of day.entries" class="entry billable-hour">
+          <div>{{entry.project.name}}</div>
+          <div>{{entry.timeSpent}}</div>
+        </div>
+      </div>
     </div>
+  </section>
+  <section class="legend">
+    <md-chip-list>
+      <md-chip class="billable-hour">Billable Hour</md-chip>
+      <md-chip class="holiday">Holiday</md-chip>
+    </md-chip-list>
   </section>
 </section>

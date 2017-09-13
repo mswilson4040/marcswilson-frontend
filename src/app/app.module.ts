@@ -17,7 +17,7 @@ import { MLBteamsComponent } from './pages/portfolio/mlb-stats/mlbteams/mlbteams
 import { PowerballComponent } from './pages/portfolio/powerball/powerball.component';
 import { OverlayComponent } from './shared-components/overlay/overlay.component';
 import {
-  MdAutocompleteModule, MdButtonModule, MdCardModule, MdDatepickerModule, MdDialogModule, MdInputModule,
+  MdAutocompleteModule, MdButtonModule, MdCardModule, MdChipsModule, MdDatepickerModule, MdDialogModule, MdInputModule,
   MdNativeDateModule, MdSelectModule, MdSidenavModule,
   MdSliderModule,
   MdTabsModule, MdTooltipModule
@@ -90,7 +90,8 @@ import { TimeTrackerCalendarComponent } from './pages/portfolio/time-tracker/tim
     MdButtonModule,
     MdTooltipModule,
     MdSidenavModule,
-    MdSelectModule
+    MdSelectModule,
+    MdChipsModule
   ],
   providers: [],
   bootstrap: [ShellComponent]
