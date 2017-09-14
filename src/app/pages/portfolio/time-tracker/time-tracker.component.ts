@@ -5,6 +5,7 @@ import { MdDialog } from '@angular/material';
 import {CompanyDialogComponent} from './dialogs/company-dialog/company-dialog.component';
 import {ProjectDialogComponent} from './dialogs/project-dialog/project-dialog.component';
 import {ErrorDialogComponent} from '../../../shared-components/error-dialog/error-dialog.component';
+import {AuthService} from '../../../shared-services/auth.service';
 
 @Component({
   selector: 'app-time-tracker',
@@ -15,10 +16,13 @@ export class TimeTrackerComponent implements OnInit, AfterViewInit {
   public companies: Array<Company> = new Array<Company>();
   public selectedTab = 0;
   public selectedCompany: Company = new Company();
-  constructor(private _timeTrackerService: TimeTrackerService, private _dialog: MdDialog) { }
+  constructor(private _timeTrackerService: TimeTrackerService, private _dialog: MdDialog,
+              private _authService: AuthService) {
+    this._authService.handleAuthentication();
+  }
 
   ngOnInit() {
-
+    this._authService.login('/timestracker');
   }
   ngAfterViewInit(): void {
     this._timeTrackerService.getCompanies().then( companies => {

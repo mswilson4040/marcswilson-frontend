@@ -19,11 +19,14 @@ import {TimeTrackerService} from '../pages/portfolio/time-tracker/services/time-
     PowerballService,
     AuthService,
     EmailService,
-    TimeTrackerService
+    TimeTrackerService,
+    AuthService
   ]
 })
 export class ShellComponent implements OnInit {
-  constructor() { }
+  constructor(private _authService: AuthService) {
+    this._authService.handleAuthentication();
+  }
 
   ngOnInit() {
     if (window.location.href.indexOf('localhost') === -1) {
