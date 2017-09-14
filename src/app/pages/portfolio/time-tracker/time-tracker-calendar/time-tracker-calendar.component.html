@@ -25,7 +25,7 @@
     <div class="day-label">Saturday</div>
   </section>
   <section class="calendar-container">
-    <div *ngFor="let day of calendarDays" class="day-container" [class.day-container-fade]="activeMonth.getMonth() !== day.date.getMonth()">
+    <div *ngFor="let day of calendarDays" class="day-container" [class.day-container-fade]="activeMonth.getMonth() !== day.date.getMonth()" [class.current-day]="day.date.getTime() === todaysDate.getTime()">
       <div class="day-label">{{day.date.getDate()}}</div>
       <div class="entries">
         <div class="entry holiday" *ngIf="day.holiday">
@@ -35,6 +35,9 @@
           <div>{{entry.project.name}}</div>
           <div>{{entry.timeSpent}}</div>
         </div>
+      </div>
+      <div class="new-entry" (click)="addEntry(day)">
+        <i class="fa fa-plus" aria-hidden="true"></i> New Entry
       </div>
     </div>
   </section>

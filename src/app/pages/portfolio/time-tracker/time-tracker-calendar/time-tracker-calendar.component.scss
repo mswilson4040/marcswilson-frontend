@@ -7,6 +7,9 @@
     background-color: #dbadff;
     color: white;
   }
+  .current-day {
+    background-color: #b5c6cf;
+  }
   #calendarHeader {
     display: flex;
     justify-content: space-between;
@@ -35,6 +38,10 @@
       height: 8rem;
       width: 14.28%;
       border: 1px solid lightgray;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 200ms ease-in;
       .day-label {
         text-align: right;
         padding: 5px;
@@ -50,6 +57,19 @@
           justify-content: space-between;
         }
       }
+      .new-entry {
+        text-align: right;
+        font-size: 10px;
+        cursor: pointer;
+        padding: 2px;
+        .fa {
+          color: #0F760F;
+        }
+      }
+    }
+    .day-container:hover {
+      background-color: #b5c6cf;
+      cursor: pointer;
     }
     .day-container:nth-child(-n+7) {
       border-left: none;

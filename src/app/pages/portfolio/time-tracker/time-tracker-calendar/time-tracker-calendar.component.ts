@@ -3,7 +3,8 @@ import { Calendar, CalendarDay } from '../classes/calendar';
 import { TimeTrackerService } from '../services/time-tracker.service';
 import { MdDialog } from '@angular/material';
 import { ErrorDialogComponent } from '../../../../shared-components/error-dialog/error-dialog.component';
-import { Entry } from '../classes/company';
+import {Company, Entry, Project} from '../classes/company';
+import {EntryDialogComponent} from '../dialogs/entry-dialog/entry-dialog.component';
 
 @Component({
   selector: 'app-time-tracker-calendar',
@@ -18,6 +19,7 @@ export class TimeTrackerCalendarComponent implements OnInit {
   public activeMonthName: string = this.calendar.getMonthName(this.activeMonth.getMonth());
 
   constructor(private _timetrackerService: TimeTrackerService, private _dialog: MdDialog) {
+    this.todaysDate.setHours(0, 0, 0, 0);
     this.calendarDays = this.calendar.getCalendarDays(this.todaysDate.getMonth(), this.todaysDate.getFullYear(), new Array<Entry>());
     const start = this.calendarDays[0].date;
     const end = this.calendarDays[this.calendarDays.length - 1].date;
@@ -62,6 +64,31 @@ export class TimeTrackerCalendarComponent implements OnInit {
     }, error => {
       const edr = this._dialog.open(ErrorDialogComponent);
       edr.componentInstance.error = error;
+    });
+  }
+  addEntry(day: CalendarDay): void {
+    const dialogRef = this._dialog.open(EntryDialogComponent);
+    dialogRef.componentInstance.selectedProject = new Project();
+    dialogRef.componentInstance.selectedCompany = new Company();
+    dialogRef.componentInstance.entry.date = day.date;
+    dialogRef.afterClosed().subscribe( result => {
+      if (result) {
+        this._timetrackerService.addEntry(result.company, result.entry).then( entries => {
+          const start = this.calendarDays[0].date;
+          const end = this.calendarDays[this.calendarDays.length - 1].date;
+          this._timetrackerService.getEntriesByDateRange(start, end).then( _entries => {
+            if (_entries) {
+              this.calendarDays = this.calendar.getCalendarDays(this.activeMonth.getMonth(), this.activeMonth.getFullYear(), _entries);
+            }
+          }, error => {
+            const edr = this._dialog.open(ErrorDialogComponent);
+            edr.componentInstance.error = error;
+          });
+        }, error => {
+          const edr = this._dialog.open(ErrorDialogComponent);
+          edr.componentInstance.error = error;
+        });
+      }
     });
   }
 }
