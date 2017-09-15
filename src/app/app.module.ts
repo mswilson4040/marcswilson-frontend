@@ -32,6 +32,8 @@ import { ProjectDialogComponent } from './pages/portfolio/time-tracker/dialogs/p
 import { ErrorDialogComponent } from './shared-components/error-dialog/error-dialog.component';
 import { ConfirmDialogComponent } from './shared-components/confirm-dialog/confirm-dialog.component';
 import { TimeTrackerCalendarComponent } from './pages/portfolio/time-tracker/time-tracker-calendar/time-tracker-calendar.component';
+import { CallbackComponent } from './shared-components/callback/callback.component';
+import { LoginDialogComponent } from './shared-components/login-dialog/login-dialog.component';
 
 
 @NgModule({
@@ -57,7 +59,9 @@ import { TimeTrackerCalendarComponent } from './pages/portfolio/time-tracker/tim
     ProjectDialogComponent,
     ErrorDialogComponent,
     ConfirmDialogComponent,
-    TimeTrackerCalendarComponent
+    TimeTrackerCalendarComponent,
+    CallbackComponent,
+    LoginDialogComponent
   ],
   entryComponents: [
     MLBBallparksComponent,
@@ -69,7 +73,8 @@ import { TimeTrackerCalendarComponent } from './pages/portfolio/time-tracker/tim
     EntryDialogComponent,
     ProjectDialogComponent,
     ErrorDialogComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    LoginDialogComponent
   ],
   imports: [
     BrowserAnimationsModule,

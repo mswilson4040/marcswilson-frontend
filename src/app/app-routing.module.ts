@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {HomeComponent} from './pages/home/home.component';
-import {AboutComponent} from './pages/about/about.component';
-import {PortfolioComponent} from './pages/portfolio/portfolio.component';
-import {MlbApiExplorerComponent} from './pages/portfolio/mlb-api-explorer/mlb-api-explorer.component';
-import {MlbStatsComponent} from './pages/portfolio/mlb-stats/mlb-stats.component';
-import {PowerballComponent} from './pages/portfolio/powerball/powerball.component';
-import {TimeTrackerComponent} from './pages/portfolio/time-tracker/time-tracker.component';
-import {OverlayComponent} from './shared-components/overlay/overlay.component';
+import { HomeComponent } from './pages/home/home.component';
+import { AboutComponent } from './pages/about/about.component';
+import { PortfolioComponent } from './pages/portfolio/portfolio.component';
+import { MlbApiExplorerComponent } from './pages/portfolio/mlb-api-explorer/mlb-api-explorer.component';
+import { MlbStatsComponent } from './pages/portfolio/mlb-stats/mlb-stats.component';
+import { PowerballComponent } from './pages/portfolio/powerball/powerball.component';
+import { TimeTrackerComponent } from './pages/portfolio/time-tracker/time-tracker.component';
+import { CallbackComponent } from './shared-components/callback/callback.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -18,7 +18,7 @@ const routes: Routes = [
   { path: 'mlbstats', component: MlbStatsComponent},
   { path: 'powerball', component: PowerballComponent},
   { path: 'timetracker', component: TimeTrackerComponent},
-  { path: 'callback', component: OverlayComponent }
+  { path: 'callback', component: CallbackComponent }
 ];
 
 @NgModule({

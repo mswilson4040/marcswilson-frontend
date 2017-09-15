@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { Company } from './classes/company';
 import { TimeTrackerService } from './services/time-tracker.service';
 import { MdDialog } from '@angular/material';
@@ -6,6 +6,7 @@ import {CompanyDialogComponent} from './dialogs/company-dialog/company-dialog.co
 import {ProjectDialogComponent} from './dialogs/project-dialog/project-dialog.component';
 import {ErrorDialogComponent} from '../../../shared-components/error-dialog/error-dialog.component';
 import {AuthService} from '../../../shared-services/auth.service';
+import {LoginDialogComponent} from '../../../shared-components/login-dialog/login-dialog.component';
 
 @Component({
   selector: 'app-time-tracker',
@@ -17,14 +18,21 @@ export class TimeTrackerComponent implements OnInit, AfterViewInit {
   public selectedTab = 0;
   public selectedCompany: Company = new Company();
   constructor(private _timeTrackerService: TimeTrackerService, private _dialog: MdDialog,
-              private _authService: AuthService) {
+              private _authService: AuthService, private _changeDetectorRef: ChangeDetectorRef) {
     this._authService.handleAuthentication();
   }
 
   ngOnInit() {
-    this._authService.login('/timestracker');
+
   }
   ngAfterViewInit(): void {
+    // const dialogRef = this._dialog.open(LoginDialogComponent);
+    // this._changeDetectorRef.detectChanges();
+    // dialogRef.afterClosed().subscribe( result => {
+    //   if (result) {
+    //     this._authService.login('/timetracker');
+    //   }
+    // });
     this._timeTrackerService.getCompanies().then( companies => {
       this.companies = companies;
     }, error => {
