@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MdDialogRef} from '@angular/material';
+import { MdDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-login-dialog',
@@ -11,6 +11,12 @@ export class LoginDialogComponent implements OnInit {
   constructor(private _mdDialogRef: MdDialogRef<LoginDialogComponent>) { }
 
   ngOnInit() {
+  }
+  login(): void {
+    this._mdDialogRef.close(true);
+  }
+  demo(): void {
+    this._mdDialogRef.close(false);
   }
 
 }

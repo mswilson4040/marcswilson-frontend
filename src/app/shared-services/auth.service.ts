@@ -2,11 +2,18 @@ import { Injectable } from '@angular/core';
 import * as Auth0 from 'auth0-js';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
+import {AuthenticationResponse} from '../shared-classes/authentication-response';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class AuthService {
   public auth0: Auth0 = null;
-  private _callbackRouteKey = 'marcswilson_auth0_callback_route';
+  public authWatch$: BehaviorSubject<AuthenticationResponse> = new BehaviorSubject<AuthenticationResponse>(null);
+
+  set authWatch(value: AuthenticationResponse){
+    this.authWatch$.next(value);
+  }
+
   constructor(private _router: Router) {
     this.auth0 = new Auth0.WebAuth({
       clientID: environment.AUTH0_CLIENTID,
@@ -18,19 +25,37 @@ export class AuthService {
     });
   }
   login(callbackRoute: string): void {
-    localStorage.setItem(this._callbackRouteKey, callbackRoute);
+    localStorage.setItem(environment.AUTH0_CALLBACK_ROUTE_KEY, callbackRoute);
     this.auth0.authorize();
   }
   handleAuthentication(): void {
-    const callbackRoute = localStorage.getItem(this._callbackRouteKey);
-    localStorage.removeItem(this._callbackRouteKey);
+    const callbackRoute = localStorage.getItem(environment.AUTH0_CALLBACK_ROUTE_KEY);
+    localStorage.removeItem(environment.AUTH0_CALLBACK_ROUTE_KEY);
     this.auth0.parseHash( (error, authResult) => {
       if (authResult && authResult.accessToken && authResult.idToken) {
+        const ar = new AuthenticationResponse(authResult.idTokenPayload);
+        localStorage.setItem(environment.AUTH0_AUTH_RESPONSE_MODEL_KEY, JSON.stringify(ar));
         window.location.hash = '';
         this._router.navigate(callbackRoute ? [callbackRoute] : ['/home']);
       } else if (error) {
         alert(error.error);
       }
     });
+  }
+  isAuthenticated(): AuthenticationResponse {
+    const authResponse = localStorage.getItem(environment.AUTH0_AUTH_RESPONSE_MODEL_KEY);
+    if (authResponse) {
+      const a = new AuthenticationResponse(JSON.parse(authResponse));;
+      this.authWatch = a;
+      return a;
+    } else {
+      this.authWatch = null;
+      return null;
+    }
+  }
+  logout(): void {
+    localStorage.removeItem(environment.AUTH0_CALLBACK_ROUTE_KEY);
+    localStorage.removeItem(environment.AUTH0_AUTH_RESPONSE_MODEL_KEY);
+    this.authWatch$ = null;
   }
 }

@@ -18,11 +18,12 @@ import { PowerballComponent } from './pages/portfolio/powerball/powerball.compon
 import { OverlayComponent } from './shared-components/overlay/overlay.component';
 import {
   MdAutocompleteModule, MdButtonModule, MdCardModule, MdChipsModule, MdDatepickerModule, MdDialogModule, MdInputModule,
+  MdMenuModule,
   MdNativeDateModule, MdSelectModule, MdSidenavModule,
   MdSliderModule,
   MdTabsModule, MdTooltipModule
 } from '@angular/material';
-import {BrowserAnimationsModule, NoopAnimationsModule} from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TimeTrackerComponent } from './pages/portfolio/time-tracker/time-tracker.component';
 import { ContactFormDialogComponent } from './shared-components/contact-form-dialog/contact-form-dialog.component';
 import { CompanyDialogComponent } from './pages/portfolio/time-tracker/dialogs/company-dialog/company-dialog.component';
@@ -78,7 +79,6 @@ import { LoginDialogComponent } from './shared-components/login-dialog/login-dia
   ],
   imports: [
     BrowserAnimationsModule,
-    NoopAnimationsModule,
     BrowserModule,
     FormsModule,
     HttpModule,
@@ -96,7 +96,8 @@ import { LoginDialogComponent } from './shared-components/login-dialog/login-dia
     MdTooltipModule,
     MdSidenavModule,
     MdSelectModule,
-    MdChipsModule
+    MdChipsModule,
+    MdMenuModule
   ],
   providers: [],
   bootstrap: [ShellComponent]

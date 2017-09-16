@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { ContactFormDialogComponent } from '../contact-form-dialog/contact-form-dialog.component';
 import { MdDialog } from '@angular/material';
 import { EmailService } from '../../shared-services/email.service';
+import { AuthService } from '../../shared-services/auth.service';
+import { AuthenticationResponse } from '../../shared-classes/authentication-response';
 
 @Component({
   selector: 'app-global-nav',
@@ -13,7 +15,9 @@ import { EmailService } from '../../shared-services/email.service';
 export class GlobalNavComponent implements OnInit {
   public links: Array<Link> = new Array<Link>();
   public path: string = null;
-  constructor(private _router: Router, private _dialog: MdDialog, private _emailService: EmailService) {
+  public authResponse: AuthenticationResponse = new AuthenticationResponse();
+  constructor(private _router: Router, private _dialog: MdDialog, private _emailService: EmailService,
+              private _authService: AuthService) {
     this.links.push(new Link('/home', 'Home', 'fa-home'));
     this.links.push(new Link('/about', 'About', 'fa-user'));
     this.links.push(new Link('/portfolio', 'Portfolio', 'fa-briefcase'));
@@ -49,6 +53,9 @@ export class GlobalNavComponent implements OnInit {
   }
 
   ngOnInit() {
+    this._authService.authWatch$.subscribe( auth => {
+      this.authResponse = auth;
+    });
   }
   openContactForm(): void {
     const dialogRef = this._dialog.open(ContactFormDialogComponent);
@@ -61,13 +68,15 @@ export class GlobalNavComponent implements OnInit {
         const message = componentInstance.message;
         this._emailService.sendEmail(from, subject, message).then( result => {
           if (result.ok === true) {
-            // show verification screen
+            // TODO: show verification screen
           }
         }, error => {
-          // display error
+          // TODO: display error
         });
       }
     });
   }
-
+  logout(): void {
+    this._authService.logout();
+  }
 }
