@@ -3,12 +3,14 @@ export class Company {
   public _id: string = null;
   public entries: Array<Entry> = new Array<Entry>();
   public projects: Array<Project> = new Array<Project>();
+  public userId: string = null;
   constructor(company?) {
     if (company) {
       this.name = company.name;
       this._id = company._id;
       this.entries = company.entries;
       this.projects = company.projects;
+      this.userId = company.userId;
     }
   }
 }

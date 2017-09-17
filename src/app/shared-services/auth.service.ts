@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import * as Auth0 from 'auth0-js';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
-import {AuthenticationResponse} from '../shared-classes/authentication-response';
+import { AuthenticationResponse } from '../shared-classes/authentication-response';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
@@ -56,6 +56,6 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem(environment.AUTH0_CALLBACK_ROUTE_KEY);
     localStorage.removeItem(environment.AUTH0_AUTH_RESPONSE_MODEL_KEY);
-    this.authWatch$ = null;
+    this.authWatch = null;
   }
 }

@@ -78,5 +78,6 @@ export class GlobalNavComponent implements OnInit {
   }
   logout(): void {
     this._authService.logout();
+    this._router.navigate(['/home']);
   }
 }

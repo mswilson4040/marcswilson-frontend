@@ -31,9 +31,14 @@ export class TimeTrackerComponent implements OnInit, AfterViewInit {
     setTimeout( () => {
       this.authResponse = this._authService.isAuthenticated();
       if (this.authResponse) {
-
+        this._timeTrackerService.getCompanies(this.authResponse.sub).then( companies => {
+          this.companies = companies;
+        }, error => {
+          const edr = this._dialog.open(ErrorDialogComponent);
+          edr.componentInstance.error = error;
+        });
       } else {
-        const dialogRef = this._dialog.open(LoginDialogComponent, { height: '40%', width: '20%' });
+        const dialogRef = this._dialog.open(LoginDialogComponent, { height: '20%', width: '20%' });
         dialogRef.afterClosed().subscribe(result => {
           if (result) {
             this._authService.login('/timetracker');
@@ -41,18 +46,13 @@ export class TimeTrackerComponent implements OnInit, AfterViewInit {
         });
       }
     });
-    this._timeTrackerService.getCompanies().then( companies => {
-      this.companies = companies;
-    }, error => {
-      const edr = this._dialog.open(ErrorDialogComponent);
-      edr.componentInstance.error = error;
-    });
   }
   changeTab(index: number): void {
     this.selectedTab = index;
   }
   addCompany(): void {
     const dialogRef = this._dialog.open(CompanyDialogComponent);
+    dialogRef.componentInstance.authResponse = this.authResponse;
     dialogRef.afterClosed().subscribe( company => {
       if (company) {
         this._timeTrackerService.addCompany(company).then( companies => {

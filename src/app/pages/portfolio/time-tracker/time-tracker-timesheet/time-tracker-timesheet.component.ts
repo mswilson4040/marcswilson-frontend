@@ -5,6 +5,8 @@ import { MdDialog } from '@angular/material';
 import { EntryDialogComponent } from '../dialogs/entry-dialog/entry-dialog.component';
 import { ErrorDialogComponent } from '../../../../shared-components/error-dialog/error-dialog.component';
 import { ConfirmDialogComponent } from '../../../../shared-components/confirm-dialog/confirm-dialog.component';
+import { AuthenticationResponse } from '../../../../shared-classes/authentication-response';
+import { AuthService } from '../../../../shared-services/auth.service';
 
 @Component({
   selector: 'app-time-tracker-timesheet',
@@ -18,20 +20,28 @@ export class TimeTrackerTimesheetComponent implements OnInit {
   public selectedTabIndex = 0;
   public selectedCompany: Company = new Company();
   public filteredEntries: Array<Entry> = new Array<Entry>();
-  constructor(private _timeTrackerService: TimeTrackerService, private _dialog: MdDialog) {
+  public authResponse: AuthenticationResponse = null;
+  constructor(private _timeTrackerService: TimeTrackerService, private _dialog: MdDialog, private _authService: AuthService) {
+    this._authService.authWatch$.subscribe( auth => {
+      this.authResponse = auth;
+    });
   }
 
   ngOnInit() {
-    this._timeTrackerService.getCompanies().then( companies => {
-      this.companies = companies;
-    }, error => {
-      alert(error.message);
-    });
+    this.authResponse = this._authService.isAuthenticated();
+    if (this.authResponse) {
+      this._timeTrackerService.getCompanies(this.authResponse.sub).then(companies => {
+        this.companies = companies;
+      }, error => {
+        alert(error.message);
+      });
+    }
   }
   addNewEntry(): void {
     const dialogRef = this._dialog.open(EntryDialogComponent, { height: '60%', width: '30%'});
     dialogRef.componentInstance.selectedCompany = this.selectedCompany;
     dialogRef.componentInstance.selectedProject = new Project();
+    dialogRef.componentInstance.authResponse = this.authResponse;
     dialogRef.afterClosed().subscribe( resultObj => {
       if (resultObj) {
         this._timeTrackerService.addEntry(resultObj.company, resultObj.entry).then( entries => {

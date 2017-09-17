@@ -65,9 +65,9 @@ export class TimeTrackerService {
       });
     });
   }
-  getCompanies(): Promise<Array<Company>> {
+  getCompanies(userId: string): Promise<Array<Company>> {
     return new Promise( (resolve, reject) => {
-      this._http.get(`${this.API_PATH}/companies`).subscribe( _companies => {
+      this._http.get(`${this.API_PATH}/companies/${userId}`).subscribe( _companies => {
         try {
           const companies = JSON.parse(_companies['_body']).map( c => { return new Company(c); });
           resolve(companies);

@@ -3,6 +3,7 @@ import { MdDialog, MdDialogRef } from '@angular/material';
 import {Company, Entry, Project} from '../../classes/company';
 import { TimeTrackerService } from '../../services/time-tracker.service';
 import { ErrorDialogComponent } from '../../../../../shared-components/error-dialog/error-dialog.component';
+import { AuthenticationResponse } from '../../../../../shared-classes/authentication-response';
 
 @Component({
   selector: 'app-entry-dialog',
@@ -17,10 +18,10 @@ export class EntryDialogComponent implements OnInit, AfterViewInit {
   public projects: Array<Project> = new Array<Project>();
   public entry: Entry = new Entry();
   public selectedProject: Project = null;
-
+  public authResponse: AuthenticationResponse = null;
   constructor(private _dialogRef: MdDialogRef<EntryDialogComponent>, private _timeTrackerService: TimeTrackerService,
               private _dialog: MdDialog, private _changeDetectorRef: ChangeDetectorRef) {
-    this._timeTrackerService.getCompanies().then( companies => {
+    this._timeTrackerService.getCompanies(this.authResponse.sub).then( companies => {
       this.companies = companies;
       if (this.selectedCompany && this.selectedCompany._id !== null) {
         this._timeTrackerService.getProjectsByCompany(this.selectedCompany).then( projects => {
