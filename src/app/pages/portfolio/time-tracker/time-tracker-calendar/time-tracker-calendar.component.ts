@@ -5,6 +5,8 @@ import { MdDialog } from '@angular/material';
 import { ErrorDialogComponent } from '../../../../shared-components/error-dialog/error-dialog.component';
 import {Company, Entry, Project} from '../classes/company';
 import {EntryDialogComponent} from '../dialogs/entry-dialog/entry-dialog.component';
+import { AuthenticationResponse } from '../../../../shared-classes/authentication-response';
+import { AuthService } from '../../../../shared-services/auth.service';
 
 @Component({
   selector: 'app-time-tracker-calendar',
@@ -16,9 +18,11 @@ export class TimeTrackerCalendarComponent implements OnInit {
   public calendarDays: Array<CalendarDay> = new Array<CalendarDay>();
   public activeMonth: Date = new Date();
   public calendar: Calendar = new Calendar();
+  public authResponse: AuthenticationResponse = null;
   public activeMonthName: string = this.calendar.getMonthName(this.activeMonth.getMonth());
 
-  constructor(private _timetrackerService: TimeTrackerService, private _dialog: MdDialog) {
+  constructor(private _timetrackerService: TimeTrackerService, private _dialog: MdDialog,
+              private _authService: AuthService) {
     this.todaysDate.setHours(0, 0, 0, 0);
     this.calendarDays = this.calendar.getCalendarDays(this.todaysDate.getMonth(), this.todaysDate.getFullYear(), new Array<Entry>());
     const start = this.calendarDays[0].date;
@@ -35,6 +39,9 @@ export class TimeTrackerCalendarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this._authService.authWatch$.subscribe( auth => {
+      this.authResponse = auth;
+    });
   }
   nextMonth(): void {
     const nextMonth = this.activeMonth.getMonth() === 11 ? 0 : this.activeMonth.getMonth() + 1;
@@ -67,10 +74,12 @@ export class TimeTrackerCalendarComponent implements OnInit {
     });
   }
   addEntry(day: CalendarDay): void {
+    this.authResponse = this._authService.isAuthenticated();
     const dialogRef = this._dialog.open(EntryDialogComponent);
     dialogRef.componentInstance.selectedProject = new Project();
     dialogRef.componentInstance.selectedCompany = new Company();
     dialogRef.componentInstance.entry.date = day.date;
+    dialogRef.componentInstance.authResponse = this.authResponse;
     dialogRef.afterClosed().subscribe( result => {
       if (result) {
         this._timetrackerService.addEntry(result.company, result.entry).then( entries => {

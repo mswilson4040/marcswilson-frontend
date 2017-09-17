@@ -21,6 +21,9 @@ export class EntryDialogComponent implements OnInit, AfterViewInit {
   public authResponse: AuthenticationResponse = null;
   constructor(private _dialogRef: MdDialogRef<EntryDialogComponent>, private _timeTrackerService: TimeTrackerService,
               private _dialog: MdDialog, private _changeDetectorRef: ChangeDetectorRef) {
+  }
+
+  ngOnInit() {
     this._timeTrackerService.getCompanies(this.authResponse.sub).then( companies => {
       this.companies = companies;
       if (this.selectedCompany && this.selectedCompany._id !== null) {
@@ -35,9 +38,6 @@ export class EntryDialogComponent implements OnInit, AfterViewInit {
       const edr = this._dialog.open(ErrorDialogComponent);
       edr.componentInstance.error = error;
     });
-  }
-
-  ngOnInit() {
   }
   ngAfterViewInit(): void {
     this.entry.date = this.entry.date === null ? new Date() : this.entry.date;
