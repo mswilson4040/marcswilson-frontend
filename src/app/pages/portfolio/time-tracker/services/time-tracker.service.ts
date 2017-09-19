@@ -103,7 +103,7 @@ export class TimeTrackerService {
       });
     });
   }
-  getEntriesByDateRange(start: Date, end: Date): Promise<Array<Entry>> {
+  getEntriesByUserIdAndDateRange(start: Date, end: Date, userId: string): Promise<Array<Entry>> {
     return new Promise( (resolve, reject) => {
       this._http.post(`${this.API_PATH}/entries/getentriesbydaterange`, {
         start: start, end: end

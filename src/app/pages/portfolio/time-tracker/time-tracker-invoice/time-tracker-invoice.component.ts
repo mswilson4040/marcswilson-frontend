@@ -14,7 +14,10 @@ export class TimeTrackerInvoiceComponent implements OnInit {
   ngOnInit() {
   }
   createInvoice(): void {
-    const dialogRef = this._dialog.open(InvoiceDialogComponent);
+    const dialogRef = this._dialog.open(InvoiceDialogComponent, {
+      height: '40%',
+      width: '20%'
+    });
     dialogRef.afterClosed().subscribe( result => {
 
     });

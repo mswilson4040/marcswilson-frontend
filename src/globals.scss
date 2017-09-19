@@ -15,6 +15,12 @@
   }
   .g-dialog-main {
     flex-grow: 1;
+    .g-input-container {
+      width: 100%;
+      md-select, md-input-container {
+        width: 100%;
+      }
+    }
   }
   .g-dialog-footer {
     text-align: right;

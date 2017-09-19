@@ -55,6 +55,7 @@ export class EntryDialogComponent implements OnInit, AfterViewInit {
   }
   closeDialog(): void {
     this.entry.project = this.projects.find( p => { return p._id === this.selectedProject._id; });
+    this.entry.userId = this.authResponse.sub;
     this._dialogRef.close({entry: this.entry, company: this.selectedCompany});
   }
   cancel(): void {

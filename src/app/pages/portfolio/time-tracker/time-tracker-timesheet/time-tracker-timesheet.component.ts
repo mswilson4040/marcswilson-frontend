@@ -22,9 +22,6 @@ export class TimeTrackerTimesheetComponent implements OnInit {
   public filteredEntries: Array<Entry> = new Array<Entry>();
   public authResponse: AuthenticationResponse = null;
   constructor(private _timeTrackerService: TimeTrackerService, private _dialog: MdDialog, private _authService: AuthService) {
-    this._authService.authWatch$.subscribe( auth => {
-      this.authResponse = auth;
-    });
   }
 
   ngOnInit() {

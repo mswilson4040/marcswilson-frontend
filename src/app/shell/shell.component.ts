@@ -12,16 +12,7 @@ import {TimeTrackerService} from '../pages/portfolio/time-tracker/services/time-
 @Component({
   selector: 'app-shell',
   templateUrl: './shell.component.html',
-  styleUrls: ['./shell.component.scss'],
-  providers: [
-    UIService,
-    MlbStatsService,
-    PowerballService,
-    AuthService,
-    EmailService,
-    TimeTrackerService,
-    AuthService
-  ]
+  styleUrls: ['./shell.component.scss']
 })
 export class ShellComponent implements OnInit {
   constructor(private _authService: AuthService) {

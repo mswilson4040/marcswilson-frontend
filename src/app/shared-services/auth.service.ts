@@ -45,7 +45,7 @@ export class AuthService {
   isAuthenticated(): AuthenticationResponse {
     const authResponse = localStorage.getItem(environment.AUTH0_AUTH_RESPONSE_MODEL_KEY);
     if (authResponse) {
-      const a = new AuthenticationResponse(JSON.parse(authResponse));;
+      const a = new AuthenticationResponse(JSON.parse(authResponse));
       this.authWatch = a;
       return a;
     } else {

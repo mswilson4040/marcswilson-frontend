@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { Company } from './classes/company';
 import { TimeTrackerService } from './services/time-tracker.service';
 import { MdDialog } from '@angular/material';
@@ -14,18 +14,13 @@ import { AuthenticationResponse } from '../../../shared-classes/authentication-r
   templateUrl: './time-tracker.component.html',
   styleUrls: ['./time-tracker.component.scss']
 })
-export class TimeTrackerComponent implements OnInit, AfterViewInit {
+export class TimeTrackerComponent implements AfterViewInit {
   public companies: Array<Company> = new Array<Company>();
   public selectedTab = 0;
   public selectedCompany: Company = new Company();
   public authResponse: AuthenticationResponse = new AuthenticationResponse();
   constructor(private _timeTrackerService: TimeTrackerService, private _dialog: MdDialog,
               private _authService: AuthService) {
-    this._authService.handleAuthentication();
-  }
-
-  ngOnInit() {
-
   }
   ngAfterViewInit(): void {
     setTimeout( () => {

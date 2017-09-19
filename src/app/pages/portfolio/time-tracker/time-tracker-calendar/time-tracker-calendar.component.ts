@@ -25,22 +25,22 @@ export class TimeTrackerCalendarComponent implements OnInit {
               private _authService: AuthService) {
     this.todaysDate.setHours(0, 0, 0, 0);
     this.calendarDays = this.calendar.getCalendarDays(this.todaysDate.getMonth(), this.todaysDate.getFullYear(), new Array<Entry>());
+  }
+
+  ngOnInit() {
+    this.authResponse = this._authService.isAuthenticated();
+    this.getEntries();
+  }
+  getEntries(): void {
     const start = this.calendarDays[0].date;
     const end = this.calendarDays[this.calendarDays.length - 1].date;
-    this._timetrackerService.getEntriesByDateRange(start, end).then( entries => {
+    this._timetrackerService.getEntriesByUserIdAndDateRange(start, end, this.authResponse.sub).then( entries => {
       if (entries) {
         this.calendarDays = this.calendar.getCalendarDays(this.todaysDate.getMonth(), this.todaysDate.getFullYear(), entries);
       }
     }, error => {
       const edr = this._dialog.open(ErrorDialogComponent);
       edr.componentInstance.error = error;
-    });
-
-  }
-
-  ngOnInit() {
-    this._authService.authWatch$.subscribe( auth => {
-      this.authResponse = auth;
     });
   }
   nextMonth(): void {
@@ -51,7 +51,7 @@ export class TimeTrackerCalendarComponent implements OnInit {
     this.activeMonthName = this.calendar.getMonthName(this.activeMonth.getMonth());
     const start = this.calendarDays[0].date;
     const end = this.calendarDays[this.calendarDays.length - 1].date;
-    this._timetrackerService.getEntriesByDateRange(start, end).then( entries => {
+    this._timetrackerService.getEntriesByUserIdAndDateRange(start, end, this.authResponse.sub).then( entries => {
       this.calendarDays = this.calendar.getCalendarDays(nextMonth, nextYear, entries);
     }, error => {
       const edr = this._dialog.open(ErrorDialogComponent);
@@ -66,7 +66,7 @@ export class TimeTrackerCalendarComponent implements OnInit {
     this.activeMonthName = this.calendar.getMonthName(this.activeMonth.getMonth());
     const start = this.calendarDays[0].date;
     const end = this.calendarDays[this.calendarDays.length - 1].date;
-    this._timetrackerService.getEntriesByDateRange(start, end).then( entries => {
+    this._timetrackerService.getEntriesByUserIdAndDateRange(start, end, this.authResponse.sub).then( entries => {
       this.calendarDays = this.calendar.getCalendarDays(previousMonth, previousYear, entries);
     }, error => {
       const edr = this._dialog.open(ErrorDialogComponent);
@@ -75,7 +75,7 @@ export class TimeTrackerCalendarComponent implements OnInit {
   }
   addEntry(day: CalendarDay): void {
     this.authResponse = this._authService.isAuthenticated();
-    const dialogRef = this._dialog.open(EntryDialogComponent);
+    const dialogRef = this._dialog.open(EntryDialogComponent, { height: '60%', width: '30%'});
     dialogRef.componentInstance.selectedProject = new Project();
     dialogRef.componentInstance.selectedCompany = new Company();
     dialogRef.componentInstance.entry.date = day.date;
@@ -85,7 +85,7 @@ export class TimeTrackerCalendarComponent implements OnInit {
         this._timetrackerService.addEntry(result.company, result.entry).then( entries => {
           const start = this.calendarDays[0].date;
           const end = this.calendarDays[this.calendarDays.length - 1].date;
-          this._timetrackerService.getEntriesByDateRange(start, end).then( _entries => {
+          this._timetrackerService.getEntriesByUserIdAndDateRange(start, end, this.authResponse.sub).then( _entries => {
             if (_entries) {
               this.calendarDays = this.calendar.getCalendarDays(this.activeMonth.getMonth(), this.activeMonth.getFullYear(), _entries);
             }

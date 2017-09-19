@@ -32,6 +32,7 @@ export class Entry {
   public description: string = null;
   public timeSpent: number = null;
   public _id: string = null;
+  public userId: string = null;
   constructor(data?) {
     if (data) {
       this.date = new Date(data.date);
@@ -39,6 +40,7 @@ export class Entry {
       this.description = data.description;
       this.timeSpent = data.timeSpent;
       this._id = data._id;
+      this.userId = data.userId;
     }
   }
 }

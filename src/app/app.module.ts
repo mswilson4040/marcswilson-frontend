@@ -37,6 +37,13 @@ import { CallbackComponent } from './shared-components/callback/callback.compone
 import { LoginDialogComponent } from './shared-components/login-dialog/login-dialog.component';
 import { TimeTrackerInvoiceComponent } from './pages/portfolio/time-tracker/time-tracker-invoice/time-tracker-invoice.component';
 import { InvoiceDialogComponent } from './pages/portfolio/time-tracker/dialogs/invoice-dialog/invoice-dialog.component';
+import { AuthService } from './shared-services/auth.service';
+import { TimeTrackerService } from './pages/portfolio/time-tracker/services/time-tracker.service';
+import { EmailService } from './shared-services/email.service';
+import { PowerballService } from './pages/portfolio/powerball/services/powerball.service';
+import { MlbStatsService } from './pages/portfolio/mlb-stats/services/mlb-stats.service';
+import { UIService } from './shared-services/ui.service';
+import { AuthGuard } from './guards/auth.guard';
 
 
 @NgModule({
@@ -104,7 +111,15 @@ import { InvoiceDialogComponent } from './pages/portfolio/time-tracker/dialogs/i
     MdChipsModule,
     MdMenuModule
   ],
-  providers: [],
+  providers: [
+    UIService,
+    MlbStatsService,
+    PowerballService,
+    AuthService,
+    EmailService,
+    TimeTrackerService,
+    AuthGuard
+  ],
   bootstrap: [ShellComponent]
 })
 export class AppModule { }
