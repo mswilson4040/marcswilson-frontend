@@ -24,6 +24,7 @@ export class EntryDialogComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+    this._dialogRef.updateSize('25%', '60%')
     this._timeTrackerService.getCompanies(this.authResponse.sub).then( companies => {
       this.companies = companies;
       if (this.selectedCompany && this.selectedCompany._id !== null) {

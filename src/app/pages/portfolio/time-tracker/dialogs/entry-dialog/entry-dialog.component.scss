@@ -1,14 +1,19 @@
-#addEntryDialogContainer {
+@import '../../../../../../globals';
+.dialog-container {
+  @extend .g-dialog-container;
   .dialog-header {
-    font-weight: 400;
+    @extend .g-dialog-header;
+    .dialog-title {
+      @extend .g-dialog-title;
+    }
   }
-  .input-section {
-    padding: 10px 0;
-    md-input-container, md-select {
-      width: 100%;
+  .dialog-main {
+    @extend .g-dialog-main;
+    .input-section {
+      @extend .g-input-container;
     }
-    md-select {
-      padding: 7px 0;
-    }
+  }
+  .dialog-footer {
+    @extend .g-dialog-footer;
   }
 }

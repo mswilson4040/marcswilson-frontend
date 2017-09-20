@@ -106,7 +106,7 @@ export class TimeTrackerService {
   getEntriesByUserIdAndDateRange(start: Date, end: Date, userId: string): Promise<Array<Entry>> {
     return new Promise( (resolve, reject) => {
       this._http.post(`${this.API_PATH}/entries/getentriesbydaterange`, {
-        start: start, end: end
+        start: start, end: end, userId: userId
       }).subscribe( _entries => {
         try {
           const entries = JSON.parse(_entries['_body']).map( e => { return new Entry(e); });

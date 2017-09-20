@@ -77,7 +77,7 @@ export class TimeTrackerCalendarComponent implements OnInit {
   }
   addEntry(day: CalendarDay): void {
     this.authResponse = this._authService.isAuthenticated();
-    const dialogRef = this._dialog.open(EntryDialogComponent, { height: '60%', width: '30%'});
+    const dialogRef = this._dialog.open(EntryDialogComponent);
     dialogRef.componentInstance.selectedProject = new Project();
     dialogRef.componentInstance.selectedCompany = new Company();
     dialogRef.componentInstance.entry.date = day.date;

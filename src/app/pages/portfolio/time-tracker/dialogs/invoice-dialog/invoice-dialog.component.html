@@ -27,6 +27,18 @@
         </md-input-container>
       </div>
     </div>
+    <div id="preview">
+      <div>{{entries.length}} entries found</div>
+      <div *ngFor="let entry of entries">
+        <md-expansion-panel>
+          <md-expansion-panel-header>
+            <md-panel-title>{{entry.project.name}}</md-panel-title>
+            <md-panel-description>{{entry.timeSpent}}</md-panel-description>
+          </md-expansion-panel-header>
+          {{entry.description}}
+        </md-expansion-panel>
+      </div>
+    </div>
   </div>
   <div class="dialog-footer">
     <button md-raised-button color="primary">OK</button>

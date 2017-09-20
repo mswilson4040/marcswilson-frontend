@@ -17,7 +17,8 @@ import { MLBteamsComponent } from './pages/portfolio/mlb-stats/mlbteams/mlbteams
 import { PowerballComponent } from './pages/portfolio/powerball/powerball.component';
 import { OverlayComponent } from './shared-components/overlay/overlay.component';
 import {
-  MdAutocompleteModule, MdButtonModule, MdCardModule, MdChipsModule, MdDatepickerModule, MdDialogModule, MdInputModule,
+  MdAutocompleteModule, MdButtonModule, MdCardModule, MdChipsModule, MdDatepickerModule, MdDialogModule,
+  MdExpansionModule, MdInputModule,
   MdMenuModule,
   MdNativeDateModule, MdSelectModule, MdSidenavModule,
   MdSliderModule,
@@ -109,7 +110,8 @@ import { AuthGuard } from './guards/auth.guard';
     MdSidenavModule,
     MdSelectModule,
     MdChipsModule,
-    MdMenuModule
+    MdMenuModule,
+    MdExpansionModule
   ],
   providers: [
     UIService,

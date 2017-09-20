@@ -1,37 +1,42 @@
-<section id="addEntryDialogContainer">
+<section class="dialog-container">
   <div class="dialog-header">
-    <h4>New Entry</h4>
+    <h3 class="dialog-title">New Entry</h3>
     <hr />
   </div>
-  <div class="input-section">
-    <md-select placeholder="Company" [(ngModel)]="selectedCompany._id" (change)="onCompanyChange()">
-      <md-option *ngFor="let company of companies" [value]="company._id">{{company.name}}</md-option>
-    </md-select>
+  <div class="dialog-main">
+    <div class="input-section">
+      <md-select placeholder="Company" [(ngModel)]="selectedCompany._id" (change)="onCompanyChange()">
+        <md-option *ngFor="let company of companies" [value]="company._id">{{company.name}}</md-option>
+      </md-select>
+    </div>
+    <div class="input-section">
+      <md-select placeholder="Project" [(ngModel)]="selectedProject._id">
+        <md-option *ngFor="let project of projects" [value]="project._id">{{project.name}}</md-option>
+      </md-select>
+    </div>
+    <div class="input-section">
+      <md-form-field>
+        <input mdInput [mdDatepicker]="picker" placeholder="Date" [(ngModel)]="entry.date" />
+        <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+        <md-datepicker #picker></md-datepicker>
+      </md-form-field>
+    </div>
+    <div class="input-section">
+      <md-input-container>
+        <input type="number" mdInput placeholder="Time Spent" [(ngModel)]="entry.timeSpent" />
+      </md-input-container>
+    </div>
+    <div class="input-section">
+      <md-input-container>
+        <textarea mdInput placeholder="Description" rows="3" [(ngModel)]="entry.description"></textarea>
+      </md-input-container>
+    </div>
   </div>
-  <div class="input-section">
-    <md-select placeholder="Project" [(ngModel)]="selectedProject._id">
-      <md-option *ngFor="let project of projects" [value]="project._id">{{project.name}}</md-option>
-    </md-select>
+  <div class="dialog-footer">
+    <div class="button-container">
+      <button md-raised-button (click)="closeDialog()">Add</button>
+      <button md-raised-button (click)="cancel()">Cancel</button>
+    </div>
   </div>
-  <div class="input-section">
-    <md-form-field>
-      <input mdInput [mdDatepicker]="picker" placeholder="Date" [(ngModel)]="entry.date" />
-      <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
-      <md-datepicker #picker></md-datepicker>
-    </md-form-field>
-  </div>
-  <div class="input-section">
-    <md-input-container>
-      <input type="number" mdInput placeholder="Time Spent" [(ngModel)]="entry.timeSpent" />
-    </md-input-container>
-  </div>
-  <div class="input-section">
-    <md-input-container>
-      <textarea mdInput placeholder="Description" rows="3" [(ngModel)]="entry.description"></textarea>
-    </md-input-container>
-  </div>
-  <div class="button-container">
-    <button md-raised-button (click)="closeDialog()">Add</button>
-    <button md-raised-button (click)="cancel()">Cancel</button>
-  </div>
+
 </section>
