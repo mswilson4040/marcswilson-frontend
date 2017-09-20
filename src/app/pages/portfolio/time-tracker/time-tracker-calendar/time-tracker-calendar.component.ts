@@ -34,14 +34,16 @@ export class TimeTrackerCalendarComponent implements OnInit {
   getEntries(): void {
     const start = this.calendarDays[0].date;
     const end = this.calendarDays[this.calendarDays.length - 1].date;
-    this._timetrackerService.getEntriesByUserIdAndDateRange(start, end, this.authResponse.sub).then( entries => {
-      if (entries) {
-        this.calendarDays = this.calendar.getCalendarDays(this.todaysDate.getMonth(), this.todaysDate.getFullYear(), entries);
-      }
-    }, error => {
-      const edr = this._dialog.open(ErrorDialogComponent);
-      edr.componentInstance.error = error;
-    });
+    if (this.authResponse) {
+      this._timetrackerService.getEntriesByUserIdAndDateRange(start, end, this.authResponse.sub).then(entries => {
+        if (entries) {
+          this.calendarDays = this.calendar.getCalendarDays(this.todaysDate.getMonth(), this.todaysDate.getFullYear(), entries);
+        }
+      }, error => {
+        const edr = this._dialog.open(ErrorDialogComponent);
+        edr.componentInstance.error = error;
+      });
+    }
   }
   nextMonth(): void {
     const nextMonth = this.activeMonth.getMonth() === 11 ? 0 : this.activeMonth.getMonth() + 1;

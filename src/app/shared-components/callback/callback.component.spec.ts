@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CallbackComponent } from './callback.component';
+import { UIService } from '../../shared-services/ui.service';
 
 describe('CallbackComponent', () => {
   let component: CallbackComponent;
@@ -8,7 +9,10 @@ describe('CallbackComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CallbackComponent ]
+      declarations: [ CallbackComponent ],
+      providers: [
+        UIService
+      ]
     })
     .compileComponents();
   }));

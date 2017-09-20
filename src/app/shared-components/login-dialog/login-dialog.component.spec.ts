@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginDialogComponent } from './login-dialog.component';
+import { MdDialogRef } from '@angular/material';
+
+class MdDialogRefMock {}
 
 describe('LoginDialogComponent', () => {
   let component: LoginDialogComponent;
@@ -8,7 +11,10 @@ describe('LoginDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LoginDialogComponent ]
+      declarations: [ LoginDialogComponent ],
+      providers: [
+        { provide: MdDialogRef, useClass: MdDialogRefMock }
+      ]
     })
     .compileComponents();
   }));

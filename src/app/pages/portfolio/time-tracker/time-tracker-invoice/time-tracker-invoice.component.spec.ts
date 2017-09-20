@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TimeTrackerInvoiceComponent } from './time-tracker-invoice.component';
+import { MdDialogModule } from '@angular/material';
 
 describe('TimeTrackerInvoiceComponent', () => {
   let component: TimeTrackerInvoiceComponent;
@@ -8,7 +9,10 @@ describe('TimeTrackerInvoiceComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TimeTrackerInvoiceComponent ]
+      declarations: [ TimeTrackerInvoiceComponent ],
+      imports: [
+        MdDialogModule
+      ]
     })
     .compileComponents();
   }));

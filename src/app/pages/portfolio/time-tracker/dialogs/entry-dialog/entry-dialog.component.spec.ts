@@ -1,11 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EntryDialogComponent } from './entry-dialog.component';
-import {FormsModule} from '@angular/forms';
-import {MdDatepickerModule, MdDialogRef, MdNativeDateModule, MdOptionModule, MdSelectModule} from '@angular/material';
-import {HttpModule} from '@angular/http';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {Company, Project} from '../../classes/company';
+import { FormsModule } from '@angular/forms';
+import { MdDatepickerModule, MdDialogRef, MdNativeDateModule, MdOptionModule, MdSelectModule } from '@angular/material';
+import { HttpModule } from '@angular/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Company, Project } from '../../classes/company';
+import { AuthenticationResponse } from '../../../../../shared-classes/authentication-response';
 
 class MdDialogRefMock {}
 
@@ -37,6 +38,7 @@ describe('EntryDialogComponent', () => {
     component = fixture.componentInstance;
     component.selectedCompany = new Company();
     component.selectedProject = new Project();
+    component.authResponse = new AuthenticationResponse();
     fixture.detectChanges();
   });
 
