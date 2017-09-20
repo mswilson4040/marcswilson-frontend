@@ -31,7 +31,7 @@
       <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
     </div>
     <div class="main-content">
-      <md-tab-group class="tab-group" [selectedIndex]="selectedTab">
+      <md-tab-group class="tab-group" [selectedIndex]="selectedTab" (selectedIndexChange)="selectedTab = $event">
         <md-tab label="Home">
           <div class="home-cards-container">
             <md-card class="tile-card blue">

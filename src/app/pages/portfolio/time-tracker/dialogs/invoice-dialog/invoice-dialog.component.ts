@@ -25,8 +25,8 @@ export class InvoiceDialogComponent implements OnInit {
   }
   getInvoiceEntries(): void {
     if (this.invoiceMonth && this.invoiceYear) {
-      const start = new Date(this.invoiceYear, this.invoiceMonth, 1);
-      const lastDay = new Date(this.invoiceYear, this.invoiceMonth + 1, 0);
+      const start = new Date(this.invoiceYear, +this.invoiceMonth, 1);
+      const lastDay = new Date(this.invoiceYear, +this.invoiceMonth + 1, 0);
       this._timeTrackerService.getEntriesByUserIdAndDateRange(start, lastDay, this.authResponse.sub).then( entries => {
         this.entries = entries;
       });
