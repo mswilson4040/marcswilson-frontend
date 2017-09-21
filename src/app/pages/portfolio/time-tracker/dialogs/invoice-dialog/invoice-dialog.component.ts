@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { MdDialogRef } from '@angular/material';
+import { MdDialog, MdDialogRef } from '@angular/material';
 import { TimeTrackerService } from '../../services/time-tracker.service';
 import { AuthenticationResponse } from '../../../../../shared-classes/authentication-response';
 import { AuthService } from '../../../../../shared-services/auth.service';
-import { Entry } from '../../classes/company';
+import { Company, Entry } from '../../classes/company';
+import { ErrorDialogComponent } from '../../../../../shared-components/error-dialog/error-dialog.component';
 
 @Component({
   selector: 'app-invoice-dialog',
@@ -15,20 +16,25 @@ export class InvoiceDialogComponent implements OnInit {
   public invoiceYear: number = new Date().getFullYear();
   public authResponse: AuthenticationResponse = null;
   public entries: Array<Entry> = new Array<Entry>();
+  public company: Company = null;
+  public companies: Array<Company> = new Array<Company>();
   constructor(private _mdDialogRef: MdDialogRef<InvoiceDialogComponent>, private _timeTrackerService: TimeTrackerService,
-              private _authService: AuthService) {
+              private _authService: AuthService, private _dialog: MdDialog) {
   }
 
   ngOnInit() {
     this.authResponse = this._authService.isAuthenticated();
-    this._mdDialogRef.updateSize('20%', '40%');
+    this._mdDialogRef.updateSize('30%', '60%');
   }
   getInvoiceEntries(): void {
     if (this.invoiceMonth && this.invoiceYear) {
       const start = new Date(this.invoiceYear, +this.invoiceMonth, 1);
       const lastDay = new Date(this.invoiceYear, +this.invoiceMonth + 1, 0);
-      this._timeTrackerService.getEntriesByUserIdAndDateRange(start, lastDay, this.authResponse.sub).then( entries => {
+      this._timeTrackerService.getEntriesByDateRangeAndCompanyId(start, lastDay, this.company).then( entries => {
         this.entries = entries;
+      }, error => {
+        const edr = this._dialog.open(ErrorDialogComponent);
+        edr.componentInstance.error = error;
       });
     }
   }

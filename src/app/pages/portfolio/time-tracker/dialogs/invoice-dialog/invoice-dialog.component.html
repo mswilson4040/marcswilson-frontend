@@ -5,26 +5,35 @@
   </div>
   <div class="dialog-main">
     <div id="inputOptions">
-      <div class="input-container">
-        <md-select placeholder="Invoice Month" [(ngModel)]="invoiceMonth" (change)="getInvoiceEntries()">
-          <md-option value="0">January</md-option>
-          <md-option value="1">February</md-option>
-          <md-option value="2">March</md-option>
-          <md-option value="3">April</md-option>
-          <md-option value="4">May</md-option>
-          <md-option value="5">June</md-option>
-          <md-option value="6">July</md-option>
-          <md-option value="7">August</md-option>
-          <md-option value="8">September</md-option>
-          <md-option value="9">October</md-option>
-          <md-option value="10">November</md-option>
-          <md-option value="11">December</md-option>
-        </md-select>
+      <div id="invoiceCompany">
+        <div class="input-container">
+          <md-select [(ngModel)]="company" (change)="getInvoiceEntries()">
+            <md-option *ngFor="let company of companies" [value]="company">{{company.name}}</md-option>
+          </md-select>
+        </div>
       </div>
-      <div class="input-container">
-        <md-input-container>
-          <input mdInput placeholder="Invoice Year" [(ngModel)]="invoiceYear" type="number" (change)="getInvoiceEntries()" />
-        </md-input-container>
+      <div class="invoice-date-options">
+        <div class="input-container">
+          <md-select placeholder="Invoice Month" [(ngModel)]="invoiceMonth" (change)="getInvoiceEntries()">
+            <md-option value="0">January</md-option>
+            <md-option value="1">February</md-option>
+            <md-option value="2">March</md-option>
+            <md-option value="3">April</md-option>
+            <md-option value="4">May</md-option>
+            <md-option value="5">June</md-option>
+            <md-option value="6">July</md-option>
+            <md-option value="7">August</md-option>
+            <md-option value="8">September</md-option>
+            <md-option value="9">October</md-option>
+            <md-option value="10">November</md-option>
+            <md-option value="11">December</md-option>
+          </md-select>
+        </div>
+        <div class="input-container">
+          <md-input-container>
+            <input mdInput placeholder="Invoice Year" [(ngModel)]="invoiceYear" type="number" (change)="getInvoiceEntries()" />
+          </md-input-container>
+        </div>
       </div>
     </div>
     <div id="preview">
@@ -32,7 +41,7 @@
       <div *ngFor="let entry of entries">
         <md-expansion-panel>
           <md-expansion-panel-header>
-            <md-panel-title>{{entry.project.name}}</md-panel-title>
+            <md-panel-title>{{entry.date | date}} - {{entry.project.name}}</md-panel-title>
             <md-panel-description>{{entry.timeSpent}}</md-panel-description>
           </md-expansion-panel-header>
           {{entry.description}}
@@ -41,7 +50,7 @@
     </div>
   </div>
   <div class="dialog-footer">
-    <button md-raised-button color="primary">OK</button>
+    <button md-raised-button color="primary">Create</button>
     <button md-raised-button>Cancel</button>
   </div>
 

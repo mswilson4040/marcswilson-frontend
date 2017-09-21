@@ -10,12 +10,19 @@
   }
   .dialog-main {
     @extend .g-dialog-main;
-    #inputOptions {
-      display: flex;
+    .input-container {
+      @extend .g-input-container;
+      width: 50%;
+      padding: 10px;
+    }
+    #invoiceCompany {
       .input-container {
-        @extend .g-input-container;
-        width: 50%;
-        padding: 0 10px;
+        width: 100%;
+      }
+    }
+    #inputOptions {
+      .invoice-date-options {
+        display: flex;
       }
     }
     #preview {
