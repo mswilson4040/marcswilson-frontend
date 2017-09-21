@@ -11,6 +11,11 @@
             <md-option *ngFor="let company of companies" [value]="company">{{company.name}}</md-option>
           </md-select>
         </div>
+        <div class="input-container">
+          <md-input-container>
+            <input mdInput placeholder="Bill Rate" [(ngModel)]="billRate"  type="number"/>
+          </md-input-container>
+        </div>
       </div>
       <div class="invoice-date-options">
         <div class="input-container">
@@ -50,8 +55,8 @@
     </div>
   </div>
   <div class="dialog-footer">
-    <button md-raised-button color="primary">Create</button>
-    <button md-raised-button>Cancel</button>
+    <button md-raised-button color="primary" (click)="createInvoice()">Create</button>
+    <button md-raised-button (click)="cancel()">Cancel</button>
   </div>
 
 </section>

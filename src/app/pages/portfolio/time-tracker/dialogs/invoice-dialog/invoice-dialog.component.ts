@@ -5,6 +5,7 @@ import { AuthenticationResponse } from '../../../../../shared-classes/authentica
 import { AuthService } from '../../../../../shared-services/auth.service';
 import { Company, Entry } from '../../classes/company';
 import { ErrorDialogComponent } from '../../../../../shared-components/error-dialog/error-dialog.component';
+import { Invoice } from '../../classes/invoice';
 
 @Component({
   selector: 'app-invoice-dialog',
@@ -18,6 +19,8 @@ export class InvoiceDialogComponent implements OnInit {
   public entries: Array<Entry> = new Array<Entry>();
   public company: Company = null;
   public companies: Array<Company> = new Array<Company>();
+  public billRate: number = null;
+  public invoice: Invoice = null;
   constructor(private _mdDialogRef: MdDialogRef<InvoiceDialogComponent>, private _timeTrackerService: TimeTrackerService,
               private _authService: AuthService, private _dialog: MdDialog) {
   }
@@ -37,6 +40,17 @@ export class InvoiceDialogComponent implements OnInit {
         edr.componentInstance.error = error;
       });
     }
+  }
+  createInvoice(): void {
+    this.invoice = new Invoice({
+      company: this.company,
+      billRate: this.billRate,
+      entries: this.entries,
+    });
+    this._mdDialogRef.close(this.invoice);
+  }
+  cancel(): void {
+    this._mdDialogRef.close(null);
   }
 
 }

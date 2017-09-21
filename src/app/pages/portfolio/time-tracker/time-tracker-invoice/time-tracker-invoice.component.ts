@@ -15,6 +15,7 @@ import { AuthService } from '../../../../shared-services/auth.service';
 export class TimeTrackerInvoiceComponent implements OnInit {
   public companies: Array<Company> = new Array<Company>();
   public authResponse: AuthenticationResponse = null;
+
   constructor(private _dialog: MdDialog, private _timeTrackerService: TimeTrackerService, private _authService: AuthService) { }
 
   ngOnInit() {
@@ -30,7 +31,9 @@ export class TimeTrackerInvoiceComponent implements OnInit {
     const dialogRef = this._dialog.open(InvoiceDialogComponent);
     dialogRef.componentInstance.companies = this.companies;
     dialogRef.afterClosed().subscribe( result => {
-
+      if (result) {
+        // TODO: Add Invoice to DB
+      }
     });
   }
 }

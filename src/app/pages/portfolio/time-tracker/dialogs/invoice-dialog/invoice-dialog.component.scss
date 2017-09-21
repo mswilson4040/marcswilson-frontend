@@ -15,13 +15,11 @@
       width: 50%;
       padding: 10px;
     }
-    #invoiceCompany {
-      .input-container {
-        width: 100%;
-      }
-    }
     #inputOptions {
       .invoice-date-options {
+        display: flex;
+      }
+      #invoiceCompany {
         display: flex;
       }
     }
