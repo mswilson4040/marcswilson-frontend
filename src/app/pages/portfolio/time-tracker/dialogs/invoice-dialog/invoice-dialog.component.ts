@@ -21,6 +21,7 @@ export class InvoiceDialogComponent implements OnInit {
   public companies: Array<Company> = new Array<Company>();
   public billRate: number = null;
   public invoice: Invoice = null;
+  public totalHours: number = null;
   constructor(private _mdDialogRef: MdDialogRef<InvoiceDialogComponent>, private _timeTrackerService: TimeTrackerService,
               private _authService: AuthService, private _dialog: MdDialog) {
   }
@@ -35,6 +36,7 @@ export class InvoiceDialogComponent implements OnInit {
       const lastDay = new Date(this.invoiceYear, +this.invoiceMonth + 1, 0);
       this._timeTrackerService.getEntriesByDateRangeAndCompanyId(start, lastDay, this.company).then( entries => {
         this.entries = entries;
+        this.totalHours = this.entries.reduce( (accumulator, entry) => accumulator + entry.timeSpent, 0);
       }, error => {
         const edr = this._dialog.open(ErrorDialogComponent);
         edr.componentInstance.error = error;
