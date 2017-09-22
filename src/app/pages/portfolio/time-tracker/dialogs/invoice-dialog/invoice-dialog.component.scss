@@ -24,7 +24,15 @@
       }
     }
     #preview {
-
+      #previewHeader {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        .header-text {
+          padding: 5px 10px;
+          font-size: 80%;
+        }
+      }
     }
   }
   .dialog-footer {

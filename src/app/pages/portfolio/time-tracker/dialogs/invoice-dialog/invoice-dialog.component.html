@@ -13,7 +13,7 @@
         </div>
         <div class="input-container">
           <md-input-container>
-            <input mdInput placeholder="Bill Rate" [(ngModel)]="billRate"  type="number"/>
+            <input mdInput placeholder="Bill Rate" [(ngModel)]="billRate"  type="number" (change)="onBillRateChange()"/>
           </md-input-container>
         </div>
       </div>
@@ -42,8 +42,11 @@
       </div>
     </div>
     <div id="preview">
-      <div>{{entries.length}} entries found</div>
-      <div>Total Hours: {{totalHours}}</div>
+      <div id="previewHeader">
+        <div class="text-muted lead header-text">Entries Found: {{entries.length}}</div>
+        <div class="text-muted lead header-text">Total Hours: {{totalHours}}</div>
+        <div class="text-muted lead header-text">Total Compensation: {{totalCompensation | currency:'USD':true}}</div>
+      </div>
       <div *ngFor="let entry of entries">
         <md-expansion-panel>
           <md-expansion-panel-header>
