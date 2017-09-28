@@ -6,11 +6,13 @@ export class Invoice {
   public entries: Array<Entry> = new Array<Entry>();
   public totalHours = 0;
   public totalCompensation = 0;
+  public userId: string = null;
 
   constructor(data?) {
     if (data) {
       this.company = data.company;
       this.billRate = data.billRate;
+      this.userId = data.userId;
       for (let i = 0; i < data.entries.length; i++) {
         const entry = data.entries[i];
         this.addEntry(entry);

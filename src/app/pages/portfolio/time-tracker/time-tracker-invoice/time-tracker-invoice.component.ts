@@ -6,6 +6,7 @@ import { Company } from '../classes/company';
 import { ErrorDialogComponent } from '../../../../shared-components/error-dialog/error-dialog.component';
 import { AuthenticationResponse } from '../../../../shared-classes/authentication-response';
 import { AuthService } from '../../../../shared-services/auth.service';
+import { Invoice } from '../classes/invoice';
 
 @Component({
   selector: 'app-time-tracker-invoice',
@@ -15,6 +16,7 @@ import { AuthService } from '../../../../shared-services/auth.service';
 export class TimeTrackerInvoiceComponent implements OnInit {
   public companies: Array<Company> = new Array<Company>();
   public authResponse: AuthenticationResponse = null;
+  public invoices: Array<Invoice> = new Array<Invoice>();
 
   constructor(private _dialog: MdDialog, private _timeTrackerService: TimeTrackerService, private _authService: AuthService) { }
 
@@ -32,8 +34,18 @@ export class TimeTrackerInvoiceComponent implements OnInit {
     dialogRef.componentInstance.companies = this.companies;
     dialogRef.afterClosed().subscribe( result => {
       if (result) {
-        // TODO: Add Invoice to DB
+        this._timeTrackerService.addInvoice(result).then( invoices => {
+          if (invoices) {
+            this.invoices = invoices;
+          }
+        }, error => {
+          const edr = this._dialog.open(ErrorDialogComponent);
+          edr.componentInstance.error = error;
+        });
       }
+    }, error => {
+      const edr = this._dialog.open(ErrorDialogComponent);
+      edr.componentInstance.error = error;
     });
   }
 }

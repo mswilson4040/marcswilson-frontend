@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { environment } from '../../../../../environments/environment';
 import {Company, Entry, Project} from '../classes/company';
+import { Invoice } from '../classes/invoice';
 
 @Injectable()
 export class TimeTrackerService {
@@ -62,6 +63,34 @@ export class TimeTrackerService {
         resolve(entries);
       }, error => {
         reject(error);
+      });
+    });
+  }
+  addInvoice(invoice: Invoice): Promise<any> {
+    return new Promise( (resolve, reject) => {
+      this._http.post(`${this.API_PATH}/invoice/addinvoice`, { invoice: invoice }).subscribe( result => {
+        if (result) {
+          this.getInvoices(invoice.userId).then( invoices => {
+            resolve(invoices);
+          }, error => {
+            reject(error);
+          });
+        }
+      }, error => {
+        reject(error);
+      });
+    });
+  }
+  getInvoices(userId: string): Promise<Array<Invoice>> {
+    return new Promise( (resolve, reject) => {
+      this._http.get(`${this.API_PATH}/invoice/invoices/${userId}`).subscribe( _invoices => {
+        if (_invoices) {
+          const parsed = JSON.parse(_invoices['_body']);
+          const invoices = parsed.map( i => {
+            return new Invoice(i);
+          });
+          resolve(invoices);
+        }
       });
     });
   }

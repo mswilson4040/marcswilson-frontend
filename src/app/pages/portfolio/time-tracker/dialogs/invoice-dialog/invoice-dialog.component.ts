@@ -51,6 +51,7 @@ export class InvoiceDialogComponent implements OnInit {
   createInvoice(): void {
     this.invoice = new Invoice({
       company: this.company,
+      userId: this.authResponse.sub,
       billRate: this.billRate,
       entries: this.entries,
     });

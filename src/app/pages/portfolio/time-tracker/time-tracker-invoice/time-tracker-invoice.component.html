@@ -4,6 +4,11 @@
     <hr />
   </header>
   <main>
+    <section>
+      <div *ngFor="let invoice of invoices">
+        {{invoice.totalHours}}
+      </div>
+    </section>
     <button md-raised-button color="primary" (click)="createInvoice()">Create Invoice</button>
   </main>
 </section>
