@@ -5,20 +5,27 @@
   </header>
   <main>
     <section>
-      <md-expansion-panel *ngFor="let invoice of invoices">
-        <md-expansion-panel-header>
-          <md-panel-title>
-            {{invoice.totalHours}}
-          </md-panel-title>
-          <md-panel-description>
-            {{invoice.totalCompensation | currency:'USD':true:'4.2-2'}}
-          </md-panel-description>
-        </md-expansion-panel-header>
-        <div *ngFor="let entry of invoice.entries">
-          {{entry.description}}
-        </div>
-      </md-expansion-panel>
+      <md-accordion *ngIf="selectedTab === 3">
+        <md-expansion-panel *ngFor="let invoice of invoices">
+          <md-expansion-panel-header>
+            <md-panel-title>
+              Invoice for {{invoice.invoiceMonth}}, {{invoice.invoiceYear}}
+            </md-panel-title>
+            <md-panel-description>
+              {{invoice.totalHours}} hours {{invoice.totalCompensation | currency:'USD':true}}
+            </md-panel-description>
+          </md-expansion-panel-header>
+          <div>
+            <div *ngFor="let entry of invoice.entries">
+              {{entry.project.name}}
+              {{entry.description}}
+            </div>
+          </div>
+        </md-expansion-panel>
+      </md-accordion>
     </section>
     <button md-raised-button color="primary" (click)="createInvoice()">Create Invoice</button>
   </main>
 </section>
+
+

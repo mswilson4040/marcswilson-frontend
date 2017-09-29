@@ -63,9 +63,11 @@
           <app-time-tracker-timesheet></app-time-tracker-timesheet>
         </md-tab>
         <md-tab label="Invoices">
-          <app-time-tracker-invoice></app-time-tracker-invoice>
+          <app-time-tracker-invoice [selectedTab]="selectedTab"></app-time-tracker-invoice>
         </md-tab>
-        <md-tab label="Breakdown">Breakdown</md-tab>
+        <md-tab label="Breakdown">
+          Breakdown
+        </md-tab>
       </md-tab-group>
     </div>
   </div>

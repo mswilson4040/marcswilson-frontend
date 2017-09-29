@@ -54,6 +54,9 @@ export class InvoiceDialogComponent implements OnInit {
       userId: this.authResponse.sub,
       billRate: this.billRate,
       entries: this.entries,
+      invoiceDate: new Date(),
+      invoiceMonth: this.invoiceMonth,
+      invoiceYear: this.invoiceYear
     });
     this._mdDialogRef.close(this.invoice);
   }

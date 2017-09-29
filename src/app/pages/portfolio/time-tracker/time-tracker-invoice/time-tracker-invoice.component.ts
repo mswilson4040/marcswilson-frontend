@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MdDialog } from '@angular/material';
 import { InvoiceDialogComponent } from '../dialogs/invoice-dialog/invoice-dialog.component';
 import { TimeTrackerService } from '../services/time-tracker.service';
@@ -17,6 +17,7 @@ export class TimeTrackerInvoiceComponent implements OnInit {
   public companies: Array<Company> = new Array<Company>();
   public authResponse: AuthenticationResponse = null;
   public invoices: Array<Invoice> = new Array<Invoice>();
+  @Input() selectedTab = 0;
 
   constructor(private _dialog: MdDialog, private _timeTrackerService: TimeTrackerService, private _authService: AuthService) { }
 

@@ -1,4 +1,5 @@
 import { Company, Entry } from './company';
+import { Months } from '../../../../enums/months.enum';
 
 export class Invoice {
   public company: Company = null;
@@ -7,12 +8,18 @@ export class Invoice {
   public totalHours = 0;
   public totalCompensation = 0;
   public userId: string = null;
+  public invoiceMonth: any = null;
+  public invoiceYear: number = null;
+  public invoiceDate: Date = new Date();
 
   constructor(data?) {
     if (data) {
       this.company = data.company;
       this.billRate = data.billRate;
       this.userId = data.userId;
+      this.invoiceMonth = Months[data.invoiceMonth];
+      this.invoiceYear = data.invoiceYear;
+      this.invoiceDate = data.invoiceDate;
       for (let i = 0; i < data.entries.length; i++) {
         const entry = data.entries[i];
         this.addEntry(entry);
