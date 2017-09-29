@@ -5,9 +5,19 @@
   </header>
   <main>
     <section>
-      <div *ngFor="let invoice of invoices">
-        {{invoice.totalHours}}
-      </div>
+      <md-expansion-panel *ngFor="let invoice of invoices">
+        <md-expansion-panel-header>
+          <md-panel-title>
+            {{invoice.totalHours}}
+          </md-panel-title>
+          <md-panel-description>
+            {{invoice.totalCompensation | currency:'USD':true:'4.2-2'}}
+          </md-panel-description>
+        </md-expansion-panel-header>
+        <div *ngFor="let entry of invoice.entries">
+          {{entry.description}}
+        </div>
+      </md-expansion-panel>
     </section>
     <button md-raised-button color="primary" (click)="createInvoice()">Create Invoice</button>
   </main>

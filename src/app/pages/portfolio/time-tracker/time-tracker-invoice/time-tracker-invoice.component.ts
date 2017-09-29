@@ -28,6 +28,12 @@ export class TimeTrackerInvoiceComponent implements OnInit {
       const edr = this._dialog.open(ErrorDialogComponent);
       edr.componentInstance.error = error;
     });
+    this._timeTrackerService.getInvoices(this.authResponse.sub).then( invoices => {
+      this.invoices = invoices;
+    }, error => {
+      const edr = this._dialog.open(ErrorDialogComponent);
+      edr.componentInstance.error = error;
+    });
   }
   createInvoice(): void {
     const dialogRef = this._dialog.open(InvoiceDialogComponent);
