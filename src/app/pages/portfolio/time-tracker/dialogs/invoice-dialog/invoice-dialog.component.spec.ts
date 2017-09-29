@@ -1,11 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { InvoiceDialogComponent } from './invoice-dialog.component';
-import { MdDialogModule, MdDialogRef, MdSelectModule } from '@angular/material';
+import { MdDialogModule, MdDialogRef, MdExpansionModule, MdSelectModule } from '@angular/material';
 import { FormsModule } from '@angular/forms';
 import { TimeTrackerService } from '../../services/time-tracker.service';
 import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthService } from '../../../../../shared-services/auth.service';
+import { RouterTestingModule } from '@angular/router/testing';
 
 class MdDialogRefMock {}
 
@@ -21,11 +23,14 @@ describe('InvoiceDialogComponent', () => {
         FormsModule,
         HttpModule,
         BrowserAnimationsModule,
-        MdDialogModule
+        MdDialogModule,
+        MdExpansionModule,
+        RouterTestingModule
       ],
       providers: [
         { provide: MdDialogRef, useClass: MdDialogRefMock },
-        TimeTrackerService
+        TimeTrackerService,
+        AuthService
       ]
     })
     .compileComponents();
