@@ -18,7 +18,10 @@
     .g-input-container {
       width: 100%;
       padding: 10px 0;
-      md-select, md-input-container {
+      md-select,
+      md-input-container,
+      md-form-field,
+      input {
         width: 100%;
       }
     }

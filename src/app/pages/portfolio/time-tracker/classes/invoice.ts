@@ -8,18 +8,20 @@ export class Invoice {
   public totalHours = 0;
   public totalCompensation = 0;
   public userId: string = null;
-  public invoiceMonth: any = null;
+  public invoiceMonth: string = null;
   public invoiceYear: number = null;
   public invoiceDate: Date = new Date();
+  public invoiceDueDate: Date = new Date();
 
   constructor(data?) {
     if (data) {
       this.company = data.company;
       this.billRate = data.billRate;
       this.userId = data.userId;
-      this.invoiceMonth = Months[data.invoiceMonth];
+      this.invoiceMonth = data.invoiceMonth;
       this.invoiceYear = data.invoiceYear;
       this.invoiceDate = data.invoiceDate;
+      this.invoiceDueDate = data.invoiceDueDate;
       for (let i = 0; i < data.entries.length; i++) {
         const entry = data.entries[i];
         this.addEntry(entry);

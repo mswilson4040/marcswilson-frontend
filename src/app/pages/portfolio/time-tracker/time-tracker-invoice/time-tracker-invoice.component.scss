@@ -1,3 +1,19 @@
 #invoiceContainer {
   margin-top: 50px;
+  .content-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .content-body {
+    margin-top: 15px;
+    .invoice-entry-container {
+      .title-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+  }
 }

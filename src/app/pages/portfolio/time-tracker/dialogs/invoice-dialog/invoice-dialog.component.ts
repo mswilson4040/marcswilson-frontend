@@ -23,6 +23,7 @@ export class InvoiceDialogComponent implements OnInit {
   public invoice: Invoice = null;
   public totalHours = 0;
   public totalCompensation = 0;
+  public invoiceDueDate: Date = new Date();
   constructor(private _mdDialogRef: MdDialogRef<InvoiceDialogComponent>, private _timeTrackerService: TimeTrackerService,
               private _authService: AuthService, private _dialog: MdDialog) {
   }
@@ -56,7 +57,8 @@ export class InvoiceDialogComponent implements OnInit {
       entries: this.entries,
       invoiceDate: new Date(),
       invoiceMonth: this.invoiceMonth,
-      invoiceYear: this.invoiceYear
+      invoiceYear: this.invoiceYear,
+      invoiceDueDate: this.invoiceDueDate
     });
     this._mdDialogRef.close(this.invoice);
   }

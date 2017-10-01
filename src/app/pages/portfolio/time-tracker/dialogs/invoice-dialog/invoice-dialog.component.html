@@ -7,7 +7,7 @@
     <div id="inputOptions">
       <div id="invoiceCompany">
         <div class="input-container">
-          <md-select [(ngModel)]="company" (change)="getInvoiceEntries()">
+          <md-select [(ngModel)]="company" (change)="getInvoiceEntries()" placeholder="Company">
             <md-option *ngFor="let company of companies" [value]="company">{{company.name}}</md-option>
           </md-select>
         </div>
@@ -38,6 +38,15 @@
           <md-input-container>
             <input mdInput placeholder="Invoice Year" [(ngModel)]="invoiceYear" type="number" (change)="getInvoiceEntries()" />
           </md-input-container>
+        </div>
+      </div>
+      <div id="invoiceDueDate">
+        <div class="input-container">
+          <md-form-field>
+            <input mdInput [mdDatepicker]="picker" placeholder="Invoice Due Date" />
+            <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
+            <md-datepicker #picker></md-datepicker>
+          </md-form-field>
         </div>
       </div>
     </div>
