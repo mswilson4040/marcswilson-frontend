@@ -2,6 +2,7 @@ import { Company, Entry } from './company';
 import { Months } from '../../../../enums/months.enum';
 
 export class Invoice {
+  public _id: string = null;
   public company: Company = null;
   public billRate: number = null;
   public entries: Array<Entry> = new Array<Entry>();
@@ -22,6 +23,7 @@ export class Invoice {
       this.invoiceYear = data.invoiceYear;
       this.invoiceDate = data.invoiceDate;
       this.invoiceDueDate = data.invoiceDueDate;
+      this._id = data._id;
       for (let i = 0; i < data.entries.length; i++) {
         const entry = data.entries[i];
         this.addEntry(entry);

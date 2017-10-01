@@ -94,6 +94,17 @@ export class TimeTrackerService {
       });
     });
   }
+  exportInvoice(invoice: Invoice): Promise<any> {
+    return new Promise( (resolve, reject) => {
+      this._http.get(`${this.API_PATH}/invoice/export/${invoice._id}`).subscribe( _invoice => {
+        if (_invoice) {
+
+        }
+      }, error => {
+        reject(error);
+      })
+    });
+  }
   getCompanies(userId: string): Promise<Array<Company>> {
     return new Promise( (resolve, reject) => {
       this._http.get(`${this.API_PATH}/companies/${userId}`).subscribe( _companies => {
