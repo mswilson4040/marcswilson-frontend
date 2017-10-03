@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { environment } from '../../../../../environments/environment';
-import {Company, Entry, Project} from '../classes/company';
+import { Company, Entry, Project } from '../classes/company';
 import { Invoice } from '../classes/invoice';
+import * as XLSX from 'xlsx';
 
 @Injectable()
 export class TimeTrackerService {
@@ -98,11 +99,17 @@ export class TimeTrackerService {
     return new Promise( (resolve, reject) => {
       this._http.get(`${this.API_PATH}/invoice/export/${invoice._id}`).subscribe( _invoice => {
         if (_invoice) {
+          const parsed = JSON.parse(_invoice['_body']);
+          if (parsed) {
+            const workbook = XLSX.read(_invoice['_body'], { type: 'base64' });
+            if (workbook) {
 
+            }
+          }
         }
       }, error => {
         reject(error);
-      })
+      });
     });
   }
   getCompanies(userId: string): Promise<Array<Company>> {
