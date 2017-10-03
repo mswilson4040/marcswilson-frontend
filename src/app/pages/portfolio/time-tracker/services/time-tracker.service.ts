@@ -103,7 +103,7 @@ export class TimeTrackerService {
           if (parsed) {
             const workbook = XLSX.read(_invoice['_body'], { type: 'base64' });
             if (workbook) {
-
+              // do something with the workbook
             }
           }
         }
