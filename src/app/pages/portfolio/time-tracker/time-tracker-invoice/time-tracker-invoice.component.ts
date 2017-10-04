@@ -7,7 +7,6 @@ import { ErrorDialogComponent } from '../../../../shared-components/error-dialog
 import { AuthenticationResponse } from '../../../../shared-classes/authentication-response';
 import { AuthService } from '../../../../shared-services/auth.service';
 import { Invoice } from '../classes/invoice';
-import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-time-tracker-invoice',
@@ -59,12 +58,12 @@ export class TimeTrackerInvoiceComponent implements OnInit {
   exportInvoice(invoice: Invoice) {
     this._timeTrackerService.exportInvoice(invoice).then( _invoice => {
       if (_invoice) {
-
+        // TODO: Figure out a way to add invoice to an existing (styled) excel workbook/sheet
       }
     }, error => {
       const edr = this._dialog.open(ErrorDialogComponent);
       edr.componentInstance.error = error;
-    })
+    });
 
   }
 }

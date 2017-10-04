@@ -3,8 +3,6 @@ import { Http } from '@angular/http';
 import { environment } from '../../../../../environments/environment';
 import { Company, Entry, Project } from '../classes/company';
 import { Invoice } from '../classes/invoice';
-import * as XLSX from 'xlsx';
-
 @Injectable()
 export class TimeTrackerService {
 
@@ -101,10 +99,7 @@ export class TimeTrackerService {
         if (_invoice) {
           const parsed = JSON.parse(_invoice['_body']);
           if (parsed) {
-            const workbook = XLSX.read(_invoice['_body'], { type: 'base64' });
-            if (workbook) {
-              // do something with the workbook
-            }
+            resolve(parsed);
           }
         }
       }, error => {
