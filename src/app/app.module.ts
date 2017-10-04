@@ -25,21 +25,12 @@ import {
   MdTabsModule, MdTooltipModule
 } from '@angular/material';
 import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TimeTrackerComponent } from './pages/portfolio/time-tracker/time-tracker.component';
 import { ContactFormDialogComponent } from './shared-components/contact-form-dialog/contact-form-dialog.component';
-import { CompanyDialogComponent } from './pages/portfolio/time-tracker/dialogs/company-dialog/company-dialog.component';
-import { TimeTrackerTimesheetComponent } from './pages/portfolio/time-tracker/time-tracker-timesheet/time-tracker-timesheet.component';
-import { EntryDialogComponent } from './pages/portfolio/time-tracker/dialogs/entry-dialog/entry-dialog.component';
-import { ProjectDialogComponent } from './pages/portfolio/time-tracker/dialogs/project-dialog/project-dialog.component';
 import { ErrorDialogComponent } from './shared-components/error-dialog/error-dialog.component';
 import { ConfirmDialogComponent } from './shared-components/confirm-dialog/confirm-dialog.component';
-import { TimeTrackerCalendarComponent } from './pages/portfolio/time-tracker/time-tracker-calendar/time-tracker-calendar.component';
 import { CallbackComponent } from './shared-components/callback/callback.component';
 import { LoginDialogComponent } from './shared-components/login-dialog/login-dialog.component';
-import { TimeTrackerInvoiceComponent } from './pages/portfolio/time-tracker/time-tracker-invoice/time-tracker-invoice.component';
-import { InvoiceDialogComponent } from './pages/portfolio/time-tracker/dialogs/invoice-dialog/invoice-dialog.component';
 import { AuthService } from './shared-services/auth.service';
-import { TimeTrackerService } from './pages/portfolio/time-tracker/services/time-tracker.service';
 import { EmailService } from './shared-services/email.service';
 import { PowerballService } from './pages/portfolio/powerball/services/powerball.service';
 import { MlbStatsService } from './pages/portfolio/mlb-stats/services/mlb-stats.service';
@@ -62,19 +53,11 @@ import { AuthGuard } from './guards/auth.guard';
     MLBteamsComponent,
     PowerballComponent,
     OverlayComponent,
-    TimeTrackerComponent,
     ContactFormDialogComponent,
-    CompanyDialogComponent,
-    TimeTrackerTimesheetComponent,
-    EntryDialogComponent,
-    ProjectDialogComponent,
     ErrorDialogComponent,
     ConfirmDialogComponent,
-    TimeTrackerCalendarComponent,
     CallbackComponent,
-    LoginDialogComponent,
-    TimeTrackerInvoiceComponent,
-    InvoiceDialogComponent
+    LoginDialogComponent
   ],
   entryComponents: [
     MLBBallparksComponent,
@@ -82,13 +65,9 @@ import { AuthGuard } from './guards/auth.guard';
     MLBTeamComponent,
     MLBteamsComponent,
     ContactFormDialogComponent,
-    CompanyDialogComponent,
-    EntryDialogComponent,
-    ProjectDialogComponent,
     ErrorDialogComponent,
     ConfirmDialogComponent,
     LoginDialogComponent,
-    InvoiceDialogComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -119,7 +98,6 @@ import { AuthGuard } from './guards/auth.guard';
     PowerballService,
     AuthService,
     EmailService,
-    TimeTrackerService,
     AuthGuard
   ],
   bootstrap: [ShellComponent]

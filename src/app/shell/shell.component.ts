@@ -1,13 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {UIService} from '../shared-services/ui.service';
-import {MlbStatsService} from '../pages/portfolio/mlb-stats/services/mlb-stats.service';
 import 'jquery';
 import 'jqueryui';
 import 'hammerjs';
-import {PowerballService} from '../pages/portfolio/powerball/services/powerball.service';
-import {AuthService} from '../shared-services/auth.service';
-import {EmailService} from '../shared-services/email.service';
-import {TimeTrackerService} from '../pages/portfolio/time-tracker/services/time-tracker.service';
+import { AuthService } from '../shared-services/auth.service';
 
 @Component({
   selector: 'app-shell',
