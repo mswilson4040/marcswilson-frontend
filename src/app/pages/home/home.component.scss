@@ -1,109 +1,73 @@
-@import '../../../globals';
+$backgroundImageUrl: '../../../images/jumbotron-seats.jpg';
 
-#homeContainer {
-  #coverImage {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    display: none;
+#homePage {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template:
+    [nav-left] "nav nav" 55px [nav-right]
+    [main-left] "main main" 1fr [main-right]
+    [footer-left] "foot foot" auto [footer-right];
+  nav {
+    grid-area: nav;
+    background-color: #1E2933;
   }
-  #welcomeScreen {
-    position: absolute;
-    left: 25%;
-    top: 50%;
-    z-index: 999;
-    text-align: center;
-    color: black;
-    .name-container {
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: center;
-
-      #firstName {
-        display: flex;
-        flex-direction: row;
-      }
-      #lastName {
-        display: flex;
-        flex-direction: row;
-      }
-      .hidden-text {
-        display: none;
-      }
-    }
-    #underline {
-      height: 2px;
-      background-color: transparent;
+  main {
+    grid-area: main;
+    animation: fadeInBackground 2s;
+    #jumbotron {
       width: 100%;
+      height: 40%;
+      background: url($backgroundImageUrl) no-repeat;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      md-card {
+        position: absolute;
+        top: 20%;
+        height: 40%;
+      }
     }
   }
+  footer {
+    grid-area: foot;
+    background-color: gray;
+  }
+}
+
+@keyframes fadeInBackground {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 // <editor-fold desc="Media Queries">
 
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) {
-  .first-name-width {
-    width: 80px;
-  }
-  #lastName {
-    width: 100px;
-  }
-  #firstName, #lastName {
-    font-size: 35px;
+  md-card {
+    width: 90%;
   }
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
-  .first-name-width {
-    width: 105px;
-  }
-  #lastName {
-    width: 200px;
-  }
-  #firstName, #lastName {
-    font-size: 45px;
-  }
+
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) and (max-width: 991px) {
-  .first-name-width {
-    width: 105px;
-  }
-  #lastName {
-    width: 200px;
-  }
-  #firstName, #lastName {
-    font-size: 45px;
-  }
+
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-  .first-name-width {
-    width: 105px;
-  }
-  #lastName {
-    width: 200px;
-  }
-  #firstName, #lastName {
-    font-size: 45px;
-  }
+
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-  .first-name-width {
-    width: 105px;
-  }
-  #lastName {
-    width: 200px;
-  }
-  #firstName, #lastName {
-    font-size: 45px;
+  md-card {
+    width: 30%;
   }
 }
 
