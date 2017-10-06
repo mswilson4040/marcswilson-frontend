@@ -1,4 +1,5 @@
 $backgroundImageUrl: '../../../images/jumbotron-seats.jpg';
+$portfolioImageUrl: '../../../images/me.jpg';
 
 #homePage {
   display: grid;
@@ -25,7 +26,117 @@ $backgroundImageUrl: '../../../images/jumbotron-seats.jpg';
       md-card {
         position: absolute;
         top: 20%;
-        height: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0;
+        .main {
+          height: 80%;
+          width: 100%;
+          padding: 20px;
+          display: flex;
+          justify-content: space-between;
+          .image-container {
+            img {
+              height: 100%;
+              width: 100%;
+            }
+          }
+          .content-container {
+            h3 {
+              font-weight: 300;
+            }
+            p {
+              color: #868e96;
+            }
+            #buttonContainer {
+              text-align: right;
+            }
+          }
+        }
+        .footer {
+          height: 70px;
+          width: 100%;
+          background-color: #263238;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          .social-media-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100%;
+            width: 80%;
+            .icon-container {
+              height: 55px;
+              width: 55px;
+              .social-media-icon {
+                border: 1px solid transparent;
+                border-radius: 50%;
+                height: 55px;
+                width: 55px;
+                padding: 10px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+              }
+              .social-media-icon.linkedIn {
+                color: #FFF;
+                transition: 200ms all;
+              }
+              .social-media-icon.linkedIn:hover {
+                color: white;
+                background-color: #455A64;
+              }
+              .social-media-icon.facebook {
+                //@include fadeInIcon(400ms);
+                color: #FFF;
+                transition: 200ms all;
+              }
+              .social-media-icon.facebook:hover {
+                color: white;
+                background-color: #455A64;
+              }
+              .social-media-icon.github {
+                //@include fadeInIcon(600ms);
+                color: #FFF;
+                transition: 200ms all;
+              }
+              .social-media-icon.github:hover {
+                color: white;
+                background-color: #455A64;
+              }
+              .social-media-icon.stackoverflow {
+                //@include fadeInIcon(800ms);
+                color: #FFF;
+                transition: 200ms all;
+              }
+              .social-media-icon.stackoverflow:hover {
+                color: white;
+                background-color: #455A64;
+              }
+              .social-media-icon.twitter {
+                //@include fadeInIcon(1000ms);
+                color: #FFF;
+                transition: 200ms all;
+              }
+              .social-media-icon.twitter:hover {
+                color: white;
+                background-color: #455A64;
+              }
+              .social-media-icon.mail {
+                //@include fadeInIcon(1200ms);
+                color: #FFF;
+                transition: 200ms all;
+              }
+              .social-media-icon.mail:hover {
+                color: white;
+                background-color: #455A64;
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -46,6 +157,19 @@ $backgroundImageUrl: '../../../images/jumbotron-seats.jpg';
 @media (max-width: 575px) {
   md-card {
     width: 90%;
+    .main {
+      flex-direction: column;
+      .image-container {
+        width: auto;
+      }
+      .content-container {
+        margin: 15px 0 0 0;
+        width: 100%;
+        h3 { font-size: 95%; }
+        h5 { font-size: 85%; }
+        p {  font-size: 70%; }
+      }
+    }
   }
 }
 
@@ -67,7 +191,21 @@ $backgroundImageUrl: '../../../images/jumbotron-seats.jpg';
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   md-card {
-    width: 30%;
+    height: 40%;
+    width: 40%;
+    .main {
+      flex-direction: row;
+      .content-container {
+        margin-left: 40px;
+        width: 60%;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+      }
+      .image-container {
+        width: 40%;
+      }
+    }
   }
 }
 

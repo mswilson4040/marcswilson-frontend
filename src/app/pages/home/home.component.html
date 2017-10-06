@@ -5,7 +5,56 @@
   <main>
     <div id="jumbotron">
       <md-card>
-        Something
+        <div class="main">
+          <div class="image-container">
+            <img src="../../../images/me.JPG" />
+          </div>
+          <div class="content-container">
+            <div>
+              <h3>Marc Wilson</h3>
+              <h5>Software Engineer</h5>
+              <hr />
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <div id="buttonContainer">
+              <button md-raised-button color="primary" (click)="launchContactForm()">Contact Me</button>
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <div class="social-media-container">
+            <div class="icon-container" (click)="navigate('https://www.linkedin.com/in/marc-wilson-43675750/')">
+              <div class="social-media-icon linkedIn">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="icon-container" (click)="navigate('https://www.facebook.com/mswilson4040')">
+              <div class="social-media-icon facebook">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="icon-container" (click)="navigate('https://github.com/mswilson4040')">
+              <div class="social-media-icon github">
+                <i class="fa fa-git" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="icon-container" (click)="navigate('https://stackoverflow.com/users/2415802/mwilson')">
+              <div class="social-media-icon stackoverflow">
+                <i class="fa fa-stack-overflow" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="icon-container" (click)="navigate('https://twitter.com/Mswilson4040')">
+              <div class="social-media-icon twitter">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="icon-container" (click)="navigate('mailto:mwilson@marcswilson.com')">
+              <div class="social-media-icon mail">
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+        </div>
       </md-card>
     </div>
   </main>
