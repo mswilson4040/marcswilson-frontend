@@ -1,33 +1,8 @@
-#globalNav {
-  position: absolute;
-  width: 100%;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  .navbar-text:hover {
+.nav-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  .nav-link {
     cursor: pointer;
-    opacity: 0.7;
-  }
-  .active {
-    border-bottom: 1px solid white;
-  }
-  .nav-right {
-    #loginContainer {
-      color: white;
-      #loginContainerInner {
-        #loginInfo {
-          display: flex;
-          align-items: center;
-          justify-content: flex-end;
-          img {
-            border-radius: 100px;
-            height: 35px;
-          }
-          #username {
-            padding: 0 10px;
-          }
-        }
-      }
-    }
   }
 }

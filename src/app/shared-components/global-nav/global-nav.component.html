@@ -1,32 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-light" id="globalNav">
-  <a class="navbar-brand" routerLink="/home">Marc Wilson</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li *ngFor="let link of links" class="nav-item" [class.active]="path === link.routerLink">
-        <a class="nav-link" routerLink="{{link.routerLink}}">{{link.name}}</a>
-      </li>
-      <li class="nav-item" (click)="openContactForm()" mdTooltip="Contact Me">
-        <div class="nav-link navbar-text">Contact Me</div>
-      </li>
-    </ul>
-    <div class="nav-right">
-      <div *ngIf="authResponse" id="loginContainer">
-        <button md-icon-button [mdMenuTriggerFor]="menu" id="loginContainerInner">
-          <div id="loginInfo">
-            <img [attr.src]="authResponse.picture" />
-            <div id="username">{{authResponse.name}}</div>
-          </div>
-        </button>
-        <md-menu #menu="mdMenu">
-          <button md-menu-item (click)="logout()">
-            Logout
-          </button>
-        </md-menu>
-      </div>
-    </div>
+<section class="nav-container">
+  <div class="nav-link" routerLink="/home">
+    Home
   </div>
-</nav>
+  <div class="nav-link" routerLink="/about">
+    About
+  </div>
+  <div class="nav-link" routerLink="/portfolio">
+    Portfolio
+  </div>
+</section>

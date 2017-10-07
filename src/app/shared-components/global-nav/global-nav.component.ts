@@ -18,38 +18,6 @@ export class GlobalNavComponent implements OnInit {
   public authResponse: AuthenticationResponse = new AuthenticationResponse();
   constructor(private _router: Router, private _dialog: MdDialog, private _emailService: EmailService,
               private _authService: AuthService) {
-    this.links.push(new Link('/home', 'Home', 'fa-home'));
-    this.links.push(new Link('/about', 'About', 'fa-user'));
-    this.links.push(new Link('/portfolio', 'Portfolio', 'fa-briefcase'));
-
-    this._router.events.subscribe((data) => {
-      this.path = data['url'];
-      if (this.path === '/' || this.path === '/home') {
-        this.fadeNavColors('white', 'transparent');
-      } else if (this.path === '/about') {
-        this.fadeNavColors('black', 'transparent');
-      } else if (this.path === '/portfolio') {
-        this.fadeNavColors('white', '#2F4050');
-      } else if (this.path === '/contact') {
-        this.fadeNavColors('white', '#2F4050');
-      } else if (this.path === '/mlbstats') {
-        this.fadeNavColors('white', '#2F4050');
-      } else if (this.path === '/mlbstatsapi') {
-        this.fadeNavColors('white', 'transparent');
-      } else if (this.path === '/powerball') {
-        this.fadeNavColors('white', '#2F4050');
-      } else if (this.path === '/timetracker') {
-        this.fadeNavColors('white', '#2F4050');
-      }
-      $('.nav-collapsable').hide('slide', {direction: 'up'}, 200);
-    });
-  }
-
-  fadeNavColors(textColor: string, backgroundColor: string): void {
-    const textColorJqEl = $('#globalNav').find('a,.navbar-text');
-    const backgroundColorJqEl = $('#globalNav');
-    textColorJqEl.animate({color: textColor}, 200);
-    backgroundColorJqEl.animate({'background-color': backgroundColor}, 200);
   }
 
   ngOnInit() {
