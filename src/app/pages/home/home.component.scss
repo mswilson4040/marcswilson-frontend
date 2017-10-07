@@ -23,9 +23,18 @@ $portfolioImageUrl: '../../../images/me.jpg';
       background-size: cover;
       display: flex;
       justify-content: center;
+
+    }
+    #mainContent {
+      position: absolute;
+      top: 25%;
+      animation: slideCardUp  500ms ease-out 1s 1;
+      animation-fill-mode: forwards;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       md-card {
-        position: absolute;
-        top: 20%;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -138,6 +147,29 @@ $portfolioImageUrl: '../../../images/me.jpg';
           }
         }
       }
+      #aboutSection {
+        //width: 40%;
+        margin-top: 80px;
+        h1 { font-weight: 300; }
+        .cards-container {
+          margin-top: 40px;
+          display: flex;
+          justify-content: space-between;
+          md-card {
+            //width: 30%;
+            text-align: center;
+            //height: 536px;
+            .image-container {
+              padding: 10px 0;
+              img {
+                border-radius: 150px;
+                height: 80px;
+                width: 80px;
+              }
+            }
+          }
+        }
+      }
     }
   }
   footer {
@@ -151,23 +183,45 @@ $portfolioImageUrl: '../../../images/me.jpg';
   to { opacity: 1; }
 }
 
+@keyframes slideCardUp {
+  from { top: 25%; }
+  to { top: 20%; }
+}
+
 // <editor-fold desc="Media Queries">
 
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) {
-  md-card {
-    width: 90%;
-    .main {
-      flex-direction: column;
-      .image-container {
-        width: auto;
+  #mainContent {
+    md-card {
+      width: 90%;
+      .main {
+        flex-direction: column;
+        .image-container {
+          width: auto;
+        }
+        .content-container {
+          margin: 15px 0 0 0;
+          width: 100%;
+          h3 {
+            font-size: 95%;
+          }
+          h5 {
+            font-size: 85%;
+          }
+          p {
+            font-size: 70%;
+          }
+        }
       }
-      .content-container {
-        margin: 15px 0 0 0;
-        width: 100%;
-        h3 { font-size: 95%; }
-        h5 { font-size: 85%; }
-        p {  font-size: 70%; }
+    }
+    #aboutSection {
+      width: 90%;
+      .cards-container {
+        flex-direction: column;
+        md-card {
+          width: 100%;
+        }
       }
     }
   }
@@ -190,20 +244,32 @@ $portfolioImageUrl: '../../../images/me.jpg';
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-  md-card {
-    height: 40%;
-    width: 40%;
-    .main {
-      flex-direction: row;
-      .content-container {
-        margin-left: 40px;
-        width: 60%;
-        display: flex;
-        justify-content: space-between;
-        flex-direction: column;
+  #mainContent {
+    md-card {
+      height: 40%;
+      width: 40%;
+      .main {
+        flex-direction: row;
+        .content-container {
+          margin-left: 40px;
+          width: 60%;
+          display: flex;
+          justify-content: space-between;
+          flex-direction: column;
+        }
+        .image-container {
+          width: 40%;
+        }
       }
-      .image-container {
-        width: 40%;
+    }
+    #aboutSection {
+      width: 40%;
+      .cards-container {
+        flex-direction: row;
+        md-card {
+          width: 30%;
+          height: 536px;
+        }
       }
     }
   }
