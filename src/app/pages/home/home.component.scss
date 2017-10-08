@@ -155,26 +155,14 @@ $portfolioImageUrl: '../../../images/me.jpg';
       }
       #aboutSection {
         //width: 40%;
+        text-align: center;
         margin-top: 80px;
         h1 { font-weight: 300; }
-        .cards-container {
-          margin-top: 40px;
-          display: flex;
-          justify-content: space-between;
-          md-card {
-            //width: 30%;
-            text-align: center;
-            //height: 536px;
-            .image-container {
-              padding: 10px 0;
-              img {
-                border-radius: 150px;
-                height: 80px;
-                width: 80px;
-              }
-            }
-          }
-        }
+      }
+      #portfolioSection {
+        text-align: center;
+        margin-top: 80px;
+        h1 { font-weight: 300; }
       }
     }
   }
@@ -226,12 +214,9 @@ $portfolioImageUrl: '../../../images/me.jpg';
     }
     #aboutSection {
       width: 90%;
-      .cards-container {
-        flex-direction: column;
-        md-card {
-          width: 100%;
-        }
-      }
+    }
+    #portfolioSection {
+      width: 90%;
     }
   }
 }
@@ -273,13 +258,9 @@ $portfolioImageUrl: '../../../images/me.jpg';
     }
     #aboutSection {
       width: 40%;
-      .cards-container {
-        flex-direction: row;
-        md-card {
-          width: 30%;
-          height: 536px;
-        }
-      }
+    }
+    #portfolioSection {
+      width: 40%;
     }
   }
 }

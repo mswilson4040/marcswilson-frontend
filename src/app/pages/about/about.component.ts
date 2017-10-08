@@ -10,9 +10,5 @@ export class AboutComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-
-  }
-  navigate(url: string) {
-    window.open(url, '_blank');
   }
 }

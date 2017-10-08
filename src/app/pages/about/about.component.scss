@@ -1,444 +1,57 @@
-$facebookBlue: #3b5998;
-$linkedInBlue: #0077B5;
-$githubBlack: #24292e;
-$stackoverflowOrange: #f69c55;
-$twitterBlue: #1da1f2;
-$microsoftBlue: #0072C6;
-$csvGreen: #0F760F;
-
-@mixin fadeInIcon ($delay) {
-  opacity: 0;
-  animation: fadeSocialMediaIcon 1000ms $delay forwards ease-in;
-}
-
-#aboutContainer {
-  #header {
-    width: 100%;
-    .jumbotron {
-      color: white;
-      background-image: url('../../../images/pilchuck.jpg');
-      background-size: cover;
-      text-align: center;
-    }
-    #imageContainer {
-      width: 100%;
-      border-radius: 100px;
-      text-align: center;
+.cards-container {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  md-card {
+    //width: 30%;
+    text-align: center;
+    //height: 536px;
+    .image-container {
+      padding: 10px 0;
       img {
-        border-radius: 100px;
-        border: 3px solid gray;
-      }
-    }
-  }
-  #socialMediaContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px;
-    height: 60px;
-    .social-media-container {
-      display: flex;
-      justify-content: space-around;
-      height: 60px;
-      .icon-container {
-        height: 55px;
-        width: 55px;
-
-        .social-media-icon {
-          border: 1px solid transparent;
-          border-radius: 50%;
-          height: 55px;
-          width: 55px;
-          padding: 10px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          cursor: pointer;
-        }
-        .social-media-icon.linkedIn {
-          @include fadeInIcon(200ms);
-          color: $linkedInBlue;
-          transition: 200ms all;
-        }
-        .social-media-icon.linkedIn:hover {
-          color: white;
-          background-color: $linkedInBlue;
-          border: 1px solid #fff;
-        }
-        .social-media-icon.facebook {
-          @include fadeInIcon(400ms);
-          color: $facebookBlue;
-          transition: 200ms all;
-        }
-        .social-media-icon.facebook:hover {
-          color: white;
-          background-color: $facebookBlue;
-          border: 1px solid #fff;
-        }
-        .social-media-icon.github {
-          @include fadeInIcon(600ms);
-          color: $githubBlack;
-          transition: 200ms all;
-        }
-        .social-media-icon.github:hover {
-          color: white;
-          background-color: $githubBlack;
-          border: 1px solid #fff;
-        }
-        .social-media-icon.stackoverflow {
-          @include fadeInIcon(800ms);
-          color: $stackoverflowOrange;
-          transition: 200ms all;
-        }
-        .social-media-icon.stackoverflow:hover {
-          color: white;
-          background-color: $stackoverflowOrange;
-          border: 1px solid #fff;
-        }
-        .social-media-icon.twitter {
-          @include fadeInIcon(1000ms);
-          color: $twitterBlue;
-          transition: 200ms all;
-        }
-        .social-media-icon.twitter:hover {
-          color: white;
-          background-color: $twitterBlue;
-          border: 1px solid #fff;
-        }
-        .social-media-icon.mail {
-          @include fadeInIcon(1200ms);
-          color: $microsoftBlue;
-          transition: 200ms all;
-        }
-        .social-media-icon.mail:hover {
-          color: white;
-          background-color: $microsoftBlue;
-          border: 1px solid #fff;
-        }
-      }
-    }
-  }
-  #body {
-    .info-cards {
-      .info-card {
-        text-align: center;
-        background-color: white;
-        opacity: 0;
-        .display-4 {
-          font-size: 26px;
-          padding-top: 20px;
-        }
-      }
-      .info-card.life {
-        animation: fadeInInfoCards 1s 200ms forwards ease-out;
-      }
-      .info-card.what-i-do {
-        animation: fadeInInfoCards 1s 500ms forwards ease-out;
-      }
-      .info-card.career {
-        animation: fadeInInfoCards 1s 1000ms forwards ease-out;
+        border-radius: 150px;
+        height: 80px;
+        width: 80px;
       }
     }
   }
 }
-
 // <editor-fold desc="Media Queries">
+
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) {
-  #header {
-    .jumbotron {
-      .display-4 {
-        font-size: 24px;
-      }
-      .lead {
-        font-size: 16px;
-      }
-    }
-    #imageContainer {
-      margin-top: -70px;
-      img {
-        height: 100px;
-        width: 100px;
-      }
-    }
-  }
-  #socialMediaContainer {
-    .social-media-container {
-      width: 60%;
-    }
-  }
-  #body {
-    .content-row-outter {
-      margin: 10px 0 10px 0;
-      .content-row {
-
-        .image-container {
-          min-height: 60px;
-          min-width: 60px;
-          img {
-            height: 60px;
-            width: 60px;
-          }
-        }
-        .content-container {
-          padding-left: 15px;
-          h3 {
-            font-weight: 400;
-            font-size: 16px;
-          }
-          p {
-            font-size: 12px;
-          }
-        }
-      }
+  .cards-container {
+    flex-direction: column;
+    md-card {
+      width: 100%;
     }
   }
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
-  #header {
-    .jumbotron {
-      .display-4 {
-        font-size: 26px;
-      }
-      .lead {
-        font-size: 18px;
-      }
-    }
-    #imageContainer {
-      margin-top: -90px;
-      img {
-        height: 110px;
-        width: 110px;
-      }
-    }
-  }
-  #socialMediaContainer {
-    .social-media-container {
-      width: 20%;
-    }
-  }
-  #body {
-    .content-row-outter {
-      margin: 10px 0 10px 0;
-      .content-row {
 
-        .image-container {
-          min-height: 70px;
-          min-width: 70px;
-          img {
-            height: 70px;
-            width: 70px;
-          }
-        }
-        .content-container {
-          padding-left: 15px;
-          h3 {
-            font-weight: 400;
-            font-size: 18px;
-          }
-          p {
-            font-size: 14px;
-          }
-        }
-      }
-    }
-  }
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) and (max-width: 991px) {
-  #header {
-    .jumbotron {
-      .display-4 {
-        font-size: 28px;
-      }
-      .lead {
-        font-size: 20px;
-      }
-    }
-    #imageContainer {
-      margin-top: -90px;
-      img {
-        height: 120px;
-        width: 120px;
-      }
-    }
-  }
-  #socialMediaContainer {
-    .social-media-container {
-      width: 40%;
-    }
-  }
-  #body {
-    .content-row-outter {
-      margin: 10px 0 10px 0;
-      .content-row {
 
-        .image-container {
-          min-height: 90px;
-          min-width: 90px;
-          img {
-            height: 90px;
-            width: 90px;
-          }
-        }
-        .content-container {
-          padding-left: 15px;
-          h3 {
-            font-weight: 400;
-            font-size: 20px;
-          }
-          p {
-            font-size: 16px;
-          }
-        }
-      }
-    }
-  }
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-  #header {
-    .jumbotron {
-      .display-4 {
-        font-size: 30px;
-      }
-      .lead {
-        font-size: 22px;
-      }
-    }
-    #imageContainer {
-      margin-top: -90px;
-      img {
-        height: 130px;
-        width: 130px;
-      }
-    }
-  }
-  #socialMediaContainer {
-    .social-media-container {
-      width: 40%;
-    }
-  }
-  #body {
-    .content-row-outter {
-      margin: 10px 0 10px 0;
-      .content-row {
 
-        .image-container {
-          min-height: 110px;
-          min-width: 110px;
-          img {
-            height: 110px;
-            width: 110px;
-          }
-        }
-        .content-container {
-          padding-left: 15px;
-          h3 {
-            font-weight: 400;
-            font-size: 20px;
-          }
-          p {
-            font-size: 16px;
-          }
-        }
-      }
-    }
-  }
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-  #header {
-    .jumbotron {
-      .display-4 {
-        font-size: 34px;
-      }
-      .lead {
-        font-size: 26px;
-      }
-    }
-    #imageContainer {
-      margin-top: -90px;
-      img {
-        height: 130px;
-        width: 130px;
-      }
-    }
-  }
-  #socialMediaContainer {
-    .social-media-container {
-      width: 40%;
-    }
-  }
-  #body {
-    .content-row-outter {
-      margin: 10px 0 10px 0;
-      .content-row {
-
-        .image-container {
-          min-height: 120px;
-          min-width: 120px;
-          img {
-            height: 120px;
-            width: 120px;
-          }
-        }
-        .content-container {
-          padding-left: 15px;
-          h3 {
-            font-weight: 400;
-            font-size: 20px;
-          }
-          p {
-            font-size: 16px;
-          }
-        }
-      }
+  .cards-container {
+    flex-direction: row;
+    md-card {
+      width: 30%;
     }
   }
 }
 
 // </editor-fold>
-
-// <editor-fold desc="Keyframes">
-
-@keyframes fadeSocialMediaIcon {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-  40% {transform: translateY(-30px);}
-  60% {transform: translateY(-15px);}
-}
-@keyframes fadeInInfoCards {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes shiftCareer {
-  from {
-    position: absolute;
-    left: 25%;
-  }
-  to {
-    position: relative;
-    left: 50%;
-  }
-}
-
-// </editor-fold>
-
 
