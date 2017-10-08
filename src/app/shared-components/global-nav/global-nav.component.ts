@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Link } from '../../shared-classes/link';
 import { Router } from '@angular/router';
 import { ContactFormDialogComponent } from '../contact-form-dialog/contact-form-dialog.component';
 import { MdDialog } from '@angular/material';
@@ -13,7 +12,6 @@ import { AuthenticationResponse } from '../../shared-classes/authentication-resp
   styleUrls: ['./global-nav.component.scss']
 })
 export class GlobalNavComponent implements OnInit {
-  public links: Array<Link> = new Array<Link>();
   public path: string = null;
   public authResponse: AuthenticationResponse = new AuthenticationResponse();
   constructor(private _router: Router, private _dialog: MdDialog, private _emailService: EmailService,
