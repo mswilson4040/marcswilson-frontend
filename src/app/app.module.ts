@@ -20,7 +20,7 @@ import {
   MdAutocompleteModule, MdButtonModule, MdCardModule, MdChipsModule, MdDatepickerModule, MdDialogModule,
   MdExpansionModule, MdInputModule,
   MdMenuModule,
-  MdNativeDateModule, MdSelectModule, MdSidenavModule,
+  MdNativeDateModule, MdProgressBarModule, MdSelectModule, MdSidenavModule,
   MdSliderModule,
   MdTabsModule, MdTooltipModule
 } from '@angular/material';
@@ -36,6 +36,7 @@ import { PowerballService } from './pages/portfolio/powerball/services/powerball
 import { MlbStatsService } from './pages/portfolio/mlb-stats/services/mlb-stats.service';
 import { UIService } from './shared-services/ui.service';
 import { AuthGuard } from './guards/auth.guard';
+import { SkillsComponent } from './pages/skills/skills.component';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { AuthGuard } from './guards/auth.guard';
     ErrorDialogComponent,
     ConfirmDialogComponent,
     CallbackComponent,
-    LoginDialogComponent
+    LoginDialogComponent,
+    SkillsComponent
   ],
   entryComponents: [
     MLBBallparksComponent,
@@ -90,7 +92,8 @@ import { AuthGuard } from './guards/auth.guard';
     MdSelectModule,
     MdChipsModule,
     MdMenuModule,
-    MdExpansionModule
+    MdExpansionModule,
+    MdProgressBarModule
   ],
   providers: [
     UIService,
