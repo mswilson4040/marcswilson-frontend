@@ -48,4 +48,9 @@ export class GlobalNavComponent implements OnInit {
     this._authService.logout();
     this._router.navigate(['/home']);
   }
+  scrollTo(elementId: string) {
+    const el = document.querySelector(`#${elementId}`);
+    const y = el.clientHeight;
+    window.scrollTo({ top: y, left: 0, behavior: 'smooth' });
+  }
 }

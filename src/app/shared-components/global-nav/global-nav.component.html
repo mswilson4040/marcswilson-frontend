@@ -3,8 +3,8 @@
     <div class="nav-link" routerLink="/home" [class.active]="router.url === '/home'">
       Home
     </div>
-    <div class="nav-link" routerLink="/about">
-      About
+    <div class="nav-link">
+      <div (click)="scrollTo('aboutSection')">About</div>
     </div>
     <div class="nav-link" routerLink="/portfolio">
       Portfolio
