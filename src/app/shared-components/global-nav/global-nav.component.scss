@@ -1,8 +1,23 @@
 .nav-container {
-  display: flex;
-  align-items: center;
   height: 100%;
-  .nav-link {
-    cursor: pointer;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .nav-links {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    .nav-link {
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      transition: all 300ms;
+    }
+    .nav-link.active {
+      border-bottom: 3px solid white;
+    }
+    .nav-link:hover {
+      border-bottom: 3px solid white;
+    }
   }
 }

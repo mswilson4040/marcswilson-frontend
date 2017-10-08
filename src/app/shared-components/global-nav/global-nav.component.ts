@@ -14,8 +14,10 @@ import { AuthenticationResponse } from '../../shared-classes/authentication-resp
 export class GlobalNavComponent implements OnInit {
   public path: string = null;
   public authResponse: AuthenticationResponse = new AuthenticationResponse();
+  public router: Router;
   constructor(private _router: Router, private _dialog: MdDialog, private _emailService: EmailService,
               private _authService: AuthService) {
+    this.router = this._router;
   }
 
   ngOnInit() {

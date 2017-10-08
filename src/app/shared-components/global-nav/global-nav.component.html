@@ -1,11 +1,14 @@
 <section class="nav-container">
-  <div class="nav-link" routerLink="/home">
-    Home
+  <div class="nav-links">
+    <div class="nav-link" routerLink="/home" [class.active]="router.url === '/home'">
+      Home
+    </div>
+    <div class="nav-link" routerLink="/about">
+      About
+    </div>
+    <div class="nav-link" routerLink="/portfolio">
+      Portfolio
+    </div>
   </div>
-  <div class="nav-link" routerLink="/about">
-    About
-  </div>
-  <div class="nav-link" routerLink="/portfolio">
-    Portfolio
-  </div>
+
 </section>
