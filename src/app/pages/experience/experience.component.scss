@@ -1,0 +1,36 @@
+#timeline {
+  .timeline-container {
+    display: flex;
+    justify-content: center;
+    #bar {
+      height: 400px;
+      width: 5px;
+      position: relative;
+      background-color: #1E2933;
+      border-radius: 100px;
+      .event {
+        height:10px;
+        width: 10px;
+        border-radius: 100px;
+        background-color: red;
+        margin-left: -2.5px;
+        .event-container {
+          position: absolute;
+          height: 100px;
+          width: 200px;
+          border: 1px solid gray;
+        }
+        .event-container-left {
+          position: absolute;
+          right: 0;
+          margin-right: 40px;
+        }
+        .event-container-right {
+          position: absolute;
+          left: 0;
+          margin-left: 40px;
+        }
+      }
+    }
+  }
+}

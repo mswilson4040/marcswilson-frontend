@@ -11,7 +11,7 @@ export class SkillsComponent implements OnInit {
 
   ngOnInit() {
     setTimeout( () => {
-      this.skillValue = 100;
+      this.skillValue = 85;
     }, 1000);
   }
 

@@ -37,6 +37,7 @@ import { MlbStatsService } from './pages/portfolio/mlb-stats/services/mlb-stats.
 import { UIService } from './shared-services/ui.service';
 import { AuthGuard } from './guards/auth.guard';
 import { SkillsComponent } from './pages/skills/skills.component';
+import { ExperienceComponent } from './pages/experience/experience.component';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { SkillsComponent } from './pages/skills/skills.component';
     ConfirmDialogComponent,
     CallbackComponent,
     LoginDialogComponent,
-    SkillsComponent
+    SkillsComponent,
+    ExperienceComponent
   ],
   entryComponents: [
     MLBBallparksComponent,
