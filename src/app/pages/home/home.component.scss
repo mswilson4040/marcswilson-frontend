@@ -64,9 +64,6 @@ $portfolioImageUrl: '../../../images/me.jpg';
             p {
               color: #868e96;
             }
-            #buttonContainer {
-              text-align: right;
-            }
           }
         }
         .footer {
@@ -153,8 +150,16 @@ $portfolioImageUrl: '../../../images/me.jpg';
           }
         }
       }
+      #contactMeSection {
+        width: 40%;
+        margin-top: 80px;
+        text-align: center;
+        button {
+          height: 60px;
+          width: 170px;
+        }
+      }
       #aboutSection {
-        //width: 40%;
         text-align: center;
         margin-top: 80px;
         h1 { font-weight: 300; }
@@ -162,13 +167,11 @@ $portfolioImageUrl: '../../../images/me.jpg';
       #skillsSection {
         text-align: center;
         margin-top: 80px;
-        width: 40%;
         h1 { font-weight: 300; }
       }
       #experienceSection {
         text-align: center;
         margin-top: 80px;
-        width: 40%;
         h1 { font-weight: 300; }
       }
       #portfolioSection {
@@ -230,6 +233,12 @@ $portfolioImageUrl: '../../../images/me.jpg';
     #portfolioSection {
       width: 90%;
     }
+    #skillsSection {
+      width: 90%;
+    }
+    #experienceSection {
+      width: 90%;
+    }
   }
 }
 
@@ -272,6 +281,12 @@ $portfolioImageUrl: '../../../images/me.jpg';
       width: 40%;
     }
     #portfolioSection {
+      width: 40%;
+    }
+    #skillsSection {
+      width: 40%;
+    }
+    #experienceSection {
       width: 40%;
     }
   }

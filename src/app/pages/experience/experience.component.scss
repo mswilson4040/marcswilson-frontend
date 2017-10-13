@@ -18,7 +18,6 @@
       position: relative;
       min-height: 100px;
       height: auto;
-      width: 45%;
       margin: 10px;
       .content {
         position: relative;
@@ -87,3 +86,44 @@
     }
   }
 }
+
+// <editor-fold desc="Media Queries">
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575px) {
+  .event {
+    width: 100%;
+    .dot {
+      display: none;
+    }
+    .arrow {
+      display: none;
+    }
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .event {
+    width: 45%;
+
+  }
+}
+
+// </editor-fold>
+
