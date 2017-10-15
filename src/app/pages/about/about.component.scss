@@ -2,6 +2,7 @@
   margin-top: 40px;
   display: flex;
   justify-content: space-between;
+  opacity: 0;
   md-card {
     //width: 30%;
     text-align: center;
@@ -17,8 +18,23 @@
   }
 }
 .load {
-  background-color: red;
+  animation: animateCard 500ms 100ms ease-in-out forwards;
 }
+
+// <editor-fold desc="Animations">
+
+@keyframes animateCard {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// </editor-fold>
+
+
 // <editor-fold desc="Media Queries">
 
 // Extra small devices (portrait phones, less than 576px)

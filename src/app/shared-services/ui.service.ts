@@ -26,8 +26,13 @@ export class UIService {
     this.scrollService.emit(evt);
   }
   isElementInView(element: ElementRef): boolean {
-    const rect = element.nativeElement.getBoundingClientRect();
-    return (rect.top >= 0) && (rect.bottom <= window.innerHeight);
+    const percentVisible = 0.1;
+    const bcr = element.nativeElement.getBoundingClientRect();
+    const elemTop = bcr.top;
+    const elemBottom = bcr.bottom;
+    const elemHeight = bcr.height;
+    const overhang = elemHeight * (1 - percentVisible);
+    return (elemTop >= -overhang) && (elemBottom <= window.innerHeight + overhang);
   }
 
 }
