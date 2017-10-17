@@ -3,10 +3,13 @@
   #bar {
     position: absolute;
     left: calc(50% - 2.5px);
-    height: 100%;
+    height: 0;
     width: 5px;
-    background-color: #3f51b5;
+    background-color: transparent;
     border-radius: 100px;
+  }
+  .load-bar {
+    animation: animateBar 500ms ease-in-out 500ms forwards;
   }
   .timeline-container {
     width: 100%;
@@ -19,6 +22,7 @@
       min-height: 100px;
       height: auto;
       margin: 10px;
+      opacity: 0;
       .content {
         position: relative;
         width: 100%;
@@ -83,9 +87,51 @@
     }
     .event-right {
       margin-top: 30px;
+
+    }
+    .load-event-right {
+      animation: animateEventRight 300ms ease-in-out 1s forwards;
+    }
+    .event-left {
+    }
+    .load-event-left {
+      margin-left: -50px;
+      animation: animateEventLeft 300ms ease-in-out 1s forwards;
     }
   }
 }
+
+// <editor-fold desc="Animations">
+
+@keyframes animateBar {
+  from {
+    background-color: transparent;
+    height: 0;
+  }
+  to {
+    background-color: #3f51b5;
+    height: 100%;
+  }
+}
+@keyframes animateEventRight {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes animateEventLeft {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// </editor-fold>
+
 
 // <editor-fold desc="Media Queries">
 

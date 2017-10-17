@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { UIService } from '../../shared-services/ui.service';
 
 @Component({
   selector: 'app-skills',
@@ -7,12 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SkillsComponent implements OnInit {
   public skillValue = 0;
-  constructor() { }
+  constructor(private _uiService: UIService, private _elementRef: ElementRef) { }
 
   ngOnInit() {
-    setTimeout( () => {
-      this.skillValue = 85;
-    }, 1000);
+    // setTimeout( () => {
+    //   this.skillValue = 85;
+    // }, 1000);
+    this._uiService.scrollService.subscribe( evt => {
+      const inView = this._uiService.isElementInView(this._elementRef);
+      if (inView === true) {
+        this.skillValue = 85;
+      } else {
+        this.skillValue = 0;
+      }
+    })
   }
 
 }

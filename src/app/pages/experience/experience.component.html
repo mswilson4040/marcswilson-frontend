@@ -1,7 +1,7 @@
 <section id="timeline">
-  <div id="bar"></div>
+  <div id="bar" [class.load-bar]="inView === true"></div>
   <div class="timeline-container">
-    <div class="event event-right">
+    <div class="event event-right" [class.load-event-right]="inView === true">
       <div class="content">
         <div class="header-container">
           <img src="../../../images/angular_whiteTransparent.svg" />
@@ -15,7 +15,7 @@
       <div class="arrow arrow-right"></div>
       <div class="dot dot-right"></div>
     </div>
-    <div class="event">
+    <div class="event event-left" [class.load-event-left]="inView === true">
       <div class="content">
         <div class="header-container">
           <img src="../../../images/bootstrap-solid.svg" />
@@ -29,7 +29,7 @@
       <div class="arrow arrow-left"></div>
       <div class="dot dot-left"></div>
     </div>
-    <div class="event event-right">
+    <div class="event event-right" [class.load-event-right]="inView === true">
       <div class="content">
         <div class="header-container">
           <img src="../../../images/typescript.svg" />
@@ -43,7 +43,7 @@
       <div class="arrow arrow-right"></div>
       <div class="dot dot-right"></div>
     </div>
-    <div class="event">
+    <div class="event event-left" [class.load-event-left]="inView === true">
       <div class="content">
         <div class="header-container">
           <img src="../../../images/bootstrap-solid.svg" />
@@ -57,7 +57,7 @@
       <div class="arrow arrow-left"></div>
       <div class="dot dot-left"></div>
     </div>
-    <div class="event event-right">
+    <div class="event event-right" [class.load-event-right]="inView === true">
       <div class="content">
         <div class="header-container">
           <img src="../../../images/typescript.svg" />
@@ -71,7 +71,7 @@
       <div class="arrow arrow-right"></div>
       <div class="dot dot-right"></div>
     </div>
-    <div class="event">
+    <div class="event event-left" [class.load-event-left]="inView === true">
       <div class="content">
         <div class="header-container">
           <img src="../../../images/bootstrap-solid.svg" />
@@ -85,7 +85,7 @@
       <div class="arrow arrow-left"></div>
       <div class="dot dot-left"></div>
     </div>
-    <div class="event event-right">
+    <div class="event event-right" [class.load-event-right]="inView === true">
       <div class="content">
         <div class="header-container">
           <img src="../../../images/typescript.svg" />
@@ -99,7 +99,7 @@
       <div class="arrow arrow-right"></div>
       <div class="dot dot-right"></div>
     </div>
-    <div class="event">
+    <div class="event event-left" [class.load-event-left]="inView === true">
       <div class="content">
         <div class="header-container">
           <img src="../../../images/bootstrap-solid.svg" />
@@ -113,7 +113,7 @@
       <div class="arrow arrow-left"></div>
       <div class="dot dot-left"></div>
     </div>
-    <div class="event event-right">
+    <div class="event event-right" [class.load-event-right]="inView === true">
       <div class="content">
         <div class="header-container">
           <img src="../../../images/typescript.svg" />

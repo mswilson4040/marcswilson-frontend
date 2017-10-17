@@ -4,9 +4,7 @@
   justify-content: space-between;
   opacity: 0;
   md-card {
-    //width: 30%;
     text-align: center;
-    //height: 536px;
     .image-container {
       padding: 10px 0;
       img {
@@ -17,7 +15,7 @@
     }
   }
 }
-.load {
+.load-cards {
   animation: animateCard 500ms 100ms ease-in-out forwards;
 }
 

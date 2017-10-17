@@ -12,10 +12,8 @@ export class AboutComponent implements OnInit {
     this._uiService.scrollService.subscribe( evt => {
       const inView = this._uiService.isElementInView(this._elementRef);
       if (inView === true) {
-        console.log('in view');
         this.inView = true;
       } else {
-        console.log('out of view');
         this.inView = false;
       }
     });
