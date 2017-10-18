@@ -7,21 +7,47 @@ import { UIService } from '../../shared-services/ui.service';
   styleUrls: ['./skills.component.scss']
 })
 export class SkillsComponent implements OnInit {
-  public skillValue = 0;
+  public skillValues: Object = this.setSkills(true);
   constructor(private _uiService: UIService, private _elementRef: ElementRef) { }
 
   ngOnInit() {
-    // setTimeout( () => {
-    //   this.skillValue = 85;
-    // }, 1000);
     this._uiService.scrollService.subscribe( evt => {
       const inView = this._uiService.isElementInView(this._elementRef);
       if (inView === true) {
-        this.skillValue = 85;
+        this.skillValues = this.setSkills(false);
       } else {
-        this.skillValue = 0;
+        this.skillValues = this.setSkills(true);
       }
-    })
+    });
+  }
+  setSkills(setToZero: boolean): Object {
+    if (setToZero) {
+      return {
+        javaScript: 0,
+        typeScript: 0,
+        angular: 0,
+        jQuery: 0,
+        node: 0,
+        html: 0,
+        css: 0,
+        scss: 0,
+        bootstrap: 0,
+        angularMaterial: 0
+      };
+    } else {
+      return {
+        javaScript: 90,
+        typeScript: 90,
+        angular: 90,
+        jQuery: 90,
+        node: 60,
+        html: 90,
+        css: 75,
+        scss: 70,
+        bootstrap: 90,
+        angularMaterial: 70
+      };
+    }
   }
 
 }

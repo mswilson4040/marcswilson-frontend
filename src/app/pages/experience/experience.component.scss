@@ -50,6 +50,10 @@
             color: gray;
             font-size: 70%;
           }
+          p {
+            color: gray;
+            font-size: 85%;
+          }
         }
       }
       .arrow {
@@ -116,17 +120,21 @@
 @keyframes animateEventRight {
   from {
     opacity: 0;
+    transform: translateX(20px);
   }
   to {
     opacity: 1;
+    transform: translateX(0);
   }
 }
 @keyframes animateEventLeft {
   from {
     opacity: 0;
+    transform: translateX(-20px);
   }
   to {
     opacity: 1;
+    transform: translateX(0);
   }
 }
 

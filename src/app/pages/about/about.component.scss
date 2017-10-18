@@ -18,7 +18,12 @@
 .load-cards {
   animation: animateCard 500ms 100ms ease-in-out forwards;
 }
-
+.load-card-right {
+  animation: animateCardRight 500ms 100ms ease-in-out forwards;
+}
+.load-card-left {
+  animation: animateCardLeft 500ms 100ms ease-in-out forwards;
+}
 // <editor-fold desc="Animations">
 
 @keyframes animateCard {
@@ -27,6 +32,22 @@
   }
   to {
     opacity: 1;
+  }
+}
+@keyframes animateCardLeft {
+  from {
+    transform: translateX(20px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes animateCardRight {
+  from {
+    transform: translateX(-20px);
+  }
+  to {
+    transform: translateX(0);
   }
 }
 
