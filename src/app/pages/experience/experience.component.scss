@@ -9,7 +9,7 @@
     border-radius: 100px;
   }
   .load-bar {
-    animation: animateBar 500ms ease-in-out 500ms forwards;
+    animation: animateBar 500ms ease-in-out 200ms forwards;
   }
   .timeline-container {
     width: 100%;
@@ -32,6 +32,7 @@
           background-color: #3f51b5;
           height: 60px;
           img {
+            display: none;
             height: 60px;
             width: 60px;
           }
@@ -61,7 +62,7 @@
         background-color: white;
         height: 50px;
         width: 50px;
-        top: 30%;
+        top: 15.5%;
         transform: rotate(45deg);
         z-index: 0;
         box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.24);
