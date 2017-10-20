@@ -1,183 +1,71 @@
 #portfolioContainer {
-  #appsContainer {
-    .app-container {
-      display: none;
-      float: left;
-      margin-bottom: 25px;
+  #cardsContainer {
+    width:100%;
+    .card-container {
       position: relative;
-      cursor: pointer;
-
-      .app-image-container {
-        height: 100%;
+      width: 33.3%;
+      margin: 10px;
+      .image-container {
         overflow: hidden;
         img {
           height: 100%;
           width: 100%;
+          transition: all 200ms;
         }
       }
-      .app-content-container {
+      .card-mask, .card-content {
         position: absolute;
-        padding: 0px 15px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        color: white;
         top: 0;
-        left: 0;
         height: 100%;
         width: 100%;
-        .app-header {
-          padding: 10px;
-          width: 100%;
-          h1 {
-            float: right;
-          }
+      }
+      .card-mask {
+        background-color: black;
+        opacity: .3;
+      }
+      .card-mask:hover {
+        transform: scale(1.1);
+      }
+      .card-content {
+        color: white;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+        padding: 10px;
+        h5 {
+          font-weight: 300;
         }
       }
     }
-    .app-container:hover {
-      .app-image-container {
-        opacity: 0.9;
-        img {
-          -moz-transform: scale(1.1);
-          -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-          -webkit-transition: all 1s ease; /* Safari and Chrome */
-          -moz-transition: all 1s ease; /* Firefox */
-          -ms-transition: all 1s ease; /* IE 9 */
-          -o-transition: all 1s ease; /* Opera */
-          transition: all 1s ease;
-        }
+    .card-container:hover {
+      cursor: pointer;
+      img {
+        transform: scale(1.1);
       }
     }
   }
 }
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) {
-  .jumbotron {
-    .display-4 {
-      font-size: 38px;
-    }
-    .lead {
-      font-size: 18px;
-    }
-  }
-  #appsContainer {
-    height: 150px;
-    .app-container {
-      height: 120px;
-      .app-content-container {
-        .app-header {
-          width: 100%;
-          h1 {
-            font-size: 1.25rem;
-          }
-        }
-      }
-    }
-  }
+
 }
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
-  .jumbotron {
-    .display-4 {
-      font-size: 42px;
-    }
-    .lead {
-      font-size: 20px;
-    }
-  }
-  #appsContainer {
-    height: 150px;
-    .app-container {
-      height: 150px;
-      .app-content-container {
-        .app-header {
-          width: 100%;
-          h1 {
-            font-size: 1.7rem;
-          }
-        }
-      }
-    }
-  }
+
 }
 
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) and (max-width: 991px) {
-  .jumbotron {
-    .display-4 {
-      font-size: 42px;
-    }
-    .lead {
-      font-size: 20px;
-    }
-  }
-  #appsContainer {
-    height: 200px;
-    .app-container {
-      height: 200px;
-      .app-content-container {
-        .app-header {
-          width: 100%;
-          h1 {
-            font-size: 1.9rem;
-          }
-        }
-      }
-    }
-  }
+
 }
 
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
-  .jumbotron {
-    .display-4 {
-      font-size: 48px;
-    }
-    .lead {
-      font-size: 22px;
-    }
-  }
-  #appsContainer {
-    height: 250px;
-    .app-container {
-      height: 250px;
-      .app-content-container {
-        .app-header {
-          width: 100%;
-          h1 {
-            font-size: 1.9rem;
-          }
-        }
-      }
-    }
-  }
+
 }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-  .jumbotron {
-    .display-4 {
-      font-size: 48px;
-    }
-    .lead {
-      font-size: 22px;
-    }
-  }
-  #appsContainer {
-    height: 250px;
-    .app-container {
-      height: 250px;
-      .app-content-container {
-        .app-header {
-          width: 100%;
-          h1 {
-            font-size: 1.9rem;
-          }
-        }
-      }
-    }
-  }
+
 }
