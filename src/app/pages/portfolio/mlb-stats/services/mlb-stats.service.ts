@@ -131,9 +131,14 @@ export class MlbStatsService {
         const obj = JSON.parse(bs['_body']);
         let ret = new Array<Game>();
         if (obj.hasOwnProperty('data')) {
-          ret = obj.data.games.game.map(g => {
-            return new Game(g);
-          });
+          const game = obj.data.games.game;
+          if (typeof game.length !== 'undefined') {
+            ret = game.map(g => {
+              return new Game(g);
+            });
+          } else {
+            ret.push( new Game(game) );
+          }
         }
         resolve(ret);
       }, error => {
