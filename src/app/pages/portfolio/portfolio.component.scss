@@ -1,50 +1,92 @@
 #portfolioContainer {
   #cardsContainer {
     width:100%;
-    .card-container {
-      position: relative;
-      width: 33.3%;
-      margin: 10px;
-      .image-container {
-        overflow: hidden;
-        img {
+    .tab-container {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      .card-container {
+        position: relative;
+        width: 33.3%;
+        margin: 10px;
+        .image-container {
+          overflow: hidden;
+          img {
+            height: 100%;
+            width: 100%;
+            transition: all 200ms;
+          }
+        }
+        .card-mask, .card-content {
+          position: absolute;
+          top: 0;
           height: 100%;
           width: 100%;
-          transition: all 200ms;
+        }
+        .card-mask {
+          background-color: black;
+          opacity: .3;
+        }
+        .card-content {
+          color: white;
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-end;
+          padding: 10px;
+          .content-container {
+            text-align: left;
+            h5 {
+              font-weight: 300;
+              text-transform: uppercase;
+              transform: translateY(40px);
+            }
+            .card-description {
+              font-size: 90%;
+              opacity: 0;
+            }
+
+          }
         }
       }
-      .card-mask, .card-content {
-        position: absolute;
-        top: 0;
-        height: 100%;
-        width: 100%;
-      }
-      .card-mask {
-        background-color: black;
-        opacity: .3;
-      }
-      .card-mask:hover {
-        transform: scale(1.1);
-      }
-      .card-content {
-        color: white;
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-end;
-        padding: 10px;
+      .card-container:hover {
+        cursor: pointer;
+        img {
+          transform: scale(1.1);
+        }
         h5 {
-          font-weight: 300;
+          animation: slideTitleUp 500ms 100ms ease-in-out forwards;
         }
-      }
-    }
-    .card-container:hover {
-      cursor: pointer;
-      img {
-        transform: scale(1.1);
+        .card-description {
+          animation: showDescription 500ms 200ms ease-in-out forwards;
+        }
       }
     }
   }
 }
+
+// <editor-fold desc="Animations">
+
+@keyframes slideTitleUp {
+  from {
+    transform: translateY(40px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes showDescription {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+// </editor-fold>
+
+
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) {
 
