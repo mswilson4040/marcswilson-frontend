@@ -1,4 +1,4 @@
-<section class="nav-container">
+<section class="nav-container" [class.sticky]="outOfView === true">
   <div class="nav-links">
     <div class="nav-link" routerLink="/home" [class.active]="router.url === '/home'">
       Home

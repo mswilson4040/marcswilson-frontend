@@ -21,3 +21,23 @@
     }
   }
 }
+
+.sticky {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  animation: stickyNav 500ms ease-in-out 200ms forwards;
+  margin-bottom: 100px;
+}
+
+@keyframes stickyNav {
+  from {
+    height: 1%;
+    background-color: transparent;
+  }
+  to {
+    background-color: #1E2933;
+    height: 60px;
+  }
+}
