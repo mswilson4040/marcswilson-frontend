@@ -27,8 +27,11 @@
   position: fixed;
   top: 0;
   z-index: 2;
-  animation: stickyNav 500ms ease-in-out 200ms forwards;
+  animation: stickyNav 300ms ease-in-out 200ms forwards;
   margin-bottom: 100px;
+}
+.non-sticky {
+  animation: nonStickyNav 300ms ease-in-out 200ms forwards;
 }
 
 @keyframes stickyNav {
@@ -39,5 +42,16 @@
   to {
     background-color: #1E2933;
     height: 60px;
+  }
+}
+
+@keyframes nonStickyNav {
+  from {
+    height: 60px;
+    background-color: #1E2933;
+  }
+  to {
+    height: 50px;
+    background-color: transparent;
   }
 }

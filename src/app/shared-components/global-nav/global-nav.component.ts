@@ -17,6 +17,7 @@ export class GlobalNavComponent implements OnInit {
   public authResponse: AuthenticationResponse = new AuthenticationResponse();
   public router: Router;
   public outOfView = false;
+  public scrollY = 0;
   constructor(private _router: Router, private _dialog: MdDialog, private _emailService: EmailService,
               private _authService: AuthService, private _uiService: UIService, private _elementRef: ElementRef) {
     this.router = this._router;
@@ -28,6 +29,7 @@ export class GlobalNavComponent implements OnInit {
     });
     this._uiService.scrollService.subscribe( evt => {
       const isElementInView = this._uiService.isElementInView(this._elementRef);
+      this.scrollY = window.scrollY;
       if (!isElementInView) {
         this.outOfView = true;
       } else {

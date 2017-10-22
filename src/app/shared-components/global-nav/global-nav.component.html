@@ -1,4 +1,4 @@
-<section class="nav-container" [class.sticky]="outOfView === true">
+<section class="nav-container" [class.sticky]="scrollY > 0 && outOfView === true" [class.non-sticky]="scrollY === 0">
   <div class="nav-links">
     <div class="nav-link" routerLink="/home" [class.active]="router.url === '/home'">
       Home
