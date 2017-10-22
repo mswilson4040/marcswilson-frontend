@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  .nav-collapsed { cursor: pointer;}
   .nav-links {
     display: flex;
     align-items: center;
@@ -27,12 +28,15 @@
   position: fixed;
   top: 0;
   z-index: 2;
-  animation: stickyNav 300ms ease-in-out 200ms forwards;
+  animation: stickyNav 200ms ease-in-out 200ms forwards;
   margin-bottom: 100px;
 }
 .non-sticky {
-  animation: nonStickyNav 300ms ease-in-out 200ms forwards;
+  animation: nonStickyNav 200ms ease-in-out 0ms forwards;
 }
+
+
+// <editor-fold desc="Animations">
 
 @keyframes stickyNav {
   from {
@@ -55,3 +59,62 @@
     background-color: transparent;
   }
 }
+
+// </editor-fold>
+
+// <editor-fold desc="Media Queries">
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575px) {
+  .nav-container {
+    display: block;
+    width: 100%;
+    background-color: #1E2933;
+    .nav-collapsed {
+      display: block;
+      margin: 10px;
+      font-size: 150%;
+    }
+    .nav-links {
+      flex-direction: column;
+      width: 100%;
+      .nav-link {
+        border: none !important;
+      }
+    }
+    .nav-links-expanded {
+      display: block;
+      position: absolute;
+      z-index: 9999;
+      background-color: #1E2933;
+    }
+    .nav-links-collapsed {
+      display: none;
+    }
+  }
+
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .nav-collapsed {
+    display: none;
+  }
+}
+
+// <editor-fold>

@@ -1,5 +1,8 @@
 <section class="nav-container" [class.sticky]="scrollY > 0 && outOfView === true" [class.non-sticky]="scrollY === 0">
-  <div class="nav-links">
+  <div class="nav-collapsed" (click)="toggleNav()">
+    <i class="fa fa-bars" aria-hidden="true"></i>
+  </div>
+  <div class="nav-links" [class.nav-links-collapsed]="navCollapsed === true" [class.nav-links-expanded]="navCollapsed === false">
     <div class="nav-link" routerLink="/home" [class.active]="router.url === '/home'">
       Home
     </div>
@@ -7,7 +10,7 @@
       <div (click)="scrollTo('aboutSection')">About</div>
     </div>
     <div class="nav-link">
-      <div (click)="scrollTo('portfolioSection')">Portfolio</div>
+      <div (click)="scrollTo('portfolioContainer')">Portfolio</div>
     </div>
   </div>
 

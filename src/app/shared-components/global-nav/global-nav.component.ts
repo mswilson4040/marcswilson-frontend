@@ -18,6 +18,7 @@ export class GlobalNavComponent implements OnInit {
   public router: Router;
   public outOfView = false;
   public scrollY = 0;
+  public navCollapsed = true;
   constructor(private _router: Router, private _dialog: MdDialog, private _emailService: EmailService,
               private _authService: AuthService, private _uiService: UIService, private _elementRef: ElementRef) {
     this.router = this._router;
@@ -36,6 +37,7 @@ export class GlobalNavComponent implements OnInit {
         this.outOfView = false;
       }
     });
+    document.onclick = this.collapseNav.bind(this);
   }
   openContactForm(): void {
     const dialogRef = this._dialog.open(ContactFormDialogComponent);
@@ -62,7 +64,16 @@ export class GlobalNavComponent implements OnInit {
   }
   scrollTo(elementId: string) {
     const el = document.querySelector(`#${elementId}`);
-    const y = el.clientHeight;
-    window.scrollTo({ top: y, left: 0, behavior: 'smooth' });
+    el.scrollIntoView( { behavior: 'smooth' } );
+    this.navCollapsed = true;
+  }
+  toggleNav(): void {
+    this.navCollapsed = !this.navCollapsed;
+  }
+  collapseNav(evt: Event): void {
+    const clickOutside = this._elementRef.nativeElement.contains(evt.target);
+    if (!clickOutside) {
+      this.navCollapsed = true;
+    }
   }
 }
