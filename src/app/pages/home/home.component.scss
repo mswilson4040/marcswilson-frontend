@@ -61,8 +61,24 @@ $portfolioImageUrl: '../../../images/me.jpg';
             h3 {
               font-weight: 300;
             }
-            p {
+            section {
               color: #868e96;
+              div {
+                display: flex;
+                width: 100%;
+                align-items: center;
+                label:first-child {
+                  font-size: 80%;
+                  color: black;
+                  width: 100px;
+                  font-weight: 700;
+                  text-transform: uppercase;
+                }
+                label:last-child {
+                  font-size: 80%;
+                }
+              }
+
             }
           }
         }
