@@ -4,7 +4,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  .nav-collapsed { cursor: pointer;}
+  .nav-collapsed {
+    cursor: pointer;
+  }
   .nav-links {
     display: flex;
     align-items: center;
@@ -72,8 +74,11 @@
     background-color: #1E2933;
     .nav-collapsed {
       display: block;
-      margin: 10px;
+      padding: 10px;
       font-size: 150%;
+      &.bg-color {
+        background-color: #1E2933;
+      }
     }
     .nav-links {
       flex-direction: column;

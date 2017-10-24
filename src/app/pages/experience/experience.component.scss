@@ -30,7 +30,7 @@
         background: #FFF;
         .header-container {
           background-color: #3f51b5;
-          height: 60px;
+          height: 5px;
           img {
             display: none;
             height: 60px;
@@ -79,25 +79,25 @@
         height: 10px;
         width: 10px;
         border-radius: 100px;
-        background-color: #ff4081;
+        background-color: #3f51b5;
       }
       .dot-right {
         right: -39px;
         top: 63px;
       }
       .dot-left {
-        top: 73px;
+        top: 60px;
         left: -39px;
       }
     }
     .event-right {
-      margin-top: 30px;
 
     }
     .load-event-right {
       animation: animateEventRight 300ms ease-in-out 1s forwards;
     }
     .event-left {
+      margin-top: 60px;
     }
     .load-event-left {
       margin-left: -50px;
@@ -114,7 +114,7 @@
     height: 0;
   }
   to {
-    background-color: #3f51b5;
+    background-color: #c5cae9;
     height: 100%;
   }
 }
