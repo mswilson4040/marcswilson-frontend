@@ -100,7 +100,7 @@
       margin-top: 60px;
     }
     .load-event-left {
-      margin-left: -50px;
+      //margin-left: -50px;
       animation: animateEventLeft 300ms ease-in-out 1s forwards;
     }
   }
@@ -155,6 +155,9 @@
       display: none;
     }
   }
+  .load-event-left {
+    margin-left: 10px;
+  }
 }
 
 // Small devices (landscape phones, 576px and up)
@@ -176,7 +179,9 @@
 @media (min-width: 1200px) {
   .event {
     width: 45%;
-
+  }
+  .load-event-left {
+    margin-left: -50px;
   }
 }
 
