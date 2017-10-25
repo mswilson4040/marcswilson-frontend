@@ -13,10 +13,18 @@
           </div>
           <div class="content-container">
             <div>
-              <h3>Marc Wilson</h3>
-              <h5>Software Engineer</h5>
+              <div id="chatBubbleOuter">
+                <span id="chatBubble">
+                Hello, World
+              </span>
+              </div>
+              <span id="headerText"> I'm <strong>Marc Wilson</strong></span>
               <hr />
               <section>
+                <div>
+                  <label>Age</label>
+                  <label>31</label>
+                </div>
                 <div>
                   <label>Location</label>
                   <label>Seattle, WA</label>
@@ -28,6 +36,10 @@
                 <div>
                   <label>Title</label>
                   <label>Software Engineer</label>
+                </div>
+                <div>
+                  <label>to be</label>
+                  <label>Determined</label>
                 </div>
               </section>
             </div>
@@ -71,6 +83,14 @@
       </md-card>
       <section id="contactMeSection">
         <button md-raised-button (click)="launchContactForm()">Contact Me</button>
+      </section>
+      <section id="welcomeTextSection">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+          et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+          dolore eu fugiat nulla pariatur.
+        </p>
       </section>
       <section id="aboutSection">
         <h1>About</h1>
