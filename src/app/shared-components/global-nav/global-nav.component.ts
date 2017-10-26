@@ -19,17 +19,29 @@ export class GlobalNavComponent implements OnInit {
   public outOfView = false;
   public scrollY = 0;
   public navCollapsed = true;
+  public about = false;
+  public technologies = false;
+  public experience = false;
+  public portfolio = false;
   constructor(private _router: Router, private _dialog: MdDialog, private _emailService: EmailService,
               private _authService: AuthService, private _uiService: UIService, private _elementRef: ElementRef) {
     this.router = this._router;
   }
 
   ngOnInit() {
+    const about = new ElementRef(document.getElementById('aboutSection'));
+    const technologies = new ElementRef(document.getElementById('skillsSection'));
+    const experience = new ElementRef(document.getElementById('experienceSection'));
+    const portfolio = new ElementRef(document.getElementById('portfolioContainer'));
     this._authService.authWatch$.subscribe( auth => {
       this.authResponse = auth;
     });
     this._uiService.scrollService.subscribe( evt => {
       const isElementInView = this._uiService.isElementInView(this._elementRef);
+      this.about = this._uiService.isElementInView(about);
+      this.technologies = this._uiService.isElementInView(technologies);
+      this.experience = this._uiService.isElementInView(experience);
+      this.portfolio = this._uiService.isElementInView(portfolio);
       this.scrollY = window.scrollY;
       if (!isElementInView) {
         this.outOfView = true;
@@ -63,9 +75,16 @@ export class GlobalNavComponent implements OnInit {
     this._router.navigate(['/home']);
   }
   scrollTo(elementId: string) {
-    const el = document.querySelector(`#${elementId}`);
-    el.scrollIntoView( { behavior: 'smooth' } );
-    this.navCollapsed = true;
+    if (this._router.url === '/home') {
+      const el = document.querySelector(`#${elementId}`);
+      el.scrollIntoView({ behavior: 'smooth' });
+      this.navCollapsed = true;
+    } else {
+      this._router.navigate(['/home']).then( () => {
+        this.scrollTo(elementId);
+      });
+
+    }
   }
   toggleNav(): void {
     this.navCollapsed = !this.navCollapsed;
@@ -74,6 +93,13 @@ export class GlobalNavComponent implements OnInit {
     const clickOutside = this._elementRef.nativeElement.contains(evt.target);
     if (!clickOutside) {
       this.navCollapsed = true;
+    }
+  }
+  goHome(): void {
+    if (this._router.url === '/home') {
+      window.scrollTo({top: 0, behavior: 'smooth'})
+    } else {
+      this._router.navigate(['/home']);
     }
   }
 }
