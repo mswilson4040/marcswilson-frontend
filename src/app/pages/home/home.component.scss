@@ -240,6 +240,8 @@ $portfolioImageUrl: '../../../images/me.jpg';
   }
 }
 
+// <editor-fold desc="Animations">
+
 @keyframes fadeInBackground {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -252,6 +254,8 @@ $portfolioImageUrl: '../../../images/me.jpg';
   from { margin-top: -200px; }
   to { margin-top: -250px; }
 }
+
+// </editor-fold>
 
 // <editor-fold desc="Media Queries">
 
