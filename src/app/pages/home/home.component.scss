@@ -207,6 +207,9 @@ $portfolioImageUrl: '../../../images/me.jpg';
       #welcomeTextSection {
         margin-top: 40px;
         color: gray;
+        p {
+          font-weight: 300;
+        }
       }
       #aboutSection {
         text-align: center;
