@@ -84,7 +84,7 @@ $portfolioImageUrl: '../../../images/me.jpg';
             }
             #headerText {
               font-weight: 100;
-              font-size: 200%;
+              //font-size: 200%;
               strong {
                 font-weight: 600;
               }
@@ -235,8 +235,6 @@ $portfolioImageUrl: '../../../images/me.jpg';
   }
   footer {
     grid-area: foot;
-    //background-color: gray;
-    //height: 300px;
   }
 }
 
@@ -304,25 +302,10 @@ $portfolioImageUrl: '../../../images/me.jpg';
 
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
-
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) and (max-width: 991px) {
-
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
   #mainContent {
     md-card {
       height: 40%;
-      width: 40%;
+      width: 80%;
       .main {
         flex-direction: row;
         .content-container {
@@ -331,6 +314,141 @@ $portfolioImageUrl: '../../../images/me.jpg';
           display: flex;
           justify-content: space-between;
           flex-direction: column;
+          #headerText {
+            font-size: 100%;
+          }
+        }
+        .image-container {
+          width: 55%;
+        }
+      }
+    }
+    #aboutSection {
+      width: 80%;
+    }
+    #welcomeTextSection {
+      width: 80%;
+      p {
+        font-size: 120%;
+      }
+    }
+    #portfolioSection {
+      width: 80%;
+    }
+    #skillsSection {
+      width: 80%;
+    }
+    #experienceSection {
+      width: 80%;
+    }
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991px) {
+  #mainContent {
+    md-card {
+      height: 40%;
+      width: 80%;
+      .main {
+        flex-direction: row;
+        .content-container {
+          margin-left: 40px;
+          width: 60%;
+          display: flex;
+          justify-content: space-between;
+          flex-direction: column;
+          #headerText {
+            font-size: 200%;
+          }
+        }
+        .image-container {
+          width: 55%;
+        }
+      }
+    }
+    #aboutSection {
+      width: 80%;
+    }
+    #welcomeTextSection {
+      width: 80%;
+      p {
+        font-size: 120%;
+      }
+    }
+    #portfolioSection {
+      width: 80%;
+    }
+    #skillsSection {
+      width: 80%;
+    }
+    #experienceSection {
+      width: 80%;
+    }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  #mainContent {
+    md-card {
+      height: 40%;
+      width: 80%;
+      .main {
+        flex-direction: row;
+        .content-container {
+          margin-left: 40px;
+          width: 60%;
+          display: flex;
+          justify-content: space-between;
+          flex-direction: column;
+          #headerText {
+            font-size: 200%;
+          }
+        }
+        .image-container {
+          width: 60%;
+        }
+      }
+    }
+    #aboutSection {
+      width: 80%;
+    }
+    #welcomeTextSection {
+      width: 80%;
+      p {
+        font-size: 120%;
+      }
+    }
+    #portfolioSection {
+      width: 80%;
+    }
+    #skillsSection {
+      width: 80%;
+    }
+    #experienceSection {
+      width: 80%;
+    }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  #mainContent {
+    md-card {
+      height: 40%;
+      width: 50%;
+      .main {
+        flex-direction: row;
+        .content-container {
+          margin-left: 40px;
+          width: 60%;
+          display: flex;
+          justify-content: space-between;
+          flex-direction: column;
+          #headerText {
+            font-size: 200%;
+          }
         }
         .image-container {
           width: 40%;
@@ -338,22 +456,22 @@ $portfolioImageUrl: '../../../images/me.jpg';
       }
     }
     #aboutSection {
-      width: 40%;
+      width: 50%;
     }
     #welcomeTextSection {
-      width: 40%;
+      width: 50%;
       p {
         font-size: 120%;
       }
     }
     #portfolioSection {
-      width: 40%;
+      width: 50%;
     }
     #skillsSection {
-      width: 40%;
+      width: 50%;
     }
     #experienceSection {
-      width: 40%;
+      width: 50%;
     }
   }
 }
