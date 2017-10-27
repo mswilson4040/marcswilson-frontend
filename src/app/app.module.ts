@@ -38,6 +38,7 @@ import { UIService } from './shared-services/ui.service';
 import { AuthGuard } from './guards/auth.guard';
 import { SkillsComponent } from './pages/skills/skills.component';
 import { ExperienceComponent } from './pages/experience/experience.component';
+import { FooterComponent } from './shared-components/footer/footer.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { ExperienceComponent } from './pages/experience/experience.component';
     CallbackComponent,
     LoginDialogComponent,
     SkillsComponent,
-    ExperienceComponent
+    ExperienceComponent,
+    FooterComponent
   ],
   entryComponents: [
     MLBBallparksComponent,

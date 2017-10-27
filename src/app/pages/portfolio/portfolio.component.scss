@@ -5,9 +5,10 @@
       width: 100%;
       display: flex;
       flex-wrap: wrap;
+      justify-content: center;
       .card-container {
         position: relative;
-        width: 33.3%;
+        //width: 33.3%;
         margin: 10px;
         .image-container {
           overflow: hidden;
@@ -89,7 +90,9 @@
 
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) {
-
+  .card-container {
+    width: 80%;
+  }
 }
 
 // Small devices (landscape phones, 576px and up)
@@ -109,5 +112,7 @@
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
-
+  .card-container {
+    width: 33.3%;
+  }
 }
