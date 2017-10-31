@@ -99,7 +99,7 @@ $portfolioImageUrl: '../../../images/me.jpg';
                 label:first-child {
                   font-size: 80%;
                   color: black;
-                  width: 100px;
+                  min-width: 140px;
                   font-weight: 700;
                   text-transform: uppercase;
                 }
