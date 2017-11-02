@@ -1,6 +1,6 @@
 <section id="timeline">
   <div id="eventsLeft">
-    <div class="event-container-wrapper">
+    <div class="event-container-wrapper" [class.load]="inView">
       <div class="event-container">
         <div class="content-container">
           <h4>Headset</h4>
@@ -13,11 +13,11 @@
           </p>
         </div>
         <div class="arrow">
-          <div class="dot"></div>
+          <div class="dot" [class.load]="inView"></div>
         </div>
       </div>
     </div>
-    <div class="event-container-wrapper">
+    <div class="event-container-wrapper" [class.load]="inView">
       <div class="event-container">
         <div class="content-container">
           <h4>BluLink</h4>
@@ -31,11 +31,11 @@
           </p>
         </div>
         <div class="arrow">
-          <div class="dot"></div>
+          <div class="dot" [class.load]="inView"></div>
         </div>
       </div>
     </div>
-    <div class="event-container-wrapper">
+    <div class="event-container-wrapper" [class.load]="inView">
       <div class="event-container">
         <div class="content-container">
           <h4>Winshuttle</h4>
@@ -50,11 +50,11 @@
           </p>
         </div>
         <div class="arrow">
-          <div class="dot"></div>
+          <div class="dot" [class.load]="inView"></div>
         </div>
       </div>
     </div>
-    <div class="event-container-wrapper">
+    <div class="event-container-wrapper" [class.load]="inView">
       <div class="event-container">
         <div class="content-container">
           <h4>United States Marine Corps</h4>
@@ -69,14 +69,14 @@
           </p>
         </div>
         <div class="arrow">
-          <div class="dot"></div>
+          <div class="dot" [class.load]="inView"></div>
         </div>
       </div>
     </div>
   </div>
-  <div id="bar"></div>
+  <div id="bar" [class.load]="inView"></div>
   <div id="eventsRight">
-    <div class="event-container-wrapper">
+    <div class="event-container-wrapper" [class.load]="inView">
       <div class="event-container">
         <div class="content-container">
           <h4>UW Medicine</h4>
@@ -90,11 +90,11 @@
           </p>
         </div>
         <div class="arrow">
-          <div class="dot"></div>
+          <div class="dot" [class.load]="inView"></div>
         </div>
       </div>
     </div>
-    <div class="event-container-wrapper">
+    <div class="event-container-wrapper" [class.load]="inView">
       <div class="event-container">
         <div class="content-container">
           <h4>Marc Wilson Consulting, LLC</h4>
@@ -108,11 +108,11 @@
           </p>
         </div>
         <div class="arrow">
-          <div class="dot"></div>
+          <div class="dot" [class.load]="inView"></div>
         </div>
       </div>
     </div>
-    <div class="event-container-wrapper">
+    <div class="event-container-wrapper" [class.load]="inView">
       <div class="event-container">
         <div class="content-container">
           <h4>Government Contractor</h4>
@@ -127,7 +127,7 @@
           </p>
         </div>
         <div class="arrow">
-          <div class="dot"></div>
+          <div class="dot" [class.load]="inView"></div>
         </div>
       </div>
     </div>

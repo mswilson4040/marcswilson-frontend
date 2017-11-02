@@ -2,25 +2,33 @@ $ngBoxShadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 
 
 #timeline {
   display: flex;
-
   justify-content: space-between;
   #eventsLeft {
     width: 45%;
     flex-grow: 1;
     .event-container-wrapper {
+      opacity: 0;
+      &.load {
+        animation: loadEventsLeft 600ms ease-in-out 400ms forwards;
+      }
       .event-container {
         position: relative;
-        box-shadow: $ngBoxShadow;
         background-color: #fff;
+        box-shadow: $ngBoxShadow;
         margin-right: 30px;
         margin-bottom: 30px;
         border-top: 5px solid #3f51b5;
+        z-index: -1;
         .content-container {
           height: 100%;
           width: 100%;
           background-color: #fff;
           padding: 10px;
           h4 { font-weight: 400; }
+          p {
+            font-size: 90%;
+            color: gray;
+          }
         }
         .arrow {
           position: absolute;
@@ -41,6 +49,10 @@ $ngBoxShadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 
             bottom: -16px;
             right: -15px;
             z-index: -2;
+            opacity: 0;
+            &.load {
+              animation: loadDots 1s ease-in-out 800ms forwards;
+            }
           }
         }
       }
@@ -48,15 +60,23 @@ $ngBoxShadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 
   }
   #bar {
     width: 5px;
-    background-color: #3f51b5;
     border-radius: 10px;
     z-index: -2;
+    background-color: transparent;
+    height: 0;
+    &.load {
+      animation: loadBar 400ms ease-in-out 100ms forwards;
+    }
   }
   #eventsRight {
     width: 45%;
     flex-grow: 1;
     .event-container-wrapper {
       float: right;
+      opacity: 0;
+      &.load {
+        animation: loadEventsRight 600ms ease-in-out 400ms forwards;
+      }
       .event-container {
         position: relative;
         background-color: #fff;
@@ -64,14 +84,18 @@ $ngBoxShadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 
         margin-left: 30px;
         margin-top: 30px;
         float: right;
-        z-index: -1;
         border-top: 5px solid #3f51b5;
+        z-index: -1;
         .content-container {
           height: 100%;
           width: 100%;
           background-color: #fff;
           padding: 10px;
           h4 { font-weight: 400; }
+          p {
+            font-size: 90%;
+            color: gray;
+          }
         }
         .arrow {
           position: absolute;
@@ -92,6 +116,10 @@ $ngBoxShadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 
             bottom: -16px;
             left: -15px;
             z-index: -2;
+            opacity: 0;
+            &.load {
+              animation: loadDots 1s ease-in-out 800ms forwards;
+            }
           }
         }
       }
@@ -101,6 +129,47 @@ $ngBoxShadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 
 
 // <editor-fold desc="Animations">
 
+@keyframes loadBar {
+  0% {
+    background-color: transparent;
+    height: 0;
+  }
+  100% {
+    background-color: #3f51b5;
+    height: 100vh;
+  }
+}
+
+@keyframes loadEventsLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes loadEventsRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes loadDots {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 
 
 // </editor-fold>
