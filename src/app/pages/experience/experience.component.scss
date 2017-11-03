@@ -1,4 +1,7 @@
 $ngBoxShadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+$white: #fff;
+$blue: #3f51b5;
+$pink: #ff4081;
 
 #timeline {
   display: flex;
@@ -13,20 +16,19 @@ $ngBoxShadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 
       }
       .event-container {
         position: relative;
-        background-color: #fff;
+        background-color: $white;
         box-shadow: $ngBoxShadow;
         margin-right: 30px;
         margin-bottom: 30px;
-        border-top: 5px solid #3f51b5;
+        border-top: 5px solid $blue;
         z-index: -1;
         .content-container {
           height: 100%;
           width: 100%;
-          background-color: #fff;
+          background-color: $white;
           padding: 10px;
           h4 { font-weight: 400; }
           p {
-            font-size: 90%;
             color: gray;
           }
         }
@@ -37,21 +39,21 @@ $ngBoxShadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 
           height: 70px;
           width: 50px;
           transform: rotate(-45deg);
-          background-color: #fff;
+          background-color: $white;
           box-shadow: $ngBoxShadow;
           z-index: -1;
           .dot {
             height: 10px;
             width: 10px;
             border-radius: 100px;
-            background-color: #ff4081;
+            background-color: $pink;
             position: absolute;
             bottom: -16px;
             right: -15px;
             z-index: -2;
             opacity: 0;
             &.load {
-              animation: loadDots 1s ease-in-out 800ms forwards;
+              animation: loadDots 600ms ease-in-out 800ms forwards;
             }
           }
         }
@@ -79,21 +81,20 @@ $ngBoxShadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 
       }
       .event-container {
         position: relative;
-        background-color: #fff;
+        background-color: $white;
         box-shadow: $ngBoxShadow;
         margin-left: 30px;
         margin-top: 30px;
         float: right;
-        border-top: 5px solid #3f51b5;
+        border-top: 5px solid $blue;
         z-index: -1;
         .content-container {
           height: 100%;
           width: 100%;
-          background-color: #fff;
+          background-color: $white;
           padding: 10px;
           h4 { font-weight: 400; }
           p {
-            font-size: 90%;
             color: gray;
           }
         }
@@ -104,7 +105,7 @@ $ngBoxShadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 
           height: 70px;
           width: 50px;
           transform: rotate(45deg);
-          background-color: #fff;
+          background-color: $white;
           box-shadow: $ngBoxShadow;
           z-index: -1;
           .dot {
@@ -118,7 +119,7 @@ $ngBoxShadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 
             z-index: -2;
             opacity: 0;
             &.load {
-              animation: loadDots 1s ease-in-out 800ms forwards;
+              animation: loadDots 600ms ease-in-out 800ms forwards;
             }
           }
         }
@@ -135,8 +136,8 @@ $ngBoxShadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 
     height: 0;
   }
   100% {
-    background-color: #3f51b5;
-    height: 100vh;
+    background-color: $blue;
+    height: auto;
   }
 }
 
@@ -170,6 +171,51 @@ $ngBoxShadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 
     opacity: 1;
   }
 }
+
+// </editor-fold>
+
+// <editor-fold desc="Media Queries">
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575px) {
+  .content-container {
+    h4 { font-size: 100%;}
+    p { font-size: 75%; }
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .content-container {
+    h4 { font-size: 100%;}
+    p { font-size: 75%; }
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991px) {
+  .content-container {
+    h4 { font-size: 90%; }
+    p { font-size: 80%; }
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .content-container {
+    h4 { font-size: 130%; }
+    p { font-size: 95%; }
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .content-container {
+    h4 { font-size: 135%; }
+    p { font-size: 100%; }
+  }
+}
+
 
 
 // </editor-fold>

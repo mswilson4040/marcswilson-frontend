@@ -41,3 +41,8 @@ html, body {
 @media (min-width: 1200px) {
   #mediaHelper:before {content: 'large desktops, 1200px and up';}
 }
+
+// Extra Extra large devices (extra large desktops, 1500px and up
+@media (min-width: 1800px) {
+  #mediaHelper:before {content: 'extra large desktops, 1800px and up';}
+}
