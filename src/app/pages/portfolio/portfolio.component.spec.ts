@@ -4,6 +4,8 @@ import { PortfolioComponent } from './portfolio.component';
 import {RouterTestingModule} from '@angular/router/testing';
 import {AuthService} from '../../shared-services/auth.service';
 import {HttpModule} from '@angular/http';
+import { MatTabsModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('PortfolioComponent', () => {
   let component: PortfolioComponent;
@@ -11,7 +13,12 @@ describe('PortfolioComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule, HttpModule],
+      imports: [
+        RouterTestingModule,
+        HttpModule,
+        MatTabsModule,
+        BrowserAnimationsModule
+      ],
       declarations: [ PortfolioComponent ],
       providers: [AuthService]
     })

@@ -16,15 +16,7 @@ import { MLBBallparksComponent } from './pages/portfolio/mlb-stats/mlbballparks/
 import { MLBteamsComponent } from './pages/portfolio/mlb-stats/mlbteams/mlbteams.component';
 import { PowerballComponent } from './pages/portfolio/powerball/powerball.component';
 import { OverlayComponent } from './shared-components/overlay/overlay.component';
-import {
-  MdAutocompleteModule, MdButtonModule, MdCardModule, MdChipsModule, MdDatepickerModule, MdDialogModule,
-  MdExpansionModule, MdInputModule,
-  MdMenuModule,
-  MdNativeDateModule, MdProgressBarModule, MdSelectModule, MdSidenavModule,
-  MdSliderModule,
-  MdTabsModule, MdTooltipModule
-} from '@angular/material';
-import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContactFormDialogComponent } from './shared-components/contact-form-dialog/contact-form-dialog.component';
 import { ErrorDialogComponent } from './shared-components/error-dialog/error-dialog.component';
 import { ConfirmDialogComponent } from './shared-components/confirm-dialog/confirm-dialog.component';
@@ -39,6 +31,15 @@ import { AuthGuard } from './guards/auth.guard';
 import { SkillsComponent } from './pages/skills/skills.component';
 import { ExperienceComponent } from './pages/experience/experience.component';
 import { FooterComponent } from './shared-components/footer/footer.component';
+import {
+  MatAutocompleteModule, MatButtonModule, MatCardModule, MatChipsModule, MatDatepickerModule, MatDialogModule,
+  MatExpansionModule,
+  MatInputModule,
+  MatMenuModule,
+  MatNativeDateModule, MatProgressBarModule, MatSelectModule, MatSidenavModule,
+  MatSliderModule,
+  MatTabsModule, MatTooltipModule
+} from '@angular/material';
 
 
 @NgModule({
@@ -81,23 +82,23 @@ import { FooterComponent } from './shared-components/footer/footer.component';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    MdDatepickerModule,
-    MdInputModule,
-    MdNativeDateModule,
-    MdAutocompleteModule,
+    MatDatepickerModule,
+    MatInputModule,
+    MatNativeDateModule,
+    MatAutocompleteModule,
     ReactiveFormsModule,
-    MdTabsModule,
-    MdCardModule,
-    MdSliderModule,
-    MdDialogModule,
-    MdButtonModule,
-    MdTooltipModule,
-    MdSidenavModule,
-    MdSelectModule,
-    MdChipsModule,
-    MdMenuModule,
-    MdExpansionModule,
-    MdProgressBarModule
+    MatTabsModule,
+    MatCardModule,
+    MatSliderModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatTooltipModule,
+    MatSidenavModule,
+    MatSelectModule,
+    MatChipsModule,
+    MatMenuModule,
+    MatExpansionModule,
+    MatProgressBarModule
   ],
   providers: [
     UIService,

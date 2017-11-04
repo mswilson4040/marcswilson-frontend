@@ -18,8 +18,8 @@
   </div>
   <div id="chartArea">
     <div id="chartSelectors" [hidden]="selectedPlayer.length === 0">
-      <md-tab-group>
-        <md-tab label="Batting">
+      <mat-tab-group>
+        <mat-tab label="Batting">
           <div class="selectors">
             <div class="selector-container rounded" (click)="switchChart('batting', 'HR')">
               <div class="text-muted">Homeruns</div>
@@ -67,8 +67,8 @@
               <div class="text-muted">Sacrifice Fly</div>
             </div>
           </div>
-        </md-tab>
-        <md-tab label="Pitching">
+        </mat-tab>
+        <mat-tab label="Pitching">
           <div class="selectors">
             <div class="selector-container rounded" (click)="switchChart('pitching', 'W')">
               <div class="text-muted">Wins</div>
@@ -143,8 +143,8 @@
               <div class="text-muted">Sacrifice Flies</div>
             </div>
           </div>
-        </md-tab>
-        <md-tab label="Fielding">
+        </mat-tab>
+        <mat-tab label="Fielding">
           <div class="selectors">
             <div class="selector-container rounded" (click)="switchChart('fielding', 'G')">
               <div class="text-muted">Games</div>
@@ -165,20 +165,20 @@
               <div class="text-muted">Double Plays</div>
             </div>
           </div>
-        </md-tab>
-        <md-tab label="Salaries">
+        </mat-tab>
+        <mat-tab label="Salaries">
           <div class="selectors">
             <div class="selector-container rounded" (click)="switchChart('salaries', 'salary')">
               <div class="text-muted">Salary</div>
             </div>
           </div>
-        </md-tab>
-      </md-tab-group>
+        </mat-tab>
+      </mat-tab-group>
     </div>
     <div id="appearancesChart"></div>
     <div id="yearTabsContainer">
-      <md-tab-group>
-        <md-tab *ngFor="let appearance of selectedPlayer; let i = index" label="{{appearance.yearID}}">
+      <mat-tab-group>
+        <mat-tab *ngFor="let appearance of selectedPlayer; let i = index" label="{{appearance.yearID}}">
           <div class="stat-category-container">
             <h5 class="h5 category-title">Personal</h5>
             <hr/>
@@ -369,8 +369,8 @@
               </div>
             </div>
           </div>
-        </md-tab>
-      </md-tab-group>
+        </mat-tab>
+      </mat-tab-group>
     </div>
   </div>
 </div>

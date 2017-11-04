@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ConfirmDialogComponent } from './confirm-dialog.component';
-import {MdDialogRef} from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 
 class MdDialogRefMock {}
 
@@ -13,7 +13,7 @@ describe('ConfirmDialogComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ ConfirmDialogComponent ],
       providers: [
-        { provide: MdDialogRef, useClass: MdDialogRefMock}
+        { provide: MatDialogRef, useClass: MdDialogRefMock}
       ]
     })
     .compileComponents();

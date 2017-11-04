@@ -2,8 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ContactFormDialogComponent } from './contact-form-dialog.component';
 import { FormsModule } from '@angular/forms';
-import { MdDialogRef, MdInputModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogRef, MatInputModule } from '@angular/material';
 
 class MdDialogRefMock {}
 
@@ -15,12 +15,12 @@ describe('ContactFormDialogComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         FormsModule,
-        MdInputModule,
+        MatInputModule,
         BrowserAnimationsModule
       ],
       declarations: [ ContactFormDialogComponent ],
       providers: [
-        { provide: MdDialogRef, useClass: MdDialogRefMock }
+        { provide: MatDialogRef, useClass: MdDialogRefMock }
       ]
     })
     .compileComponents();

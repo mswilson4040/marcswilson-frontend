@@ -6,8 +6,8 @@ import {MlbStatsService} from '../services/mlb-stats.service';
 import {Http} from '@angular/http';
 import {MockBackend} from '@angular/http/testing';
 import {UIService} from '../../../../shared-services/ui.service';
-import {MdTabsModule} from '@angular/material';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MatTabsModule } from '@angular/material';
 
 describe('MLBPlayersComponent', () => {
   let component: MLBPlayersComponent;
@@ -17,7 +17,7 @@ describe('MLBPlayersComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         FormsModule,
-        MdTabsModule,
+        MatTabsModule,
         BrowserAnimationsModule
       ],
       declarations: [ MLBPlayersComponent ],

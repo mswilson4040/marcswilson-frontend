@@ -39,7 +39,7 @@ $portfolioImageUrl: '../../../images/me.jpg';
       display: flex;
       flex-direction: column;
       align-items: center;
-      md-card {
+      mat-card {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -261,7 +261,7 @@ $portfolioImageUrl: '../../../images/me.jpg';
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) {
   #mainContent {
-    md-card {
+    mat-card {
       width: 90%;
       .main {
         flex-direction: column;
@@ -304,7 +304,7 @@ $portfolioImageUrl: '../../../images/me.jpg';
 // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) {
   #mainContent {
-    md-card {
+    mat-card {
       height: 40%;
       width: 80%;
       .main {
@@ -348,7 +348,7 @@ $portfolioImageUrl: '../../../images/me.jpg';
 // Medium devices (tablets, 768px and up)
 @media (min-width: 768px) and (max-width: 991px) {
   #mainContent {
-    md-card {
+    mat-card {
       height: 40%;
       width: 80%;
       .main {
@@ -392,7 +392,7 @@ $portfolioImageUrl: '../../../images/me.jpg';
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) {
   #mainContent {
-    md-card {
+    mat-card {
       height: 40%;
       width: 90%;
       .main {
@@ -436,7 +436,7 @@ $portfolioImageUrl: '../../../images/me.jpg';
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   #mainContent {
-    md-card {
+    mat-card {
       height: 40%;
       width: 50%;
       .main {
@@ -480,7 +480,7 @@ $portfolioImageUrl: '../../../images/me.jpg';
 // Extra Extra large devices (extra large desktops, 1500px and up
 @media (min-width: 1800px) {
   #mainContent {
-    md-card {
+    mat-card {
       height: 40%;
       width: 50%;
       .main {

@@ -2,10 +2,11 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GlobalNavComponent } from './global-nav.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { MdDialogModule, MdMenuModule } from '@angular/material';
 import { EmailService } from '../../shared-services/email.service';
 import { HttpModule } from '@angular/http';
 import { AuthService } from '../../shared-services/auth.service';
+import { MatDialogModule, MatMenuModule } from '@angular/material';
+import { UIService } from '../../shared-services/ui.service';
 
 describe('GlobalNavComponent', () => {
   let component: GlobalNavComponent;
@@ -15,14 +16,15 @@ describe('GlobalNavComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        MdDialogModule,
+        MatDialogModule,
         HttpModule,
-        MdMenuModule
+        MatMenuModule
       ],
       declarations: [ GlobalNavComponent ],
       providers: [
         EmailService,
-        AuthService
+        AuthService,
+        UIService
       ]
     })
     .compileComponents();

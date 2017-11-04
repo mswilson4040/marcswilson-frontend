@@ -6,11 +6,16 @@ import { MockBackend } from '@angular/http/testing';
 import { Http } from '@angular/http';
 import { UIService } from '../../../shared-services/ui.service';
 import { MlbStatsService } from '../mlb-stats/services/mlb-stats.service';
-import {
-  MdAutocompleteModule, MdDatepickerModule, MdInputModule, MdNativeDateModule,
-  MdSliderModule
-} from '@angular/material';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  MatAutocompleteModule, MatDatepickerModule, MatInputModule, MatNativeDateModule,
+  MatSliderModule
+} from '@angular/material';
+import { GlobalNavComponent } from '../../../shared-components/global-nav/global-nav.component';
+import { RouterTestingModule } from '@angular/router/testing';
+import { EmailService } from '../../../shared-services/email.service';
+import { AuthService } from '../../../shared-services/auth.service';
 
 describe('MlbApiExplorerComponent', () => {
   let component: MlbApiExplorerComponent;
@@ -20,16 +25,26 @@ describe('MlbApiExplorerComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         FormsModule,
-        MdSliderModule,
-        MdAutocompleteModule,
+        MatSliderModule,
+        MatAutocompleteModule,
         ReactiveFormsModule,
-        MdInputModule,
-        MdDatepickerModule,
-        MdNativeDateModule,
-        BrowserAnimationsModule
+        MatInputModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        BrowserAnimationsModule,
+        RouterTestingModule
       ],
-      declarations: [ MlbApiExplorerComponent ],
-      providers: [ UIService, MlbStatsService, {provide: Http, deps: [MockBackend]} ]
+      declarations: [
+        MlbApiExplorerComponent,
+        GlobalNavComponent
+      ],
+      providers: [
+        UIService,
+        MlbStatsService,
+        {provide: Http, deps: [MockBackend]},
+        EmailService,
+        AuthService
+      ]
     })
     .compileComponents();
   }));

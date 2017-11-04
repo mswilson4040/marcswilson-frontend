@@ -22,8 +22,8 @@
     </p>
     <div>
       <div>
-        <md-tab-group>
-          <md-tab label="Teams">
+        <mat-tab-group>
+          <mat-tab label="Teams">
             <div class="tab-inner">
               <p>The teams endpoint takes in two arguments: <strong>Year</strong> and <strong>Team ID</strong>. The return is an array of type Team.
               </p>
@@ -32,22 +32,22 @@
               <div class="section-inputs">
                 <div class="mlb-slider">
                   <div class="year-label">Year {{selectedTeamYear}}</div>
-                  <md-slider class="col-xl-12" min="1871" max="2016" [value]="selectedTeamYear" [thumbLabel]="true" (change)="teamYearSelected($event)"></md-slider>
+                  <mat-slider class="col-xl-12" min="1871" max="2016" [value]="selectedTeamYear" [thumbLabel]="true" (change)="teamYearSelected($event)"></mat-slider>
                 </div>
                 <div class="mlb-dropdown">
-                  <md-input-container class="col-xl-12">
-                    <input mdInput placeholder="Team" [mdAutocomplete]="teamsAutocomplete" [formControl]="team" />
-                  </md-input-container>
-                  <md-autocomplete #teamsAutocomplete="mdAutocomplete">
-                    <md-option *ngFor="let team of filteredTeams | async" [value]="team.name" (onSelectionChange)="teamSelected(team)">
+                  <mat-input-container class="col-xl-12">
+                    <input matInput placeholder="Team" [matAutocomplete]="teamsAutocomplete" [formControl]="team" />
+                  </mat-input-container>
+                  <mat-autocomplete #teamsAutocomplete="matAutocomplete">
+                    <mat-option *ngFor="let team of filteredTeams | async" [value]="team.name" (onSelectionChange)="teamSelected(team)">
                       {{team.name}}
-                    </md-option>
-                  </md-autocomplete>
+                    </mat-option>
+                  </mat-autocomplete>
                 </div>
               </div>
             </div>
-          </md-tab>
-          <md-tab label="Players">
+          </mat-tab>
+          <mat-tab label="Players">
             <div class="tab-inner">
               <p>The players endpoint takes in one argument: <strong>Player ID</strong>. The return is an array of type Players.
               </p>
@@ -56,22 +56,22 @@
               <div class="section-inputs">
                 <div class="mlb-slider">
                   <div class="year-label">Year {{selectedPlayersYear}}</div>
-                  <md-slider class="col-xl-12" min="1871" max="2016" [value]="selectedPlayersYear" [thumbLabel]="true" (change)="playersYearSelected($event)"></md-slider>
+                  <mat-slider class="col-xl-12" min="1871" max="2016" [value]="selectedPlayersYear" [thumbLabel]="true" (change)="playersYearSelected($event)"></mat-slider>
                 </div>
                 <div class="mlb-dropdown">
-                  <md-input-container class="col-xl-12">
-                    <input mdInput placeholder="Player" [mdAutocomplete]="playersAutocomplete" [formControl]="player" />
-                  </md-input-container>
-                  <md-autocomplete #playersAutocomplete="mdAutocomplete">
-                    <md-option *ngFor="let player of filteredPlayers | async" [value]="player.personal[0].fullName" (onSelectionChange)="playerSelected(player)">
+                  <mat-input-container class="col-xl-12">
+                    <input matInput placeholder="Player" [matAutocomplete]="playersAutocomplete" [formControl]="player" />
+                  </mat-input-container>
+                  <mat-autocomplete #playersAutocomplete="matAutocomplete">
+                    <mat-option *ngFor="let player of filteredPlayers | async" [value]="player.personal[0].fullName" (onSelectionChange)="playerSelected(player)">
                       {{player.personal[0].fullName}}
-                    </md-option>
-                  </md-autocomplete>
+                    </mat-option>
+                  </mat-autocomplete>
                 </div>
               </div>
             </div>
-          </md-tab>
-          <md-tab label="Ballparks">
+          </mat-tab>
+          <mat-tab label="Ballparks">
             <div class="tab-inner">
               <p>The ballparks endpoint takes in one optional argument: <strong>Player ID</strong>. The return is an array of type Ballpark
               </p>
@@ -81,23 +81,23 @@
                 <button type="button" class="btn btn-primary" (click)="getAllBallparks()">Get All Ballparks</button>
               </div>
             </div>
-          </md-tab>
-          <md-tab label="Boxscores">
+          </mat-tab>
+          <mat-tab label="Boxscores">
             <div class="tab-inner">
               <p>The boxscores endpoint takes in three arguments: <strong>Year</strong>, <strong>Month</strong>, and <strong>Day</strong>. The return is an array of type Boxscore
               </p>
               <pre>/api/mlbstats/boxscores/<strong>2017</strong>/<strong>7</strong>/<strong>27</strong></pre>
               <pre>/api/mlbstats/boxscores/<strong>:year</strong>/<strong>:month</strong>/<strong>:day</strong></pre>
               <div class="section-inputs">
-                <md-form-field>
-                  <input mdInput [mdDatepicker]="picker" placeholder="Choose a date" >
-                  <md-datepicker-toggle mdSuffix [for]="picker"></md-datepicker-toggle>
-                  <md-datepicker #picker (selectedChanged)="boxscoresDateChanged($event)"></md-datepicker>
-                </md-form-field>
+                <mat-form-field>
+                  <input matInput [matDatepicker]="picker" placeholder="Choose a date" >
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker (selectedChanged)="boxscoresDateChanged($event)"></mat-datepicker>
+                </mat-form-field>
               </div>
             </div>
-          </md-tab>
-        </md-tab-group>
+          </mat-tab>
+        </mat-tab-group>
       </div>
       <div class="input-group" id="addressBar">
         <div class="input-group-addon"><strong>GET</strong></div>

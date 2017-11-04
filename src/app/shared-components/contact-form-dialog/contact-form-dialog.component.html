@@ -1,23 +1,23 @@
-<div md-dialog-container>
-  <h4 md-dialog-title>Contact Form</h4>
-  <div md-dialog-content>
+<div mat-dialog-container>
+  <h4 mat-dialog-title>Contact Form</h4>
+  <div mat-dialog-content>
     <div class="row">
-      <md-input-container class="col-xl-6">
-        <input mdInput placeholder="From" [(ngModel)]="from" />
-      </md-input-container>
-      <md-input-container class="col-xl-6">
-        <input mdInput placeholder="Subject" [(ngModel)]="subject" />
-      </md-input-container>
+      <mat-input-container class="col-xl-6">
+        <input matInput placeholder="From" [(ngModel)]="from" />
+      </mat-input-container>
+      <mat-input-container class="col-xl-6">
+        <input matInput placeholder="Subject" [(ngModel)]="subject" />
+      </mat-input-container>
     </div>
 
     <div class="row">
-      <md-input-container class="col-xl-12">
-        <textarea mdInput placeholder="Message" rows="4" [(ngModel)]="message"></textarea>
-      </md-input-container>
+      <mat-input-container class="col-xl-12">
+        <textarea matInput placeholder="Message" rows="4" [(ngModel)]="message"></textarea>
+      </mat-input-container>
     </div>
   </div>
-  <div md-dialog-actions>
-    <button md-dialog-close="true" md-button md-raised-button>Send</button>
-    <button md-dialog-close="false" md-button>Close</button>
+  <div mat-dialog-actions>
+    <button mat-dialog-close="true" mat-button mat-raised-button>Send</button>
+    <button mat-dialog-close="false" mat-button>Close</button>
   </div>
 </div>

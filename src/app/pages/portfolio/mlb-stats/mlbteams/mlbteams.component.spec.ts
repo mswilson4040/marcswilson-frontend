@@ -1,10 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MLBteamsComponent } from './mlbteams.component';
-import {MlbStatsService} from '../services/mlb-stats.service';
-import {MockBackend} from '@angular/http/testing';
-import {Http} from '@angular/http';
-import { MdSliderModule } from '@angular/material';
+import { MlbStatsService } from '../services/mlb-stats.service';
+import { MockBackend } from '@angular/http/testing';
+import { Http } from '@angular/http';
+import { MatSliderModule } from '@angular/material';
 
 describe('MlbteamsComponent', () => {
   let component: MLBteamsComponent;
@@ -14,7 +14,7 @@ describe('MlbteamsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ MLBteamsComponent ],
       providers: [MlbStatsService, {provide: Http, deps: [MockBackend]}],
-      imports: [MdSliderModule]
+      imports: [MatSliderModule]
     })
     .compileComponents();
   }));

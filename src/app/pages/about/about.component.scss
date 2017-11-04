@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   opacity: 0;
-  md-card {
+  mat-card {
     text-align: center;
     .image-container {
       padding: 10px 0;
@@ -60,7 +60,7 @@
 @media (max-width: 575px) {
   .cards-container {
     flex-direction: column;
-    md-card {
+    mat-card {
       width: 100%;
       margin-bottom: 20px;
     }
@@ -71,7 +71,7 @@
 @media (min-width: 576px) {
   .cards-container {
     flex-direction: column;
-    md-card {
+    mat-card {
       width: 100%;
       margin-bottom: 20px;
     }
@@ -82,7 +82,7 @@
 @media (min-width: 768px) and (max-width: 991px) {
   .cards-container {
     flex-direction: column;
-    md-card {
+    mat-card {
       width: 100%;
       margin-bottom: 20px;
     }
@@ -93,7 +93,7 @@
 @media (min-width: 992px) {
   .cards-container {
     flex-direction: row;
-    md-card {
+    mat-card {
       width: 30%;
       margin-bottom: 0;
     }
@@ -104,7 +104,7 @@
 @media (min-width: 1200px) {
   .cards-container {
     flex-direction: row;
-    md-card {
+    mat-card {
       width: 30%;
       margin-bottom: 0;
     }

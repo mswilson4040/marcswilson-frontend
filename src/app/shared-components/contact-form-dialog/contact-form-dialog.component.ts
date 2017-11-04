@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MdDialogRef } from '@angular/material';
+import { MatDialogRef } from '@angular/material';
 
 @Component({
   selector: 'app-contact-form-dialog',
@@ -10,7 +10,7 @@ export class ContactFormDialogComponent implements OnInit {
   public subject: string = null;
   public from: string = null;
   public message: string = null;
-  constructor(private _dialogRef: MdDialogRef<ContactFormDialogComponent>) { }
+  constructor(private _dialogRef: MatDialogRef<ContactFormDialogComponent>) { }
 
   ngOnInit() {
   }

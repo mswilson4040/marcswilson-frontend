@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { MdDialog } from '@angular/material';
 import { ContactFormDialogComponent } from '../../shared-components/contact-form-dialog/contact-form-dialog.component';
 import { UIService } from '../../shared-services/ui.service';
+import { MatDialog } from '@angular/material';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +10,7 @@ import { UIService } from '../../shared-services/ui.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private _dialog: MdDialog, private _uiService: UIService, private _elementRef: ElementRef) { }
+  constructor(private _dialog: MatDialog, private _uiService: UIService, private _elementRef: ElementRef) { }
 
   ngOnInit() {
     this._uiService.scrollService.subscribe( evt => {
