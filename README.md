@@ -1,5 +1,7 @@
 # Marcswilson
 
+[![Build Status](https://travis-ci.org/mswilson4040/marcswilson-frontend.svg?branch=master)](https://travis-ci.org/mswilson4040/marcswilson-frontend)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.4.
 
 ## Development server
