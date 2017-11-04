@@ -4,6 +4,7 @@ node_js:
   - '8.9.0'
 
 install:
+  - npm install @angular/cli -g
   - npm install typescript -g
   - tsc
   - npm install
