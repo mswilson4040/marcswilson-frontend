@@ -7,4 +7,5 @@ install:
   - npm install @types/node -g
   - npm install @angular/cli -g
   - npm install typescript -g
+  - tsc
   - npm install
