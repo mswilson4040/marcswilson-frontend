@@ -46,5 +46,3 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
-/src/node-server/server.env
-/src/environments/auth0.config.ts

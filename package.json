@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "test": "ng test --sourcemaps=false",
+    "test": "ng test --sourcemaps=false --browser=ChromeHeadless --single-run=true",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -59,7 +59,7 @@
     "jasmine-core": "~2.5.2",
     "jasmine-spec-reporter": "~3.2.0",
     "karma": "~1.4.1",
-    "karma-chrome-launcher": "~2.1.1",
+    "karma-chrome-launcher": "^2.1.1",
     "karma-cli": "~1.0.1",
     "karma-coverage-istanbul-reporter": "^0.2.0",
     "karma-jasmine": "~1.1.0",
