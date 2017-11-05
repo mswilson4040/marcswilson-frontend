@@ -3,13 +3,11 @@ sudo: false
 node_js:
   - '8.9.0'
 
-before_install:
+install:
   - npm install
   - npm install -g typescript
   - npm install @types/node -g
   - npm install @angular/cli -g
   - npm install typescript -g
   - tsc karma.conf.ts
-
-install:
 
