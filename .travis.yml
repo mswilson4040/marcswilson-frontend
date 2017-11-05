@@ -9,7 +9,7 @@ before_install:
   - npm install @types/node -g
   - npm install @angular/cli -g
   - npm install typescript -g
-  - ng -v
+  - tsc karma.conf.ts
 
 install:
 
