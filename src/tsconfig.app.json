@@ -3,7 +3,10 @@
   "compilerOptions": {
     "module": "es2015",
     "baseUrl": "",
-    "types": [ "jquery", "jqueryui", "bootstrap", "select2", "highcharts"]
+    "types": [ "jquery", "jqueryui", "bootstrap", "select2", "highcharts"],
+    "typeRoots": [
+      "node_modules/@types"
+    ]
   },
   "exclude": [
     "test.ts",
