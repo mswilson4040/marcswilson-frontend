@@ -7,46 +7,52 @@ import { UIService } from '../../shared-services/ui.service';
   styleUrls: ['./skills.component.scss']
 })
 export class SkillsComponent implements OnInit {
-  public skillValues: Object = this.setSkills(true);
+  public javaScript = 0;
+  public typeScript = 0;
+  public angular = 0;
+  public jQuery = 0;
+  public node = 0;
+  public html = 0;
+  public css = 0;
+  public scss = 0;
+  public bootstrap = 0;
+  public angularMaterial = 0;
+
   constructor(private _uiService: UIService, private _elementRef: ElementRef) { }
 
   ngOnInit() {
     this._uiService.scrollService.subscribe( evt => {
       const inView = this._uiService.isElementInView(this._elementRef);
       if (inView === true) {
-        this.skillValues = this.setSkills(false);
+        this.setSkills(false);
       } else {
-        this.skillValues = this.setSkills(true);
+        this.setSkills(true);
       }
     });
   }
-  setSkills(setToZero: boolean): Object {
+  setSkills(setToZero: boolean): void {
     if (setToZero) {
-      return {
-        javaScript: 0,
-        typeScript: 0,
-        angular: 0,
-        jQuery: 0,
-        node: 0,
-        html: 0,
-        css: 0,
-        scss: 0,
-        bootstrap: 0,
-        angularMaterial: 0
-      };
+      this.javaScript = 0;
+      this.typeScript = 0;
+      this.angular = 0;
+      this.jQuery = 0;
+      this.node = 0;
+      this.html = 0;
+      this.css = 0;
+      this.scss = 0;
+      this.bootstrap = 0;
+      this.angularMaterial = 0;
     } else {
-      return {
-        javaScript: 90,
-        typeScript: 90,
-        angular: 90,
-        jQuery: 90,
-        node: 60,
-        html: 90,
-        css: 75,
-        scss: 70,
-        bootstrap: 90,
-        angularMaterial: 70
-      };
+      this.javaScript = 90;
+      this.typeScript = 90;
+      this.angular = 90;
+      this.jQuery = 90;
+      this.node = 60;
+      this.html = 90;
+      this.css = 75;
+      this.scss = 70;
+      this.bootstrap = 90;
+      this.angularMaterial = 70;
     }
   }
 
