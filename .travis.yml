@@ -7,11 +7,4 @@ install:
 - tsc karma.conf.ts
 script:
 - npm run build-prod
-deploy:
-  provider: releases
-  api_key:
-    secure: Hc6oY+jBRxTx8qi6pZANPMcWFsOn0yZ5NGW0PbsmLqL8FkM/hXrdwaDhlBda8XzqOTNwyxU4Wuu5zYyHF4dRHsyRr4BZyg8ZmTyiuXqtKtuy8Vboq5KWicCjWqemVU8ITO8RmJbIxv1L5qsWUracdCfqSuPvmQPFjlqpn2QAhC70rCjb59nQeEIG1Qib7uDqGX50AfvdFbCC9GD4lFkwCQlzPXNSpjbdaFo9mI4ckoYG0Rq0Iwb6g9+uDiFuHSAzD7t+isyZY6ITS6UseiiJq3mTG8JuQV8EPQYANOSCkgkb9aPzzLHHxkS87m5rb7XLFzLNb5rHBRHK6apuynb247F90kscNZPmPvPzoiY5XQBCs3+i6Ymqm7oxdggqnkE3ppP9VfiHXB2JqZaO8ACmz0FME14acRUPJe0Jrj2vspOVVVqbxHVZFdkskxxRVH5TWPs3rmTcVusIQtAqUmUFyDWRxgu8QnGmJgjSl078bsut0h18/PkhUaPeITr7vQ02euen+wpIOJZ0ooDUaCL6eisbFmv0ZNBlD62Kg6q0AfB9Ffb57gDYJv3qqz7WSQsRFnZN9hfRsVsCQFGtnTZoGtkDwCTCDxVuLLmYUTJlSn11yNpfwT1zu1QES9iG1Vhy5aQuzeX9VEmlW6NQs8YuiU01KaHV+Ah86aq3Ob/DIjY=
-  file: dist
-  skip_cleanup: true
-  on:
-    repo: mswilson4040/marcswilson-frontend
+
