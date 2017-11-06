@@ -4,7 +4,7 @@ node_js:
   - '8.9.0'
 
 install:
-  - npm cache clear
+  - npm cache clear --force
   - npm install
   - tsc karma.conf.ts
 
