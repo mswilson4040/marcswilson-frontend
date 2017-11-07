@@ -3,6 +3,7 @@ sudo: true
 node_js:
 - 8.9.0
 install:
+- npm cache clean --f
 - npm install
 script:
 - npm run build-prod
