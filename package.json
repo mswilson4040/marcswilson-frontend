@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build-prod": "ng build --prod --aot",
+    "build-prod": "ng build --prod --aot && node build-script",
     "test": "ng test --sourcemaps=false --browser=ChromeHeadless --single-run=true",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -70,6 +70,7 @@
     "request": "^2.81.0",
     "ts-node": "^3.3.0",
     "tslint": "~4.5.0",
-    "typescript": "~2.2.0"
+    "typescript": "~2.2.0",
+    "zip-folder": "^1.0.0"
   }
 }
