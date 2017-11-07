@@ -11,6 +11,7 @@ deploy:
   provider: releases
   api_key:
     secure: MTia8p0/ZLvNRbzV9H/FmdwlP2g8C58chK5BYaCkKs3OA+XDGQFrBjZjd+4z7meDDC4FI7LQ4iPY17PK7zas/x2VbHESuguivWw8ypTuRAS/kg8GS0Q4edwY3cMM+kqoTnlsZ9/HQgHdT6S/yv76kK0pk06kjRQLzfhOHx9ZtZOYgiNe22GvB55yZheYZB/TtUgXgdPxmPHMDPJOY153MbdcMlyQdZlQ56aGTxuFL6e+UEpVV1AGxs6GUjvUvf6VioBYS05JG6/BpxyT6Ptt67P9RmIKG1M7EBCwqVn0RnUvA43IkM1x2gnOOgmmhk0qF+scGJXUy4meqq2vuTbr2VKMzwC0t1zd65LKVNnAtKU2iB4pUmQpi4clEHfq4eeCP2GeR9+JbP3kne41mYb0rGm/O+fhgRJIkFnBzU8NO887g/u3GESJ902vUXWz4NpkalOz02B32hjhrsz4hHfjkaQcMObJ37K8y4lF8PNIG/EDt25FVb1lDHip9zPPmnwDnlmeVTcqLI/rbrXYW4tfDoX9tB0OzTyQaFa4R+Ve9wOj5TSeq48WjYqrdw8eBEB9nLHi6ofxJTj6KvS64NQKYz99WIimNghQ8h9KX68BJG5RJhIVajPHdN78SOid6O2CWSTjV4b0JqYnqFC095zadbLvfsZRSCLB5pAvR8mWB1s=
-  file: dist/index.html
+  file: ./dist/index.html
+  skip_cleanup: true
   on:
     repo: mswilson4040/marcswilson-frontend
