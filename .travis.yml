@@ -8,4 +8,5 @@ install:
   - npm typescript --v
 
 script:
+  - npm test
   - npm run build-prod
