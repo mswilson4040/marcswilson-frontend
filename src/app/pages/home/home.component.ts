@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { ContactFormDialogComponent } from '../../shared-components/contact-form-dialog/contact-form-dialog.component';
+import { ContactFormDialogComponent } from '../../shared-components/dialogs/contact-form-dialog/contact-form-dialog.component';
 import { UIService } from '../../shared-services/ui.service';
 import { MatDialog } from '@angular/material';
 
@@ -21,7 +21,10 @@ export class HomeComponent implements OnInit {
     window.open(url, '_blank');
   }
   launchContactForm(): void {
-    this._dialog.open(ContactFormDialogComponent);
+    const dialogRef = this._dialog.open(ContactFormDialogComponent);
+    dialogRef.afterClosed().subscribe( info => {
+      console.log(info);
+    });
   }
 
 }

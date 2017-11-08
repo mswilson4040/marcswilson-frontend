@@ -1,0 +1,23 @@
+<div mat-dialog-container>
+  <h4 mat-dialog-title>Contact Form</h4>
+  <div mat-dialog-content>
+    <div class="row">
+      <mat-input-container class="col-xl-6">
+        <input matInput placeholder="From" [(ngModel)]="mailMessage.from" />
+      </mat-input-container>
+      <mat-input-container class="col-xl-6">
+        <input matInput placeholder="Subject" [(ngModel)]="mailMessage.subject" />
+      </mat-input-container>
+    </div>
+
+    <div class="row">
+      <mat-input-container class="col-xl-12">
+        <textarea matInput placeholder="Message" rows="4" [(ngModel)]="mailMessage.message"></textarea>
+      </mat-input-container>
+    </div>
+  </div>
+  <div class="button-container">
+    <button mat-raised-button color="primary" (click)="sendEmail()">Send</button>
+    <button mat-raised-button (click)="cancel()">Close</button>
+  </div>
+</div>

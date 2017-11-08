@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import {environment} from '../../environments/environment';
+import { environment } from '../../environments/environment';
+import { MailMessage } from '../shared-classes/mail-message';
 
 @Injectable()
 export class EmailService {
 
   constructor(private _http: Http) { }
-  sendEmail(from: string, subject: string, message: string): Promise<any> {
+  sendEmail(mailMessage: MailMessage): Promise<any> {
     return new Promise( (resolve, reject) => {
       this._http.post(`${environment.API_PATH}/email/sendemail`, {
-        subject: subject,
-        from: from,
-        message: message
+        subject: mailMessage.subject,
+        from: mailMessage.from,
+        message: mailMessage.message
       }).subscribe( data => {
         resolve(data);
       }, error => {

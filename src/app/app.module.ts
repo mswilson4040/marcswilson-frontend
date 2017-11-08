@@ -17,11 +17,11 @@ import { MLBteamsComponent } from './pages/portfolio/mlb-stats/mlbteams/mlbteams
 import { PowerballComponent } from './pages/portfolio/powerball/powerball.component';
 import { OverlayComponent } from './shared-components/overlay/overlay.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ContactFormDialogComponent } from './shared-components/contact-form-dialog/contact-form-dialog.component';
-import { ErrorDialogComponent } from './shared-components/error-dialog/error-dialog.component';
-import { ConfirmDialogComponent } from './shared-components/confirm-dialog/confirm-dialog.component';
+import { ContactFormDialogComponent } from './shared-components/dialogs/contact-form-dialog/contact-form-dialog.component';
+import { ErrorDialogComponent } from './shared-components/dialogs/error-dialog/error-dialog.component';
+import { ConfirmDialogComponent } from './shared-components/dialogs/confirm-dialog/confirm-dialog.component';
 import { CallbackComponent } from './shared-components/callback/callback.component';
-import { LoginDialogComponent } from './shared-components/login-dialog/login-dialog.component';
+import { LoginDialogComponent } from './shared-components/dialogs/login-dialog/login-dialog.component';
 import { AuthService } from './shared-services/auth.service';
 import { EmailService } from './shared-services/email.service';
 import { PowerballService } from './pages/portfolio/powerball/services/powerball.service';
