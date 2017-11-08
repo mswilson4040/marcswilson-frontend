@@ -13,7 +13,7 @@ describe('ConfirmDialogComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ ConfirmDialogComponent ],
       providers: [
-        { provide: MatDialogRef, useClass: MdDialogRefMock}
+        { provide: MatDialogRef, useClass: MdDialogRefMock},
       ]
     })
     .compileComponents();
