@@ -12,6 +12,7 @@ export class EmailService {
       this._http.post(`${environment.API_PATH}/email/sendemail`, {
         subject: mailMessage.subject,
         from: mailMessage.from,
+        to: mailMessage.to,
         message: mailMessage.message
       }).subscribe( data => {
         resolve(data);
