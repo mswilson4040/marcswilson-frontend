@@ -81,10 +81,11 @@ export class MlbStatsComponent implements OnInit {
   }
   fadeSelectorToUpperLeft(): Promise<any> {
     return new Promise( (resolve, reject) => {
-      $('.jumbotron').animate({display: 'none'}, () => {
-        resolve();
-      });
-
+      // $('.jumbotron').animate({display: 'none'}, () => {
+      //   resolve();
+      // });
+      $('.jumbotron').css({display: 'none'});
+      resolve();
     });
   }
   shiftRight(): void {
