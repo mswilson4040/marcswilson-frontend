@@ -40,6 +40,7 @@ import {
   MatSliderModule,
   MatTabsModule, MatTooltipModule
 } from '@angular/material';
+import { ApiExplorerComponent } from './pages/portfolio/apiexplorer/apiexplorer.component';
 
 
 @NgModule({
@@ -64,7 +65,8 @@ import {
     LoginDialogComponent,
     SkillsComponent,
     ExperienceComponent,
-    FooterComponent
+    FooterComponent,
+    ApiExplorerComponent
   ],
   entryComponents: [
     MLBBallparksComponent,
