@@ -2,6 +2,7 @@
   background-color: rgb(30, 41, 51);
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   padding: 50px 0;
   .social-media-container {
@@ -78,5 +79,10 @@
         background-color: #455A64;
       }
     }
+  }
+  .copyright-container {
+    text-align: center;
+    color: #FFF;
+    padding: 50px 0;
   }
 }
