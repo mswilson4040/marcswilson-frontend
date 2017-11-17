@@ -1,4 +1,4 @@
-<section class="nav-container" [class.sticky]="scrollY > 0 && outOfView === true" [class.non-sticky]="scrollY === 0">
+<section class="nav-container" [class.sticky]="runAnimation && scrollY > 0 && outOfView === true" [class.non-sticky]="runAnimation && scrollY === 0">
   <div class="nav-collapsed" (click)="toggleNav()" [class.bg-color]="navCollapsed === false">
     <i class="fa fa-bars" aria-hidden="true"></i>
   </div>

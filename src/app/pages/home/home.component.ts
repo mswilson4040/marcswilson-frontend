@@ -3,6 +3,7 @@ import { ContactFormDialogComponent } from '../../shared-components/dialogs/cont
 import { UIService } from '../../shared-services/ui.service';
 import { MatDialog } from '@angular/material';
 
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,7 +11,8 @@ import { MatDialog } from '@angular/material';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private _dialog: MatDialog, private _uiService: UIService, private _elementRef: ElementRef) { }
+  constructor(private _dialog: MatDialog, private _uiService: UIService, private _elementRef: ElementRef) {
+  }
 
   ngOnInit() {
     this._uiService.scrollService.subscribe( evt => {
@@ -26,7 +28,6 @@ export class HomeComponent implements OnInit {
       width: '30%'
     });
     dialogRef.afterClosed().subscribe( info => {
-      console.log(info);
     });
   }
 

@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ContactFormDialogComponent } from '../dialogs/contact-form-dialog/contact-form-dialog.component';
 import { EmailService } from '../../shared-services/email.service';
@@ -23,6 +23,7 @@ export class GlobalNavComponent implements OnInit {
   public technologies = false;
   public experience = false;
   public portfolio = false;
+  @Input() runAnimation = true;
   constructor(private _router: Router, private _dialog: MatDialog, private _emailService: EmailService,
               private _authService: AuthService, private _uiService: UIService, private _elementRef: ElementRef) {
     this.router = this._router;
