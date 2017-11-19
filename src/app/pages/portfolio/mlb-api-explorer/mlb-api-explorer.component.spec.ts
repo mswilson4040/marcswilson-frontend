@@ -10,7 +10,7 @@ import { MlbStatsService } from '../mlb-stats/services/mlb-stats.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {
   MatAutocompleteModule, MatDatepickerModule, MatInputModule, MatNativeDateModule,
-  MatSliderModule
+  MatSliderModule, MatTabsModule
 } from '@angular/material';
 import { GlobalNavComponent } from '../../../shared-components/global-nav/global-nav.component';
 import { RouterTestingModule } from '@angular/router/testing';
@@ -32,7 +32,8 @@ describe('MlbApiExplorerComponent', () => {
         MatDatepickerModule,
         MatNativeDateModule,
         BrowserAnimationsModule,
-        RouterTestingModule
+        RouterTestingModule,
+        MatTabsModule
       ],
       declarations: [
         MlbApiExplorerComponent,

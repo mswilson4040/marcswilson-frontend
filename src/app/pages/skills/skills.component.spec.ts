@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SkillsComponent } from './skills.component';
-import { MatProgressBarModule } from '@angular/material';
+import { MatCardModule, MatProgressBarModule } from '@angular/material';
 import { UIService } from '../../shared-services/ui.service';
 
 describe('SkillsComponent', () => {
@@ -12,7 +12,8 @@ describe('SkillsComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ SkillsComponent ],
       imports: [
-        MatProgressBarModule
+        MatProgressBarModule,
+        MatCardModule
       ],
       providers: [
         UIService
