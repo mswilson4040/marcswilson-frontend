@@ -1,6 +1,48 @@
 #apiExplorerPage {
-  nav {}
-  main {
-
+  height: 100%;
+  #sideNavContainer {
+    height: 100%;
+    mat-sidenav {
+      height: 100%;
+      width: 300px;
+      .list-item-container {
+        display: flex;
+        align-items: center;
+        .method {
+          width: 30px;
+          font-weight: 700;
+          &.get {
+            color: #4CAF50;
+          }
+          &.post {
+            color: #FF9800;
+          }
+        }
+        .name {
+          padding: 0 5px;
+          color: gray;
+        }
+      }
+    }
+    #pageContent {
+      height: 100%;
+      display: flex;
+      #sidebar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        background-color: red;
+        color: white;
+        width: 20px;
+        cursor: pointer;
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+      #mainContent {
+        width: 100%;
+      }
+    }
   }
 }

@@ -1,22 +1,38 @@
 <section id="apiExplorerPage">
-  <nav>
-    <app-global-nav></app-global-nav>
-  </nav>
-  <main>
-    <mat-sidenav-container>
-      <mat-sidenav>
-        <mat-accordion>
-          <mat-expansion-panel>
-            <mat-expansion-panel-header>
-              Something
-            </mat-expansion-panel-header>
-            Something else
-          </mat-expansion-panel>
-        </mat-accordion>
-      </mat-sidenav>
-    </mat-sidenav-container>
-    <div>
-
-    </div>
-  </main>
+  <mat-sidenav-container id="sideNavContainer">
+    <mat-sidenav #sidenav>
+      <mat-accordion>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            MLB API
+          </mat-expansion-panel-header>
+          <div class="list-item-container">
+            <div class="method get">GET</div>
+            <div class="name">Boxscores</div>
+          </div>
+          <div class="list-item-container">
+            <div class="method get">GET</div>
+            <div class="name">Player</div>
+          </div>
+          <div class="list-item-container">
+            <div class="method get">GET</div>
+            <div class="name">Team</div>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            Powerball
+          </mat-expansion-panel-header>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-sidenav>
+    <section id="pageContent">
+      <div id="sidebar" (click)="sidenav.open()">
+        <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+      </div>
+      <div id="mainContent">
+        <app-global-nav></app-global-nav>
+      </div>
+    </section>
+  </mat-sidenav-container>
 </section>
