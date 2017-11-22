@@ -2,26 +2,34 @@
   <mat-sidenav-container id="sideNavContainer">
     <mat-sidenav #sidenav>
       <mat-accordion>
-        <mat-expansion-panel>
+        <mat-expansion-panel (opened)="onPanelOpen(1)" (closed)="onPanelClose(1)">
           <mat-expansion-panel-header>
-            MLB API
+            <div class="panel-header">
+              <i class="fa fa-folder-o" *ngIf="activePanelId !== 1" aria-hidden="true"></i>
+              <i class="fa fa-folder-open-o" *ngIf="activePanelId === 1" aria-hidden="true"></i>
+              MLB API
+            </div>
           </mat-expansion-panel-header>
-          <div class="list-item-container">
+          <div class="list-item-container" (click)="sidenav.close()">
             <div class="method get">GET</div>
             <div class="name">Boxscores</div>
           </div>
-          <div class="list-item-container">
+          <div class="list-item-container" (click)="sidenav.close()">
             <div class="method get">GET</div>
             <div class="name">Player</div>
           </div>
-          <div class="list-item-container">
+          <div class="list-item-container" (click)="sidenav.close()">
             <div class="method get">GET</div>
             <div class="name">Team</div>
           </div>
         </mat-expansion-panel>
-        <mat-expansion-panel>
+        <mat-expansion-panel (opened)="onPanelOpen(2)" (closed)="onPanelClose(2)">
           <mat-expansion-panel-header>
-            Powerball
+            <div class="panel-header">
+              <i class="fa fa-folder-o" *ngIf="activePanelId !== 2" aria-hidden="true"></i>
+              <i class="fa fa-folder-open-o" *ngIf="activePanelId === 2" aria-hidden="true"></i>
+              Powerball API
+            </div>
           </mat-expansion-panel-header>
         </mat-expansion-panel>
       </mat-accordion>
@@ -32,6 +40,24 @@
       </div>
       <div id="mainContent">
         <app-global-nav></app-global-nav>
+        <div id="body">
+          <div id="inputs">
+            <mat-form-field>
+              <mat-select placeholder="Method">
+                <mat-option value="GET">GET</mat-option>
+                <mat-option value="DELETE">DELETE</mat-option>
+                <mat-option value="MERGE">MERGE</mat-option>
+                <mat-option value="POST">POST</mat-option>
+                <mat-option value="PUT">PUT</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput placeholder="URL" />
+            </mat-form-field>
+            <button mat-raised-button color="primary">SEND</button>
+          </div>
+
+        </div>
       </div>
     </section>
   </mat-sidenav-container>

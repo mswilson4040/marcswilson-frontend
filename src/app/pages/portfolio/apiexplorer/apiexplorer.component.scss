@@ -5,12 +5,28 @@
     mat-sidenav {
       height: 100%;
       width: 300px;
+      mat-expansion-panel-header {
+        padding: 0 24px 0 5px;
+        .panel-header {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          .fa {
+            padding: 0 10px;
+          }
+        }
+      }
       .list-item-container {
         display: flex;
         align-items: center;
+        padding: 5px 0;
+        &:hover {
+          cursor: pointer;
+        }
         .method {
           width: 30px;
-          font-weight: 700;
+          font-weight: 600;
+          font-size: 70%;
           &.get {
             color: #4CAF50;
           }
@@ -23,6 +39,7 @@
           color: gray;
         }
       }
+
     }
     #pageContent {
       height: 100%;
@@ -42,6 +59,11 @@
       }
       #mainContent {
         width: 100%;
+        #body {
+          padding-top: 60px;
+          width: 80%;
+          margin: auto;
+        }
       }
     }
   }
