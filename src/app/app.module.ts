@@ -41,6 +41,7 @@ import {
   MatTabsModule, MatTooltipModule
 } from '@angular/material';
 import { ApiExplorerComponent } from './pages/portfolio/apiexplorer/apiexplorer.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -100,7 +101,8 @@ import { ApiExplorerComponent } from './pages/portfolio/apiexplorer/apiexplorer.
     MatChipsModule,
     MatMenuModule,
     MatExpansionModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    HttpClientModule
   ],
   providers: [
     UIService,

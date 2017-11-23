@@ -63,6 +63,17 @@
           padding-top: 60px;
           width: 80%;
           margin: auto;
+          #inputs {
+            #method {
+              width: 10%;
+            }
+            #url {
+              width: 80%;
+            }
+            button {
+              width: 5%;
+            }
+          }
         }
       }
     }

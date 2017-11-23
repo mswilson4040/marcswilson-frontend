@@ -10,17 +10,9 @@
               MLB API
             </div>
           </mat-expansion-panel-header>
-          <div class="list-item-container" (click)="sidenav.close()">
-            <div class="method get">GET</div>
-            <div class="name">Boxscores</div>
-          </div>
-          <div class="list-item-container" (click)="sidenav.close()">
-            <div class="method get">GET</div>
-            <div class="name">Player</div>
-          </div>
-          <div class="list-item-container" (click)="sidenav.close()">
-            <div class="method get">GET</div>
-            <div class="name">Team</div>
+          <div class="list-item-container" *ngFor="let api of apis" (click)="setEndpoint(api, sidenav)">
+            <div class="method {{api.method.toLowerCase()}}">{{api.method}}</div>
+            <div class="name">{{api.name}}</div>
           </div>
         </mat-expansion-panel>
         <mat-expansion-panel (opened)="onPanelOpen(2)" (closed)="onPanelClose(2)">
@@ -42,19 +34,23 @@
         <app-global-nav></app-global-nav>
         <div id="body">
           <div id="inputs">
-            <mat-form-field>
-              <mat-select placeholder="Method">
-                <mat-option value="GET">GET</mat-option>
-                <mat-option value="DELETE">DELETE</mat-option>
-                <mat-option value="MERGE">MERGE</mat-option>
-                <mat-option value="POST">POST</mat-option>
-                <mat-option value="PUT">PUT</mat-option>
+            <mat-form-field id="method">
+              <mat-select placeholder="Method" [(ngModel)]="activeApi.method">
+                <mat-option [value]="methods.GET">{{methods.GET}}</mat-option>
+                <mat-option [value]="methods.HEAD">{{methods.HEAD}}</mat-option>
+                <mat-option [value]="methods.POST">{{methods.POST}}</mat-option>
+                <mat-option [value]="methods.PUT">{{methods.PUT}}</mat-option>
+                <mat-option [value]="methods.DELETE">{{methods.DELETE}}</mat-option>
+                <mat-option [value]="methods.CONNECT">{{methods.CONNECT}}</mat-option>
+                <mat-option [value]="methods.OPTIONS">{{methods.OPTIONS}}</mat-option>
+                <mat-option [value]="methods.TRACE">{{methods.TRACE}}</mat-option>
+                <mat-option [value]="methods.PATCH">{{methods.PATCH}}</mat-option>
               </mat-select>
             </mat-form-field>
-            <mat-form-field>
-              <input matInput placeholder="URL" />
+            <mat-form-field id="url">
+              <input matInput placeholder="URL" [(ngModel)]="activeApi.url" />
             </mat-form-field>
-            <button mat-raised-button color="primary">SEND</button>
+            <button mat-raised-button color="primary" (click)="invokeApi()">SEND</button>
           </div>
 
         </div>
