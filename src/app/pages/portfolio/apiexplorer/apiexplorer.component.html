@@ -52,7 +52,9 @@
             </mat-form-field>
             <button mat-raised-button color="primary" (click)="invokeApi()">SEND</button>
           </div>
-
+          <div id="jsonViewer">
+            <app-json-viewer [response]="apiResponse"></app-json-viewer>
+          </div>
         </div>
       </div>
     </section>

@@ -16,6 +16,7 @@ export class ApiExplorerComponent implements OnInit, AfterViewInit {
   public apis: API[] = [];
   public activeApi: API = new API();
   public methods = HttpRequestMethods;
+  public apiResponse: object = null;
   constructor(private _httpClient: HttpClient, private _uiService: UIService, private _matDialog: MatDialog) {
     this.apis = new ApiRegistry().apis;
   }
@@ -44,7 +45,7 @@ export class ApiExplorerComponent implements OnInit, AfterViewInit {
     this._uiService.showOverlay('Fetching API Result...');
     this._httpClient.get(this.activeApi.url).subscribe( response => {
       if (response) {
-
+        this.apiResponse = response;
       }
       this._uiService.hideOverlay();
     }, error => {

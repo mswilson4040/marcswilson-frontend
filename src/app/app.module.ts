@@ -42,6 +42,7 @@ import {
 } from '@angular/material';
 import { ApiExplorerComponent } from './pages/portfolio/apiexplorer/apiexplorer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { JsonViewerComponent } from './shared-components/json-viewer/json-viewer.component';
 
 
 @NgModule({
@@ -67,7 +68,8 @@ import { HttpClientModule } from '@angular/common/http';
     SkillsComponent,
     ExperienceComponent,
     FooterComponent,
-    ApiExplorerComponent
+    ApiExplorerComponent,
+    JsonViewerComponent
   ],
   entryComponents: [
     MLBBallparksComponent,
