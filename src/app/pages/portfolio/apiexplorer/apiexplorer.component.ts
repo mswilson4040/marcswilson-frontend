@@ -50,9 +50,7 @@ export class ApiExplorerComponent implements OnInit, AfterViewInit {
       this._uiService.hideOverlay();
     }, error => {
       this._uiService.hideOverlay();
-      const edr = this._matDialog.open(ErrorDialogComponent);
-      edr.componentInstance.error = error;
-
+      this._matDialog.open(ErrorDialogComponent, { data: error });
     });
   }
 }

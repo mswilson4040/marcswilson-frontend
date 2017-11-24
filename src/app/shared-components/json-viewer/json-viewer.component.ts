@@ -9,10 +9,10 @@ export class JsonViewerComponent implements OnInit {
   public json: string = null;
   @Input() set response(value: object) {
     this.json = JSON.stringify(value, null, 2);
+
   }
   constructor() { }
 
   ngOnInit() {
   }
-
 }

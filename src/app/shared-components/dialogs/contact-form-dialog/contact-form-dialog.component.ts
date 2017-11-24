@@ -26,9 +26,7 @@ export class ContactFormDialogComponent implements OnInit {
       this._dialogRef.close();
     }, error => {
       this._uiService.hideOverlay();
-      const dialogRef = this._matDialog.open(ErrorDialogComponent);
-      // TODO: Change to inject error
-      dialogRef.componentInstance.error = error;
+      this._matDialog.open(ErrorDialogComponent, { data: error });
       this._dialogRef.close();
     });
   }
