@@ -5,7 +5,8 @@ export class ApiRegistry {
   public apis: API[] = [];
   constructor() {
     this.addApi(new API(`${environment.API_PATH}/mlbstats/years`, HttpRequestMethods.GET, 'Seasons', 'Gets all distinct seasons'));
-    this.addApi(new API(`${environment.API_PATH}/mlbstats/years/:yeardID/teams`, HttpRequestMethods.GET, 'Teams', 'Gets team by season'));
+    this.addApi(new API(`${environment.API_PATH}/mlbstats/years/2016/teams`, HttpRequestMethods.GET, 'Teams', 'Gets team by season'));
+    this.addApi(new API(`${environment.API_PATH}/mlbstats/years/2016/teams/SEA`, HttpRequestMethods.GET, 'Team', 'Gets a team'));
   }
   addApi(api: API): void {
     this.apis.push(api);
