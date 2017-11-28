@@ -18,23 +18,41 @@ export class JsonViewerComponent implements OnInit {
 
   ngOnInit() {
   }
-  getLines(obj: any): object[] {
-
-    const lines = [];
+  getLines(obj: any, arrayName: string = null): object[] {
+    let lines = [];
     if (Array.isArray(obj)) {
-      lines.push('[');
+      const arrayPrefix = arrayName ? arrayName : 'Array';
+      lines.push(`${arrayPrefix}: [`);
       for (let i = 0; i < obj.length; i++) {
-        if (typeof obj[i] === 'string' || typeof obj[i] === 'number') {
-          const comma = (i + 1) === obj.length ? '' : ',';
-          lines.push(`${obj[i]}${comma}`);
+        const item = obj[i];
+        if (Array.isArray(item)) {
+
+        } else if (typeof item === 'object') {
+          lines = lines.concat(this.getLines(item));
         } else {
-          // TODO: Handle objects, arrays, etc...
+          lines.push(item);
         }
       }
       lines.push(']');
+    } else if (typeof obj === 'object') {
+      lines.push('{');
+      for (const o in obj) {
+        if (obj[o]) {
+          const item = obj[o];
+          if (Array.isArray(item)) {
+            lines = lines.concat(this.getLines(item, o));
+          } else if (typeof item === 'object') {
+            lines = lines.concat(this.getLines(item));
+          } else {
+            lines.push(`${o}: ${item}`);
+          }
+        }
+      }
+      lines.push('}');
     } else {
-
+      alert(obj);
     }
+
     return lines;
   }
 }

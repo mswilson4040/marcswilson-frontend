@@ -1,10 +1,10 @@
 #test {
   display: flex;
-  align-items: center;
   flex-direction: row;
   justify-content: center;
   #attempt {
     background-color: yellow;
+    font-size: 14.1px;
   }
   #raw {
     background-color: gray;
