@@ -2,7 +2,10 @@
   <div id="attempt">
     <h1>Attempt</h1>
     <div *ngFor="let line of lines">
-      <div>{{line}}</div>
+      <div class="code-line">
+        <div>&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div>{{line.text}}</div>
+      </div>
     </div>
   </div>
 

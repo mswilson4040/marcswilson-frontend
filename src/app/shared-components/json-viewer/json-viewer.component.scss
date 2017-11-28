@@ -5,6 +5,11 @@
   #attempt {
     background-color: yellow;
     font-size: 14.1px;
+    .code-line {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
   }
   #raw {
     background-color: gray;

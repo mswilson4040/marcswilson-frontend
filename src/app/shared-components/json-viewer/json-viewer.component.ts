@@ -22,20 +22,20 @@ export class JsonViewerComponent implements OnInit {
     let lines = [];
     if (Array.isArray(obj)) {
       const arrayPrefix = arrayName ? arrayName : 'Array';
-      lines.push(`${arrayPrefix}: [`);
+      lines.push( new Line(`${arrayPrefix}: [`) );
       for (let i = 0; i < obj.length; i++) {
         const item = obj[i];
         if (Array.isArray(item)) {
-
+          alert('asdfasdf');
         } else if (typeof item === 'object') {
           lines = lines.concat(this.getLines(item));
         } else {
-          lines.push(item);
+          lines.push( new Line(item) );
         }
       }
       lines.push(']');
     } else if (typeof obj === 'object') {
-      lines.push('{');
+      lines.push( new Line('{') );
       for (const o in obj) {
         if (obj[o]) {
           const item = obj[o];
@@ -44,7 +44,7 @@ export class JsonViewerComponent implements OnInit {
           } else if (typeof item === 'object') {
             lines = lines.concat(this.getLines(item));
           } else {
-            lines.push(`${o}: ${item}`);
+            lines.push( new Line(`${o}: ${item}`) );
           }
         }
       }
@@ -54,5 +54,12 @@ export class JsonViewerComponent implements OnInit {
     }
 
     return lines;
+  }
+}
+
+class Line {
+  public text: string = null;
+  constructor (private _text: string) {
+    this.text = _text;
   }
 }
