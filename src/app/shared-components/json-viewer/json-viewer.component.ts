@@ -11,44 +11,51 @@ export class JsonViewerComponent implements OnInit {
   @Input() set response(value: object) {
     this.json = JSON.stringify(value, null, 2);
     this.lines = [];
-    this.lines = this.getLines(value);
+    this.lines = this.getLines(value, null, 0);
 
   }
   constructor() { }
 
   ngOnInit() {
   }
-  getLines(obj: any, arrayName: string = null): object[] {
+  getLines(obj: any, arrayName: string = null, indentCount: number): object[] {
+    const indentSize = 4;
     let lines = [];
     if (Array.isArray(obj)) {
       const arrayPrefix = arrayName ? arrayName : 'Array';
-      lines.push( new Line(`${arrayPrefix}: [`) );
+      lines.push( new Line(`${arrayPrefix}: [`, indentCount) );
+      indentCount += indentSize;
       for (let i = 0; i < obj.length; i++) {
-        const item = obj[i];
+        const item = obj[ i ];
         if (Array.isArray(item)) {
           alert('asdfasdf');
         } else if (typeof item === 'object') {
-          lines = lines.concat(this.getLines(item));
+          lines = lines.concat(this.getLines(item, null, indentCount));
         } else {
-          lines.push( new Line(item) );
+          const suffix = (i + 1) === obj.length ? '' : ',';
+          lines.push(new Line(`${item}${suffix}`, indentCount));
         }
       }
-      lines.push(']');
+      indentCount -= indentSize;
+      lines.push(new Line(']', indentCount));
     } else if (typeof obj === 'object') {
-      lines.push( new Line('{') );
+      lines.push( new Line('{', indentCount) );
+      indentCount += indentSize;
+      let counter = 0;
       for (const o in obj) {
         if (obj[o]) {
+          counter++;
           const item = obj[o];
           if (Array.isArray(item)) {
-            lines = lines.concat(this.getLines(item, o));
+            lines = lines.concat(this.getLines(item, o, indentCount));
           } else if (typeof item === 'object') {
-            lines = lines.concat(this.getLines(item));
+            lines = lines.concat(this.getLines(item, null, indentCount));
           } else {
-            lines.push( new Line(`${o}: ${item}`) );
+            lines.push( new Line(`${o}: ${item},`, indentCount) );
           }
         }
       }
-      lines.push('}');
+      indentCount -= indentSize;
     } else {
       alert(obj);
     }
@@ -59,7 +66,11 @@ export class JsonViewerComponent implements OnInit {
 
 class Line {
   public text: string = null;
-  constructor (private _text: string) {
+  public indentCount: number = null;
+  public arrayOfNothing: any[] = [];
+  constructor (private _text: string, private _indentCount: number) {
     this.text = _text;
+    this.indentCount = _indentCount;
+    this.arrayOfNothing = Array(this.indentCount).fill(null);
   }
 }
