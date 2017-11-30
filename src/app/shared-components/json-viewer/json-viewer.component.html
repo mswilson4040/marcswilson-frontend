@@ -1,10 +1,15 @@
 <section id="test">
   <div id="attempt">
     <h1>Attempt</h1>
-    <div *ngFor="let line of lines">
+    <div *ngFor="let line of lines" [class]="line.blockId" [class.code-line-hidden]="line.blockId.startsWith('open_') === -1 && line.collapsed">
       <div class="code-line">
         <div *ngFor="let indent of line.arrayOfNothing">&nbsp;</div>
-        <div>{{line.text}}</div>
+        <div>
+          <span *ngIf="line.collapsable" (click)="toggleBlock(line)">
+            <i class="fa fa-caret-right" [class.caret-collapsed]="line.collapsed" aria-hidden="true">
+            </i></span>
+          {{line.text}}
+        </div>
       </div>
     </div>
   </div>
