@@ -1,40 +1,5 @@
-#test {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  #attempt {
-    background-color: yellow;
-    font-size: 14.1px;
-    font-family: monospace;
-    .code-line {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-
-      .caret-collapsed {
-        color: red;
-        animation: rotateCaret 100ms 0ms ease-out forwards;
-      }
-    }
-    .code-line-hidden {
-      display: none;
-
-    }
-  }
-  #raw {
-    background-color: gray;
-  }
-  margin-bottom: 100px;
-}
-
-@keyframes rotateCaret {
-  0% {
-    transform: rotate(0deg);
-  }
-  50% {
-    transform: rotate(45deg);
-  }
-  100% {
-    transform: rotate(90deg);
+#jsonViewer {
+  #json {
+    padding: 0 20px;
   }
 }
