@@ -1,156 +1,19 @@
 .nav-container {
-  background-color: transparent;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
-  .nav-collapsed {
-    cursor: pointer;
-  }
-  .nav-links {
-    display: flex;
-    align-items: center;
-    //width: 40%;
-    color: white;
+  ul {
+    list-style-type: none;
+    width: 55%;
+    margin: auto;
     .nav-link {
-      cursor: pointer;
-      border-bottom: 3px solid transparent;
-      transition: all 300ms;
-    }
-    .nav-link.active {
-      border-bottom: 3px solid white;
-    }
-    .nav-link:hover {
-      border-bottom: 3px solid white;
-    }
-  }
-}
-
-.sticky {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  z-index: 2;
-  animation: stickyNav 200ms ease-in-out 200ms forwards;
-  margin-bottom: 100px;
-}
-.non-sticky {
-  animation: nonStickyNav 200ms ease-in-out 0ms forwards;
-}
-
-
-// <editor-fold desc="Animations">
-
-@keyframes stickyNav {
-  from {
-    height: 50px;
-    background-color: transparent;
-  }
-  to {
-    background-color: #1E2933;
-    height: 60px;
-  }
-}
-
-@keyframes nonStickyNav {
-  from {
-    height: 60px;
-    background-color: #1E2933;
-  }
-  to {
-    height: 50px;
-    background-color: transparent;
-  }
-}
-
-// </editor-fold>
-
-// <editor-fold desc="Media Queries">
-
-// Extra small devices (portrait phones, less than 576px)
-@media (max-width: 575px) {
-  .nav-container {
-    display: block;
-    width: 100%;
-    background-color: #1E2933;
-    .nav-collapsed {
-      display: block;
       padding: 10px;
-      font-size: 150%;
-      &.bg-color {
-        background-color: #1E2933;
-      }
-    }
-    .nav-links {
-      flex-direction: column;
-      width: 100%;
-      .nav-link {
-        border: none !important;
-      }
-    }
-    .nav-links-expanded {
-      display: block;
-      position: absolute;
-      z-index: 9999;
-      background-color: #1E2933;
-    }
-    .nav-links-collapsed {
-      display: none;
+      cursor: pointer;
+
     }
   }
+  ul.mobile-view {
 
-}
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .nav-container {
-    height: 100%;
-    .nav-collapsed {
-      display: none;
-    }
-    .nav-links {
-      width: 75%;
-    }
+  }
+  ul.desktop-view {
+    display: flex;
+    flex-direction: row;
   }
 }
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) and (max-width: 991px) {
-  .nav-container {
-    height: 100%;
-    .nav-collapsed {
-      display: none;
-    }
-    .nav-links {
-      width: 60%;
-    }
-  }
-}
-
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .nav-container {
-    height: 100%;
-    .nav-collapsed {
-      display: none;
-    }
-    .nav-links {
-      width: 40%;
-    }
-  }
-}
-
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .nav-container {
-    height: 100%;
-    .nav-collapsed {
-      display: none;
-    }
-    .nav-links {
-      width: 40%;
-    }
-  }
-}
-
-// </editor-fold>

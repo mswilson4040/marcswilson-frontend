@@ -43,6 +43,8 @@ import {
 import { ApiExplorerComponent } from './pages/portfolio/apiexplorer/apiexplorer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { JsonViewerComponent } from './shared-components/json-viewer/json-viewer.component';
+import { BreakpointHelperComponent } from './shared-components/breakpoint-helper/breakpoint-helper.component';
+import { BreakpointObserver, MediaMatcher } from '@angular/cdk/layout';
 
 
 @NgModule({
@@ -69,7 +71,8 @@ import { JsonViewerComponent } from './shared-components/json-viewer/json-viewer
     ExperienceComponent,
     FooterComponent,
     ApiExplorerComponent,
-    JsonViewerComponent
+    JsonViewerComponent,
+    BreakpointHelperComponent
   ],
   entryComponents: [
     MLBBallparksComponent,
@@ -112,7 +115,9 @@ import { JsonViewerComponent } from './shared-components/json-viewer/json-viewer
     PowerballService,
     AuthService,
     EmailService,
-    AuthGuard
+    AuthGuard,
+    BreakpointObserver,
+    MediaMatcher
   ],
   bootstrap: [ShellComponent]
 })
