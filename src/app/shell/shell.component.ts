@@ -3,6 +3,7 @@ import 'jquery';
 import 'jqueryui';
 import 'hammerjs';
 import { AuthService } from '../shared-services/auth.service';
+import { MatSidenav } from '@angular/material';
 
 @Component({
   selector: 'app-shell',
@@ -19,6 +20,13 @@ export class ShellComponent implements OnInit {
       $('#mediaHelper').remove();
     }
 
+  }
+  onNavToggle(state: boolean, sidenav: MatSidenav): void {
+    if (state) {
+      sidenav.open();
+    } else {
+      sidenav.close();
+    }
   }
 
 }

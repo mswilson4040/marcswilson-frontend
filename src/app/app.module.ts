@@ -33,7 +33,7 @@ import { ExperienceComponent } from './pages/experience/experience.component';
 import { FooterComponent } from './shared-components/footer/footer.component';
 import {
   MatAutocompleteModule, MatButtonModule, MatCardModule, MatChipsModule, MatDatepickerModule, MatDialogModule,
-  MatExpansionModule,
+  MatExpansionModule, MatIconModule,
   MatInputModule,
   MatMenuModule,
   MatNativeDateModule, MatProgressBarModule, MatSelectModule, MatSidenavModule,
@@ -107,7 +107,8 @@ import { BreakpointObserver, MediaMatcher } from '@angular/cdk/layout';
     MatMenuModule,
     MatExpansionModule,
     MatProgressBarModule,
-    HttpClientModule
+    HttpClientModule,
+    MatIconModule
   ],
   providers: [
     UIService,

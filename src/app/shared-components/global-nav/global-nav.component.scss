@@ -1,19 +1,18 @@
+$navBackground: #263238;
+$navText: #FFFFFF;
 .nav-container {
-  ul {
-    list-style-type: none;
-    width: 55%;
-    margin: auto;
-    .nav-link {
-      padding: 10px;
-      cursor: pointer;
-
+  background-color: $navBackground;
+  color: $navText;
+  display: flex;
+  padding-left: 40px;
+  #hamburger {
+    padding: 10px;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.7;
     }
   }
-  ul.mobile-view {
-
-  }
-  ul.desktop-view {
-    display: flex;
-    flex-direction: row;
+  #siteName {
+    padding: 10px;
   }
 }

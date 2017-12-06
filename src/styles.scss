@@ -19,6 +19,11 @@ html, body {
 
 .fa, button { cursor: pointer; }
 
+mat-icon {
+  height: auto !important;
+  width: auto !important;
+}
+
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) {
   #mediaHelper:before {content: 'portrait phones, less than 576px';}

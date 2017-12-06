@@ -1,3 +1,32 @@
 #shellContainer {
   height: 100%;
+  mat-sidenav {
+    width: 350px;
+    #sidenavHeader {
+      height: 55px;
+      border-bottom: 1px solid lightgray;
+      text-align: center;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      h1 { margin: 0; }
+    }
+    #navLinks {
+      ul {
+        list-style-type: none;
+        padding: 0;
+        li {
+          .link-container {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            mat-icon {
+              padding: 0 15px;
+            }
+          }
+        }
+      }
+    }
+  }
 }

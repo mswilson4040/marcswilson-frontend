@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
@@ -7,10 +7,14 @@ import { BreakpointObserver } from '@angular/cdk/layout';
   styleUrls: ['./global-nav.component.scss']
 })
 export class GlobalNavComponent implements OnInit {
+  @Output() onToggleNav: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private _breakpointObserver: BreakpointObserver) {
   }
 
   ngOnInit() {
+  }
+  toggleNav(): void {
+    this.onToggleNav.emit(true);
   }
 }
