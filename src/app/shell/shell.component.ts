@@ -4,6 +4,7 @@ import 'jqueryui';
 import 'hammerjs';
 import { AuthService } from '../shared-services/auth.service';
 import { MatSidenav } from '@angular/material';
+import { Navbar } from '../shared-classes/navbar';
 
 @Component({
   selector: 'app-shell',
@@ -11,6 +12,7 @@ import { MatSidenav } from '@angular/material';
   styleUrls: ['./shell.component.scss']
 })
 export class ShellComponent implements OnInit {
+  public navbar: Navbar = new Navbar();
   constructor(private _authService: AuthService) {
     this._authService.handleAuthentication();
   }
@@ -19,7 +21,6 @@ export class ShellComponent implements OnInit {
     if (window.location.href.indexOf('localhost') === -1) {
       $('#mediaHelper').remove();
     }
-
   }
   onNavToggle(state: boolean, sidenav: MatSidenav): void {
     if (state) {

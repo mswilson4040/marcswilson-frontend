@@ -1,62 +1,61 @@
 <section id="apiExplorerPage">
-  <mat-sidenav-container id="sideNavContainer">
-    <mat-sidenav #sidenav>
-      <mat-accordion>
-        <mat-expansion-panel (opened)="onPanelOpen(1)" (closed)="onPanelClose(1)">
-          <mat-expansion-panel-header>
-            <div class="panel-header">
-              <i class="fa fa-folder-o" *ngIf="activePanelId !== 1" aria-hidden="true"></i>
-              <i class="fa fa-folder-open-o" *ngIf="activePanelId === 1" aria-hidden="true"></i>
-              MLB API
-            </div>
-          </mat-expansion-panel-header>
-          <div class="list-item-container" *ngFor="let api of apis" (click)="setEndpoint(api, sidenav)">
-            <div class="method {{api.method.toLowerCase()}}">{{api.method}}</div>
-            <div class="name">{{api.name}}</div>
-          </div>
-        </mat-expansion-panel>
-        <mat-expansion-panel (opened)="onPanelOpen(2)" (closed)="onPanelClose(2)">
-          <mat-expansion-panel-header>
-            <div class="panel-header">
-              <i class="fa fa-folder-o" *ngIf="activePanelId !== 2" aria-hidden="true"></i>
-              <i class="fa fa-folder-open-o" *ngIf="activePanelId === 2" aria-hidden="true"></i>
-              Powerball API
-            </div>
-          </mat-expansion-panel-header>
-        </mat-expansion-panel>
-      </mat-accordion>
-    </mat-sidenav>
-    <section id="pageContent">
-      <div id="sidebar" (click)="sidenav.open()">
-        <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
-      </div>
-      <div id="mainContent">
-        <app-global-nav></app-global-nav>
-        <div id="body">
-          <div id="inputs">
-            <mat-form-field id="method">
-              <mat-select placeholder="Method" [(ngModel)]="activeApi.method">
-                <mat-option [value]="methods.GET">{{methods.GET}}</mat-option>
-                <mat-option [value]="methods.HEAD">{{methods.HEAD}}</mat-option>
-                <mat-option [value]="methods.POST">{{methods.POST}}</mat-option>
-                <mat-option [value]="methods.PUT">{{methods.PUT}}</mat-option>
-                <mat-option [value]="methods.DELETE">{{methods.DELETE}}</mat-option>
-                <mat-option [value]="methods.CONNECT">{{methods.CONNECT}}</mat-option>
-                <mat-option [value]="methods.OPTIONS">{{methods.OPTIONS}}</mat-option>
-                <mat-option [value]="methods.TRACE">{{methods.TRACE}}</mat-option>
-                <mat-option [value]="methods.PATCH">{{methods.PATCH}}</mat-option>
-              </mat-select>
-            </mat-form-field>
-            <mat-form-field id="url">
-              <input matInput placeholder="URL" [(ngModel)]="activeApi.url" />
-            </mat-form-field>
-            <button mat-raised-button color="primary" (click)="invokeApi()">SEND</button>
-          </div>
-          <div id="jsonViewer">
-            <app-json-viewer [response]="apiResponse"></app-json-viewer>
-          </div>
-        </div>
-      </div>
-    </section>
-  </mat-sidenav-container>
+  <!--<mat-sidenav-container id="sideNavContainer">-->
+    <!--<mat-sidenav #sidenav>-->
+      <!--<mat-accordion>-->
+        <!--<mat-expansion-panel (opened)="onPanelOpen(1)" (closed)="onPanelClose(1)">-->
+          <!--<mat-expansion-panel-header>-->
+            <!--<div class="panel-header">-->
+              <!--<i class="fa fa-folder-o" *ngIf="activePanelId !== 1" aria-hidden="true"></i>-->
+              <!--<i class="fa fa-folder-open-o" *ngIf="activePanelId === 1" aria-hidden="true"></i>-->
+              <!--MLB API-->
+            <!--</div>-->
+          <!--</mat-expansion-panel-header>-->
+          <!--<div class="list-item-container" *ngFor="let api of apis" (click)="setEndpoint(api, sidenav)">-->
+            <!--<div class="method {{api.method.toLowerCase()}}">{{api.method}}</div>-->
+            <!--<div class="name">{{api.name}}</div>-->
+          <!--</div>-->
+        <!--</mat-expansion-panel>-->
+        <!--<mat-expansion-panel (opened)="onPanelOpen(2)" (closed)="onPanelClose(2)">-->
+          <!--<mat-expansion-panel-header>-->
+            <!--<div class="panel-header">-->
+              <!--<i class="fa fa-folder-o" *ngIf="activePanelId !== 2" aria-hidden="true"></i>-->
+              <!--<i class="fa fa-folder-open-o" *ngIf="activePanelId === 2" aria-hidden="true"></i>-->
+              <!--Powerball API-->
+            <!--</div>-->
+          <!--</mat-expansion-panel-header>-->
+        <!--</mat-expansion-panel>-->
+      <!--</mat-accordion>-->
+    <!--</mat-sidenav>-->
+    <!--<section id="pageContent">-->
+      <!--<div id="sidebar" (click)="sidenav.open()">-->
+        <!--<i class="fa fa-ellipsis-v" aria-hidden="true"></i>-->
+      <!--</div>-->
+      <!--<div id="mainContent">-->
+        <!--<div id="body">-->
+          <!--<div id="inputs">-->
+            <!--<mat-form-field id="method">-->
+              <!--<mat-select placeholder="Method" [(ngModel)]="activeApi.method">-->
+                <!--<mat-option [value]="methods.GET">{{methods.GET}}</mat-option>-->
+                <!--<mat-option [value]="methods.HEAD">{{methods.HEAD}}</mat-option>-->
+                <!--<mat-option [value]="methods.POST">{{methods.POST}}</mat-option>-->
+                <!--<mat-option [value]="methods.PUT">{{methods.PUT}}</mat-option>-->
+                <!--<mat-option [value]="methods.DELETE">{{methods.DELETE}}</mat-option>-->
+                <!--<mat-option [value]="methods.CONNECT">{{methods.CONNECT}}</mat-option>-->
+                <!--<mat-option [value]="methods.OPTIONS">{{methods.OPTIONS}}</mat-option>-->
+                <!--<mat-option [value]="methods.TRACE">{{methods.TRACE}}</mat-option>-->
+                <!--<mat-option [value]="methods.PATCH">{{methods.PATCH}}</mat-option>-->
+              <!--</mat-select>-->
+            <!--</mat-form-field>-->
+            <!--<mat-form-field id="url">-->
+              <!--<input matInput placeholder="URL" [(ngModel)]="activeApi.url" />-->
+            <!--</mat-form-field>-->
+            <!--<button mat-raised-button color="primary" (click)="invokeApi()">SEND</button>-->
+          <!--</div>-->
+          <!--<div id="jsonViewer">-->
+            <!--<app-json-viewer [response]="apiResponse"></app-json-viewer>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</section>-->
+  <!--</mat-sidenav-container>-->
 </section>

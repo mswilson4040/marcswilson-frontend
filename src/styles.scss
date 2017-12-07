@@ -24,6 +24,10 @@ mat-icon {
   width: auto !important;
 }
 
+div {
+  outline: none !important;
+}
+
 // Extra small devices (portrait phones, less than 576px)
 @media (max-width: 575px) {
   #mediaHelper:before {content: 'portrait phones, less than 576px';}

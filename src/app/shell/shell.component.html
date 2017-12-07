@@ -6,22 +6,17 @@
       </div>
       <div id="navLinks">
         <ul>
-          <li>
+          <li *ngFor="let link of navbar.links">
             <div class="link-container">
-              <mat-icon>home</mat-icon>
-              <div>Home</div>
-            </div>
-          </li>
-          <li>
-            <div class="link-container">
-              <mat-icon>account_circle</mat-icon>
-              <div>About</div>
-            </div>
-          </li>
-          <li>
-            <div class="link-container">
-              <mat-icon>card_travel</mat-icon>
-              <div>Portfolio</div>
+              <div class="link-item" [routerLink]="link.url" (click)="sidenav.close()">
+                <mat-icon>{{link.icon}}</mat-icon>
+                <div>{{link.name}}</div>
+              </div>
+              <ul *ngIf="link.children.length > 0" class="child-link">
+                <li *ngFor="let child of link.children">
+                  <div [routerLink]="child.url" (click)="sidenav.close()">{{child.name}}</div>
+                </li>
+              </ul>
             </div>
           </li>
         </ul>

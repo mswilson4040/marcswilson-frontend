@@ -1,82 +1,82 @@
 #apiExplorerPage {
   height: 100%;
-  #sideNavContainer {
-    height: 100%;
-    mat-sidenav {
-      height: 100%;
-      width: 300px;
-      mat-expansion-panel-header {
-        padding: 0 24px 0 5px;
-        .panel-header {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          .fa {
-            padding: 0 10px;
-          }
-        }
-      }
-      .list-item-container {
-        display: flex;
-        align-items: center;
-        padding: 5px 0;
-        &:hover {
-          cursor: pointer;
-        }
-        .method {
-          width: 30px;
-          font-weight: 600;
-          font-size: 70%;
-          &.get {
-            color: #4CAF50;
-          }
-          &.post {
-            color: #FF9800;
-          }
-        }
-        .name {
-          padding: 0 5px;
-          color: gray;
-        }
-      }
-
-    }
-    #pageContent {
-      height: 100%;
-      display: flex;
-      #sidebar {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-        background-color: red;
-        color: white;
-        width: 20px;
-        cursor: pointer;
-        position: fixed;
-        &:hover {
-          opacity: 0.7;
-        }
-      }
-      #mainContent {
-        width: 100%;
-        #body {
-          padding-top: 60px;
-          width: 80%;
-          margin: auto;
-          #inputs {
-            #method {
-              width: 10%;
-            }
-            #url {
-              width: 80%;
-            }
-            button {
-              width: 5%;
-            }
-          }
-        }
-      }
-    }
-  }
+  //#sideNavContainer {
+  //  height: 100%;
+  //  mat-sidenav {
+  //    height: 100%;
+  //    width: 300px;
+  //    mat-expansion-panel-header {
+  //      padding: 0 24px 0 5px;
+  //      .panel-header {
+  //        display: flex;
+  //        align-items: center;
+  //        justify-content: center;
+  //        .fa {
+  //          padding: 0 10px;
+  //        }
+  //      }
+  //    }
+  //    .list-item-container {
+  //      display: flex;
+  //      align-items: center;
+  //      padding: 5px 0;
+  //      &:hover {
+  //        cursor: pointer;
+  //      }
+  //      .method {
+  //        width: 30px;
+  //        font-weight: 600;
+  //        font-size: 70%;
+  //        &.get {
+  //          color: #4CAF50;
+  //        }
+  //        &.post {
+  //          color: #FF9800;
+  //        }
+  //      }
+  //      .name {
+  //        padding: 0 5px;
+  //        color: gray;
+  //      }
+  //    }
+  //
+  //  }
+  //  #pageContent {
+  //    height: 100%;
+  //    display: flex;
+  //    #sidebar {
+  //      display: flex;
+  //      justify-content: center;
+  //      align-items: center;
+  //      height: 100%;
+  //      background-color: red;
+  //      color: white;
+  //      width: 20px;
+  //      cursor: pointer;
+  //      position: fixed;
+  //      &:hover {
+  //        opacity: 0.7;
+  //      }
+  //    }
+  //    #mainContent {
+  //      width: 100%;
+  //      #body {
+  //        padding-top: 60px;
+  //        width: 80%;
+  //        margin: auto;
+  //        #inputs {
+  //          #method {
+  //            width: 10%;
+  //          }
+  //          #url {
+  //            width: 80%;
+  //          }
+  //          button {
+  //            width: 5%;
+  //          }
+  //        }
+  //      }
+  //    }
+  //  }
+  //}
 }

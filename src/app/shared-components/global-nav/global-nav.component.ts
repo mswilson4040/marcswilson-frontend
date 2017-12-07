@@ -8,7 +8,6 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 })
 export class GlobalNavComponent implements OnInit {
   @Output() onToggleNav: EventEmitter<any> = new EventEmitter<any>();
-
   constructor(private _breakpointObserver: BreakpointObserver) {
   }
 
