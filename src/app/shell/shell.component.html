@@ -5,21 +5,14 @@
         <h1 class="mat-h1">Marc Wilson</h1>
       </div>
       <div id="navLinks">
-        <ul>
-          <li *ngFor="let link of navbar.links">
-            <div class="link-container">
-              <div class="link-item" [routerLink]="link.url" (click)="sidenav.close()">
-                <mat-icon>{{link.icon}}</mat-icon>
-                <div>{{link.name}}</div>
-              </div>
-              <ul *ngIf="link.children.length > 0" class="child-link">
-                <li *ngFor="let child of link.children">
-                  <div [routerLink]="child.url" (click)="sidenav.close()">{{child.name}}</div>
-                </li>
-              </ul>
-            </div>
-          </li>
-        </ul>
+        <mat-accordion>
+          <mat-expansion-panel *ngFor="let link of navbar.links">
+            <mat-expansion-panel-header>
+              <mat-panel-title><mat-icon>{{link.icon}}</mat-icon></mat-panel-title>
+              <mat-panel-description>{{link.name}}</mat-panel-description>
+            </mat-expansion-panel-header>
+          </mat-expansion-panel>
+        </mat-accordion>
       </div>
 
     </mat-sidenav>

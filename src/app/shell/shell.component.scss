@@ -1,9 +1,14 @@
+$navBackground: #263238;
+$navText: #FFFFFF;
+
 #shellContainer {
   height: 100%;
   mat-sidenav-container {
     height: 100%;
     mat-sidenav {
       width: 300px;
+      background-color: $navBackground;
+      color: $navText;
       #sidenavHeader {
         height: 55px;
         border-bottom: 1px solid lightgray;
@@ -17,28 +22,12 @@
         }
       }
       #navLinks {
-        ul {
-          list-style-type: none;
-          padding: 0;
-          li {
-            .link-container {
-              padding: 10px 0;
-              cursor: pointer;
-              mat-icon {
-                padding: 0 15px;
-              }
-              ul {
+        mat-expansion-panel {
+          background-color: $navBackground;
+          mat-expansion-panel-header {
+            mat-panel-title, mat-panel-description {
+              color: $navText;
 
-              }
-              .link-item {
-                display: flex;
-                align-items: center;
-                width: 100%;
-              }
-              .child-link {
-                padding: 5px 70px;
-                font-size: 90%;
-              }
             }
           }
         }
