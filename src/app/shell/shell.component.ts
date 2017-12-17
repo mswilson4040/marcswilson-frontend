@@ -5,6 +5,7 @@ import 'hammerjs';
 import { AuthService } from '../shared-services/auth.service';
 import { MatSidenav } from '@angular/material';
 import { Navbar } from '../shared-classes/navbar';
+import { UIService } from '../shared-services/ui.service';
 
 @Component({
   selector: 'app-shell',
@@ -13,7 +14,7 @@ import { Navbar } from '../shared-classes/navbar';
 })
 export class ShellComponent implements OnInit {
   public navbar: Navbar = new Navbar();
-  constructor(private _authService: AuthService) {
+  constructor(private _authService: AuthService, private _uiService: UIService) {
     this._authService.handleAuthentication();
   }
 
@@ -28,6 +29,9 @@ export class ShellComponent implements OnInit {
     } else {
       sidenav.close();
     }
+  }
+  onScroll(evt): void {
+    this._uiService.onScroll(evt);
   }
 
 }

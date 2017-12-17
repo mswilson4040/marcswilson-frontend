@@ -15,9 +15,11 @@
         </mat-accordion>
       </div>
     </mat-sidenav>
-    <app-global-nav (onToggleNav)="onNavToggle($event, sidenav)"></app-global-nav>
-    <router-outlet></router-outlet>
-    <app-overlay></app-overlay>
+    <mat-sidenav-content (scroll)="onScroll($event)">
+      <app-global-nav (onToggleNav)="onNavToggle($event, sidenav)"></app-global-nav>
+      <router-outlet></router-outlet>
+      <app-overlay></app-overlay>
+    </mat-sidenav-content>
   </mat-sidenav-container>
 </section>
 

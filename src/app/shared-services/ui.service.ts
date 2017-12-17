@@ -12,7 +12,6 @@ export class UIService {
     }
   }
   constructor() {
-    // window.addEventListener('scroll', this.onScroll.bind(this));
   }
 
   showOverlay(message: string) {
