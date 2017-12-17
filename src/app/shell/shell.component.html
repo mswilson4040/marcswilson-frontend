@@ -6,7 +6,7 @@
       </div>
       <div id="navLinks">
         <mat-accordion>
-          <mat-expansion-panel *ngFor="let link of navbar.links">
+          <mat-expansion-panel *ngFor="let link of navbar.links" [hideToggle]="link.children.length < 1">
             <mat-expansion-panel-header>
               <mat-panel-title><mat-icon>{{link.icon}}</mat-icon></mat-panel-title>
               <mat-panel-description>{{link.name}}</mat-panel-description>

@@ -30,6 +30,9 @@ $navText: #FFFFFF;
 
             }
           }
+          /deep/ mat-expansion-panel-header > .mat-expansion-indicator:after {
+            color: white;
+          }
         }
       }
     }
