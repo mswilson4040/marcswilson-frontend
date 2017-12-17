@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { UIService } from '../../shared-services/ui.service';
+import { CdkScrollable } from '@angular/cdk/scrolling';
 
 @Component({
   selector: 'app-about',
@@ -17,6 +18,7 @@ export class AboutComponent implements OnInit {
         this.inView = false;
       }
     });
+
   }
 
   ngOnInit() {

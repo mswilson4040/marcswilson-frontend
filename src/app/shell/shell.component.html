@@ -1,6 +1,6 @@
 <section id="shellContainer">
   <mat-sidenav-container>
-    <mat-sidenav #sidenav>
+    <mat-sidenav #sidenav id="sideNav">
       <div id="sidenavHeader">
         <h1 class="mat-h1">Marc Wilson</h1>
       </div>
@@ -14,12 +14,13 @@
           </mat-expansion-panel>
         </mat-accordion>
       </div>
-
     </mat-sidenav>
     <app-global-nav (onToggleNav)="onNavToggle($event, sidenav)"></app-global-nav>
     <router-outlet></router-outlet>
-    <div id="mediaHelper"></div>
     <app-overlay></app-overlay>
   </mat-sidenav-container>
 </section>
+
+
+
 

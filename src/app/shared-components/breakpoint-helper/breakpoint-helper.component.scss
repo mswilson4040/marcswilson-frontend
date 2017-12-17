@@ -1,0 +1,32 @@
+@import '../../mixins/mq-mixins.scss';
+
+@include extra-small {
+  #mediaQueryHelper { background-color: #C51162; }
+  #mediaQueryHelper:before { content: 'Extra Small'; }
+}
+@include small {
+  #mediaQueryHelper { background-color: #AA00FF; }
+  #mediaQueryHelper:before { content: 'Small'; }
+}
+@include medium {
+  #mediaQueryHelper { background-color: #6200EA; }
+  #mediaQueryHelper:before { content: 'Medium'; }
+}
+@include large {
+  #mediaQueryHelper { background-color: #00C853; }
+  #mediaQueryHelper:before { content: 'Large'; }
+}
+@include extra-large {
+  #mediaQueryHelper { background-color: #212121; }
+  #mediaQueryHelper:before { content: 'Extra Large'; }
+}
+
+#mediaQueryHelper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 25px;
+  color: #FFF;
+  text-align: center;
+}

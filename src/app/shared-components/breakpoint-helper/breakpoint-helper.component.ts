@@ -7,24 +7,16 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   styleUrls: ['./breakpoint-helper.component.scss']
 })
 export class BreakpointHelperComponent implements OnInit {
-
+  public shouldShow = false;
   constructor(private _breakpointObserver: BreakpointObserver) {
-    this._breakpointObserver.observe([
-      Breakpoints.Handset,
-      Breakpoints.Tablet,
-      Breakpoints.Web,
-      Breakpoints.HandsetPortrait,
-      Breakpoints.TabletPortrait,
-      Breakpoints.WebPortrait,
-      Breakpoints.HandsetLandscape,
-      Breakpoints.TabletLandscape,
-      Breakpoints.WebLandscape
-    ]).subscribe( result => {
-      console.log(result);
-    });
   }
 
   ngOnInit() {
+    if (window.location.href.search('localhost') > 0 ) {
+      this.shouldShow = true;
+    } else {
+      this.shouldShow = false;
+    }
   }
 
 }
