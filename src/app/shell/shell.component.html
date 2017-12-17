@@ -5,14 +5,17 @@
         <h1 class="mat-h1">Marc Wilson</h1>
       </div>
       <div id="navLinks">
-        <mat-accordion>
-          <mat-expansion-panel *ngFor="let link of navbar.links" [hideToggle]="link.children.length < 1">
-            <mat-expansion-panel-header>
-              <mat-panel-title><mat-icon>{{link.icon}}</mat-icon></mat-panel-title>
-              <mat-panel-description>{{link.name}}</mat-panel-description>
-            </mat-expansion-panel-header>
-          </mat-expansion-panel>
-        </mat-accordion>
+        <mat-card *ngFor="let link of navbar.links">
+          <div class="card-container" [routerLink]="link.url" (click)="onNavToggle(false, sidenav)">
+            <mat-icon>{{link.icon}}</mat-icon>
+            <div>{{link.name}}</div>
+          </div>
+          <div class="child-links" *ngIf="link.children.length > 0">
+            <div *ngFor="let child of link.children" class="child-link" [routerLink]="child.url" (click)="onNavToggle(false, sidenav)">
+              {{child.name}}
+            </div>
+          </div>
+        </mat-card>
       </div>
     </mat-sidenav>
     <mat-sidenav-content (scroll)="onScroll($event)">
