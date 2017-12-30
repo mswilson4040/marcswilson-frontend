@@ -1,7 +1,7 @@
 
 export const environment = {
   production: true,
-  API_PATH: 'http://marcswilson.com/api',
+  API_PATH: 'http://api.marcswilson.com',
   ROOT_URL: 'http://marcswilson.com',
   AUTH0_CLIENTID: '3iT4JDvOLb73IFNsh0EPH2t9WTNhy0ep',
   AUTH0_DOMAIN: 'marcswilson.auth0.com',

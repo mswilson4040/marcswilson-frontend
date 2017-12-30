@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { environment } from '../../environments/environment';
-import { MailMessage } from '../shared-classes/mail-message';
+import { MailMessage } from '../models/mail-message';
 
 @Injectable()
 export class EmailService {

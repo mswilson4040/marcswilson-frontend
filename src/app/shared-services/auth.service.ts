@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import * as Auth0 from 'auth0-js';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
-import { AuthenticationResponse } from '../shared-classes/authentication-response';
+
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { AuthenticationResponse } from '../models/authentication-response';
 
 @Injectable()
 export class AuthService {

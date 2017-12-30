@@ -7,19 +7,17 @@ export class Navbar {
     home.icon = 'home';
     this.addLink(home);
 
-    const about = new NavbarHeaderLink();
-    about.name = 'About';
-    about.url = '/about';
-    about.icon = 'account_circle';
-    this.addLink(about);
-
-    const portfolio = new NavbarHeaderLink();
-    portfolio.name = 'Porfolio';
-    portfolio.url = '/portfolio';
-    portfolio.icon = 'card_travel';
-    portfolio.children.push(new NavbarChildLink('MLB Stats', '/mlbstats'));
-    portfolio.children.push(new NavbarChildLink('API Explorer', '/apiexplorer'));
-    this.addLink(portfolio);
+    // const about = new NavbarHeaderLink();
+    // about.name = 'About';
+    // about.url = '/about';
+    // about.icon = 'account_circle';
+    // this.addLink(about);
+    //
+    // const portfolio = new NavbarHeaderLink();
+    // portfolio.name = 'Porfolio';
+    // portfolio.url = '/portfolio';
+    // portfolio.icon = 'card_travel';
+    // this.addLink(portfolio);
   }
   addLink(navbarHeaderLink: NavbarHeaderLink): void {
     this.links.push(navbarHeaderLink);

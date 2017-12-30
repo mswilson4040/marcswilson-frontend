@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
-import { MailMessage } from '../../../shared-classes/mail-message';
 import { environment } from '../../../../environments/environment';
 import { EmailService } from '../../../shared-services/email.service';
 import { UIService } from '../../../shared-services/ui.service';
 import { ErrorDialogComponent } from '../error-dialog/error-dialog.component';
+import { MailMessage } from '../../../models/mail-message';
 
 @Component({
   selector: 'app-contact-form-dialog',

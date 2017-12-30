@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { API, ApiRegistry } from '../../../shared-classes/api-registry';
+import { API, ApiRegistry } from '../../../models/api-registry';
 import { HttpRequestMethods } from '../../../enums/http-request-methods.enum';
 import { HttpClient } from '@angular/common/http';
 import { UIService } from '../../../shared-services/ui.service';

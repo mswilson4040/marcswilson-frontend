@@ -4,7 +4,7 @@ import 'jqueryui';
 import 'hammerjs';
 import { AuthService } from '../shared-services/auth.service';
 import { MatSidenav } from '@angular/material';
-import { Navbar } from '../shared-classes/navbar';
+import { Navbar } from '../models/navbar';
 import { UIService } from '../shared-services/ui.service';
 
 @Component({
