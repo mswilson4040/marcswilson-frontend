@@ -1,3 +1,6 @@
+
+@import '../../mixins/mq-mixins';
+
 $backgroundImageUrl: '../../../images/jumbotron-seats.jpg';
 $portfolioImageUrl: '../../../images/me.jpg';
 
@@ -35,7 +38,6 @@ $portfolioImageUrl: '../../../images/me.jpg';
         padding: 0;
         .main {
           height: 80%;
-          width: 100%;
           padding: 20px;
           display: flex;
           justify-content: space-between;
@@ -73,12 +75,11 @@ $portfolioImageUrl: '../../../images/me.jpg';
             }
             #headerText {
               font-weight: 100;
-              //font-size: 200%;
               strong {
                 font-weight: 600;
               }
             }
-            hr { margin-top: 0;}
+            hr { margin-top: 0; }
             section {
               color: #868e96;
               div {
@@ -86,14 +87,13 @@ $portfolioImageUrl: '../../../images/me.jpg';
                 width: 100%;
                 align-items: center;
                 label:first-child {
-                  font-size: 80%;
                   color: black;
                   min-width: 140px;
-                  font-weight: 700;
+                  font-weight: 400;
                   text-transform: uppercase;
+                  line-height: 1.5;
                 }
                 label:last-child {
-                  font-size: 80%;
                 }
               }
 
@@ -116,6 +116,8 @@ $portfolioImageUrl: '../../../images/me.jpg';
             .icon-container {
               height: 55px;
               width: 55px;
+              display: flex;
+              align-items: center;
               .social-media-icon {
                 border: 1px solid transparent;
                 border-radius: 50%;
@@ -197,6 +199,7 @@ $portfolioImageUrl: '../../../images/me.jpg';
         margin-top: 40px;
         color: gray;
         text-align: center;
+        line-height: 1.5;
         p {
           font-weight: 300;
         }
@@ -243,8 +246,7 @@ $portfolioImageUrl: '../../../images/me.jpg';
 
 // <editor-fold desc="Media Queries">
 
-// Extra small devices (portrait phones, less than 576px)
-@media (max-width: 575px) {
+@include extra-small {
   #mainContent {
     mat-card {
       width: 90%;
@@ -265,6 +267,9 @@ $portfolioImageUrl: '../../../images/me.jpg';
           p {
             font-size: 70%;
           }
+          label {
+            font-size: 14px;
+          }
         }
       }
     }
@@ -286,16 +291,15 @@ $portfolioImageUrl: '../../../images/me.jpg';
   }
 }
 
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
+@include small {
   #mainContent {
     mat-card {
       height: 40%;
-      width: 80%;
+      width: 85%;
       .main {
         flex-direction: row;
         .content-container {
-          margin-left: 40px;
+          margin-left: 20px;
           width: 60%;
           display: flex;
           justify-content: space-between;
@@ -303,6 +307,9 @@ $portfolioImageUrl: '../../../images/me.jpg';
           #headerText {
             font-size: 100%;
           }
+          label {
+            font-size: 14px;
+          }
         }
         .image-container {
           width: 55%;
@@ -330,8 +337,7 @@ $portfolioImageUrl: '../../../images/me.jpg';
   }
 }
 
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) and (max-width: 991px) {
+@include medium {
   #mainContent {
     mat-card {
       height: 40%;
@@ -374,8 +380,7 @@ $portfolioImageUrl: '../../../images/me.jpg';
   }
 }
 
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
+@include large {
   #mainContent {
     mat-card {
       height: 40%;
@@ -418,8 +423,7 @@ $portfolioImageUrl: '../../../images/me.jpg';
   }
 }
 
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
+@include extra-large {
   #mainContent {
     mat-card {
       height: 40%;
@@ -458,50 +462,6 @@ $portfolioImageUrl: '../../../images/me.jpg';
     }
     #experienceSection {
       width: 80%;
-    }
-  }
-}
-
-// Extra Extra large devices (extra large desktops, 1500px and up
-@media (min-width: 1800px) {
-  #mainContent {
-    mat-card {
-      height: 40%;
-      width: 50%;
-      .main {
-        flex-direction: row;
-        .content-container {
-          margin-left: 40px;
-          width: 60%;
-          display: flex;
-          justify-content: space-between;
-          flex-direction: column;
-          #headerText {
-            font-size: 200%;
-          }
-        }
-        .image-container {
-          width: 40%;
-        }
-      }
-    }
-    #aboutSection {
-      width: 60%;
-    }
-    #welcomeTextSection {
-      width: 60%;
-      p {
-        font-size: 120%;
-      }
-    }
-    #portfolioSection {
-      width: 60%;
-    }
-    #skillsSection {
-      width: 60%;
-    }
-    #experienceSection {
-      width: 60%;
     }
   }
 }

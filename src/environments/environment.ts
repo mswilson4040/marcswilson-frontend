@@ -5,7 +5,7 @@
 
 export const environment = {
   production: false,
-  API_PATH: 'http://localhost:3000/api',
+  API_PATH: 'http://localhost:3000',
   ROOT_URL: 'http://localhost:4200',
   AUTH0_CLIENTID: '3iT4JDvOLb73IFNsh0EPH2t9WTNhy0ep',
   AUTH0_DOMAIN: 'marcswilson.auth0.com',

@@ -7,16 +7,11 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
   styleUrls: ['./breakpoint-helper.component.scss']
 })
 export class BreakpointHelperComponent implements OnInit {
-  public shouldShow = false;
+  public shouldShow = true;
   constructor(private _breakpointObserver: BreakpointObserver) {
   }
 
   ngOnInit() {
-    if (window.location.href.search('localhost') > 0 ) {
-      this.shouldShow = true;
-    } else {
-      this.shouldShow = false;
-    }
   }
 
 }

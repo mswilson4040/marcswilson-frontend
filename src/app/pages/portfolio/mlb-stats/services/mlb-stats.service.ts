@@ -2,12 +2,12 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Team } from '../classes/team';
 import { Player } from '../classes/player';
-import { Http } from '@angular/http';
 import { Ballpark } from '../classes/ballpark';
 import { Appearance } from '../classes/appearance';
-import {Personal} from '../classes/personal';
-import {Game} from '../classes/boxscores/game';
+import { Personal } from '../classes/personal';
+import { Game } from '../classes/boxscores/game';
 import { environment } from '../../../../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class MlbStatsService {
@@ -44,12 +44,12 @@ export class MlbStatsService {
     return this.selectedPlayer$.getValue();
   }
 
-  constructor(private http: Http) {
+  constructor(private httpClient: HttpClient) {
   }
 
   getDistinctYears(): Promise<Array<number>> {
     return new Promise((resolve, reject) => {
-      this.http.get(`${environment.API_PATH}/mlbstats/years`).subscribe(years => {
+      this.httpClient.get(`${environment.API_PATH}/mlbstats/years`).subscribe(years => {
         const ret = JSON.parse(years['_body']);
         resolve(ret);
       });
@@ -65,7 +65,7 @@ export class MlbStatsService {
   }
   getTeamsByYear(yearID: number): Promise<Array<Team>> {
     return new Promise( (resolve, reject) => {
-      this.http.get(`${environment.API_PATH}/mlbstats/years/${yearID}/teams`).subscribe( teams => {
+      this.httpClient.get(`${environment.API_PATH}/mlbstats/years/${yearID}/teams`).subscribe( teams => {
         const parsed = JSON.parse(teams['_body']);
         const ts = parsed.map( (t) => {
           return new Team(t);
@@ -76,7 +76,7 @@ export class MlbStatsService {
   }
   getTeamByYear(yearID: number, team: Team): Promise<Team> {
     return new Promise( (resolve, reject) => {
-      this.http.get(`${environment.API_PATH}/mlbstats/years/${yearID}/teams/${team.teamID}`).subscribe( t => {
+      this.httpClient.get(`${environment.API_PATH}/mlbstats/years/${yearID}/teams/${team.teamID}`).subscribe( t => {
         t = JSON.parse(t['_body']);
         const theTeam = new Team(t);
         resolve(theTeam);
@@ -93,7 +93,7 @@ export class MlbStatsService {
   }
   getPlayersByYear(yearID: number): Promise<Array<Player>> {
     return new Promise( (resolve, reject) => {
-      this.http.get(`${environment.API_PATH}/mlbstats/years/${yearID}/players`).subscribe( players => {
+      this.httpClient.get(`${environment.API_PATH}/mlbstats/years/${yearID}/players`).subscribe( players => {
         const body = JSON.parse(players['_body']);
         const retPlayers = body.map( p => {
           return new Player(p);
@@ -104,7 +104,7 @@ export class MlbStatsService {
   }
   getFullPlayerStats(player: Player): Promise<Array<Appearance>> {
     return new Promise( (resolve, reject) => {
-      this.http.get(`${environment.API_PATH}/mlbstats/players/id/${player.playerID}`).subscribe( appearances => {
+      this.httpClient.get(`${environment.API_PATH}/mlbstats/players/id/${player.playerID}`).subscribe( appearances => {
         const ret = JSON.parse(appearances['_body']);
         resolve(ret);
       });
@@ -112,7 +112,7 @@ export class MlbStatsService {
   }
   getAllBallparks(): Promise<Array<Ballpark>> {
     return new Promise( (resolve, reject) => {
-      this.http.get(`${environment.API_PATH}/mlbstats/ballparks`).subscribe( ballparks => {
+      this.httpClient.get(`${environment.API_PATH}/mlbstats/ballparks`).subscribe( ballparks => {
         const ret = JSON.parse(ballparks['_body']);
         resolve(ret);
       });
@@ -121,7 +121,7 @@ export class MlbStatsService {
   getBoxScores(date: Date): Promise<any> {
     const url = `${environment.API_PATH}/mlbstats/boxscores/${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
     return new Promise( (resolve, reject) => {
-      this.http.get(url).subscribe( bs => {
+      this.httpClient.get(url).subscribe( bs => {
         const obj = JSON.parse(bs['_body']);
         let ret = new Array<Game>();
         if (obj.hasOwnProperty('data')) {

@@ -1,3 +1,6 @@
+@import '../../mixins/mq-mixins';
+
+
 .cards-container {
   margin-top: 40px;
   display: flex;
@@ -5,6 +8,7 @@
   opacity: 0;
   mat-card {
     text-align: center;
+    flex: 1;
     .image-container {
       padding: 10px 0;
       img {
@@ -12,6 +16,10 @@
         height: 80px;
         width: 80px;
       }
+    }
+    small {
+      color: gray;
+      line-height: 1.5;
     }
   }
 }
@@ -56,57 +64,53 @@
 
 // <editor-fold desc="Media Queries">
 
-// Extra small devices (portrait phones, less than 576px)
-@media (max-width: 575px) {
+@include extra-small {
   .cards-container {
     flex-direction: column;
     mat-card {
-      width: 100%;
       margin-bottom: 20px;
     }
   }
 }
 
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
+@include small {
   .cards-container {
     flex-direction: column;
     mat-card {
-      width: 100%;
       margin-bottom: 20px;
     }
   }
 }
 
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) and (max-width: 991px) {
+@include medium {
   .cards-container {
     flex-direction: column;
     mat-card {
-      width: 100%;
       margin-bottom: 20px;
     }
   }
 }
 
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
+@include large {
   .cards-container {
     flex-direction: row;
     mat-card {
-      width: 30%;
       margin-bottom: 0;
+      &:nth-child(even) {
+        margin: 0 20px;
+      }
     }
   }
 }
 
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
+@include extra-large {
   .cards-container {
     flex-direction: row;
     mat-card {
-      width: 30%;
       margin-bottom: 0;
+      &:nth-child(even) {
+        margin: 0 20px;
+      }
     }
   }
 }
