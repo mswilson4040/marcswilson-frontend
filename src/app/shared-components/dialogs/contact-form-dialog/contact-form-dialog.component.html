@@ -5,16 +5,15 @@
   </div>
   <div class="dialog-body">
     <div class="row">
-      <mat-input-container class="col-xl-6">
+      <mat-input-container>
         <input matInput placeholder="From" [(ngModel)]="mailMessage.from" />
       </mat-input-container>
-      <mat-input-container class="col-xl-6">
+      <mat-input-container>
         <input matInput placeholder="Subject" [(ngModel)]="mailMessage.subject" />
       </mat-input-container>
     </div>
-
     <div class="row">
-      <mat-input-container class="col-xl-12">
+      <mat-input-container>
         <textarea matInput placeholder="Message" rows="4" [(ngModel)]="mailMessage.message"></textarea>
       </mat-input-container>
     </div>

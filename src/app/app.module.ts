@@ -36,7 +36,7 @@ import {
   MatExpansionModule, MatIconModule,
   MatInputModule,
   MatMenuModule,
-  MatNativeDateModule, MatProgressBarModule, MatSelectModule, MatSidenavModule,
+  MatNativeDateModule, MatProgressBarModule, MatProgressSpinnerModule, MatSelectModule, MatSidenavModule,
   MatSliderModule,
   MatTabsModule, MatTooltipModule
 } from '@angular/material';
@@ -83,6 +83,7 @@ import { BreakpointObserver, MediaMatcher } from '@angular/cdk/layout';
     ErrorDialogComponent,
     ConfirmDialogComponent,
     LoginDialogComponent,
+    OverlayComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -108,7 +109,8 @@ import { BreakpointObserver, MediaMatcher } from '@angular/cdk/layout';
     MatExpansionModule,
     MatProgressBarModule,
     HttpClientModule,
-    MatIconModule
+    MatIconModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     UIService,

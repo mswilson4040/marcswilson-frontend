@@ -57,7 +57,7 @@ export class MlbStatsService {
   }
   getTeamColorsJSON(): Promise<any> {
     return new Promise((resolve, reject) => {
-      this.http.get('/public/pages/PortfolioComponent/MLBStats/data/teamcolors.json').subscribe(json => {
+      this.httpClient.get('/public/pages/PortfolioComponent/MLBStats/data/teamcolors.json').subscribe(json => {
         json = JSON.parse(json['_body']);
         resolve(json);
       });
@@ -85,7 +85,7 @@ export class MlbStatsService {
   }
   getPlayersByName(name: string): Promise<Array<Personal>> {
     return new Promise( (resolve, reject) => {
-      this.http.get(`${environment.API_PATH}/mlbstats/players/name/${name}`).subscribe( personal => {
+      this.httpClient.get(`${environment.API_PATH}/mlbstats/players/name/${name}`).subscribe( personal => {
         const ret = JSON.parse(personal['_body']);
         resolve(ret);
       });
@@ -122,10 +122,9 @@ export class MlbStatsService {
     const url = `${environment.API_PATH}/mlbstats/boxscores/${date.getFullYear()}/${date.getMonth() + 1}/${date.getDate()}`;
     return new Promise( (resolve, reject) => {
       this.httpClient.get(url).subscribe( bs => {
-        const obj = JSON.parse(bs['_body']);
         let ret = new Array<Game>();
-        if (obj.hasOwnProperty('data')) {
-          const game = obj.data.games.game;
+        if (bs.hasOwnProperty('data')) {
+          const game = bs['data'].games.game;
           if (game && typeof game.length !== 'undefined') {
             ret = game.map(g => {
               return new Game(g);

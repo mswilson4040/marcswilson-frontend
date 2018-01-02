@@ -22,8 +22,8 @@ export class ContactFormDialogComponent implements OnInit {
   sendEmail(): void {
     this._uiService.showOverlay(`Sending Email...`);
     this._emailService.sendEmail(this.mailMessage).then( result => {
-      this._uiService.hideOverlay();
-      this._dialogRef.close();
+      //this._uiService.hideOverlay();
+      //this._dialogRef.close();
     }, error => {
       this._uiService.hideOverlay();
       this._matDialog.open(ErrorDialogComponent, { data: error });

@@ -1,37 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import {UIService} from '../../shared-services/ui.service';
+import { AfterViewChecked, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-overlay',
   templateUrl: './overlay.component.html',
   styleUrls: ['./overlay.component.scss']
 })
-export class OverlayComponent implements OnInit {
+export class OverlayComponent implements OnInit, AfterViewChecked {
   public message: string = null;
   public visible: boolean = null;
-  constructor(private _uiService: UIService) {
-    this._uiService.overlayService$.subscribe(overlaySettings => {
-      if (overlaySettings !== null) {
-        if (overlaySettings.visible === true) {
-          this.showOverlay(overlaySettings.message);
-        } else if (overlaySettings.visible === false) {
-          this.hideOverlay();
-        }
-      }
-    });
+  constructor(private _changeDetectorRef: ChangeDetectorRef) {
+
   }
 
   ngOnInit() {
   }
+  ngAfterViewChecked(): void {
+    this._changeDetectorRef.detectChanges();
+  }
   showOverlay(message: string): void {
-    this.message = message;
-    this.visible = true;
-    $('#overlayContainer').fadeIn();
+
   }
   hideOverlay(): void {
-    this.message = null;
-    this.visible = false;
-    $('#overlayContainer').fadeOut();
+
   }
 
 }
