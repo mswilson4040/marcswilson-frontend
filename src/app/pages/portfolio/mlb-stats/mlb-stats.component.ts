@@ -48,11 +48,8 @@ export class MlbStatsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._uiService.showOverlay('Fetching Box Scores...');
     this._mlbStatsService.getBoxScores(new Date()).then( bs => {
       this.boxscores = bs;
-
-      this._uiService.hideOverlay();
     });
   }
   addComponent(component): void {

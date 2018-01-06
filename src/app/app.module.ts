@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { ShellComponent } from './shell/shell.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -89,7 +88,6 @@ import { BreakpointObserver, MediaMatcher } from '@angular/cdk/layout';
     BrowserAnimationsModule,
     BrowserModule,
     FormsModule,
-    HttpModule,
     AppRoutingModule,
     MatDatepickerModule,
     MatInputModule,

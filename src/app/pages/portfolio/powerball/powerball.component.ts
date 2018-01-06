@@ -15,12 +15,10 @@ export class PowerballComponent implements OnInit {
   constructor(private _powerballService: PowerballService, private _uiService: UIService) { }
 
   ngOnInit() {
-    this._uiService.showOverlay('Fetching Powerball numbers...');
     this._powerballService.getPowerball().then(pb => {
       this.powerballData = pb;
       const data = this.powerballData.getHighchartsData();
       this.drawChart(data);
-      this._uiService.hideOverlay();
     });
   }
   drawChart(data) {

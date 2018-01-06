@@ -14,7 +14,6 @@ export class MLBTeamComponent implements OnInit, OnDestroy {
 
   public selectedTeam: Team = new Team();
   constructor(private _mlbStatsService: MlbStatsService, private _uiService: UIService) {
-    this._uiService.showOverlay('Fetching Teams from ' + this._mlbStatsService.selectedYear + '...');
     this._mlbStatsService.selectedTeam$.subscribe(team => {
       if (team !== null) {
         this.selectedTeam = team;
@@ -22,7 +21,6 @@ export class MLBTeamComponent implements OnInit, OnDestroy {
           this.selectedTeam = t
           const data = this.buildChartData(null, 'HR');
           this.buildChart(data, 'HR');
-          this._uiService.hideOverlay();
         });
       }
     });

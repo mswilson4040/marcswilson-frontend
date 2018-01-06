@@ -1,3 +1,8 @@
-<section id="overlayContainer">
-  <h1>Leading...</h1>
+<section id="overlayContainer" *ngIf="visible">
+  <div id="overlayMask"></div>
+  <div id="overlayContent">
+    <mat-spinner></mat-spinner>
+    <h1 class="mat-h1">{{message}}</h1>
+  </div>
+
 </section>

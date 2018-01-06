@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   }
   launchContactForm(): void {
     const dialogRef = this._dialog.open(ContactFormDialogComponent, {
-      height: '40%',
+      height: 'auto',
       width: '40%'
     });
     dialogRef.afterClosed().subscribe( info => {

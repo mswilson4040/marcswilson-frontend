@@ -40,7 +40,6 @@ export class MLBPlayersComponent implements OnInit, OnDestroy {
     }
   }
   goToPlayer(player: Player) {
-    this._uiService.showOverlay('Fetching Player Stats...');
     this._mlbStatsService.getFullPlayerStats(player).then(appearances => {
       appearances = appearances.map( (a) => {
         return new Appearance(a);
@@ -49,7 +48,6 @@ export class MLBPlayersComponent implements OnInit, OnDestroy {
       this.selectedPlayer = appearances;
       const data = this.buildChartData('batting', 'HR');
       this.buildChart(data, 'HR');
-      this._uiService.hideOverlay();
     });
   }
   buildChartData(node, stat): Array<any> {

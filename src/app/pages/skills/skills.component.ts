@@ -31,29 +31,31 @@ export class SkillsComponent implements OnInit {
     });
   }
   setSkills(setToZero: boolean): void {
-    if (setToZero) {
-      this.javaScript = 0;
-      this.typeScript = 0;
-      this.angular = 0;
-      this.jQuery = 0;
-      this.node = 0;
-      this.html = 0;
-      this.css = 0;
-      this.scss = 0;
-      this.bootstrap = 0;
-      this.angularMaterial = 0;
-    } else {
-      this.javaScript = 90;
-      this.typeScript = 90;
-      this.angular = 90;
-      this.jQuery = 90;
-      this.node = 60;
-      this.html = 90;
-      this.css = 75;
-      this.scss = 70;
-      this.bootstrap = 90;
-      this.angularMaterial = 70;
-    }
+    setTimeout( () => {
+      if (setToZero) {
+        this.javaScript = 0;
+        this.typeScript = 0;
+        this.angular = 0;
+        this.jQuery = 0;
+        this.node = 0;
+        this.html = 0;
+        this.css = 0;
+        this.scss = 0;
+        this.bootstrap = 0;
+        this.angularMaterial = 0;
+      } else {
+        this.javaScript = 90;
+        this.typeScript = 90;
+        this.angular = 90;
+        this.jQuery = 90;
+        this.node = 60;
+        this.html = 90;
+        this.css = 75;
+        this.scss = 70;
+        this.bootstrap = 90;
+        this.angularMaterial = 70;
+      }
+    }, 1000);
   }
 
 }

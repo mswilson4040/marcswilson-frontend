@@ -39,13 +39,11 @@ export class MlbApiExplorerComponent implements OnInit {
     this.team = new FormControl();
     this.playerYear = new FormControl();
     this.player = new FormControl();
-    this._uiService.showOverlay('Fetching seasons...');
     this._mlbStatsService.getDistinctYears().then( years => {
       this.years = years;
       this.filteredTeams = this.team.valueChanges.startWith(null).map( t => this.filterTeams(t));
       this.filteredPlayerYears = this.playerYear.valueChanges.startWith(null).map( y => this.filterYears(y));
       this.filteredPlayers = this.player.valueChanges.startWith(null).map( p => this.filterPlayers(p));
-      this._uiService.hideOverlay();
     });
   }
   teamYearSelected(evt): void {
@@ -116,11 +114,9 @@ export class MlbApiExplorerComponent implements OnInit {
   }
   fetchAPIResult(): void {
     if (this.path !== this.URL_ROOT) {
-      this._uiService.showOverlay('Fetching API Results...');
       this._http.get(this.path).subscribe(response => {
         const jObj = JSON.parse(response[ '_body' ]);
         $('#results')[ 'jsonViewer' ](jObj);
-        this._uiService.hideOverlay();
       });
     } else {
 

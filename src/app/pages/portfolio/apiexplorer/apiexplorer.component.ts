@@ -2,7 +2,6 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { API, ApiRegistry } from '../../../models/api-registry';
 import { HttpRequestMethods } from '../../../enums/http-request-methods.enum';
 import { HttpClient } from '@angular/common/http';
-import { UIService } from '../../../shared-services/ui.service';
 import { MatDialog, MatSidenav } from '@angular/material';
 import { ErrorDialogComponent } from '../../../shared-components/dialogs/error-dialog/error-dialog.component';
 
@@ -17,7 +16,7 @@ export class ApiExplorerComponent implements OnInit, AfterViewInit {
   public activeApi: API = new API();
   public methods = HttpRequestMethods;
   public apiResponse: object = null;
-  constructor(private _httpClient: HttpClient, private _uiService: UIService, private _matDialog: MatDialog) {
+  constructor(private _httpClient: HttpClient, private _matDialog: MatDialog) {
     this.apis = new ApiRegistry().apis;
   }
 
@@ -42,14 +41,11 @@ export class ApiExplorerComponent implements OnInit, AfterViewInit {
     sidenav.close();
   }
   invokeApi(): void {
-    this._uiService.showOverlay('Fetching API Result...');
     this._httpClient.get(this.activeApi.url).subscribe( response => {
       if (response) {
         this.apiResponse = response;
       }
-      this._uiService.hideOverlay();
     }, error => {
-      this._uiService.hideOverlay();
       this._matDialog.open(ErrorDialogComponent, { data: error });
     });
   }

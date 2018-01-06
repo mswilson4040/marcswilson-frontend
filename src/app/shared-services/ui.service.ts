@@ -1,28 +1,33 @@
 import { ElementRef, EventEmitter, Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
-import { ComponentPortal } from '@angular/cdk/portal';
-import { OverlayComponent } from '../shared-components/overlay/overlay.component';
-
+import * as uniqid from 'uniqid';
 @Injectable()
 export class UIService {
-  public overlayService$: BehaviorSubject<any> = new BehaviorSubject<any>(null);
+
   public scrollService: EventEmitter<any> = new EventEmitter();
+  public overlayService: EventEmitter<{ id: string, message: string }> = new EventEmitter();
+  public overlayQueue: { id: string, message: string }[] = [];
+  constructor() {
+  }
 
-  set overlayService(value: any) {
-    if (value !== null) {
-      this.overlayService$.next(value);
+  createOverlay(message: string): string {
+    const overlayId = uniqid();
+    const overlaySettings = { id: overlayId, message: message };
+    if (this.overlayQueue.length === 0) {
+      this.showOverlay(overlaySettings);
     }
+    this.overlayQueue.push( overlaySettings );
+    return overlayId;
   }
-  constructor(private _overlay: Overlay) {
+  showOverlay(settings: { id: string, message: string }): void {
+    this.overlayService.emit(settings);
   }
-
-  showOverlay(message: string) {
-    //this.overlayService = {visible: true, message: message};
-    this.createOverlay();
-  }
-  hideOverlay() {
-    this.overlayService = {visible: false, message: ''};
+  destroyOverlay(overlayId: string): void {
+    this.overlayQueue = this.overlayQueue.filter( o => o.id !== overlayId );
+    if (this.overlayQueue.length === 0) {
+      this.overlayService.emit(null);
+    } else {
+      this.overlayService.emit(this.overlayQueue[0]);
+    }
   }
 
   onScroll(evt: Event) {
@@ -37,18 +42,4 @@ export class UIService {
     const overhang = elemHeight * (1 - percentVisible);
     return (elemTop >= -overhang) && (elemBottom <= window.innerHeight + overhang);
   }
-  createOverlay(): void {
-    const overlayConfig: OverlayConfig = new OverlayConfig();
-    overlayConfig.hasBackdrop = true;
-    const overlayRef = this._overlay.create(overlayConfig);
-    const portal = new ComponentPortal(OverlayComponent);
-    overlayRef.attach(portal);
-    setTimeout( () => {
-      this.disposeOverlay(overlayRef);
-    }, 2000);
-  }
-  disposeOverlay(overlayRef: OverlayRef): void {
-    overlayRef.dispose();
-  }
-
 }

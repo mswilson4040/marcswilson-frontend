@@ -11,10 +11,8 @@ export class CallbackComponent implements OnInit, OnDestroy {
   constructor(private _uiService: UIService) { }
 
   ngOnInit() {
-    this._uiService.showOverlay('Authenticating...');
   }
   ngOnDestroy() {
-    this._uiService.hideOverlay();
   }
 
 }
