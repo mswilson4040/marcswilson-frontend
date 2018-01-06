@@ -1,5 +1,6 @@
 import { ElementRef, EventEmitter, Injectable } from '@angular/core';
 import * as uniqid from 'uniqid';
+
 @Injectable()
 export class UIService {
 
