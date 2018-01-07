@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { AboutComponent } from './pages/about/about.component';
-import { PortfolioComponent } from './pages/portfolio/portfolio.component';
-import { MlbApiExplorerComponent } from './pages/portfolio/mlb-api-explorer/mlb-api-explorer.component';
-import { MlbStatsComponent } from './pages/portfolio/mlb-stats/mlb-stats.component';
-import { PowerballComponent } from './pages/portfolio/powerball/powerball.component';
+import { HomeComponent } from './views/home/home.component';
+import { AboutComponent } from './views/about/about.component';
+import { PortfolioComponent } from './views/portfolio/portfolio.component';
+import { MlbApiExplorerComponent } from './views/portfolio/mlb-api-explorer/mlb-api-explorer.component';
+import { MlbStatsComponent } from './views/portfolio/mlb-stats/mlb-stats.component';
+import { PowerballComponent } from './views/portfolio/powerball/powerball.component';
 import { CallbackComponent } from './shared-components/callback/callback.component';
-import { ApiExplorerComponent } from './pages/portfolio/apiexplorer/apiexplorer.component';
+import { ApiExplorerComponent } from './views/portfolio/apiexplorer/apiexplorer.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
