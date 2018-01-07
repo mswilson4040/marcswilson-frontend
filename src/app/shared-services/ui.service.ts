@@ -7,6 +7,7 @@ export class UIService {
   public scrollService: EventEmitter<any> = new EventEmitter();
   public overlayService: EventEmitter<{ id: string, message: string }> = new EventEmitter();
   public overlayQueue: { id: string, message: string }[] = [];
+
   constructor() {
   }
 
