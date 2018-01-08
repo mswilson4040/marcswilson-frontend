@@ -24,6 +24,7 @@
     "@angular/platform-browser": "^5.1.2",
     "@angular/platform-browser-dynamic": "^5.1.2",
     "@angular/router": "^5.1.2",
+    "@ckeditor/ckeditor5-build-classic": "^1.0.0-alpha.2",
     "@types/jqueryui": "^1.11.37",
     "auth0-js": "^8.12.1",
     "aws-sdk": "^2.171.0",

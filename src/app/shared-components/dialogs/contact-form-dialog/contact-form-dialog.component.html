@@ -19,12 +19,7 @@
       </mat-input-container>
     </div>
     <div class="row">
-      <mat-input-container>
-        <textarea matInput placeholder="Message" rows="4" [(ngModel)]="mailMessage.message" [formControl]="messageCtrl"></textarea>
-        <mat-error *ngIf="messageCtrl.hasError('required')">
-          Please enter a valid message.
-        </mat-error>
-      </mat-input-container>
+      <textarea name="content" id="editor" rows="6"></textarea>
     </div>
   </div>
   <div class="button-container">
