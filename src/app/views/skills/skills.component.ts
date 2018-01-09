@@ -55,7 +55,7 @@ export class SkillsComponent implements OnInit {
         this.bootstrap = 90;
         this.angularMaterial = 70;
       }
-    }, 1000);
+    }, 700);
   }
 
 }
