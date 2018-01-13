@@ -37,7 +37,7 @@ $portfolioImageUrl: '../../../images/me.jpg';
         justify-content: space-between;
         padding: 0;
         .main {
-          height: 80%;
+          //height: 80%;
           padding: 20px;
           display: flex;
           justify-content: space-between;
@@ -378,8 +378,8 @@ $portfolioImageUrl: '../../../images/me.jpg';
 @include large {
   #mainContent {
     mat-card {
-      height: 40%;
-      width: 90%;
+      height: 10%;
+      width: 65%;
       .main {
         flex-direction: row;
         .content-container {
@@ -393,7 +393,7 @@ $portfolioImageUrl: '../../../images/me.jpg';
           }
         }
         .image-container {
-          width: 60%;
+          width: 38%;
         }
       }
     }
