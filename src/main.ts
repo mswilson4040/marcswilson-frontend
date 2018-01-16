@@ -6,7 +6,6 @@ import { environment } from './environments/environment';
 
 if (environment.production) {
   enableProdMode();
-  console.log(`Today is ${new Date()}`);
 }
 
 platformBrowserDynamic().bootstrapModule(AppModule);

@@ -44,6 +44,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { JsonViewerComponent } from './shared-components/json-viewer/json-viewer.component';
 import { BreakpointHelperComponent } from './shared-components/breakpoint-helper/breakpoint-helper.component';
 import { BreakpointObserver, MediaMatcher } from '@angular/cdk/layout';
+import { AdminComponent } from './views/admin/admin.component';
 
 
 @NgModule({
@@ -71,7 +72,8 @@ import { BreakpointObserver, MediaMatcher } from '@angular/cdk/layout';
     FooterComponent,
     ApiExplorerComponent,
     JsonViewerComponent,
-    BreakpointHelperComponent
+    BreakpointHelperComponent,
+    AdminComponent
   ],
   entryComponents: [
     MLBBallparksComponent,
