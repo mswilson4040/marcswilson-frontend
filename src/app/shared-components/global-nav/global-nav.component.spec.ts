@@ -5,8 +5,9 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { EmailService } from '../../shared-services/email.service';
 import { HttpModule } from '@angular/http';
 import { AuthService } from '../../shared-services/auth.service';
-import { MatDialogModule, MatMenuModule } from '@angular/material';
+import { MatDialogModule, MatIconModule, MatMenuModule } from '@angular/material';
 import { UIService } from '../../shared-services/ui.service';
+import { BreakpointObserver, MediaMatcher } from '@angular/cdk/layout';
 
 describe('GlobalNavComponent', () => {
   let component: GlobalNavComponent;
@@ -18,13 +19,16 @@ describe('GlobalNavComponent', () => {
         RouterTestingModule,
         MatDialogModule,
         HttpModule,
-        MatMenuModule
+        MatMenuModule,
+        MatIconModule
       ],
       declarations: [ GlobalNavComponent ],
       providers: [
         EmailService,
         AuthService,
-        UIService
+        UIService,
+        BreakpointObserver,
+        MediaMatcher
       ]
     })
     .compileComponents();

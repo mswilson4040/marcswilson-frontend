@@ -4,6 +4,7 @@ import { OverlayComponent } from './overlay.component';
 import {UIService} from '../../shared-services/ui.service';
 import {MockBackend} from '@angular/http/testing';
 import {Http} from '@angular/http';
+import { MatProgressSpinnerModule } from '@angular/material';
 
 describe('OverlayComponent', () => {
   let component: OverlayComponent;
@@ -12,7 +13,10 @@ describe('OverlayComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ OverlayComponent ],
-      providers: [UIService, {provide: Http, deps: [MockBackend]}]
+      providers: [UIService, {provide: Http, deps: [MockBackend]}],
+      imports: [
+        MatProgressSpinnerModule
+      ]
     })
     .compileComponents();
   }));

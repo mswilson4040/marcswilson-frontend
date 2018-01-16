@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BreakpointHelperComponent } from './breakpoint-helper.component';
+import { BreakpointObserver, MediaMatcher } from '@angular/cdk/layout';
+import { Platform } from '@angular/cdk/platform';
 
 describe('BreakpointHelperComponent', () => {
   let component: BreakpointHelperComponent;
@@ -8,7 +10,15 @@ describe('BreakpointHelperComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BreakpointHelperComponent ]
+      declarations: [ BreakpointHelperComponent ],
+      providers: [
+        BreakpointObserver,
+        MediaMatcher,
+        Platform
+      ],
+      imports: [
+
+      ]
     })
     .compileComponents();
   }));

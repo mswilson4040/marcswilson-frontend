@@ -5,7 +5,9 @@ import { UIService } from './ui.service';
 describe('UIService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [UIService]
+      providers: [
+        UIService
+      ]
     });
   });
 

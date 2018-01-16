@@ -1,15 +1,19 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { EmailService } from './email.service';
-import {HttpModule} from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+import { UIService } from './ui.service';
 
 describe('EmailService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
-        HttpModule
+        HttpClientModule
       ],
-      providers: [EmailService]
+      providers: [
+        EmailService,
+        UIService
+      ]
     });
   });
 

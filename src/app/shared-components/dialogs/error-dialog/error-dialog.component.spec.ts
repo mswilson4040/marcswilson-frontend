@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ErrorDialogComponent } from './error-dialog.component';
-import { MatDialogRef } from '@angular/material';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 class MdDialogRefMock {}
 
@@ -13,7 +13,8 @@ describe('ErrorDialogComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ ErrorDialogComponent ],
       providers: [
-        { provide: MatDialogRef, useClass: MdDialogRefMock }
+        { provide: MatDialogRef, useClass: MdDialogRefMock },
+        { provide: MAT_DIALOG_DATA, useValue: {} }
       ]
     })
     .compileComponents();

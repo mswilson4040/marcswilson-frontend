@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {UIService} from '../../../shared-services/ui.service';
-import {Http} from '@angular/http';
 import {Player} from '../mlb-stats/classes/player';
 import {Team} from '../mlb-stats/classes/team';
 import {MlbStatsService} from '../mlb-stats/services/mlb-stats.service';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -35,7 +35,7 @@ export class MlbApiExplorerComponent implements OnInit {
   public filteredPlayers: Observable<Array<Player>>;
   public selectedPlayer: Player = null;
 
-  constructor(private _http: Http, private _uiService: UIService, private _mlbStatsService: MlbStatsService) {
+  constructor(private _httpClient: HttpClient, private _uiService: UIService, private _mlbStatsService: MlbStatsService) {
     this.team = new FormControl();
     this.playerYear = new FormControl();
     this.player = new FormControl();
@@ -114,7 +114,7 @@ export class MlbApiExplorerComponent implements OnInit {
   }
   fetchAPIResult(): void {
     if (this.path !== this.URL_ROOT) {
-      this._http.get(this.path).subscribe(response => {
+      this._httpClient.get(this.path).subscribe(response => {
         const jObj = JSON.parse(response[ '_body' ]);
         $('#results')[ 'jsonViewer' ](jObj);
       });

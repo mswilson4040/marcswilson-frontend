@@ -1,14 +1,18 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ContactFormDialogComponent } from './contact-form-dialog.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule, MatDialogRef, MatInputModule } from '@angular/material';
 import { EmailService } from '../../../shared-services/email.service';
-import { HttpModule } from '@angular/http';
 import { UIService } from '../../../shared-services/ui.service';
+import { HttpClientModule } from '@angular/common/http';
+import { BreakpointObserver, MediaMatcher } from '@angular/cdk/layout';
 
-class MdDialogRefMock {}
+class MdDialogRefMock {
+  updateSize() {}
+  updatePosition() {}
+}
 
 describe('ContactFormDialogComponent', () => {
   let component: ContactFormDialogComponent;
@@ -17,17 +21,20 @@ describe('ContactFormDialogComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        HttpModule,
         FormsModule,
         MatInputModule,
         BrowserAnimationsModule,
-        MatDialogModule
+        MatDialogModule,
+        ReactiveFormsModule,
+        HttpClientModule
       ],
       declarations: [ ContactFormDialogComponent ],
       providers: [
         { provide: MatDialogRef, useClass: MdDialogRefMock },
         EmailService,
-        UIService
+        UIService,
+        BreakpointObserver,
+        MediaMatcher
       ]
     })
     .compileComponents();

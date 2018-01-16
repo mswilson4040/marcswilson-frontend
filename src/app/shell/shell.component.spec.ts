@@ -4,11 +4,16 @@ import { ShellComponent } from './shell.component';
 import { GlobalNavComponent } from '../shared-components/global-nav/global-nav.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { OverlayComponent } from '../shared-components/overlay/overlay.component';
-import { HttpModule } from '@angular/http';
 import { AuthService } from '../shared-services/auth.service';
 import { EmailService } from '../shared-services/email.service';
 import { UIService } from '../shared-services/ui.service';
-import { MatDialogModule, MatMenuModule } from '@angular/material';
+import {
+  MatCardModule, MatDialogModule, MatIconModule, MatMenuModule, MatProgressSpinnerModule,
+  MatSidenavModule
+} from '@angular/material';
+import { BreakpointHelperComponent } from '../shared-components/breakpoint-helper/breakpoint-helper.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BreakpointObserver, MediaMatcher } from '@angular/cdk/layout';
 
 describe('ShellComponent', () => {
   let component: ShellComponent;
@@ -19,15 +24,25 @@ describe('ShellComponent', () => {
       imports: [
         RouterTestingModule,
         MatDialogModule,
-        HttpModule,
-        MatMenuModule
-
+        MatMenuModule,
+        MatIconModule,
+        MatCardModule,
+        MatSidenavModule,
+        MatProgressSpinnerModule,
+        BrowserAnimationsModule
       ],
-      declarations: [ ShellComponent, GlobalNavComponent, OverlayComponent ],
+      declarations: [
+        ShellComponent,
+        GlobalNavComponent,
+        OverlayComponent,
+        BreakpointHelperComponent
+      ],
       providers: [
         AuthService,
         EmailService,
-        UIService
+        UIService,
+        BreakpointObserver,
+        MediaMatcher
       ]
     })
     .compileComponents();
