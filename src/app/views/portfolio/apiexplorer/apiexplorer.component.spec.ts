@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ApiExplorerComponent } from './apiexplorer.component';
 import { GlobalNavComponent } from '../../../shared-components/global-nav/global-nav.component';
-import { MatDialogModule, MatExpansionModule, MatIconModule, MatSidenavModule } from '@angular/material';
+import { MatDialogModule, MatExpansionModule, MatIconModule, MatMenuModule, MatSidenavModule } from '@angular/material';
 import { RouterTestingModule } from '@angular/router/testing';
 import { EmailService } from '../../../shared-services/email.service';
 import { AuthService } from '../../../shared-services/auth.service';
@@ -28,7 +28,8 @@ describe('ApiexplorerComponent', () => {
         MatDialogModule,
         BrowserAnimationsModule,
         MatIconModule,
-        HttpClientModule
+        HttpClientModule,
+        MatMenuModule
       ],
       providers: [
         EmailService,

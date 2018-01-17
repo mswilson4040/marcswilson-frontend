@@ -4,18 +4,27 @@ $navText: #FFFFFF;
   background-color: $navBackground;
   color: $navText;
   display: flex;
-  padding-left: 15px;
-  #hamburger {
-    padding: 10px;
-    cursor: pointer;
+  justify-content: space-between;
+  //padding-left: 15px;
+  #navLeft {
     display: flex;
     align-items: center;
-    &:hover {
-      opacity: 0.7;
+    #hamburger {
+      padding: 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+    #siteName {
+      font-size: 24px;
+      padding: 10px;
     }
   }
-  #siteName {
-    font-size: 24px;
-    padding: 10px;
+  #navRight {
+    display: flex;
+    align-items: center;
   }
 }

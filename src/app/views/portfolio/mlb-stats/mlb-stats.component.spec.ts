@@ -5,7 +5,7 @@ import { MlbStatsService } from './services/mlb-stats.service';
 import { UIService } from '../../../shared-services/ui.service';
 import { GlobalNavComponent } from '../../../shared-components/global-nav/global-nav.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { MatDialogModule, MatIconModule } from '@angular/material';
+import { MatDialogModule, MatIconModule, MatMenuModule } from '@angular/material';
 import { EmailService } from '../../../shared-services/email.service';
 import { AuthService } from '../../../shared-services/auth.service';
 import { HttpClientModule } from '@angular/common/http';
@@ -24,7 +24,8 @@ describe('MlbStatsComponent', () => {
         RouterTestingModule,
         MatDialogModule,
         MatIconModule,
-        HttpClientModule
+        HttpClientModule,
+        MatMenuModule
       ],
       providers: [
         MlbStatsService,

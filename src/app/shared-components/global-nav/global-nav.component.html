@@ -1,8 +1,28 @@
 <section class="nav-container">
-  <div id="hamburger" (click)="toggleNav()">
-    <mat-icon>menu</mat-icon>
+  <div id="navLeft">
+    <div id="hamburger" (click)="toggleNav()">
+      <mat-icon>menu</mat-icon>
+    </div>
+    <div id="siteName">
+      Home
+    </div>
   </div>
-  <div id="siteName">
-    Home
+  <div id="navRight">
+    <button mat-button *ngIf="user === null" (click)="login()">
+      Login
+    </button>
+    <button mat-button [matMenuTriggerFor]="menu" *ngIf="user !== null">
+      {{user.name}}
+    </button>
+    <mat-menu #menu="matMenu" [overlapTrigger]="false">
+      <button mat-menu-item routerLink="/admin">
+        <mat-icon>settings</mat-icon>
+        <span>Admin</span>
+      </button>
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>person</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
   </div>
 </section>

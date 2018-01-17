@@ -7,7 +7,7 @@ import {Http} from '@angular/http';
 import {UIService} from '../../../shared-services/ui.service';
 import { GlobalNavComponent } from '../../../shared-components/global-nav/global-nav.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { MatDialogModule, MatIconModule } from '@angular/material';
+import { MatDialogModule, MatIconModule, MatMenuModule } from '@angular/material';
 import { EmailService } from '../../../shared-services/email.service';
 import { AuthService } from '../../../shared-services/auth.service';
 
@@ -31,7 +31,8 @@ describe('PowerballComponent', () => {
       imports: [
         RouterTestingModule,
         MatDialogModule,
-        MatIconModule
+        MatIconModule,
+        MatMenuModule
       ]
     })
     .compileComponents();

@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
 import { GlobalNavComponent } from '../../shared-components/global-nav/global-nav.component';
-import { MatCardModule, MatDialogModule, MatIconModule, MatProgressBarModule, MatTabsModule } from '@angular/material';
+import { MatCardModule, MatDialogModule, MatIconModule, MatMenuModule, MatProgressBarModule, MatTabsModule } from '@angular/material';
 import { AboutComponent } from '../about/about.component';
 import { SkillsComponent } from '../skills/skills.component';
 import { ExperienceComponent } from '../experience/experience.component';
@@ -27,7 +27,8 @@ describe('HomeComponent', () => {
         RouterTestingModule,
         MatTabsModule,
         BrowserAnimationsModule,
-        MatIconModule
+        MatIconModule,
+        MatMenuModule
       ],
       declarations: [
         HomeComponent,
