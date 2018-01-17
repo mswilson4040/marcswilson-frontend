@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { environment } from '../../../environments/environment';
 
 @Component({
@@ -9,7 +8,7 @@ import { environment } from '../../../environments/environment';
 })
 export class BreakpointHelperComponent implements OnInit {
   public shouldShow = true;
-  constructor(private _breakpointObserver: BreakpointObserver) {
+  constructor() {
     if (environment.production) {
       this.shouldShow = false;
     }
