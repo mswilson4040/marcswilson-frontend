@@ -1,0 +1,14 @@
+<section>
+  <mat-card>
+    <mat-card-title>
+      <h1 class="mat-h1">Databases</h1>
+    </mat-card-title>
+    <mat-card-content>
+      <div *ngFor="let db of databases" class="database-container">
+        <mat-icon>folder</mat-icon>
+        <div>{{db.name}}</div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</section>
+

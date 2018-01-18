@@ -9,6 +9,7 @@ import { PowerballComponent } from './views/portfolio/powerball/powerball.compon
 import { CallbackComponent } from './shared-components/callback/callback.component';
 import { ApiExplorerComponent } from './views/portfolio/apiexplorer/apiexplorer.component';
 import { AdminComponent } from './views/admin/admin.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -19,7 +20,7 @@ const routes: Routes = [
   { path: 'mlbstats', component: MlbStatsComponent},
   { path: 'powerball', component: PowerballComponent},
   { path: 'apiexplorer', component: ApiExplorerComponent },
-  { path: 'admin', component: AdminComponent },
+  { path: 'admin', component: AdminComponent, canActivate: [ AuthGuard ] },
   // TODO: Delete the below line. Saving as an example for the usage of AuthGuard.
   // { path: 'timetracker', component: TimeTrackerComponent, canActivate: [AuthGuard]},
   { path: 'callback', component: CallbackComponent }

@@ -45,6 +45,7 @@ import { JsonViewerComponent } from './shared-components/json-viewer/json-viewer
 import { BreakpointHelperComponent } from './shared-components/breakpoint-helper/breakpoint-helper.component';
 import { BreakpointObserver, MediaMatcher } from '@angular/cdk/layout';
 import { AdminComponent } from './views/admin/admin.component';
+import { DatabaseManagerComponent } from './views/admin/components/database-manager/database-manager.component';
 
 
 @NgModule({
@@ -73,7 +74,8 @@ import { AdminComponent } from './views/admin/admin.component';
     ApiExplorerComponent,
     JsonViewerComponent,
     BreakpointHelperComponent,
-    AdminComponent
+    AdminComponent,
+    DatabaseManagerComponent
   ],
   entryComponents: [
     MLBBallparksComponent,
