@@ -1,0 +1,7 @@
+<mat-list>
+  <mat-list-item *ngFor="let database of databases" (click)="openDatabase(database)">
+    <mat-icon mat-list-icon>folder</mat-icon>
+    <h5 mat-line>{{database.name}}</h5>
+    <p mat-line>{{database.sizeOnDisk}}</p>
+  </mat-list-item>
+</mat-list>

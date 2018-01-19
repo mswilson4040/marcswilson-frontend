@@ -33,7 +33,7 @@ import { FooterComponent } from './shared-components/footer/footer.component';
 import {
   MatAutocompleteModule, MatButtonModule, MatCardModule, MatChipsModule, MatDatepickerModule, MatDialogModule,
   MatExpansionModule, MatIconModule,
-  MatInputModule,
+  MatInputModule, MatListModule,
   MatMenuModule,
   MatNativeDateModule, MatProgressBarModule, MatProgressSpinnerModule, MatSelectModule, MatSidenavModule,
   MatSliderModule,
@@ -46,6 +46,7 @@ import { BreakpointHelperComponent } from './shared-components/breakpoint-helper
 import { BreakpointObserver, MediaMatcher } from '@angular/cdk/layout';
 import { AdminComponent } from './views/admin/admin.component';
 import { DatabaseManagerComponent } from './views/admin/components/database-manager/database-manager.component';
+import { DatabaseSelectorDialogComponent } from './views/admin/dialogs/database-selector-dialog/database-selector-dialog.component';
 
 
 @NgModule({
@@ -75,7 +76,8 @@ import { DatabaseManagerComponent } from './views/admin/components/database-mana
     JsonViewerComponent,
     BreakpointHelperComponent,
     AdminComponent,
-    DatabaseManagerComponent
+    DatabaseManagerComponent,
+    DatabaseSelectorDialogComponent
   ],
   entryComponents: [
     MLBBallparksComponent,
@@ -86,7 +88,8 @@ import { DatabaseManagerComponent } from './views/admin/components/database-mana
     ErrorDialogComponent,
     ConfirmDialogComponent,
     LoginDialogComponent,
-    OverlayComponent
+    OverlayComponent,
+    DatabaseSelectorDialogComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -112,7 +115,8 @@ import { DatabaseManagerComponent } from './views/admin/components/database-mana
     MatProgressBarModule,
     HttpClientModule,
     MatIconModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatListModule
   ],
   providers: [
     UIService,

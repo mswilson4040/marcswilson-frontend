@@ -1,0 +1,11 @@
+mat-list-item {
+  color: rgb(117, 117, 117);
+  opacity: 0.7;
+  height: auto !important;
+  cursor: pointer;
+  padding: 5px;
+  transition: all 200ms;
+  &:hover {
+    opacity: 1;
+  }
+}
