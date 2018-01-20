@@ -9,11 +9,20 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 export class ErrorDialogComponent implements OnInit {
 
   public error: Error = new Error();
+  public message: string = null;
+  public type: string = null;
   constructor(private _matDialogRef: MatDialogRef<ErrorDialogComponent>, @Inject(MAT_DIALOG_DATA) private data: any) {
-    if (data.error) {
-      this.error = data.error;
+    if (data.name) {
+      switch (data.name) {
+        case 'HttpErrorResponse':
+          this.message = data.message;
+          this.type = `${data.name} - ${data.status}`;
+          break;
+        default:
+          this.message = 'Error type not covered.';
+      }
     } else {
-      this.error = data;
+      this.message = 'Error type not covered';
     }
   }
 

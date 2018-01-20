@@ -16,6 +16,7 @@ export class DatabaseSelectorDialogComponent implements OnInit, AfterViewInit {
               private _databaseManagerService: DatabaseManagerService, private _matDialog: MatDialog) { }
 
   ngOnInit() {
+    this._matDialogRef.updateSize('400px', 'auto');
   }
   ngAfterViewInit(): void {
     this._databaseManagerService.getDatabases().then( _databases => {

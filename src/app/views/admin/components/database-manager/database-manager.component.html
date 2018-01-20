@@ -1,12 +1,24 @@
 <section id="databaseManagerComponent" *ngIf="database">
-  <h1 class="mat-h1">{{database.name}}</h1>
-  <div>
+  <div id="header">
+    <h1 class="mat-h1">{{database.name}}</h1>
+    <button mat-button (click)="selectDatabase()">Switch Database</button>
+  </div>
+  <div id="mainContent">
     <div id="collectionsContainer">
+      <h4 class="mat-h4">Collections</h4>
       <ul>
         <li *ngFor="let collection of database.collections">
-          {{collection.name}}
+          <div class="collection-container">
+            <mat-icon>folder</mat-icon>
+            <div>{{collection.name}}</div>
+          </div>
         </li>
       </ul>
+    </div>
+    <div id="mainContainer">
+      <div id="ribbon">
+        <button mat-raised-button color="primary" (click)="updateDatabase()">Run Update</button>
+      </div>
     </div>
   </div>
 </section>

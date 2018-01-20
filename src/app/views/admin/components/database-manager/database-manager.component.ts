@@ -20,14 +20,30 @@ export class DatabaseManagerComponent implements OnInit, AfterViewInit {
   }
   ngAfterViewInit(): void {
     setTimeout( () => {
-      const dlg = this._matDialog.open(DatabaseSelectorDialogComponent);
-      dlg.afterClosed().subscribe( _db => {
-        if (_db) {
-          this.database = _db;
-        }
-      });
+      this.selectDatabase();
     });
+  }
+  selectDatabase(): void {
+    const dlg = this._matDialog.open(DatabaseSelectorDialogComponent);
+    dlg.afterClosed().subscribe( _db => {
+      if (_db) {
+        this.database = _db;
+        this._databaseManagerService.getCollections(this.database).then( _collections => {
+          this.database.collections = _collections;
+        }, error => {
+          this._matDialog.open(ErrorDialogComponent, { data: error });
+        });
+      }
+    });
+  }
+  updateDatabase(): void {
+    this._databaseManagerService.updateMlbStatsDb().then( _result => {
+      if (_result) {
 
+      }
+    }, error => {
+      this._matDialog.open(ErrorDialogComponent, { data: error });
+    });
   }
 
 }
