@@ -11,10 +11,14 @@ import { environment } from '../../../environments/environment';
 })
 export class AdminComponent implements OnInit {
   private _socket = null;
+  public connectionCount = 0;
   constructor() { }
 
   ngOnInit() {
     this._socket = io.connect(environment.API_PATH);
+    this._socket.on('connectionCount', count => {
+      this.connectionCount = count.connections;
+    });
     console.log(this._socket);
   }
 
