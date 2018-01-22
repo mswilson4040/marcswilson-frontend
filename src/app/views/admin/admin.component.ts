@@ -1,6 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DatabaseManagerService } from './services/database-manager.service';
-import { SocketService } from '../../shared-services/socket.service';
 
 @Component({
   selector: 'app-admin',
@@ -11,7 +10,7 @@ import { SocketService } from '../../shared-services/socket.service';
 export class AdminComponent implements OnInit, OnDestroy {
 
   public connectionCount = 0;
-  constructor(private _socketService: SocketService) { }
+  constructor() { }
 
   ngOnInit() {
   }
