@@ -13,11 +13,16 @@ import { SocketService } from '../../../../shared-services/socket.service';
 })
 export class DatabaseManagerComponent implements OnInit, AfterViewInit {
   public database: Database = null;
+  public connectionCount = 0;
+  public progress = 0;
   constructor(private _databaseManagerService: DatabaseManagerService, private _matDialog: MatDialog,
               private _changeDetectorRef: ChangeDetectorRef, private _socketService: SocketService) {
   }
 
   ngOnInit() {
+    this._socketService.connections.subscribe( connectionCount => {
+      this.connectionCount = connectionCount;
+    });
   }
   ngAfterViewInit(): void {
     setTimeout( () => {
@@ -38,9 +43,9 @@ export class DatabaseManagerComponent implements OnInit, AfterViewInit {
     });
   }
   updateDatabase(): void {
-    this._socketService.socket.emit('testing', { test: 'here we go!'});
-    this._socketService.socket.on('test', data => {
-      alert(data.test);
+    this._socketService.socket.emit('updateDatabase', {});
+    this._socketService.socket.on('progress', data => {
+      this.progress = data.progress;
     });
   }
 

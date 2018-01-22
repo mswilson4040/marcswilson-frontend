@@ -8,8 +8,6 @@ import { DatabaseManagerService } from './services/database-manager.service';
   providers: [ DatabaseManagerService ]
 })
 export class AdminComponent implements OnInit, OnDestroy {
-
-  public connectionCount = 0;
   constructor() { }
 
   ngOnInit() {
