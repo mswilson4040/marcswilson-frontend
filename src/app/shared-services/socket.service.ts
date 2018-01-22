@@ -9,7 +9,7 @@ export class SocketService {
   public connectionCount = 0;
   constructor() {
 
-    this.socket = io.connect(environment.API_PATH);
+    this.socket = io.connect(environment.NODE_SERVER);
 
     this.socket.on('connectionCount', count => {
       this.connectionCount = count.connections;

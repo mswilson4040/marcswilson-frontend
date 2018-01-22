@@ -8,5 +8,6 @@ export const environment = {
   AUTH0_CALLBACK: 'http://marcswilson.com/callback',
   AUTH0_CALLBACK_ROUTE_KEY: 'marcswilson_auth0_callback_route',
   AUTH0_AUTH_RESPONSE_MODEL_KEY: 'marcswilson_auth0_user_model',
+  NODE_SERVER: 'http://54.172.164.162:3000',
   myEmail: 'marcw@marcswilson.com'
 };
