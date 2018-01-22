@@ -47,6 +47,7 @@ import { BreakpointObserver, MediaMatcher } from '@angular/cdk/layout';
 import { AdminComponent } from './views/admin/admin.component';
 import { DatabaseManagerComponent } from './views/admin/components/database-manager/database-manager.component';
 import { DatabaseSelectorDialogComponent } from './views/admin/dialogs/database-selector-dialog/database-selector-dialog.component';
+import { SocketService } from './shared-services/socket.service';
 
 
 @NgModule({
@@ -126,7 +127,8 @@ import { DatabaseSelectorDialogComponent } from './views/admin/dialogs/database-
     EmailService,
     AuthGuard,
     BreakpointObserver,
-    MediaMatcher
+    MediaMatcher,
+    SocketService
   ],
   bootstrap: [ShellComponent]
 })

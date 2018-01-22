@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DatabaseManagerService } from './services/database-manager.service';
-import * as io from 'socket.io-client';
-import { environment } from '../../../environments/environment';
+import { SocketService } from '../../shared-services/socket.service';
 
 @Component({
   selector: 'app-admin',
@@ -9,17 +8,14 @@ import { environment } from '../../../environments/environment';
   styleUrls: ['./admin.component.scss'],
   providers: [ DatabaseManagerService ]
 })
-export class AdminComponent implements OnInit {
-  private _socket = null;
+export class AdminComponent implements OnInit, OnDestroy {
+
   public connectionCount = 0;
-  constructor() { }
+  constructor(private _socketService: SocketService) { }
 
   ngOnInit() {
-    this._socket = io.connect(environment.API_PATH);
-    this._socket.on('connectionCount', count => {
-      this.connectionCount = count.connections;
-    });
-    console.log(this._socket);
+  }
+  ngOnDestroy(): void {
   }
 
 }

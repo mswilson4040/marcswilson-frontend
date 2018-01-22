@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material';
 import { ErrorDialogComponent } from '../../../../shared-components/dialogs/error-dialog/error-dialog.component';
 import { DatabaseSelectorDialogComponent } from '../../dialogs/database-selector-dialog/database-selector-dialog.component';
 import { Database } from '../../../../models/admin/database';
+import { SocketService } from '../../../../shared-services/socket.service';
 
 @Component({
   selector: 'app-database-manager',
@@ -13,7 +14,7 @@ import { Database } from '../../../../models/admin/database';
 export class DatabaseManagerComponent implements OnInit, AfterViewInit {
   public database: Database = null;
   constructor(private _databaseManagerService: DatabaseManagerService, private _matDialog: MatDialog,
-              private _changeDetectorRef: ChangeDetectorRef) {
+              private _changeDetectorRef: ChangeDetectorRef, private _socketService: SocketService) {
   }
 
   ngOnInit() {
@@ -37,12 +38,9 @@ export class DatabaseManagerComponent implements OnInit, AfterViewInit {
     });
   }
   updateDatabase(): void {
-    this._databaseManagerService.updateMlbStatsDb().then( _result => {
-      if (_result) {
-
-      }
-    }, error => {
-      this._matDialog.open(ErrorDialogComponent, { data: error });
+    this._socketService.socket.emit('testing', { test: 'here we go!'});
+    this._socketService.socket.on('test', data => {
+      alert(data.test);
     });
   }
 
