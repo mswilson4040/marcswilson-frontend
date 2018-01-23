@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 import { DatabaseManagerService } from '../../services/database-manager.service';
 import { ErrorDialogComponent } from '../../../../shared-components/dialogs/error-dialog/error-dialog.component';
 import { Database } from '../../../../models/admin/database';
+import { NewDatabaseDialogComponent } from '../new-database-dialog/new-database-dialog.component';
 
 @Component({
   selector: 'app-database-selector-dialog',
@@ -27,7 +28,10 @@ export class DatabaseSelectorDialogComponent implements OnInit, AfterViewInit {
     });
   }
   openDatabase(database): void {
-    this._matDialogRef.close(database);
+    this._matDialogRef.close({ create: false, db: database });
+  }
+  newDatabase(): void {
+    this._matDialogRef.close({ create: true, db: null });
   }
 
 }

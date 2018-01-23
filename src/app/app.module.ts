@@ -48,6 +48,7 @@ import { AdminComponent } from './views/admin/admin.component';
 import { DatabaseManagerComponent } from './views/admin/components/database-manager/database-manager.component';
 import { DatabaseSelectorDialogComponent } from './views/admin/dialogs/database-selector-dialog/database-selector-dialog.component';
 import { SocketService } from './shared-services/socket.service';
+import { NewDatabaseDialogComponent } from './views/admin/dialogs/new-database-dialog/new-database-dialog.component';
 
 
 @NgModule({
@@ -78,7 +79,8 @@ import { SocketService } from './shared-services/socket.service';
     BreakpointHelperComponent,
     AdminComponent,
     DatabaseManagerComponent,
-    DatabaseSelectorDialogComponent
+    DatabaseSelectorDialogComponent,
+    NewDatabaseDialogComponent
   ],
   entryComponents: [
     MLBBallparksComponent,
@@ -90,7 +92,8 @@ import { SocketService } from './shared-services/socket.service';
     ConfirmDialogComponent,
     LoginDialogComponent,
     OverlayComponent,
-    DatabaseSelectorDialogComponent
+    DatabaseSelectorDialogComponent,
+    NewDatabaseDialogComponent
   ],
   imports: [
     BrowserAnimationsModule,

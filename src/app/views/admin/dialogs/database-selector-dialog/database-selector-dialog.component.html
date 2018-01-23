@@ -6,6 +6,10 @@
       <h5 mat-line>{{database.name}}</h5>
       <p mat-line>{{database.sizeOnDisk}}</p>
     </mat-list-item>
+    <mat-list-item (click)="newDatabase()">
+      <mat-icon mat-list-icon>add</mat-icon>
+      <h5 mat-line>New Database</h5>
+    </mat-list-item>
   </mat-list>
 </mat-dialog-content>
 

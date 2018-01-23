@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>New Database</h2>
+<mat-dialog-content>
+  <mat-form-field>
+    <input matInput placeholder="Name" [(ngModel)]="databaseName" />
+  </mat-form-field>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button (click)="cancel()">Cancel</button>
+  <button mat-raised-button color="primary" (click)="createDatabase()">Create</button>
+</mat-dialog-actions>

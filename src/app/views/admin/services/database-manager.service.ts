@@ -30,10 +30,14 @@ export class DatabaseManagerService {
       });
     });
   }
-  updateMlbStatsDb(): Promise<any> {
+  createDatabase(name: string): Promise<any> {
     return new Promise( (resolve, reject) => {
-      this._httpClient.post(`${this.API_PATH}/admin/databases/mlbstatsdb/update`, {}).subscribe( _result => {
-        resolve(_result);
+      this._httpClient.post(`${this.API_PATH}/admin/databases/create/${name}`, {}).subscribe( _db => {
+        this.getDatabases().then( _databases => {
+          resolve(_databases);
+        }, error => {
+          reject(error);
+        });
       }, error => {
         reject(error);
       });
