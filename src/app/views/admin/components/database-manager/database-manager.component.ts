@@ -6,6 +6,7 @@ import { DatabaseSelectorDialogComponent } from '../../dialogs/database-selector
 import { Database } from '../../../../models/admin/database';
 import { SocketService } from '../../../../shared-services/socket.service';
 import { NewDatabaseDialogComponent } from '../../dialogs/new-database-dialog/new-database-dialog.component';
+import { UIService } from '../../../../shared-services/ui.service';
 
 @Component({
   selector: 'app-database-manager',
@@ -17,7 +18,8 @@ export class DatabaseManagerComponent implements OnInit, AfterViewInit {
   public connectionCount = 0;
   public progress = 0;
   constructor(private _databaseManagerService: DatabaseManagerService, private _matDialog: MatDialog,
-              private _changeDetectorRef: ChangeDetectorRef, private _socketService: SocketService) {
+              private _changeDetectorRef: ChangeDetectorRef, private _socketService: SocketService,
+              private _uiService: UIService) {
   }
 
   ngOnInit() {
