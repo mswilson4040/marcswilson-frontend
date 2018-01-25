@@ -32,7 +32,7 @@ export class DatabaseManagerService {
   }
   createDatabase(name: string): Promise<any> {
     return new Promise( (resolve, reject) => {
-      this._httpClient.post(`${this.API_PATH}/admin/databases/create/${name}`, {}).subscribe( _db => {
+      this._httpClient.post(`${this.API_PATH}/admin/databases/create/${name}`, {}).subscribe( _result => {
         this.getDatabases().then( _databases => {
           resolve(_databases);
         }, error => {

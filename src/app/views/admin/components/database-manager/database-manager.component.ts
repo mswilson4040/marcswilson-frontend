@@ -44,9 +44,10 @@ export class DatabaseManagerComponent implements OnInit, AfterViewInit {
         const dlgRef = this._matDialog.open(NewDatabaseDialogComponent);
         dlgRef.afterClosed().subscribe( dbName => {
           if (dbName && dbName !== '') {
-            this._databaseManagerService.createDatabase(dbName).then( _database => {
-              this._databaseManagerService.getCollections(_database).then( _collections => {
-                this.database = _database;
+            this._databaseManagerService.createDatabase(dbName).then( _databases => {
+              const db = _databases.find( d => d.name.toLowerCase() === dbName.toLowerCase() );
+              this._databaseManagerService.getCollections(db).then( _collections => {
+                this.database = db;
                 this.database.collections = _collections;
               }, error => {
                 this._matDialog.open(ErrorDialogComponent, { data: error });
