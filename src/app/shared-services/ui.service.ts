@@ -31,7 +31,13 @@ export class UIService {
       this.overlayService.emit(this.overlayQueue[0]);
     }
   }
-
+  updateOverlay(settings: { id: string, message: string }): void {
+    const overlay = this.overlayQueue.find( o => o.id === settings.id );
+    if (overlay) {
+      overlay.message = settings.message;
+      this.overlayService.emit(this.overlayQueue[0]);
+    }
+  }
   onScroll(evt: Event) {
     this.scrollService.emit(evt);
   }

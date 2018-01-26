@@ -16,7 +16,7 @@ import { UIService } from '../../../../shared-services/ui.service';
 export class DatabaseManagerComponent implements OnInit, AfterViewInit {
   public database: Database = null;
   public connectionCount = 0;
-  public progress = 0;
+  public progress: string = null;
   constructor(private _databaseManagerService: DatabaseManagerService, private _matDialog: MatDialog,
               private _changeDetectorRef: ChangeDetectorRef, private _socketService: SocketService,
               private _uiService: UIService) {
@@ -64,9 +64,15 @@ export class DatabaseManagerComponent implements OnInit, AfterViewInit {
   }
   updateDatabase(): void {
     if (this.database && this.database.name === 'mlbstatsdb') {
+      const overlayId = this._uiService.createOverlay(`Updating Database`);
       this._socketService.socket.emit( 'updateDatabase', {} );
       this._socketService.socket.on( 'progress', data => {
         this.progress = data.progress;
+        if (data.progress) {
+          this._uiService.updateOverlay( { id: overlayId, message: this.progress } );
+        } else {
+          this._uiService.destroyOverlay(overlayId);
+        }
       } );
     }
   }

@@ -22,10 +22,11 @@ export class OverlayComponent implements OnInit, AfterViewChecked {
         this.message = null;
         this.visible = false;
       }
+      this._changeDetectorRef.detectChanges();
     });
   }
   ngAfterViewChecked(): void {
-    // this._changeDetectorRef.detectChanges();
+    this._changeDetectorRef.detectChanges();
   }
 
 }
