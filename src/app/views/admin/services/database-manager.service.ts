@@ -37,6 +37,15 @@ export class DatabaseManagerService {
       });
     });
   }
+  getCollectionData(database: Database, collection: Collection): Promise<any> {
+    return new Promise( (resolve, reject) => {
+      this._httpClient.get(`${this.API_PATH}/admin/databases/${database.name}/${collection.name}`).subscribe( _records => {
+        resolve(_records);
+      }, error => {
+        reject(error);
+      });
+    });
+  }
   createDatabase(name: string): Promise<any> {
     const overlayId = this._uiService.createOverlay(`Creating ${name}...`);
     return new Promise( (resolve, reject) => {

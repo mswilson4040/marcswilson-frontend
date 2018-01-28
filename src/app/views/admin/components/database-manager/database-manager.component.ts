@@ -1,12 +1,13 @@
 import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { DatabaseManagerService } from '../../services/database-manager.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatTableDataSource } from '@angular/material';
 import { ErrorDialogComponent } from '../../../../shared-components/dialogs/error-dialog/error-dialog.component';
 import { DatabaseSelectorDialogComponent } from '../../dialogs/database-selector-dialog/database-selector-dialog.component';
 import { Database } from '../../../../models/admin/database';
 import { SocketService } from '../../../../shared-services/socket.service';
 import { NewDatabaseDialogComponent } from '../../dialogs/new-database-dialog/new-database-dialog.component';
 import { UIService } from '../../../../shared-services/ui.service';
+import { Collection } from '../../../../models/admin/collection';
 
 @Component({
   selector: 'app-database-manager',
@@ -17,6 +18,8 @@ export class DatabaseManagerComponent implements OnInit, AfterViewInit {
   public database: Database = null;
   public connectionCount = 0;
   public progress: string = null;
+  public displayColumns: string[] = ['test'];
+  public dataSource: MatTableDataSource<any> = new MatTableDataSource([]);
   constructor(private _databaseManagerService: DatabaseManagerService, private _matDialog: MatDialog,
               private _changeDetectorRef: ChangeDetectorRef, private _socketService: SocketService,
               private _uiService: UIService) {
@@ -81,5 +84,23 @@ export class DatabaseManagerComponent implements OnInit, AfterViewInit {
       } );
     }
   }
-
+  selectCollection(collection: Collection): void {
+    this._databaseManagerService.getCollectionData(this.database, collection).then( _records => {
+      if (_records) {
+        this.displayColumns = this.getDisplayColumns(_records[0]);
+        this.dataSource.data = _records;
+      }
+    }, error => {
+      this._matDialog.open(ErrorDialogComponent, { data: error });
+    });
+  }
+  getDisplayColumns(record): string[] {
+    const names = [];
+    for (const obj in record) {
+      if (record.hasOwnProperty(obj) && obj !== '_id') {
+        names.push(obj);
+      }
+    }
+    return names;
+  }
 }

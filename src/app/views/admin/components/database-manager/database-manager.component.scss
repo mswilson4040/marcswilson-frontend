@@ -25,7 +25,13 @@
       }
     }
     #mainContainer {
-
+      width: 100%;
+      #dataContainer {
+        width: 100%;
+        mat-table {
+          width: 100%;
+        }
+      }
     }
   }
 }
