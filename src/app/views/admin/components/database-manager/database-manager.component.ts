@@ -1,6 +1,6 @@
-import { AfterViewInit, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnInit, ViewChild } from '@angular/core';
 import { DatabaseManagerService } from '../../services/database-manager.service';
-import { MatDialog, MatTableDataSource } from '@angular/material';
+import { MatDialog, MatSort, MatTableDataSource } from '@angular/material';
 import { ErrorDialogComponent } from '../../../../shared-components/dialogs/error-dialog/error-dialog.component';
 import { DatabaseSelectorDialogComponent } from '../../dialogs/database-selector-dialog/database-selector-dialog.component';
 import { Database } from '../../../../models/admin/database';
@@ -18,8 +18,10 @@ export class DatabaseManagerComponent implements OnInit, AfterViewInit {
   public database: Database = null;
   public connectionCount = 0;
   public progress: string = null;
-  public displayColumns: string[] = ['test'];
-  public dataSource: MatTableDataSource<any> = new MatTableDataSource([]);
+  public displayColumns: string[] = [];
+  public activeCollection: Collection = new Collection();
+  @ViewChild(MatSort) sort: MatSort;
+  public dataSource: MatTableDataSource<any> = null;
   constructor(private _databaseManagerService: DatabaseManagerService, private _matDialog: MatDialog,
               private _changeDetectorRef: ChangeDetectorRef, private _socketService: SocketService,
               private _uiService: UIService) {
@@ -85,10 +87,12 @@ export class DatabaseManagerComponent implements OnInit, AfterViewInit {
     }
   }
   selectCollection(collection: Collection): void {
+    this.activeCollection = collection;
     this._databaseManagerService.getCollectionData(this.database, collection).then( _records => {
       if (_records) {
         this.displayColumns = this.getDisplayColumns(_records[0]);
-        this.dataSource.data = _records;
+        this.dataSource = new MatTableDataSource(_records);
+        this.dataSource.sort = this.sort;
       }
     }, error => {
       this._matDialog.open(ErrorDialogComponent, { data: error });

@@ -36,7 +36,7 @@ import {
   MatInputModule, MatListModule,
   MatMenuModule,
   MatNativeDateModule, MatProgressBarModule, MatProgressSpinnerModule, MatSelectModule, MatSidenavModule,
-  MatSliderModule, MatTableModule,
+  MatSliderModule, MatSortModule, MatTableModule,
   MatTabsModule, MatTooltipModule
 } from '@angular/material';
 import { ApiExplorerComponent } from './views/portfolio/apiexplorer/apiexplorer.component';
@@ -121,7 +121,8 @@ import { NewDatabaseDialogComponent } from './views/admin/dialogs/new-database-d
     MatIconModule,
     MatProgressSpinnerModule,
     MatListModule,
-    MatTableModule
+    MatTableModule,
+    MatSortModule
   ],
   providers: [
     UIService,

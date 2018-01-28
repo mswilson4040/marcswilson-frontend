@@ -12,9 +12,9 @@
       <h4 class="mat-h4">Collections</h4>
       <ul>
         <li *ngFor="let collection of database.collections">
-          <div class="collection-container" (click)="selectCollection(collection)">
+          <div class="collection-container" (click)="selectCollection(collection)" [class.active]="collection.name === activeCollection.name">
             <mat-icon>folder</mat-icon>
-            <div>{{collection.name}}</div>
+            {{collection.name}}
           </div>
         </li>
       </ul>
@@ -24,9 +24,9 @@
         <button mat-raised-button color="primary" (click)="updateDatabase()">Run Update</button>
       </div>
       <div id="dataContainer">
-        <mat-table [dataSource]="dataSource" *ngIf="dataSource.data && dataSource.data.length > 0">
+        <mat-table #table [dataSource]="dataSource" *ngIf="dataSource" matSort>
           <ng-container [matColumnDef]="column" *ngFor="let column of displayColumns">
-            <mat-header-cell *matHeaderCellDef>{{column}}</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef mat-sort-header>{{column}}</mat-header-cell>
             <mat-cell *matCellDef="let element">{{element[column]}}</mat-cell>
           </ng-container>
 
