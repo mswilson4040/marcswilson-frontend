@@ -1,6 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AdminComponent } from './admin.component';
+import { DatabaseManagerComponent } from './components/database-manager/database-manager.component';
+import { MatDialogModule, MatIconModule, MatTableModule, MatTabsModule } from '@angular/material';
+import { HttpClientModule } from '@angular/common/http';
+import { UIService } from '../../shared-services/ui.service';
+import { SocketService } from '../../shared-services/socket.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('AdminComponent', () => {
   let component: AdminComponent;
@@ -8,7 +14,22 @@ describe('AdminComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AdminComponent ]
+      declarations: [
+        AdminComponent,
+        DatabaseManagerComponent
+      ],
+      imports: [
+        MatTabsModule,
+        MatIconModule,
+        MatTableModule,
+        HttpClientModule,
+        MatDialogModule,
+        BrowserAnimationsModule
+      ],
+      providers: [
+        UIService,
+        SocketService
+      ]
     })
     .compileComponents();
   }));
