@@ -72,6 +72,11 @@ export class DatabaseManagerComponent implements OnInit, AfterViewInit {
           this._uiService.updateOverlay( { id: overlayId, message: this.progress } );
         } else {
           this._uiService.destroyOverlay(overlayId);
+          this._databaseManagerService.getCollections(this.database).then( _collections => {
+            this.database.collections = _collections;
+          }, error => {
+            this._matDialog.open(ErrorDialogComponent, { data: error });
+          });
         }
       } );
     }
