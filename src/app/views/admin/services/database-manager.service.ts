@@ -38,11 +38,14 @@ export class DatabaseManagerService {
     });
   }
   getCollectionData(database: Database, collection: Collection): Promise<any> {
+    const overlayId = this._uiService.createOverlay(`Querying ${collection.name}...`);
     return new Promise( (resolve, reject) => {
       this._httpClient.get(`${this.API_PATH}/admin/databases/${database.name}/${collection.name}`).subscribe( _records => {
         resolve(_records);
+        this._uiService.destroyOverlay(overlayId);
       }, error => {
         reject(error);
+        this._uiService.destroyOverlay(overlayId);
       });
     });
   }
