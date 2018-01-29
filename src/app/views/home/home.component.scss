@@ -37,7 +37,6 @@ $portfolioImageUrl: '../../../images/me.jpg';
         justify-content: space-between;
         padding: 0;
         .main {
-          //height: 80%;
           padding: 20px;
           display: flex;
           justify-content: space-between;
@@ -74,7 +73,7 @@ $portfolioImageUrl: '../../../images/me.jpg';
               }
             }
             #headerText {
-              font-weight: 100;
+              font-weight: 300;
               strong {
                 font-weight: 600;
               }

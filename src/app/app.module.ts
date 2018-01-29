@@ -35,7 +35,7 @@ import {
   MatExpansionModule, MatIconModule,
   MatInputModule, MatListModule,
   MatMenuModule,
-  MatNativeDateModule, MatProgressBarModule, MatProgressSpinnerModule, MatSelectModule, MatSidenavModule,
+  MatNativeDateModule, MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule, MatSelectModule, MatSidenavModule,
   MatSliderModule, MatSortModule, MatTableModule,
   MatTabsModule, MatTooltipModule
 } from '@angular/material';
@@ -49,6 +49,8 @@ import { DatabaseManagerComponent } from './views/admin/components/database-mana
 import { DatabaseSelectorDialogComponent } from './views/admin/dialogs/database-selector-dialog/database-selector-dialog.component';
 import { SocketService } from './shared-services/socket.service';
 import { NewDatabaseDialogComponent } from './views/admin/dialogs/new-database-dialog/new-database-dialog.component';
+import { UsersComponent } from './views/admin/components/users/users.component';
+import { UserDialogComponent } from './views/admin/dialogs/user-dialog/user-dialog.component';
 
 
 @NgModule({
@@ -80,7 +82,9 @@ import { NewDatabaseDialogComponent } from './views/admin/dialogs/new-database-d
     AdminComponent,
     DatabaseManagerComponent,
     DatabaseSelectorDialogComponent,
-    NewDatabaseDialogComponent
+    NewDatabaseDialogComponent,
+    UsersComponent,
+    UserDialogComponent
   ],
   entryComponents: [
     MLBBallparksComponent,
@@ -93,7 +97,8 @@ import { NewDatabaseDialogComponent } from './views/admin/dialogs/new-database-d
     LoginDialogComponent,
     OverlayComponent,
     DatabaseSelectorDialogComponent,
-    NewDatabaseDialogComponent
+    NewDatabaseDialogComponent,
+    UserDialogComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -122,7 +127,8 @@ import { NewDatabaseDialogComponent } from './views/admin/dialogs/new-database-d
     MatProgressSpinnerModule,
     MatListModule,
     MatTableModule,
-    MatSortModule
+    MatSortModule,
+    MatRadioModule
   ],
   providers: [
     UIService,
