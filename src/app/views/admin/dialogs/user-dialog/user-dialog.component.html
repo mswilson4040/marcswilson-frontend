@@ -1,18 +1,35 @@
 <h2 mat-dialog-title>New User</h2>
 <mat-dialog-content>
-  <mat-form-field>
-    <input matInput placeholder="Name" [(ngModel)]="user.name" />
-  </mat-form-field>
-  <mat-form-field>
-    <input matInput placeholder="Email" [(ngModel)]="user.email" />
-  </mat-form-field>
-  <mat-radio-group [(ngModel)]="user.role">
-    <mat-radio-button [value]="userRoles.Admin">{{userRoles[userRoles.Admin]}}</mat-radio-button>
-    <mat-radio-button [value]="userRoles.Visitor">{{userRoles[userRoles.Visitor]}}</mat-radio-button>
-  </mat-radio-group>
+  <div class="input-container">
+    <mat-form-field>
+      <input matInput placeholder="Name" [(ngModel)]="user.name" />
+    </mat-form-field>
+  </div>
+  <div class="input-container">
+    <mat-form-field>
+      <input matInput placeholder="Email" [(ngModel)]="user.email" />
+    </mat-form-field>
+  </div>
+  <div class="input-container">
+    <mat-radio-group [(ngModel)]="user.role">
+      <mat-radio-button [value]="userRoles.Admin">{{userRoles[userRoles.Admin]}}</mat-radio-button>
+      <mat-radio-button [value]="userRoles.Visitor">{{userRoles[userRoles.Visitor]}}</mat-radio-button>
+    </mat-radio-group>
+  </div>
+  <div class="input-container">
+    <mat-form-field>
+      <input matInput placeholder="Password" [(ngModel)]="password" />
+    </mat-form-field>
+  </div>
+  <div class="input-container">
+    <mat-form-field>
+      <input matInput placeholder="Confirm Password" [(ngModel)]="confirmPassword" />
+    </mat-form-field>
+  </div>
 </mat-dialog-content>
 <mat-dialog-actions>
   <button mat-raised-button (click)="cancel()">Cancel</button>
   <button mat-raised-button color="primary" (click)="create()">Create</button>
+  <button mat-raised-button (click)="bcrypt()">BCrypt</button>
 </mat-dialog-actions>
 

@@ -11,6 +11,9 @@ import { UserRoles } from '../../../../enums/user-roles.enum';
 export class UserDialogComponent implements OnInit {
   public user: User = new User();
   public userRoles = UserRoles;
+  public password: string = null;
+  public confirmPassword: string = null;
+
   constructor(private _matDialogRef: MatDialogRef<UserDialogComponent>) { }
 
   ngOnInit() {
@@ -24,5 +27,6 @@ export class UserDialogComponent implements OnInit {
   cancel(): void {
     this._matDialogRef.close(null);
   }
-
+  bcrypt(): void {
+  }
 }
