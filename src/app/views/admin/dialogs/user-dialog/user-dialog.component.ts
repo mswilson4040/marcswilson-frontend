@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 import { User } from '../../../../models/admin/user';
 import { UserRoles } from '../../../../enums/user-roles.enum';
+import * as CryptoJS from 'crypto-js';
 
 @Component({
   selector: 'app-user-dialog',
@@ -27,6 +28,11 @@ export class UserDialogComponent implements OnInit {
   cancel(): void {
     this._matDialogRef.close(null);
   }
-  bcrypt(): void {
+  encrypt(): void {
+    const cipherText = CryptoJS.AES.encrypt(this.password, 'test');
+    this.confirmPassword = cipherText;
+    const bytes = CryptoJS.AES.decrypt(cipherText, 'test1');
+    const plainText = bytes.toString(CryptoJS.enc.Utf8);
+    console.log(plainText);
   }
 }
