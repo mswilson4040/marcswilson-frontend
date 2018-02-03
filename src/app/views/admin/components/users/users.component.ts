@@ -31,12 +31,13 @@ export class UsersComponent implements OnInit {
   createUser(): void {
     const dialogRef = this._matDialog.open(UserDialogComponent);
     dialogRef.afterClosed().subscribe( _user => {
-      this._userManagerService.createUser(_user).then( users => {
-        this.dataSource = new MatTableDataSource<User>(users);
-      }, error => {
-        this._matDialog.open(ErrorDialogComponent, { data: error });
-      });
+      if (_user) {
+        this._userManagerService.createUser( _user ).then( users => {
+          this.dataSource = new MatTableDataSource<User>( users );
+        }, error => {
+          this._matDialog.open( ErrorDialogComponent, { data: error } );
+        } );
+      }
     });
   }
-
 }
