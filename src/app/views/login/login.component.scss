@@ -1,0 +1,28 @@
+#loginPage {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  #login {
+    width: 375px;
+    .input-container {
+      width: 100%;
+      mat-form-field {
+        width: 100%;
+      }
+    }
+    #loginContainer {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      button {
+        float: right;
+      }
+      a {
+        text-decoration: none;
+        color: #3f51b5;
+      }
+    }
+  }
+}

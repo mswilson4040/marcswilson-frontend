@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import 'jquery';
 import 'jqueryui';
 import 'hammerjs';
-import { AuthService } from '../shared-services/auth.service';
 import { MatSidenav } from '@angular/material';
 import { Navbar } from '../models/navbar';
 import { UIService } from '../shared-services/ui.service';
@@ -14,14 +13,10 @@ import { UIService } from '../shared-services/ui.service';
 })
 export class ShellComponent implements OnInit {
   public navbar: Navbar = new Navbar();
-  constructor(private _authService: AuthService, private _uiService: UIService) {
-    this._authService.handleAuthentication();
+  constructor(private _uiService: UIService) {
   }
 
   ngOnInit() {
-    if (window.location.href.indexOf('localhost') === -1) {
-      $('#mediaHelper').remove();
-    }
   }
   onNavToggle(state: boolean, sidenav: MatSidenav): void {
     if (state) {

@@ -8,7 +8,7 @@
     </div>
   </div>
   <div id="navRight">
-    <button mat-button *ngIf="user === null" (click)="login()">
+    <button mat-button *ngIf="user === null" routerLink="/login">
       Login
     </button>
     <button mat-button [matMenuTriggerFor]="menu" *ngIf="user !== null">

@@ -13,5 +13,6 @@ export const environment = {
   AUTH0_CALLBACK_ROUTE_KEY: 'marcswilson_auth0_callback_route',
   AUTH0_AUTH_RESPONSE_MODEL_KEY: 'marcswilson_auth0_user_model',
   NODE_SERVER: 'http://localhost:3000',
-  myEmail: 'marcw@marcswilson.com'
+  myEmail: 'marcw@marcswilson.com',
+  clientKey: 'clientkey'
 };

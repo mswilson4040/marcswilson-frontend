@@ -16,21 +16,15 @@ export class GlobalNavComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = this._authService.isAuthenticated();
+    //this.user = this._authService.isAuthenticated();
   }
   toggleNav(): void {
     this.onToggleNav.emit(true);
   }
-  login(): Promise<AuthenticationResponse> {
-    return new Promise( (resolve, reject) => {
-      this._authService.login(this._router.url);
-      resolve();
-    });
-  }
   logout(): Promise<any> {
     return new Promise( (resolve, reject) => {
-      this._authService.logout();
-      this.user = this._authService.isAuthenticated();
+      //this._authService.logout();
+      //this.user = this._authService.isAuthenticated();
       this._router.navigate(['/home']);
       resolve();
     });

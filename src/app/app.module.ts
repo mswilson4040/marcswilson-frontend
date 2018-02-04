@@ -51,6 +51,7 @@ import { SocketService } from './shared-services/socket.service';
 import { NewDatabaseDialogComponent } from './views/admin/dialogs/new-database-dialog/new-database-dialog.component';
 import { UsersComponent } from './views/admin/components/users/users.component';
 import { UserDialogComponent } from './views/admin/dialogs/user-dialog/user-dialog.component';
+import { LoginComponent } from './views/login/login.component';
 
 
 @NgModule({
@@ -84,7 +85,8 @@ import { UserDialogComponent } from './views/admin/dialogs/user-dialog/user-dial
     DatabaseSelectorDialogComponent,
     NewDatabaseDialogComponent,
     UsersComponent,
-    UserDialogComponent
+    UserDialogComponent,
+    LoginComponent
   ],
   entryComponents: [
     MLBBallparksComponent,

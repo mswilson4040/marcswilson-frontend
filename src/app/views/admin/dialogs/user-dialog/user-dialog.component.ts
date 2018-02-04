@@ -3,6 +3,7 @@ import { MatDialogRef } from '@angular/material';
 import { User } from '../../../../models/admin/user';
 import { UserRoles } from '../../../../enums/user-roles.enum';
 import * as CryptoJS from 'crypto-js';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-user-dialog',
@@ -18,9 +19,12 @@ export class UserDialogComponent implements OnInit {
   constructor(private _matDialogRef: MatDialogRef<UserDialogComponent>) { }
 
   ngOnInit() {
+    this._matDialogRef.updateSize('400px', '500px');
   }
   create(): void {
-    if (this.user.name && this.user.email && this.user.role !== null) {
+    const passwordConfirmed = this.password.length > 6 && (this.password === this.confirmPassword);
+    if (this.user.name && this.user.email && this.user.role !== null && passwordConfirmed) {
+      this.user.passwordHash = this.encrypt();
       this.user.created = new Date();
       this._matDialogRef.close(this.user);
     }
@@ -28,11 +32,11 @@ export class UserDialogComponent implements OnInit {
   cancel(): void {
     this._matDialogRef.close(null);
   }
-  encrypt(): void {
-    const cipherText = CryptoJS.AES.encrypt(this.password, 'test');
-    this.confirmPassword = cipherText;
-    const bytes = CryptoJS.AES.decrypt(cipherText, 'test1');
-    const plainText = bytes.toString(CryptoJS.enc.Utf8);
-    console.log(plainText);
+  encrypt(): string {
+    const cipherText = CryptoJS.AES.encrypt(this.password, environment.clientKey);
+    return cipherText.toString();
+    // const bytes = CryptoJS.AES.decrypt(cipherText, 'test1');
+    // const plainText = bytes.toString(CryptoJS.enc.Utf8);
+    // console.log(plainText);
   }
 }
