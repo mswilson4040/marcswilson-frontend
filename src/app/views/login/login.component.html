@@ -3,17 +3,17 @@
   <div id="login">
     <div class="input-container">
       <mat-form-field>
-        <input matInput placeholder="Username" />
+        <input matInput placeholder="Username" [(ngModel)]="username" />
       </mat-form-field>
     </div>
     <div class="input-container">
       <mat-form-field>
-        <input matInput placeholder="Password" type="password"/>
+        <input matInput placeholder="Password" type="password" [(ngModel)]="password" />
       </mat-form-field>
     </div>
     <div id="loginContainer">
       <a href="#">Register</a>
-      <button mat-raised-button color="primary">Login</button>
+      <button mat-raised-button color="primary" (click)="login()">Login</button>
     </div>
   </div>
 </section>

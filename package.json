@@ -49,6 +49,7 @@
     "@angular/cli": "^1.6.4",
     "@angular/compiler-cli": "^5.2.0",
     "@types/bootstrap": "^3.3.33",
+    "@types/crypto-js": "^3.1.38",
     "@types/highcharts": "^4.2.55",
     "@types/jasmine": "^2.8.2",
     "@types/jquery": "^2.0.45",
