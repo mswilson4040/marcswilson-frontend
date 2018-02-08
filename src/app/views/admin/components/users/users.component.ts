@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { UserManagerService } from '../../services/user-manager.service';
+import { UserManagerService } from '../../../../shared-services/user-manager.service';
 import { MatDialog, MatSort, MatTableDataSource } from '@angular/material';
 import { ErrorDialogComponent } from '../../../../shared-components/dialogs/error-dialog/error-dialog.component';
 import { UserDialogComponent } from '../../dialogs/user-dialog/user-dialog.component';

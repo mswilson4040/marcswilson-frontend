@@ -1,8 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { AuthenticationResponse } from '../../models/authentication-response';
 import { AuthService } from '../../shared-services/auth.service';
 import { Router } from '@angular/router';
+import { User } from '../../models/admin/user';
 
 @Component({
   selector: 'app-global-nav',
@@ -10,13 +10,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./global-nav.component.scss']
 })
 export class GlobalNavComponent implements OnInit {
-  public user: AuthenticationResponse = null;
+  public user: User = null;
   @Output() onToggleNav: EventEmitter<any> = new EventEmitter<any>();
   constructor(private _breakpointObserver: BreakpointObserver, private _authService: AuthService, private _router: Router) {
+    this._authService.onAuthentication.subscribe( _user => {
+      this.user = _user;
+    });
   }
 
   ngOnInit() {
-    //this.user = this._authService.isAuthenticated();
+    this.user = this._authService.isAuthenticated();
   }
   toggleNav(): void {
     this.onToggleNav.emit(true);

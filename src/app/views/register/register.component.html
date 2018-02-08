@@ -1,0 +1,36 @@
+<section id="registerPage">
+  <h1 class="mat-h1">Register</h1>
+  <div id="register">
+    <div class="input-container">
+      <mat-form-field>
+        <input matInput placeholder="Name" [(ngModel)]="user.name" [formControl]="nameCtrl" />
+        <mat-error *ngIf="nameCtrl.hasError('required')">Please enter a valid name.</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="input-container">
+      <mat-form-field>
+        <input matInput placeholder="Email" [(ngModel)]="user.email" [formControl]="emailCtrl" />
+        <mat-error *ngIf="emailCtrl.hasError('required')">Please enter a valid email.</mat-error>
+        <mat-error *ngIf="emailCtrl.hasError('email')">Invalid Email</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="input-container">
+      <mat-form-field>
+        <input matInput placeholder="Password" type="password" [(ngModel)]="password" [formControl]="passwordCtrl" />
+        <mat-error *ngIf="passwordCtrl.hasError('required')">Please enter a valid password.</mat-error>
+        <mat-error *ngIf="confirmPasswordCtrl.hasError('pattern')">Password must match Confirm Password</mat-error>
+      </mat-form-field>
+    </div>
+    <div class="input-container">
+      <mat-form-field>
+        <input matInput placeholder="Confirm Password" type="password" [(ngModel)]="confirmPassword" [formControl]="confirmPasswordCtrl" />
+        <mat-error *ngIf="confirmPasswordCtrl.hasError('required')">Please enter a valid password.</mat-error>
+        <mat-error *ngIf="confirmPasswordCtrl.hasError('pattern')">Confirm Password must match Password</mat-error>
+      </mat-form-field>
+    </div>
+    <div id="registerContainer">
+      <button mat-raised-button routerLink="/home">Cancel</button>
+      <button mat-raised-button color="primary" (click)="register()">Register</button>
+    </div>
+  </div>
+</section>

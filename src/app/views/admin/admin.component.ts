@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { DatabaseManagerService } from './services/database-manager.service';
-import { UserManagerService } from './services/user-manager.service';
+import { UserManagerService } from '../../shared-services/user-manager.service';
 
 @Component({
   selector: 'app-admin',

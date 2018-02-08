@@ -10,6 +10,7 @@ import { ApiExplorerComponent } from './views/portfolio/apiexplorer/apiexplorer.
 import { AdminComponent } from './views/admin/admin.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './views/login/login.component';
+import { RegisterComponent } from './views/register/register.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -17,11 +18,13 @@ const routes: Routes = [
   { path: 'admin', component: AdminComponent, canActivate: [ AuthGuard ] },
   { path: 'apiexplorer', component: ApiExplorerComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'mlbstats', component: MlbStatsComponent},
-  { path: 'mlbstatsapi', component: MlbApiExplorerComponent},
+  { path: 'mlbstats', component: MlbStatsComponent },
+  { path: 'mlbstatsapi', component: MlbApiExplorerComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'login/:email', component: LoginComponent },
   { path: 'portfolio', component: PortfolioComponent },
-  { path: 'powerball', component: PowerballComponent}
+  { path: 'powerball', component: PowerballComponent },
+  { path: 'register', component: RegisterComponent }
 ];
 
 @NgModule({

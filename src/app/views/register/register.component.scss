@@ -1,0 +1,22 @@
+#registerPage {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  #register {
+    width: 375px;
+    .input-container {
+      width: 100%;
+      mat-form-field {
+        width: 100%;
+      }
+    }
+    #registerContainer {
+      text-align: right;
+      button {
+        float: right;
+      }
+    }
+  }
+}

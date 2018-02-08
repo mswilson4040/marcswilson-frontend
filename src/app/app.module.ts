@@ -52,6 +52,7 @@ import { NewDatabaseDialogComponent } from './views/admin/dialogs/new-database-d
 import { UsersComponent } from './views/admin/components/users/users.component';
 import { UserDialogComponent } from './views/admin/dialogs/user-dialog/user-dialog.component';
 import { LoginComponent } from './views/login/login.component';
+import { RegisterComponent } from './views/register/register.component';
 
 
 @NgModule({
@@ -86,7 +87,8 @@ import { LoginComponent } from './views/login/login.component';
     NewDatabaseDialogComponent,
     UsersComponent,
     UserDialogComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   entryComponents: [
     MLBBallparksComponent,

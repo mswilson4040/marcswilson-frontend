@@ -35,8 +35,5 @@ export class UserDialogComponent implements OnInit {
   encrypt(): string {
     const cipherText = CryptoJS.AES.encrypt(this.password, environment.clientKey);
     return cipherText.toString();
-    // const bytes = CryptoJS.AES.decrypt(cipherText, 'test1');
-    // const plainText = bytes.toString(CryptoJS.enc.Utf8);
-    // console.log(plainText);
   }
 }
