@@ -7,7 +7,7 @@
       Home
     </div>
   </div>
-  <div id="navRight">
+  <div id="navRight" *ngIf="!production">
     <button mat-button *ngIf="user === null" routerLink="/login">
       Login
     </button>

@@ -3,6 +3,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { AuthService } from '../../shared-services/auth.service';
 import { Router } from '@angular/router';
 import { User } from '../../models/admin/user';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-global-nav',
@@ -11,6 +12,7 @@ import { User } from '../../models/admin/user';
 })
 export class GlobalNavComponent implements OnInit {
   public user: User = null;
+  public production: boolean = environment.production;
   @Output() onToggleNav: EventEmitter<any> = new EventEmitter<any>();
   constructor(private _breakpointObserver: BreakpointObserver, private _authService: AuthService, private _router: Router) {
     this._authService.onAuthentication.subscribe( _user => {
