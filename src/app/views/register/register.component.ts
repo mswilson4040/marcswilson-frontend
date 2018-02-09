@@ -5,6 +5,7 @@ import { UserManagerService } from '../../shared-services/user-manager.service';
 import * as CryptoJS from 'crypto-js';
 import { environment } from '../../../environments/environment';
 import { Router } from '@angular/router';
+import { UserRoles } from '../../enums/user-roles.enum';
 
 @Component({
   selector: 'app-register',
@@ -45,6 +46,7 @@ export class RegisterComponent implements OnInit {
       this.passwordCtrl.setErrors(Validators.pattern(this.confirmPassword));
     } else {
       this.user.passwordHash = CryptoJS.AES.encrypt(this.password, environment.clientKey).toString();
+      this.user.role = UserRoles.Visitor;
       const user = await this._userManagerService.createUser(this.user);
       this._router.navigate([`/login/${user.email}`]);
     }
