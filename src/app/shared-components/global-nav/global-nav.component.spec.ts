@@ -3,11 +3,11 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { GlobalNavComponent } from './global-nav.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { EmailService } from '../../shared-services/email.service';
-import { HttpModule } from '@angular/http';
 import { AuthService } from '../../shared-services/auth.service';
 import { MatDialogModule, MatIconModule, MatMenuModule } from '@angular/material';
 import { UIService } from '../../shared-services/ui.service';
 import { BreakpointObserver, MediaMatcher } from '@angular/cdk/layout';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('GlobalNavComponent', () => {
   let component: GlobalNavComponent;
@@ -18,9 +18,9 @@ describe('GlobalNavComponent', () => {
       imports: [
         RouterTestingModule,
         MatDialogModule,
-        HttpModule,
         MatMenuModule,
-        MatIconModule
+        MatIconModule,
+        HttpClientModule
       ],
       declarations: [ GlobalNavComponent ],
       providers: [

@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { UIService } from '../../shared-services/ui.service';
 import { SocketService } from '../../shared-services/socket.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { UsersComponent } from './components/users/users.component';
 
 describe('AdminComponent', () => {
   let component: AdminComponent;
@@ -16,7 +17,8 @@ describe('AdminComponent', () => {
     TestBed.configureTestingModule({
       declarations: [
         AdminComponent,
-        DatabaseManagerComponent
+        DatabaseManagerComponent,
+        UsersComponent
       ],
       imports: [
         MatTabsModule,

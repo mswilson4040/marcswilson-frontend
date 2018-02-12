@@ -14,6 +14,7 @@ import {
 import { BreakpointHelperComponent } from '../shared-components/breakpoint-helper/breakpoint-helper.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BreakpointObserver, MediaMatcher } from '@angular/cdk/layout';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('ShellComponent', () => {
   let component: ShellComponent;
@@ -29,7 +30,8 @@ describe('ShellComponent', () => {
         MatCardModule,
         MatSidenavModule,
         MatProgressSpinnerModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        HttpClientModule
       ],
       declarations: [
         ShellComponent,
