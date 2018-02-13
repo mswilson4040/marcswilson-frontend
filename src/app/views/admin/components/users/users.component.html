@@ -17,6 +17,14 @@
         <mat-header-cell *matHeaderCellDef mat-sort-header>Created</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.created | date}}</mat-cell>
       </ng-container>
+      <ng-container matColumnDef="">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-mini-fab color="primary" (click)="deleteUser(element)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
 
       <mat-header-row *matHeaderRowDef="displayColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayColumns;"></mat-row>
