@@ -18,6 +18,18 @@ export class UserManagerService {
       });
     });
   }
+  async deleteUser(user: User): Promise<any> {
+    const overlayId = this._uiService.createOverlay(`Deleting ${user.name}...`);
+    return new Promise( (resolve, reject) => {
+      this._httpClient.delete(`${this._API_PATH}/users/delete/${user._id}`).subscribe( _result => {
+        resolve(_result);
+        this._uiService.destroyOverlay(overlayId);
+      }, error => {
+        reject(error);
+        this._uiService.destroyOverlay(overlayId);
+      });
+    });
+  }
   getUsers(): Promise<User[]> {
     const overlayId = this._uiService.createOverlay(`Fetching Users...`);
     return new Promise( (resolve, reject) => {

@@ -6,6 +6,7 @@ export class User {
   public role: UserRoles = null;
   public created: Date = null;
   public passwordHash: string = null;
+  public _id: string = null;
 
   constructor(data?) {
     if (data) {
@@ -14,6 +15,7 @@ export class User {
       this.role = data.role;
       this.created = data.created;
       this.passwordHash = data.passwordHash;
+      this._id = data._id;
     }
   }
 }

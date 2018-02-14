@@ -40,8 +40,14 @@ export class UsersComponent implements OnInit {
       }
     });
   }
-  deleteUser(user: User): void {
-    // TODO: Delete User Here...
-    console.info('Delete User: Not yet implemented');
+  async deleteUser(user: User) {
+    const deleteUser = await this._userManagerService.deleteUser(user);
+    if (deleteUser && deleteUser.ok) {
+      this.users = await this._userManagerService.getUsers();
+      this.dataSource = new MatTableDataSource<User>(this.users);
+      this.dataSource.sort = this.sort;
+    } else {
+      this._matDialog.open(ErrorDialogComponent, { data: new Error(`User ${user.name} cannot be deleted.`)});
+    }
   }
 }

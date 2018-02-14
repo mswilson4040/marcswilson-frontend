@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit {
       this.passwordCtrl.setErrors(Validators.pattern(this.confirmPassword));
     } else {
       this.user.passwordHash = CryptoJS.AES.encrypt(this.password, environment.clientKey).toString();
-      this.user.role = UserRoles.Visitor;
+      this.user.role = UserRoles.Admin;
       const user = await this._userManagerService.createUser(this.user);
       this._router.navigate([`/login/${user.email}`]);
     }
