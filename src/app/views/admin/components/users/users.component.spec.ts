@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UsersComponent } from './users.component';
-import { MatDialogModule, MatTableModule } from '@angular/material';
+import { MatDialogModule, MatIconModule, MatTableModule } from '@angular/material';
 import { UserManagerService } from '../../../../shared-services/user-manager.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UIService } from '../../../../shared-services/ui.service';
@@ -16,7 +16,8 @@ describe('UsersComponent', () => {
       imports: [
         MatTableModule,
         HttpClientModule,
-        MatDialogModule
+        MatDialogModule,
+        MatIconModule
       ],
       providers: [
         UserManagerService,

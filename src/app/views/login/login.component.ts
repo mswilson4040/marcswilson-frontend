@@ -5,6 +5,7 @@ import { AuthService } from '../../shared-services/auth.service';
 import { MatDialog } from '@angular/material';
 import { ErrorDialogComponent } from '../../shared-components/dialogs/error-dialog/error-dialog.component';
 import { ActivatedRoute, Router } from '@angular/router';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
