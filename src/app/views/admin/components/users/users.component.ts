@@ -5,6 +5,7 @@ import { ErrorDialogComponent } from '../../../../shared-components/dialogs/erro
 import { UserDialogComponent } from '../../dialogs/user-dialog/user-dialog.component';
 import { User } from '../../../../models/admin/user';
 import { UserRoles } from '../../../../enums/user-roles.enum';
+import { ConfirmDialogComponent } from '../../../../shared-components/dialogs/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-users',
@@ -20,19 +21,13 @@ export class UsersComponent implements OnInit {
   constructor(private _userManagerService: UserManagerService, private _matDialog: MatDialog) { }
 
   ngOnInit() {
-    this._userManagerService.getUsers().then( _users => {
-      this.users = _users;
-      this.dataSource = new MatTableDataSource<User>(this.users);
-      this.dataSource.sort = this.sort;
-    }, error => {
-      this._matDialog.open( ErrorDialogComponent, { data: error });
-    });
+    this.getUsers();
   }
   createUser(): void {
     const dialogRef = this._matDialog.open(UserDialogComponent);
     dialogRef.afterClosed().subscribe( _user => {
       if (_user) {
-        this._userManagerService.createUser( _user ).then( users => {
+        this._userManagerService.createUser( _user ).then( user => {
           this.dataSource = new MatTableDataSource<User>( users );
         }, error => {
           this._matDialog.open( ErrorDialogComponent, { data: error } );
@@ -41,13 +36,25 @@ export class UsersComponent implements OnInit {
     });
   }
   async deleteUser(user: User) {
-    const deleteUser = await this._userManagerService.deleteUser(user);
-    if (deleteUser && deleteUser.ok) {
-      this.users = await this._userManagerService.getUsers();
+    const dialogRef = this._matDialog.open(ConfirmDialogComponent);
+    dialogRef.afterClosed().subscribe( async _result => {
+      if (_result) {
+        const deleteUser = await this._userManagerService.deleteUser(user);
+        if (deleteUser && deleteUser.ok) {
+          this.getUsers();
+        } else {
+          this._matDialog.open(ErrorDialogComponent, { data: new Error(`User ${user.name} cannot be deleted.`)});
+        }
+      }
+    });
+  }
+  getUsers(): void {
+    this._userManagerService.getUsers().then( _users => {
+      this.users = _users;
       this.dataSource = new MatTableDataSource<User>(this.users);
       this.dataSource.sort = this.sort;
-    } else {
-      this._matDialog.open(ErrorDialogComponent, { data: new Error(`User ${user.name} cannot be deleted.`)});
-    }
+    }, error => {
+      this._matDialog.open( ErrorDialogComponent, { data: error });
+    });
   }
 }

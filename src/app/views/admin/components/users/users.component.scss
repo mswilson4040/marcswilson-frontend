@@ -1,5 +1,8 @@
 #usersSection {
   #users {
     margin: 20px;
+    ng-container {
+      padding: 5px 0;
+    }
   }
 }
