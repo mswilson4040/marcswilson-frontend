@@ -28,7 +28,7 @@ export class UsersComponent implements OnInit {
     dialogRef.afterClosed().subscribe( _user => {
       if (_user) {
         this._userManagerService.createUser( _user ).then( user => {
-          this.dataSource = new MatTableDataSource<User>( users );
+          this.dataSource = new MatTableDataSource<User>( user );
         }, error => {
           this._matDialog.open( ErrorDialogComponent, { data: error } );
         } );
