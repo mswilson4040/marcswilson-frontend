@@ -8,7 +8,7 @@
     </div>
     <div class="input-container">
       <mat-form-field>
-        <input matInput placeholder="Password" type="password" [(ngModel)]="password" />
+        <input matInput placeholder="Password" type="password" [(ngModel)]="password" (keyup)="enterHandler($event)" />
       </mat-form-field>
     </div>
     <div id="loginContainer">

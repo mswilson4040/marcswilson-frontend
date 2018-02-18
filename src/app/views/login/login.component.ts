@@ -39,4 +39,9 @@ export class LoginComponent implements OnInit {
       });
     }
   }
+  enterHandler(evt): void {
+    if (evt.keyCode === 13) {
+      this.login();
+    }
+  }
 }
