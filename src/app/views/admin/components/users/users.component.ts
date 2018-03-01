@@ -16,7 +16,7 @@ export class UsersComponent implements OnInit {
   public users: User[] = [];
   public userRoles = UserRoles;
   public dataSource: MatTableDataSource<User> = null;
-  public displayColumns: string[] = ['name', 'email', 'role', 'created', ''];
+  public displayColumns: string[] = ['name', 'email', 'role', 'created', 'options'];
   @ViewChild(MatSort) sort: MatSort;
   constructor(private _userManagerService: UserManagerService, private _matDialog: MatDialog) { }
 
