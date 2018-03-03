@@ -7,6 +7,9 @@
     mat-input-container {
       width: 100%;
     }
+    #ckContainer, .ck-editor__editable {
+      min-height: 400px;
+    }
   }
   .button-container {
     text-align: right;
