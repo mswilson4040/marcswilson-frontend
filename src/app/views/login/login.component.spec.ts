@@ -2,10 +2,11 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginComponent } from './login.component';
 import { FormsModule } from '@angular/forms';
-import { MatDialogModule, MatFormFieldModule } from '@angular/material';
+import { MatDialogModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { AuthService } from '../../shared-services/auth.service';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -19,7 +20,9 @@ describe('LoginComponent', () => {
         MatFormFieldModule,
         RouterTestingModule,
         HttpClientModule,
-        MatDialogModule
+        MatDialogModule,
+        MatInputModule,
+        BrowserAnimationsModule
       ],
       providers: [
         AuthService

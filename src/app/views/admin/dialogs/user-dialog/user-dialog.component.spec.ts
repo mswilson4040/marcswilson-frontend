@@ -2,7 +2,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { UserDialogComponent } from './user-dialog.component';
 import { FormsModule } from '@angular/forms';
-import { MatDialogModule, MatDialogRef, MatFormFieldModule, MatRadioModule } from '@angular/material';
+import { MatDialogModule, MatDialogRef, MatFormFieldModule, MatInputModule, MatRadioModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 class MatDialogRefMock { updatePosition() {}; updateSize() {}; }
 
@@ -17,7 +18,9 @@ describe('UserDialogComponent', () => {
         FormsModule,
         MatFormFieldModule,
         MatRadioModule,
-        MatDialogModule
+        MatDialogModule,
+        MatInputModule,
+        BrowserAnimationsModule
       ],
       providers: [
         { provide: MatDialogRef, useClass: MatDialogRefMock }
