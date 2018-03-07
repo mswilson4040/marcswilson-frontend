@@ -14,7 +14,7 @@ export class SkillsComponent implements OnInit {
   public node = 0;
   public html = 0;
   public css = 0;
-  public scss = 0;
+  public cSharp = 0;
   public bootstrap = 0;
   public angularMaterial = 0;
 
@@ -40,20 +40,20 @@ export class SkillsComponent implements OnInit {
         this.node = 0;
         this.html = 0;
         this.css = 0;
-        this.scss = 0;
+        this.cSharp = 0;
         this.bootstrap = 0;
         this.angularMaterial = 0;
       } else {
-        this.javaScript = 90;
+        this.javaScript = 97;
         this.typeScript = 90;
-        this.angular = 90;
-        this.jQuery = 90;
-        this.node = 60;
+        this.angular = 95;
+        this.jQuery = 100;
+        this.node = 80;
         this.html = 90;
-        this.css = 75;
-        this.scss = 70;
+        this.css = 90;
+        this.cSharp = 70;
         this.bootstrap = 90;
-        this.angularMaterial = 70;
+        this.angularMaterial = 90;
       }
     }, 400);
   }
