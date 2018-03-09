@@ -14,17 +14,17 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^5.2.7",
+    "@angular/animations": "5.2.8",
     "@angular/cdk": "^5.2.4",
-    "@angular/common": "^5.2.7",
-    "@angular/compiler": "^5.2.7",
-    "@angular/core": "^5.2.7",
-    "@angular/forms": "^5.2.7",
-    "@angular/http": "^5.2.7",
+    "@angular/common": "5.2.8",
+    "@angular/compiler": "5.2.8",
+    "@angular/core": "5.2.8",
+    "@angular/forms": "5.2.8",
+    "@angular/http": "5.2.8",
     "@angular/material": "^5.2.4",
-    "@angular/platform-browser": "^5.2.7",
-    "@angular/platform-browser-dynamic": "^5.2.7",
-    "@angular/router": "^5.2.7",
+    "@angular/platform-browser": "5.2.8",
+    "@angular/platform-browser-dynamic": "5.2.8",
+    "@angular/router": "5.2.8",
     "@ckeditor/ckeditor5-build-classic": "^1.0.0-alpha.2",
     "@types/jqueryui": "^1.12.2",
     "aws-sdk": "^2.205.0",
@@ -39,15 +39,15 @@
     "jquery.json-viewer": "^1.1.0",
     "jqueryui": "^1.11.1",
     "popper.js": "^1.13.0",
-    "rxjs": "^5.5.5",
+    "rxjs": "^5.5.6",
     "socket.io-client": "^2.0.4",
     "uniqid": "^4.1.1",
     "uuid": "^3.2.1",
     "zone.js": "^0.8.20"
   },
   "devDependencies": {
-    "@angular/cli": "^1.7.2",
-    "@angular/compiler-cli": "^5.2.7",
+    "@angular/cli": "1.7.3",
+    "@angular/compiler-cli": "5.2.8",
     "@types/bootstrap": "^3.3.39",
     "@types/crypto-js": "^3.1.38",
     "@types/highcharts": "^4.2.55",
@@ -68,6 +68,6 @@
     "request": "^2.81.0",
     "ts-node": "^3.3.0",
     "tslint": "~4.5.0",
-    "typescript": "^2.7.2"
+    "typescript": "2.6.2"
   }
 }
