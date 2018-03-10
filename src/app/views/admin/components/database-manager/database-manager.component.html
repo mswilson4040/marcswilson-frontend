@@ -1,6 +1,5 @@
 <section>
-  <div>Connection Count: {{connectionCount}}</div>
-  <div>Progress: {{progress}}</div>
+  <button mat-raised-button (click)="selectDatabase()">Open Database</button>
 </section>
 <section id="databaseManagerComponent" *ngIf="database">
   <div id="header">

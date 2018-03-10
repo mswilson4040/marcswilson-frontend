@@ -18,8 +18,10 @@
         </mat-error>
       </mat-input-container>
     </div>
-    <div class="row" id="ckContainer">
-      <textarea name="content" id="editor" rows="6"></textarea>
+    <div class="row">
+      <mat-input-container>
+        <textarea matInput placeholder="Message" rows="6" [(ngModel)]="mailMessage.message"></textarea>
+      </mat-input-container>
     </div>
   </div>
   <div class="button-container">
