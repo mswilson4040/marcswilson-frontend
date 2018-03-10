@@ -13,11 +13,11 @@ export class Navbar {
     // about.icon = 'account_circle';
     // this.addLink(about);
     //
-    // const portfolio = new NavbarHeaderLink();
-    // portfolio.name = 'Porfolio';
-    // portfolio.url = '/portfolio';
-    // portfolio.icon = 'card_travel';
-    // this.addLink(portfolio);
+    const portfolio = new NavbarHeaderLink();
+    portfolio.name = 'Porfolio';
+    portfolio.url = '/portfolio';
+    portfolio.icon = 'card_travel';
+    this.addLink(portfolio);
   }
   addLink(navbarHeaderLink: NavbarHeaderLink): void {
     this.links.push(navbarHeaderLink);
