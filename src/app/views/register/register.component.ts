@@ -48,7 +48,8 @@ export class RegisterComponent implements OnInit {
       this.user.passwordHash = CryptoJS.AES.encrypt(this.password, environment.clientKey).toString();
       this.user.role = UserRoles.Admin;
       const user = await this._userManagerService.createUser(this.user);
-      this._router.navigate([`/login/${user.email}`]);
+      localStorage.setItem(environment.LOCAL_STORAGE.userLookupKey, user.stringify());
+      this._router.navigate([`/login`]);
     }
   }
 }

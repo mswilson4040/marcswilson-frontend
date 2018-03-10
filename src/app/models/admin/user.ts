@@ -18,4 +18,12 @@ export class User {
       this._id = data._id;
     }
   }
+  stringify(): string {
+    try {
+      const str = JSON.stringify(this);
+      return str;
+    } catch (ex) {
+      return null;
+    }
+  }
 }

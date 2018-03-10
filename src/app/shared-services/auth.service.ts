@@ -16,12 +16,17 @@ export class AuthService {
     return new Promise( (resolve, reject) => {
       this._httpClient.post<User>(`${this.API_PATH}/login`, { username: username, hash: hash }).subscribe( _user => {
         this.user = new User(_user);
+        localStorage.setItem(environment.LOCAL_STORAGE.userLookupKey, this.user.stringify());
         this.onAuthentication.emit(this.user);
         resolve(this.user);
       }, error => {
         reject(error);
       });
     });
+  }
+  logout(): void {
+    this.user = null;
+    this.onAuthentication.emit(this.user);
   }
   isAuthenticated(): User {
     return this.user;

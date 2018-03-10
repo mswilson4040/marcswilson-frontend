@@ -28,7 +28,7 @@ export class GlobalNavComponent implements OnInit {
   }
   logout(): Promise<any> {
     return new Promise( (resolve, reject) => {
-      //this._authService.logout();
+      this._authService.logout();
       //this.user = this._authService.isAuthenticated();
       this._router.navigate(['/home']);
       resolve();

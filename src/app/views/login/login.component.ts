@@ -5,6 +5,7 @@ import { AuthService } from '../../shared-services/auth.service';
 import { MatDialog } from '@angular/material';
 import { ErrorDialogComponent } from '../../shared-components/dialogs/error-dialog/error-dialog.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { User } from '../../models/admin/user';
 
 @Component({
   selector: 'app-login',
@@ -18,11 +19,16 @@ export class LoginComponent implements OnInit {
               private _router: Router) { }
 
   ngOnInit() {
-    this._activatedRoute.params.subscribe( _params => {
-      if (_params ) {
-        this.username = _params.email;
-      }
-    });
+    const lsValue = localStorage.getItem(environment.LOCAL_STORAGE.userLookupKey);
+    if (lsValue) {
+      const user = new User(JSON.parse(lsValue));
+      this.username = user.email;
+    }
+    // this._activatedRoute.params.subscribe( _params => {
+    //   if (_params) {
+    //     this.username = _params.email;
+    //   }
+    // });
   }
   login(): void {
     if (this.username && this.password) {

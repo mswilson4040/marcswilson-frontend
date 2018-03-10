@@ -5,5 +5,8 @@ export const environment = {
   ROOT_URL: 'http://localhost:4200',
   NODE_SERVER: 'http://localhost:3000',
   myEmail: 'marc@marcswilson.com',
-  clientKey: 'clientkey'
+  clientKey: 'clientkey',
+  LOCAL_STORAGE: {
+    userLookupKey: 'marcswilson_user_key'
+  }
 };
