@@ -12,7 +12,7 @@ $custom-typography: mat-typography-config(
   $headline: mat-typography-level(32px, 48px, 700),
   $body-1: mat-typography-level(16px, 24px, 500),
   $body-2: mat-typography-level(12px, 20px, 300),
-  $caption: mat-typography-level(10px, 18px, 300)
+  $caption: mat-typography-level(13.33px, 18px, 300)
 );
 @include mat-core($custom-typography);
 @include angular-material-theme($marcswilson-app-theme);

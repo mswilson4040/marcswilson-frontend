@@ -75,10 +75,12 @@ $portfolioImageUrl: '../../../images/me.jpg';
             }
             #headerText {
               font-weight: 300;
+              margin: 0;
               strong {
                 font-weight: 600;
               }
             }
+            p { margin: 0; }
             hr { margin-top: 0; }
             section {
               color: #868e96;
@@ -99,7 +101,7 @@ $portfolioImageUrl: '../../../images/me.jpg';
               #contactButton {
                 margin-top: 40px;
                 display: flex;
-                justify-content: flex-end;
+                justify-content: center;
                 align-items: center;
               }
 

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import 'jquery';
-import 'jqueryui';
 import 'hammerjs';
 import { MatDialog, MatSidenav } from '@angular/material';
 import { Navbar } from '../models/navbar';
