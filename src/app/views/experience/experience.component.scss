@@ -1,9 +1,8 @@
 @import '../../mixins/mq-mixins';
+@import '../../../globals';
 
 $ngBoxShadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
 $white: #fff;
-$blue: #3f51b5;
-$pink: #ff4081;
 
 #timeline {
   display: flex;
@@ -23,7 +22,7 @@ $pink: #ff4081;
         box-shadow: $ngBoxShadow;
         margin-right: 30px;
         margin-bottom: 30px;
-        border-top: 5px solid $blue;
+        border-top: 5px solid $primary;
         z-index: -1;
         .content-container {
           height: 100%;
@@ -50,7 +49,7 @@ $pink: #ff4081;
             height: 10px;
             width: 10px;
             border-radius: 100px;
-            background-color: $pink;
+            background-color: $primary;
             position: absolute;
             bottom: -16px;
             right: -15px;
@@ -91,7 +90,7 @@ $pink: #ff4081;
         margin-left: 30px;
         margin-top: 30px;
         float: right;
-        border-top: 5px solid $blue;
+        border-top: 5px solid $primary;
         z-index: -1;
         .content-container {
           height: 100%;
@@ -118,7 +117,7 @@ $pink: #ff4081;
             height: 10px;
             width: 10px;
             border-radius: 100px;
-            background-color: #ff4081;
+            background-color: $primary;
             position: absolute;
             bottom: -16px;
             left: -15px;
@@ -142,7 +141,7 @@ $pink: #ff4081;
     height: 0;
   }
   100% {
-    background-color: $blue;
+    background-color: $primary;
     height: auto;
   }
 }

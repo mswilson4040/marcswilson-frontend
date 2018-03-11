@@ -1,29 +1,19 @@
-$navBackground: #263238;
-$navText: #FFFFFF;
-.nav-container {
-  background-color: $navBackground;
-  color: $navText;
-  display: flex;
-  justify-content: space-between;
-  #navLeft {
+mat-toolbar {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  #leftNav {
     display: flex;
     align-items: center;
-    #hamburger {
-      padding: 10px;
+    mat-icon {
+      margin: 0 20px;
       cursor: pointer;
-      display: flex;
-      align-items: center;
+      opacity: 0.7;
       &:hover {
-        opacity: 0.7;
+        opacity: 1
       }
     }
-    #siteName {
-      font-size: 24px;
-      padding: 10px;
-    }
   }
-  #navRight {
-    display: flex;
-    align-items: center;
+  #rightNav {
+    text-align: right;
   }
 }

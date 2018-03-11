@@ -1,5 +1,6 @@
 
 @import '../../mixins/mq-mixins';
+@import '../../../globals';
 
 $backgroundImageUrl: '../../../images/jumbotron-seats.jpg';
 $portfolioImageUrl: '../../../images/me.jpg';
@@ -55,7 +56,7 @@ $portfolioImageUrl: '../../../images/me.jpg';
                 line-height: 1.1;
                 padding: 7px 12px;
                 text-transform: uppercase;
-                background-color: #263238;
+                background-color: $primary;
                 color: #FFFFFF;
                 margin-bottom: 10px;
               }
@@ -85,16 +86,21 @@ $portfolioImageUrl: '../../../images/me.jpg';
                 display: flex;
                 width: 100%;
                 align-items: center;
-                label:first-child {
+                div:first-child {
                   color: black;
                   min-width: 140px;
-                  font-weight: 400;
                   text-transform: uppercase;
                   line-height: 1.5;
                 }
-                label:last-child {
+                div:last-child {
                   font-weight: 300;
                 }
+              }
+              #contactButton {
+                margin-top: 40px;
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
               }
 
             }
@@ -103,7 +109,7 @@ $portfolioImageUrl: '../../../images/me.jpg';
         .footer {
           height: 70px;
           width: 100%;
-          background-color: #263238;
+          background-color: $primary;
           display: flex;
           justify-content: center;
           align-items: center;
@@ -180,15 +186,6 @@ $portfolioImageUrl: '../../../images/me.jpg';
           }
         }
       }
-      #contactMeSection {
-        width: 40%;
-        margin-top: 80px;
-        text-align: center;
-        button {
-          height: 60px;
-          width: 170px;
-        }
-      }
       #welcomeTextSection {
         margin-top: 40px;
         color: gray;
@@ -201,22 +198,18 @@ $portfolioImageUrl: '../../../images/me.jpg';
       #aboutSection {
         text-align: center;
         margin-top: 80px;
-        h1 { font-weight: 300; }
       }
       #skillsSection {
         text-align: center;
         margin-top: 80px;
-        h1 { font-weight: 300; }
       }
       #experienceSection {
         text-align: center;
         margin-top: 80px;
-        h1 { font-weight: 300; }
       }
       #portfolioSection {
         text-align: center;
         margin-top: 80px;
-        h1 { font-weight: 300; }
       }
     }
   }
@@ -252,18 +245,18 @@ $portfolioImageUrl: '../../../images/me.jpg';
         .content-container {
           margin: 15px 0 0 0;
           width: 100%;
-          h3 {
-            font-size: 95%;
-          }
-          h5 {
-            font-size: 85%;
-          }
-          p {
-            font-size: 70%;
-          }
-          label {
-            font-size: 14px;
-          }
+          //h3 {
+          //  font-size: 95%;
+          //}
+          //h5 {
+          //  font-size: 85%;
+          //}
+          //p {
+          //  font-size: 70%;
+          //}
+          //label {
+          //  font-size: 14px;
+          //}
         }
       }
     }

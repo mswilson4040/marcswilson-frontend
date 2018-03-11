@@ -1,32 +1,12 @@
-.g-full-screen {
-  height: 100%;
-  width: 100%;
-}
+// <editor-fold desc="Global Variables">
 
-.g-dialog-container {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  .g-dialog-header {
-    .g-dialog-title {
-      font-weight: 100;
-    }
-  }
-  .g-dialog-main {
-    flex-grow: 1;
-    .g-input-container {
-      width: 100%;
-      padding: 10px 0;
-      md-select,
-      md-input-container,
-      md-form-field,
-      input {
-        width: 100%;
-      }
-    }
-  }
-  .g-dialog-footer {
-    text-align: right;
-  }
-}
+$primary: #37474F;
+$accent: #0277BD;
+
+// </editor-fold>
+
+// <editor-fold desc="Header Elements">
+
+h1 { font-weight: 300; }
+
+// </editor-fold>

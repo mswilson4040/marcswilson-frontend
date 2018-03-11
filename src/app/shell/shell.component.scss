@@ -1,5 +1,5 @@
-$navBackground: #263238;
-$navText: #FFFFFF;
+@import '../../globals';
+
 
 #shellContainer {
   height: 100%;
@@ -7,59 +7,25 @@ $navText: #FFFFFF;
     height: 100%;
     mat-sidenav {
       width: 300px;
-      background-color: $navBackground;
-      color: $navText;
-      #sidenavHeader {
-        height: 55px;
-        border-bottom: 1px solid lightgray;
-        text-align: center;
-        padding: 0 20px;
+      background-color: $primary;
+      color: lightgray;
+      display: grid;
+      grid-template-rows: 80% 20%;
+      #navLinks {
+        margin-top: 40px;
+        .mat-button {
+          text-align: left;
+          opacity: 0.7;
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+      #navFooter {
         display: flex;
         align-items: center;
         justify-content: center;
-        h1 {
-          margin: 0;
-        }
-      }
-      #navLinks {
-        mat-card {
-          background-color: $navBackground;
-          cursor: pointer;
-          color: $navText;
-          padding: 10px 9px;
-          border-left: 10px solid transparent;
-          .card-container {
-            display: flex;
-            align-items: center;
-            opacity: 0.7;
-            mat-icon { margin: 0 10px;}
-            &:hover {
-              opacity: 1;
-            }
-          }
-          .child-links {
-            padding: 10px 0 0 45px;
-            .child-link {
-              opacity: 0.7;
-              &:hover {
-                opacity: 1;
-              }
-            }
-          }
-          &:hover {
-            animation: linkHover 75ms ease-in-out 0ms 1 forwards;
-          }
-        }
       }
     }
-  }
-}
-
-@keyframes linkHover {
-  from {
-    border-left: 10px solid transparent;
-  }
-  to {
-    border-left: 10px solid #616161;
   }
 }

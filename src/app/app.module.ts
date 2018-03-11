@@ -20,7 +20,6 @@ import { ContactFormDialogComponent } from './shared-components/dialogs/contact-
 import { ErrorDialogComponent } from './shared-components/dialogs/error-dialog/error-dialog.component';
 import { ConfirmDialogComponent } from './shared-components/dialogs/confirm-dialog/confirm-dialog.component';
 import { CallbackComponent } from './shared-components/callback/callback.component';
-import { LoginDialogComponent } from './shared-components/dialogs/login-dialog/login-dialog.component';
 import { AuthService } from './shared-services/auth.service';
 import { EmailService } from './shared-services/email.service';
 import { PowerballService } from './views/portfolio/powerball/services/powerball.service';
@@ -37,11 +36,10 @@ import {
   MatMenuModule,
   MatNativeDateModule, MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule, MatSelectModule, MatSidenavModule,
   MatSliderModule, MatSortModule, MatTableModule,
-  MatTabsModule, MatTooltipModule
+  MatTabsModule, MatToolbarModule, MatTooltipModule
 } from '@angular/material';
 import { ApiExplorerComponent } from './views/portfolio/apiexplorer/apiexplorer.component';
 import { HttpClientModule } from '@angular/common/http';
-import { JsonViewerComponent } from './shared-components/json-viewer/json-viewer.component';
 import { BreakpointHelperComponent } from './shared-components/breakpoint-helper/breakpoint-helper.component';
 import { BreakpointObserver, MediaMatcher } from '@angular/cdk/layout';
 import { AdminComponent } from './views/admin/admin.component';
@@ -74,12 +72,10 @@ import { RegisterComponent } from './views/register/register.component';
     ErrorDialogComponent,
     ConfirmDialogComponent,
     CallbackComponent,
-    LoginDialogComponent,
     SkillsComponent,
     ExperienceComponent,
     FooterComponent,
     ApiExplorerComponent,
-    JsonViewerComponent,
     BreakpointHelperComponent,
     AdminComponent,
     DatabaseManagerComponent,
@@ -98,7 +94,6 @@ import { RegisterComponent } from './views/register/register.component';
     ContactFormDialogComponent,
     ErrorDialogComponent,
     ConfirmDialogComponent,
-    LoginDialogComponent,
     OverlayComponent,
     DatabaseSelectorDialogComponent,
     NewDatabaseDialogComponent,
@@ -132,7 +127,8 @@ import { RegisterComponent } from './views/register/register.component';
     MatListModule,
     MatTableModule,
     MatSortModule,
-    MatRadioModule
+    MatRadioModule,
+    MatToolbarModule
   ],
   providers: [
     UIService,

@@ -15,28 +15,27 @@
                 Hello, World
               </span>
               </div>
-              <h1 class="mat-h1" id="headerText"> I'm <strong>Marc Wilson</strong></h1>
+              <h1 id="headerText"> I'm <strong>Marc Wilson</strong></h1>
               <hr />
               <section>
                 <div>
-                  <label>Age</label>
-                  <label>31</label>
+                  <div class="mat-body-1">Age</div>
+                  <div class="mat-body-1">31</div>
                 </div>
                 <div>
-                  <label>Location</label>
-                  <label>Seattle, WA</label>
+                  <div class="mat-body-1">Location</div>
+                  <div class="mat-body-1">Seattle, WA</div>
                 </div>
                 <div>
-                  <label>Email</label>
-                  <label>marcw@marcswilson.com</label>
+                  <div class="mat-body-1">Email</div>
+                  <div class="mat-body-1">marc@marcswilson.com</div>
                 </div>
                 <div>
-                  <label>Title</label>
-                  <label>Software Engineer</label>
+                  <div class="mat-body-1">Title</div>
+                  <div class="mat-body-1">Software Engineer</div>
                 </div>
-                <div>
-                  <label>Languages</label>
-                  <label>JavaScript, TypeScript, CSS, SCSS, C#, HTML</label>
+                <div id="contactButton">
+                  <button mat-raised-button color="accent" (click)="launchContactForm()">Contact Me</button>
                 </div>
               </section>
             </div>
@@ -77,10 +76,7 @@
           </div>
         </div>
       </mat-card>
-      <section id="contactMeSection">
-        <button mat-raised-button (click)="launchContactForm()">Contact Me</button>
-      </section>
-      <section id="welcomeTextSection">
+      <section id="welcomeTextSection" class="mat-body-1">
         <p>
           Hello, I'm Marc Wilson. I'm a Software Engineer with an emphasis in Front End Development. I'm
           experienced in JavaScript, TypeScript, HTML, CSS, SCSS, C#, Nodejs, Express, Angular, Bootstrap

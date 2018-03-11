@@ -1,0 +1,18 @@
+@import '~@angular/material/theming';
+
+
+$marcswilson-app-primary: mat-palette($mat-blue-grey, 800);
+$marcswilson-app-accent: mat-palette($mat-light-blue, 800);
+$marcswilson-app-warn: mat-palette($mat-deep-orange, A700);
+$marcswilson-app-theme: mat-light-theme($marcswilson-app-primary, $marcswilson-app-accent, $marcswilson-app-warn);
+h1 { font-size: 1em; }
+
+$custom-typography: mat-typography-config(
+  $font-family: 'sans-serif',
+  $headline: mat-typography-level(32px, 48px, 700),
+  $body-1: mat-typography-level(16px, 24px, 500),
+  $body-2: mat-typography-level(12px, 20px, 300),
+  $caption: mat-typography-level(10px, 18px, 300)
+);
+@include mat-core($custom-typography);
+@include angular-material-theme($marcswilson-app-theme);

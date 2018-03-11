@@ -1,19 +1,11 @@
-<section class="nav-container">
-  <div id="navLeft">
-    <div id="hamburger" (click)="toggleNav()">
-      <mat-icon>menu</mat-icon>
-    </div>
-    <div id="siteName">
-      Home
-    </div>
+<mat-toolbar color="primary">
+  <div id="leftNav">
+    <mat-icon (click)="toggleNav()">menu</mat-icon>
+    <h4 class="mat-h4">Home</h4>
   </div>
-  <div id="navRight" *ngIf="!production">
-    <button mat-button *ngIf="user === null" routerLink="/login">
-      Login
-    </button>
-    <button mat-button [matMenuTriggerFor]="menu" *ngIf="user !== null">
-      {{user.name}}
-    </button>
+  <div id="rightNav">
+    <button mat-button *ngIf="user === null" routerLink="/login">Login</button>
+    <button mat-button [matMenuTriggerFor]="menu" *ngIf="user !== null">{{user.name}}</button>
     <mat-menu #menu="matMenu" [overlapTrigger]="false">
       <button mat-menu-item routerLink="/admin">
         <mat-icon>settings</mat-icon>
@@ -25,4 +17,5 @@
       </button>
     </mat-menu>
   </div>
-</section>
+
+</mat-toolbar>
