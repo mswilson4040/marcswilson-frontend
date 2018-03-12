@@ -2,7 +2,9 @@ import { Component, ElementRef, OnInit } from '@angular/core';
 import { ContactFormDialogComponent } from '../../shared-components/dialogs/contact-form-dialog/contact-form-dialog.component';
 import { UIService } from '../../shared-services/ui.service';
 import { MatDialog } from '@angular/material';
-
+import fontawesome from '@fortawesome/fontawesome';
+import faFacebook from '@fortawesome/fontawesome-free-brands';
+import faEnvelope from '@fortawesome/fontawesome-free-regular';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +14,8 @@ import { MatDialog } from '@angular/material';
 export class HomeComponent implements OnInit {
 
   constructor(private _dialog: MatDialog, private _uiService: UIService, private _elementRef: ElementRef) {
+    fontawesome.library.add(faFacebook);
+    fontawesome.library.add(faEnvelope);
   }
 
   ngOnInit() {

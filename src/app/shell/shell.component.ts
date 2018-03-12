@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import 'hammerjs';
+
 import { MatDialog, MatSidenav } from '@angular/material';
 import { Navbar } from '../models/navbar';
 import { UIService } from '../shared-services/ui.service';
