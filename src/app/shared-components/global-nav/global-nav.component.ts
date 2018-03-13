@@ -1,9 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { AuthService } from '../../shared-services/auth.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { User } from '../../models/admin/user';
-import { environment } from '../../../environments/environment';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-global-nav',
@@ -12,11 +12,17 @@ import { environment } from '../../../environments/environment';
 })
 export class GlobalNavComponent implements OnInit {
   public user: User = null;
-  public production: boolean = environment.production;
+  public siteName: string = null;
   @Output() onToggleNav: EventEmitter<any> = new EventEmitter<any>();
-  constructor(private _breakpointObserver: BreakpointObserver, private _authService: AuthService, private _router: Router) {
+  constructor(private _breakpointObserver: BreakpointObserver, private _authService: AuthService, private _router: Router,
+              private _titleService: Title) {
     this._authService.onAuthentication.subscribe( _user => {
       this.user = _user;
+    });
+    this._router.events.subscribe( _event => {
+      if (_event instanceof NavigationEnd) {
+        this.siteName = this._titleService.getTitle();
+      }
     });
   }
 
@@ -29,7 +35,6 @@ export class GlobalNavComponent implements OnInit {
   logout(): Promise<any> {
     return new Promise( (resolve, reject) => {
       this._authService.logout();
-      //this.user = this._authService.isAuthenticated();
       this._router.navigate(['/home']);
       resolve();
     });

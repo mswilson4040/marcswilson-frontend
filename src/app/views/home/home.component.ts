@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material';
 import fontawesome from '@fortawesome/fontawesome';
 import faFacebook from '@fortawesome/fontawesome-free-brands';
 import faEnvelope from '@fortawesome/fontawesome-free-regular';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -13,9 +14,10 @@ import faEnvelope from '@fortawesome/fontawesome-free-regular';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private _dialog: MatDialog, private _uiService: UIService, private _elementRef: ElementRef) {
+  constructor(private _dialog: MatDialog, private _uiService: UIService, private _elementRef: ElementRef, private _titleService: Title) {
     fontawesome.library.add(faFacebook);
     fontawesome.library.add(faEnvelope);
+    this._titleService.setTitle('Home');
   }
 
   ngOnInit() {

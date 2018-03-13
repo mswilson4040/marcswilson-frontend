@@ -1,7 +1,7 @@
 <mat-toolbar color="primary">
   <div id="leftNav">
     <mat-icon (click)="toggleNav()">menu</mat-icon>
-    <h4 class="mat-h4">Home</h4>
+    <h4 class="mat-h4">{{siteName}}</h4>
   </div>
   <div id="rightNav">
     <button mat-button *ngIf="user === null" routerLink="/login">Login</button>

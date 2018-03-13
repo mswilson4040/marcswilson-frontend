@@ -1,0 +1,14 @@
+#portfolioPage {
+  display: grid;
+  grid-template-areas: "header"
+                       "main";
+  grid-template-rows: auto auto;
+  header {
+    grid-area: header;
+    padding: 20px;
+  }
+  main {
+    grid-area: main;
+  }
+
+}
