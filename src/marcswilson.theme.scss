@@ -10,7 +10,7 @@ h1 { font-size: 1em; }
 $custom-typography: mat-typography-config(
   $font-family: 'sans-serif',
   $headline: mat-typography-level(32px, 48px, 700),
-  $body-1: mat-typography-level(16px, 24px, 500),
+  $body-1: mat-typography-level(16px, 24px, 300),
   $body-2: mat-typography-level(12px, 20px, 300),
   $caption: mat-typography-level(13.33px, 18px, 300)
 );

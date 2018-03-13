@@ -80,7 +80,7 @@ $portfolioImageUrl: '../../../images/me.jpg';
                 font-weight: 600;
               }
             }
-            p { margin: 0; }
+            p { margin: 5px 0; }
             hr { margin-top: 0; }
             section {
               color: #868e96;
@@ -186,12 +186,8 @@ $portfolioImageUrl: '../../../images/me.jpg';
       }
       #welcomeTextSection {
         margin-top: 40px;
-        color: gray;
         text-align: center;
         line-height: 1.5;
-        p {
-          font-weight: 300;
-        }
       }
       #aboutSection {
         text-align: center;
@@ -243,18 +239,6 @@ $portfolioImageUrl: '../../../images/me.jpg';
         .content-container {
           margin: 15px 0 0 0;
           width: 100%;
-          //h3 {
-          //  font-size: 95%;
-          //}
-          //h5 {
-          //  font-size: 85%;
-          //}
-          //p {
-          //  font-size: 70%;
-          //}
-          //label {
-          //  font-size: 14px;
-          //}
         }
       }
     }
@@ -306,9 +290,6 @@ $portfolioImageUrl: '../../../images/me.jpg';
     }
     #welcomeTextSection {
       width: 80%;
-      p {
-        font-size: 120%;
-      }
     }
     #portfolioSection {
       width: 80%;
@@ -330,7 +311,7 @@ $portfolioImageUrl: '../../../images/me.jpg';
       .main {
         flex-direction: row;
         .content-container {
-          margin-left: 40px;
+          margin-left: 20px;
           width: 60%;
           display: flex;
           justify-content: space-between;
@@ -349,9 +330,6 @@ $portfolioImageUrl: '../../../images/me.jpg';
     }
     #welcomeTextSection {
       width: 80%;
-      p {
-        font-size: 120%;
-      }
     }
     #portfolioSection {
       width: 80%;
@@ -373,7 +351,7 @@ $portfolioImageUrl: '../../../images/me.jpg';
       .main {
         flex-direction: row;
         .content-container {
-          margin-left: 40px;
+          margin-left: 20px;
           width: 60%;
           display: flex;
           justify-content: space-between;
@@ -392,9 +370,6 @@ $portfolioImageUrl: '../../../images/me.jpg';
     }
     #welcomeTextSection {
       width: 50%;
-      p {
-        font-size: 120%;
-      }
     }
     #portfolioSection {
       width: 90%;
@@ -411,12 +386,12 @@ $portfolioImageUrl: '../../../images/me.jpg';
 @include extra-large {
   #mainContent {
     mat-card {
-      height: 40%;
+      height: 10%;
       width: 50%;
       .main {
         flex-direction: row;
         .content-container {
-          margin-left: 40px;
+          margin-left: 20px;
           width: 60%;
           display: flex;
           justify-content: space-between;
@@ -435,9 +410,6 @@ $portfolioImageUrl: '../../../images/me.jpg';
     }
     #welcomeTextSection {
       width: 40%;
-      p {
-        font-size: 120%;
-      }
     }
     #portfolioSection {
       width: 80%;
