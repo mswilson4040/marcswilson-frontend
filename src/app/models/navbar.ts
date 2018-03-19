@@ -1,3 +1,5 @@
+import { environment } from '../../environments/environment';
+
 export class Navbar {
   public links: NavbarHeaderLink[] = [];
   constructor() {
@@ -17,7 +19,9 @@ export class Navbar {
     portfolio.name = 'Porfolio';
     portfolio.url = '/portfolio';
     portfolio.icon = 'card_travel';
-    this.addLink(portfolio);
+    if (!environment.production) {
+      this.addLink( portfolio );
+    }
   }
   addLink(navbarHeaderLink: NavbarHeaderLink): void {
     this.links.push(navbarHeaderLink);
