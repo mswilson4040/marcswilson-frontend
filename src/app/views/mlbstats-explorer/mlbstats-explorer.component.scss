@@ -1,0 +1,30 @@
+#mlbStatsExplorer {
+  display: grid;
+  grid-template-areas: "main nav";
+  grid-template-columns: 1fr auto;
+  height: calc(100vh - 64px);
+  overflow: hidden;
+  nav {
+    grid-area: nav;
+    height: calc(100vh - 64px);
+    padding: 0 20px;
+    #slider {
+      height: 80vh;
+      h1 {
+        text-align: center;
+      }
+      mat-slider {
+        height: 100%;
+      }
+    }
+  }
+  main {
+    grid-template-columns: repeat(12, 1fr);
+    grid-area: main;
+    #seasons {
+      .season {
+        text-align: center;
+      }
+    }
+  }
+}

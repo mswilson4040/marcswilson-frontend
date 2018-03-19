@@ -1,0 +1,22 @@
+<section id="mlbStatsExplorer">
+  <nav>
+    <div id="slider">
+      <h1 class="mat-h1" id="selectedYear">{{selectedYear}}</h1>
+      <mat-slider *ngIf="seasons.length > 0"
+                  color="primary"
+                  [min]="seasons[seasons.length - 1]"
+                  [max]="seasons[0]"
+                  [(ngModel)]="selectedYear" (input)="onSliderChange($event)"
+                  [vertical]="true">
+      </mat-slider>
+    </div>
+  </nav>
+  <main>
+    <div id="seasons">
+      <div *ngFor="let season of seasons" class="season">
+        <h3>{{season}}</h3>
+        <mat-divider></mat-divider>
+      </div>
+    </div>
+  </main>
+</section>

@@ -41,6 +41,7 @@ import { UserDialogComponent } from './views/admin/dialogs/user-dialog/user-dial
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
 import { PortfolioComponent } from './views/portfolio/portfolio.component';
+import { MlbstatsExplorerComponent } from './views/mlbstats-explorer/mlbstats-explorer.component';
 
 
 @NgModule({
@@ -66,7 +67,8 @@ import { PortfolioComponent } from './views/portfolio/portfolio.component';
     UsersComponent,
     UserDialogComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    MlbstatsExplorerComponent
   ],
   entryComponents: [
     ContactFormDialogComponent,
