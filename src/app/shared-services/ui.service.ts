@@ -50,4 +50,7 @@ export class UIService {
     const overhang = elemHeight * (1 - percentVisible);
     return (elemTop >= -overhang) && (elemBottom <= window.innerHeight + overhang);
   }
+  scrollToElement(elementRef: ElementRef): void {
+    elementRef.nativeElement.scrollIntoView({ behavior: 'smooth' });
+  }
 }

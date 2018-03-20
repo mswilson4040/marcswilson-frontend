@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { select } from 'd3';
 import { ChadwickService } from '../../shared-services/chadwick.service';
+import { UIService } from '../../shared-services/ui.service';
 
 @Component({
   selector: 'app-mlbstats-explorer',
@@ -11,7 +12,7 @@ import { ChadwickService } from '../../shared-services/chadwick.service';
 export class MlbstatsExplorerComponent implements OnInit {
   public seasons: string[] = [];
   public selectedYear = '1956';
-  constructor(private _chadwickService: ChadwickService) { }
+  constructor(private _chadwickService: ChadwickService, private _uiService: UIService) { }
 
   async ngOnInit() {
     const seasons = await this._chadwickService.getSeasons();
@@ -19,6 +20,11 @@ export class MlbstatsExplorerComponent implements OnInit {
   }
   onSliderChange(e) {
     this.selectedYear = e.value;
+    const nativeElement = document.querySelector(`#season_${this.selectedYear}`);
+    if (nativeElement) {
+      const element = new ElementRef( nativeElement );
+      this._uiService.scrollToElement( element );
+    }
   }
 
 }

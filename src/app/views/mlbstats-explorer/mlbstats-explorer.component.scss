@@ -1,20 +1,24 @@
 #mlbStatsExplorer {
   display: grid;
-  grid-template-areas: "main nav";
-  grid-template-columns: 1fr auto;
+  grid-template-areas: "header"
+                       "main";
+  grid-template-rows: auto 1fr;
   height: calc(100vh - 64px);
-  overflow: hidden;
-  nav {
-    grid-area: nav;
-    height: calc(100vh - 64px);
-    padding: 0 20px;
+
+  header {
+    grid-area: header;
+    position: relative;
+    height: 150px;
     #slider {
-      height: 80vh;
+      position: fixed;
+      text-align: center;
+      width: 100%;
       h1 {
         text-align: center;
       }
       mat-slider {
-        height: 100%;
+        width: 50%;
+        margin: auto;
       }
     }
   }
