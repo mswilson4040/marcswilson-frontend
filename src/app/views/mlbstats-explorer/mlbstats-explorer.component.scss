@@ -1,34 +1,8 @@
 #mlbStatsExplorer {
-  display: grid;
-  grid-template-areas: "header"
-                       "main";
-  grid-template-rows: auto 1fr;
-  height: calc(100vh - 64px);
+  height: 100vh;
 
-  header {
-    grid-area: header;
-    position: relative;
-    height: 150px;
-    #slider {
-      position: fixed;
-      text-align: center;
-      width: 100%;
-      h1 {
-        text-align: center;
-      }
-      mat-slider {
-        width: 50%;
-        margin: auto;
-      }
-    }
-  }
-  main {
-    grid-template-columns: repeat(12, 1fr);
-    grid-area: main;
-    #seasons {
-      .season {
-        text-align: center;
-      }
-    }
+  .area {
+
+    height: 100vh !important;
   }
 }
