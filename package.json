@@ -10,7 +10,8 @@
     "test": "ng test --sourcemaps=false --browser=ChromeHeadless --single-run=true",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "vsts-agent": "../../vsts-agent/run.sh"
+    "vsts-agent": "../../vsts-agent/run.sh",
+    "mongo": "mongod"
   },
   "private": true,
   "dependencies": {
