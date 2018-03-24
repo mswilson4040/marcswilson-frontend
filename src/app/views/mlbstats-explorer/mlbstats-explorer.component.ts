@@ -19,24 +19,20 @@ export class MlbstatsExplorerComponent implements OnInit {
               private _geoLocationService: GeoLocationService) { }
 
   async ngOnInit() {
-    // const canvas = select('#mlbStatsExplorer').append('svg');
-    // canvas.attr('height', '100%');
-    // canvas.attr('width', '100%');
-    // canvas.attr('id', 'test');
-    //
-    // const map = await this._httpClient.get<any>('https://d3js.org/us-10m.v1.json').toPromise();
-    // const ballparks = await this._chadwickService.getBallparks();
-    // const geoReq = await this._chadwickService.createBallparkGeoJsonRequestSet(ballparks.filter( b => {
-    //     return (b) && ( b.state && b.state !== '' ) && ( b.city && b.city !== '' );
-    //   }
-    // ));
+
+    const ballparks = await this._chadwickService.getBallparks();
+    const geoReq = await this._chadwickService.createBallparkGeoJsonRequestSet(ballparks.filter( b => {
+        return (b) && ( b.state && b.state !== '' ) && ( b.city && b.city !== '' );
+      }
+    ));
+    const topoJsonBallparks = topojson.topology({ballparks: geoReq});
 
     if (true) {
       const svg = d3.select('svg');
       const path = d3.geoPath();
 
       this._httpClient.get<{ objects: { states: any } }>('https://d3js.org/us-10m.v1.json').subscribe( us => {
-
+        const projection = d3.geoAlbersUsa();
         svg.append('g')
           .attr('class', 'states')
           .selectAll('path')
@@ -46,33 +42,25 @@ export class MlbstatsExplorerComponent implements OnInit {
 
         svg.append('path')
           .attr('class', 'state-borders')
+          .attr('stroke', '#fff')
+          .attr('stroke-width', 0.5)
           .attr('d', path(topojson.mesh(us, us.objects.states, (a, b) => { return a !== b; })));
+        console.log(topoJsonBallparks);
+        svg.selectAll('.ballparks')
+          .data(topoJsonBallparks.objects.ballparks.geometries)
+          .enter().append('circle')
+          .attr('class', 'ballparks')
+          .attr('fill', 'red')
+          .attr('r', 2)
+          .attr('cx', (d: {coordinates: any}) => {
+            const cords = projection([d['coordinates'][0], d['coordinates'][1]]);
+            return cords[0];
+          })
+          .attr('cy', (d) => {
+            const cords = projection([d['coordinates'][0], d['coordinates'][1]]);
+            return cords[1];
+          });
       });
-
-
-      // const group = canvas.selectAll('g')
-      //   .data(map.features)
-      //   .enter()
-      //   .append('g');
-      // const projection = geoMercator().fitSize([1000, 1000], map);
-      // const path = geoPath().projection(projection);
-      //
-      // const areas = group.append('path')
-      //   .attr('d', path)
-      //   .attr('class', 'area')
-      //   .attr('fill', 'red');
-
-      // const group2 = canvas.selectAll('g')
-      //   .data(geoReq.features)
-      //   .enter()
-      //   .append('g');
-      //
-      // const projection2 = geoMercator().fitSize([1000, 1000], geoReq);
-      // const path2 = geoPath().projection(projection2);
-      // const areas2 = group2.append('path')
-      //   .attr('d', path2)
-      //   .attr('class', 'park')
-      //   .attr('fill', 'green');
 
     }
   }

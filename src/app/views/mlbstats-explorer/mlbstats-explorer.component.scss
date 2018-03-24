@@ -2,11 +2,11 @@
 svg {
   height: 600px;
   width: 960px;
-  .states:hover {
+  g.states {
     fill: red;
   }
 
-  .state-borders {
+  path.state-borders {
     fill: none;
     stroke: #fff;
     stroke-width: 0.5px;
@@ -15,4 +15,5 @@ svg {
     pointer-events: none;
   }
 }
+
 
