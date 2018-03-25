@@ -45,7 +45,6 @@ export class MlbstatsExplorerComponent implements OnInit {
           .attr('stroke', '#fff')
           .attr('stroke-width', 0.5)
           .attr('d', path(topojson.mesh(us, us.objects.states, (a, b) => { return a !== b; })));
-        console.log(topoJsonBallparks);
         svg.selectAll('.ballparks')
           .data(topoJsonBallparks.objects.ballparks.geometries)
           .enter().append('circle')
