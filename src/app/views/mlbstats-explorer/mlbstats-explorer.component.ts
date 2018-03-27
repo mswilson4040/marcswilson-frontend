@@ -1,3 +1,5 @@
+// https://bl.ocks.org/mbostock/4408297
+
 import { Component, OnInit } from '@angular/core';
 import { ChadwickService } from '../../shared-services/chadwick.service';
 import { UIService } from '../../shared-services/ui.service';
@@ -30,12 +32,11 @@ export class MlbstatsExplorerComponent implements OnInit {
       const height = 960;
       const width = 500;
       const projection = d3.geoAlbers();
-      const path = d3.geoPath().projection(projection).pointRadius(1.5);
+      const path = d3.geoPath().projection(projection).pointRadius(2.5);
       const svg = d3.select('svg')
         .attr('width', width)
         .attr('height', height);
       const us: any = await this._httpClient.get('https://bl.ocks.org/mbostock/raw/4090846/us.json').toPromise();
-      console.log(us);
       svg.append('path')
         .datum(topojson.feature(us, us.objects.land))
         .attr('class', 'land')
@@ -44,6 +45,12 @@ export class MlbstatsExplorerComponent implements OnInit {
       svg.append('path')
         .datum(topojson.mesh(us, us.objects.states, (a, b) => a !== b ))
         .attr('class', 'states')
+        .attr('d', path);
+      console.log(topoJsonBallparks);
+      svg.append('path')
+        .datum(topojson.feature(topoJsonBallparks, topoJsonBallparks.objects.ballparks))
+        .attr('class', 'points')
+        .attr('fill', 'red')
         .attr('d', path);
 
     }
