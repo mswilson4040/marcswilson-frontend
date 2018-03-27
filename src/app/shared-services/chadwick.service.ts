@@ -4,7 +4,7 @@ import { environment } from '../../environments/environment';
 import { Ballpark } from '../models/ballpark';
 import { GeoLocationService } from './geo-location.service';
 import * as GeoJson from 'geojson';
-import * as TopoJson from 'topojson-client';
+import * as TopoJson from 'topojson/dist/topojson.js';
 
 @Injectable()
 export class ChadwickService {
