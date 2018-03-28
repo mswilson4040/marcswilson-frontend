@@ -34,7 +34,7 @@ export class MlbstatsExplorerComponent implements OnInit {
       }
     ));
     const topoJsonBallparks = topojson.topology({ballparks: geoReq});
-    const us: any = await this._httpClient.get('https://bl.ocks.org/mbostock/raw/4090846/us.json').toPromise();
+    const us: any = await this._geoLocationService.getUSTopoJson();
     if (true) {
 
       const projection = d3.geoAlbersUsa();

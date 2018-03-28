@@ -15,5 +15,9 @@ export class GeoLocationService {
     }
     return null;
   }
+  async getUSTopoJson(): Promise<any> {
+    const topo = this._httpClient.get(`${environment.API_PATH}/geolocation/topojson/us`).toPromise();
+    return topo;
+  }
 
 }
