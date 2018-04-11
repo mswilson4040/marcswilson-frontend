@@ -7,6 +7,7 @@ import { AdminComponent } from './views/admin/admin.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginComponent } from './views/login/login.component';
 import { RegisterComponent } from './views/register/register.component';
+import { MlbstatsExplorerComponent } from './views/mlbstats-explorer/mlbstats-explorer.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, data: { title: 'Home' } },
   { path: 'login', component: LoginComponent, data: { title: 'Login' } },
   { path: 'portfolio', component: PortfolioComponent, data: { title: 'Portfolio' } },
+  { path: 'portfolio/mlbstats', component: MlbstatsExplorerComponent, data: { title: 'MLB Stats' } },
   { path: 'register', component: RegisterComponent, data: { title: 'Register' } }
 ];
 
