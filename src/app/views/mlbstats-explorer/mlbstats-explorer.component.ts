@@ -35,7 +35,7 @@ export class MlbstatsExplorerComponent implements OnInit {
       }
     ));
     const topoJsonBallparks = topojson.topology({ballparks: geoReq});
-    console.log(topoJsonBallparks);
+
     const us: any = await this._geoLocationService.getUSTopoJson();
     if (true) {
 
@@ -74,10 +74,14 @@ export class MlbstatsExplorerComponent implements OnInit {
       this._g.append('path')
         .datum(topojson.feature(topoJsonBallparks, topoJsonBallparks.objects.ballparks))
         .attr('class', 'points')
-        .text((d) => { return d.name; })
         .attr('d', this._path);
-
-
+      this._svg.selectAll('.label')
+        .data(topoJsonBallparks.objects.ballparks.geometries)
+        .enter().append('text')
+        .attr('class', 'labels')
+        .text( (d) => d.properties.name )
+        .attr('x', (d) => this._path.centroid(d)[0])
+        .attr('y', (d) => this._path.centroid(d)[1]);
     }
   }
   onStateClick(d) {
