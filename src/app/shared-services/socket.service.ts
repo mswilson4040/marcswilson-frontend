@@ -5,7 +5,7 @@ import * as io from 'socket.io-client';
 @Injectable()
 export class SocketService {
 
-  public socket: { on: Function, emit: Function, broadcast: Function } = null;
+  public socket: any; // { on: Function, emit: Function, broadcast: Function } = null;
   public connectionCount = 0;
   public connections: EventEmitter<any> = new EventEmitter();
   constructor() {

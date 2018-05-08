@@ -5,23 +5,23 @@
   </div>
   <div class="dialog-body">
     <div class="row">
-      <mat-input-container>
+      <mat-form-field>
         <input matInput placeholder="From" [(ngModel)]="mailMessage.from" [formControl]="fromCtrl" />
         <mat-error *ngIf="fromCtrl.hasError('required')">
           Please enter a valid name.
         </mat-error>
-      </mat-input-container>
-      <mat-input-container>
+      </mat-form-field>
+      <mat-form-field>
         <input matInput placeholder="Subject" [(ngModel)]="mailMessage.subject" [formControl]="subjectCtrl"/>
         <mat-error *ngIf="subjectCtrl.hasError('required')">
           Please enter a valid subject.
         </mat-error>
-      </mat-input-container>
+      </mat-form-field>
     </div>
     <div class="row">
-      <mat-input-container>
+      <mat-form-field>
         <textarea matInput placeholder="Message" rows="6" [(ngModel)]="mailMessage.message"></textarea>
-      </mat-input-container>
+      </mat-form-field>
     </div>
   </div>
   <div class="button-container">

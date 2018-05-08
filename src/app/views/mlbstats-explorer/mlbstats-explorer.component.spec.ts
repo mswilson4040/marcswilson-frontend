@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MlbstatsExplorerComponent } from './mlbstats-explorer.component';
+import { HttpClientModule } from '@angular/common/http';
+import { UIService } from '../../shared-services/ui.service';
 
 describe('MlbstatsExplorerComponent', () => {
   let component: MlbstatsExplorerComponent;
@@ -8,7 +10,13 @@ describe('MlbstatsExplorerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MlbstatsExplorerComponent ]
+      declarations: [ MlbstatsExplorerComponent ],
+      imports: [
+        HttpClientModule
+      ],
+      providers: [
+        UIService
+      ]
     })
     .compileComponents();
   }));

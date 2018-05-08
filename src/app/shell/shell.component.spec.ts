@@ -9,7 +9,7 @@ import { EmailService } from '../shared-services/email.service';
 import { UIService } from '../shared-services/ui.service';
 import {
   MatCardModule, MatDialogModule, MatIconModule, MatMenuModule, MatProgressSpinnerModule,
-  MatSidenavModule
+  MatSidenavModule, MatToolbarModule
 } from '@angular/material';
 import { BreakpointHelperComponent } from '../shared-components/breakpoint-helper/breakpoint-helper.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -31,7 +31,8 @@ describe('ShellComponent', () => {
         MatSidenavModule,
         MatProgressSpinnerModule,
         BrowserAnimationsModule,
-        HttpClientModule
+        HttpClientModule,
+        MatToolbarModule
       ],
       declarations: [
         ShellComponent,

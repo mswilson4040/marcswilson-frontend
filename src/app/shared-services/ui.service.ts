@@ -1,5 +1,4 @@
 import { ElementRef, EventEmitter, Injectable } from '@angular/core';
-import * as uniqid from 'uniqid';
 
 @Injectable()
 export class UIService {
@@ -12,7 +11,9 @@ export class UIService {
   }
 
   createOverlay(message: string): string {
-    const overlayId = uniqid();
+    const prefix = 'gen_id_';
+    const id = new Date().getTime();
+    const overlayId = `${prefix}${id}`;
     const overlaySettings = { id: overlayId, message: message };
     if (this.overlayQueue.length === 0) {
       this.showOverlay(overlaySettings);
