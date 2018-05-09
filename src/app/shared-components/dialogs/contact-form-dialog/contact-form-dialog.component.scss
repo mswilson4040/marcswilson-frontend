@@ -7,8 +7,10 @@
     font-weight: 300;
   }
   .dialog-body {
-    mat-input-container {
-      width: 100%;
+    form {
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+      grid-gap: 5px;
     }
     #ckContainer, .ck-editor__editable {
       min-height: 400px;

@@ -8,26 +8,12 @@ import { UIService } from './ui.service';
 export class EmailService {
 
   constructor(private _httpClient: HttpClient, private _uiService: UIService) { }
-  sendEmail(mailMessage: MailMessage): Promise<any> {
-    return new Promise( (resolve, reject) => {
-      const overlayId = this._uiService.createOverlay(`Sending Email...`);
-      this._httpClient.post(`${environment.API_PATH}/email/sendemail`, {
-        subject: mailMessage.subject,
-        from: mailMessage.from,
-        to: mailMessage.to,
-        message: mailMessage.message
-      }).subscribe( data => {
-        resolve(data);
-        this._uiService.destroyOverlay(overlayId);
-      }, error => {
-        if (error.error) {
-          reject(error.error);
-        } else {
-          reject( error );
-        }
-        this._uiService.destroyOverlay(overlayId);
-      });
-    });
-  };
 
+  async sendEmail(email: MailMessage): Promise<boolean> {
+    // TODO: Needs some sort of way to relay if the email was sent or not
+    const overlayId = this._uiService.createOverlay('Sending Email...');
+    await this._httpClient.post(`${environment.API_PATH}/email/sendemail`, email).toPromise();
+    this._uiService.destroyOverlay(overlayId);
+    return true;
+  }
 }

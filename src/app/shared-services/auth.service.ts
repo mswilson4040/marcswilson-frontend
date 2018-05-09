@@ -9,9 +9,7 @@ export class AuthService {
   private API_PATH = `${environment.API_PATH}/auth`;
   public user: User = null;
   public onAuthentication: EventEmitter<User> = new EventEmitter<User>();
-  constructor(private _router: Router, private _httpClient: HttpClient) {
-
-  }
+  constructor(private _router: Router, private _httpClient: HttpClient) {}
   login(username: string, hash: string): Promise<any> {
     return new Promise( (resolve, reject) => {
       this._httpClient.post<User>(`${this.API_PATH}/login`, { username: username, hash: hash }).subscribe( _user => {
