@@ -45,23 +45,12 @@ export class ContactFormDialogComponent implements OnInit {
     }
 
   }
-  async sendEmail(): void {
-    console.log(new MailMessage(this.contactForm.value));
+  async sendEmail() {
     if (this.contactForm.valid) {
       const email: MailMessage = new MailMessage(this.contactForm.value);
       const response = await this._emailService.sendEmail(email);
+      this._matDialogRef.close();
     }
-    // if (!this.fromCtrl.hasError('required') && !this.subjectCtrl.hasError('required')) {
-    //   this._emailService.sendEmail( this.mailMessage ).then( result => {
-    //     this._matDialogRef.close();
-    //   }, error => {
-    //     this._matDialog.open( ErrorDialogComponent, { data: error } );
-    //     this._matDialogRef.close();
-    //   } );
-    // } else {
-    //   this.fromCtrl.markAsTouched();
-    //   this.subjectCtrl.markAsTouched();
-    // }
   }
   cancel(): void {
     this._matDialogRef.close();

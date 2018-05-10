@@ -34,7 +34,7 @@ testem.log
 /typings
 *.css
 *.css.map
-*.js
+src/**/*.js
 *.spec.js
 *.js.map
 
